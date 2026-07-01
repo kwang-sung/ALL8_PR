@@ -132,7 +132,10 @@
     .killer-featured h3 { font-size:30px;letter-spacing:-1.5px;line-height:1.15; }
     .killer-featured p { font-size:16px; }
     .killer-featured .featured-body { flex:1; }
-    @media(max-width:900px){.killer-grid{grid-template-columns:1fr 1fr;}.killer-featured{flex-direction:column;gap:20px;}.killer-featured h3{font-size:24px;}}
+    .featured-half { display:flex;gap:24px;align-items:flex-start;flex:1; }
+    .featured-half .featured-body { flex:1; }
+    .featured-divider { width:1px;align-self:stretch;background:rgba(255,255,255,0.08);flex-shrink:0; }
+    @media(max-width:900px){.killer-grid{grid-template-columns:1fr 1fr;}.killer-featured{flex-direction:column;gap:20px;}.killer-featured h3{font-size:24px;}.featured-divider{width:100%;height:1px;align-self:auto;}}
     @media(max-width:600px){.killer-grid{grid-template-columns:1fr;}.killer-featured h3{font-size:22px;}}
 
     /* FEATURES */
@@ -239,7 +242,7 @@
 <section class="hero">
   <div class="hero-badge"><span class="dot"></span>오픈 베타 — 2026년 7월 6일</div>
 
-  <div style="font-size:clamp(56px,10vw,96px);font-weight:900;color:#a78bfa;letter-spacing:-3px;line-height:1;margin-bottom:16px;animation:fadeUp .5s ease both;">ALL8</div>
+  <div style="font-size:clamp(56px,10vw,96px);font-weight:900;background:linear-gradient(135deg,#4f8cff,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-3px;line-height:1;margin-bottom:16px;animation:fadeUp .5s ease both;">ALL8</div>
   <h1>구매대행의<br><span class="grad">새로운 기준</span></h1>
 
   <p class="hero-sub">
@@ -267,12 +270,23 @@
     <div class="killer-grid">
 
       <div class="killer-card killer-featured reveal">
-        <div class="killer-icon">♾️</div>
-        <div class="featured-body">
-          <div class="killer-num">01</div>
-          <h3>사업자 무제한 · 마켓계정 무제한<br>상품수집 무제한</h3>
-          <p>하나의 <span class="all8">ALL8</span> 계정으로 사업자 수 제한 없이, 스마트스토어·쿠팡 등 모든 마켓 계정을 무제한으로 연결할 수 있습니다. 상품 수집도 제한 없이. 법인·개인 혼합 운영도 자유롭게. 경쟁 프로그램들이 계정·수집 수를 제한할 때 <span class="all8">ALL8</span>은 전부 열어둡니다.</p>
-          <span class="badge">무제한 멀티 운영</span>
+        <div class="featured-half">
+          <div class="killer-icon">♾️</div>
+          <div class="featured-body">
+            <div class="killer-num">01</div>
+            <h3>사업자·마켓계정·상품수집<br>모두 무제한</h3>
+            <p>하나의 <span class="all8">ALL8</span> 계정으로 사업자·마켓 계정·상품 수집 수 제한 없이 법인·개인 혼합 운영도 자유롭게. 경쟁 프로그램들이 제한할 때 <span class="all8">ALL8</span>은 전부 열어둡니다.</p>
+            <span class="badge">무제한 멀티 운영</span>
+          </div>
+        </div>
+        <div class="featured-divider"></div>
+        <div class="featured-half">
+          <div class="killer-icon" style="background:linear-gradient(135deg,rgba(52,211,153,0.2),rgba(79,140,255,0.2));border:1px solid rgba(52,211,153,0.3);font-size:32px;">🗺️</div>
+          <div class="featured-body">
+            <h3>1,400여개 소싱처<br>카테고리·나라별 제공</h3>
+            <p>국내 700개 · 해외 700개 소싱처를 카테고리별, 나라별로 정리해 최적의 소싱처를 즉시 찾을 수 있습니다. 초간단 수동 수집 지원으로 어디서든 바로 소싱해 매출을 극대화하세요.</p>
+            <span class="badge" style="color:#34d399;background:rgba(52,211,153,0.1);border-color:rgba(52,211,153,0.2)">전 세계 소싱처 완비</span>
+          </div>
         </div>
       </div>
 
@@ -300,8 +314,8 @@
       <div class="killer-card reveal">
         <div class="killer-num">05</div>
         <div class="killer-icon">🌍</div>
-        <h3>전 세계 모든 사이트<br>반자동 수집</h3>
-        <p>특정 소싱처만 지원하는 경쟁 프로그램과 달리, 전 세계 어떤 쇼핑몰이든 URL만 있으면 반자동으로 상품을 수집할 수 있습니다.</p>
+        <h3>전 세계 모든 사이트<br>초간단 수동 수집 지원</h3>
+        <p>특정 소싱처만 지원하는 경쟁 프로그램과 달리, 전 세계 어떤 쇼핑몰이든 URL만 있으면 초간단 수동 수집으로 상품을 바로 가져올 수 있습니다.</p>
         <span class="badge">제한 없는 소싱</span>
       </div>
       <div class="killer-card reveal">
