@@ -138,11 +138,13 @@
     /* FEATURES */
     .features { background: var(--bg); }
     .feature-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:60px; }
-    .feature-item { background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 24px;display:flex;gap:16px;align-items:flex-start;transition:border-color .2s; }
+    .feature-item { background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;gap:0;transition:border-color .2s; }
     .feature-item:hover { border-color:rgba(79,140,255,0.25); }
-    .feature-icon { flex-shrink:0;width:42px;height:42px;border-radius:10px;background:rgba(79,140,255,0.1);display:flex;align-items:center;justify-content:center;font-size:20px; }
-    .feature-item h4 { font-size:15px;font-weight:700;margin-bottom:6px; }
+    .fi-head { display:flex;align-items:center;gap:10px;margin-bottom:12px; }
+    .feature-icon { flex-shrink:0;font-size:20px;line-height:1; }
+    .feature-item h4 { font-size:20px;font-weight:700;margin-bottom:0;line-height:1.3; }
     .feature-item p { font-size:13px;color:var(--muted);line-height:1.6; }
+    .all8 { color:#a78bfa; }
 
     /* MARKETS */
     .markets-section { background: var(--surface); }
@@ -237,13 +239,13 @@
 <section class="hero">
   <div class="hero-badge"><span class="dot"></span>오픈 베타 — 2026년 7월 6일</div>
 
+  <div style="font-size:clamp(56px,10vw,96px);font-weight:900;color:#a78bfa;letter-spacing:-3px;line-height:1;margin-bottom:16px;animation:fadeUp .5s ease both;">ALL8</div>
   <h1>구매대행의<br><span class="grad">새로운 기준</span></h1>
 
   <p class="hero-sub">
     대량 · 반자동 · 수동 모두 지원<br>
     국내리셀·미국·유럽·일본·중국 등<br>
-    전 세계 소싱을 하나의 프로그램으로.<br>
-    <strong style="color:#e8eaf0">쉽고 편한 ALL8.</strong>
+    전 세계 소싱을 하나의 프로그램으로.
   </p>
 
   <div class="hero-cta-wrap">
@@ -269,7 +271,7 @@
         <div class="featured-body">
           <div class="killer-num">01</div>
           <h3>사업자 무제한 · 마켓계정 무제한<br>상품수집 무제한</h3>
-          <p>하나의 ALL8 계정으로 사업자 수 제한 없이, 스마트스토어·쿠팡 등 모든 마켓 계정을 무제한으로 연결할 수 있습니다. 상품 수집도 제한 없이. 법인·개인 혼합 운영도 자유롭게. 경쟁 프로그램들이 계정·수집 수를 제한할 때 ALL8은 전부 열어둡니다.</p>
+          <p>하나의 <span class="all8">ALL8</span> 계정으로 사업자 수 제한 없이, 스마트스토어·쿠팡 등 모든 마켓 계정을 무제한으로 연결할 수 있습니다. 상품 수집도 제한 없이. 법인·개인 혼합 운영도 자유롭게. 경쟁 프로그램들이 계정·수집 수를 제한할 때 <span class="all8">ALL8</span>은 전부 열어둡니다.</p>
           <span class="badge">무제한 멀티 운영</span>
         </div>
       </div>
@@ -324,22 +326,22 @@
 <section class="features" id="features">
   <div class="section-inner">
     <p class="section-label reveal">전체 기능</p>
-    <h2 class="section-title reveal">셀러의 반복 업무를<br>ALL8이 대신합니다</h2>
+    <h2 class="section-title reveal">셀러의 반복 업무를<br><span class="all8">ALL8</span>이 대신합니다</h2>
     <p class="section-desc reveal">소싱부터 등록, 재고 관리까지. 수작업으로 하던 모든 과정이 자동화됩니다.</p>
 
     <div class="feature-grid reveal">
-      <div class="feature-item"><div class="feature-icon">🏷️</div><div><h4>마켓별 다른 상품명 업로드</h4><p>같은 상품을 여러 마켓에 올릴 때 상품명이 마켓별로 자동으로 다르게 생성됩니다. 내 상품끼리 묶이지 않고 더 많은 노출 기회를 가져 매출을 극대화할 수 있습니다.</p></div></div>
-      <div class="feature-item"><div class="feature-icon">💰</div><div><h4>자동 마진 계산기</h4><p>소싱가 입력 시 배송비·마켓 수수료를 자동으로 차감해 순이익과 권장 판매가를 즉시 계산합니다.</p></div></div>
-      <div class="feature-item"><div class="feature-icon">🌐</div><div><h4>국내외 소싱처 40+</h4><p>도매매·1688·타오바오·아마존·라쿠텐 등 핵심 소싱처 기본 제공. URL 입력으로 전 세계 어디든 추가 가능.</p></div></div>
-      <div class="feature-item"><div class="feature-icon">✨</div><div><h4>AI 상품명 자동생성 (SEO 최적화)</h4><p>마켓별 검색 알고리즘에 맞춰 AI가 최적화된 상품명을 자동으로 생성합니다. 스스·쿠팡·G마켓 각각 다르게 적용.</p></div></div>
-      <div class="feature-item"><div class="feature-icon">🏪</div><div><h4>10개+ 마켓 동시 등록</h4><p>스마트스토어·쿠팡·G마켓·옥션·11번가·롯데ON·토스쇼핑 동시 등록.<br><span style="font-size:12px;color:rgba(79,140,255,0.8)">추가 예정: 카카오쇼핑·SSG·카페24·아임웹</span></p></div></div>
-      <div class="feature-item"><div class="feature-icon">📄</div><div><h4>상세페이지 고도화</h4><p>단순 번역을 넘어 — 구성·레이아웃·설득 문구까지 한국 셀러 스타일로 자동 고도화합니다.</p></div></div>
-      <div class="feature-item"><div class="feature-icon">🔍</div><div><h4>마켓 속성값 자동입력</h4><p>스마트스토어·쿠팡 등 카테고리별 필수 속성값을 AI가 자동으로 채웁니다. 수동 입력 없이 검색 노출 최적화.</p></div></div>
-      <div class="feature-item"><div class="feature-icon">📦</div><div><h4>대량 · 반자동 · 수동 전부 지원</h4><p>상황에 맞게 등록 방식을 골라 쓰세요. 대량 자동부터 1개 수동까지 하나의 프로그램에서 모두 가능합니다.</p></div></div>
-      <div class="feature-item"><div class="feature-icon">🖼️</div><div><h4>썸네일 배경 자동제거 · 새 이미지 자동생성</h4><p>흰 배경이 필수인 마켓을 위해 AI가 썸네일 배경을 자동으로 제거합니다. 원하는 배경으로 새 이미지를 자동 생성할 수도 있습니다.</p></div></div>
-      <div class="feature-item"><div class="feature-icon">📊</div><div><h4>엑셀 내려받아 일괄수정</h4><p>등록 상품을 엑셀로 내려받아 가격·재고·상품명을 한 번에 수정 후 재업로드. 수백 개도 몇 분이면 끝납니다.</p></div></div>
-      <div class="feature-item"><div class="feature-icon">📈</div><div><h4>등록 현황 대시보드</h4><p>마켓별 등록 상태·판매 현황을 한눈에 확인합니다. 어디에 뭐가 올라갔는지 일일이 들어가 확인할 필요 없습니다.</p></div></div>
-      <div class="feature-item"><div class="feature-icon">👥</div><div><h4>직원별 권한 부여</h4><p>직원마다 접근 가능한 기능과 마켓을 따로 설정할 수 있습니다. 팀 운영 시 권한 관리가 한 곳에서 가능합니다.</p></div></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">🏷️</span><h4>마켓별 다른 상품명 업로드</h4></div><p>같은 상품을 여러 마켓에 올릴 때 상품명이 마켓별로 자동으로 다르게 생성됩니다. 내 상품끼리 묶이지 않고 더 많은 노출 기회를 가져 매출을 극대화할 수 있습니다.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">💰</span><h4>자동 마진 계산기</h4></div><p>소싱가 입력 시 배송비·마켓 수수료를 자동으로 차감해 순이익과 권장 판매가를 즉시 계산합니다.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">🌐</span><h4>국내외 소싱처 40+</h4></div><p>도매매·1688·타오바오·아마존·라쿠텐 등 핵심 소싱처 기본 제공. URL 입력으로 전 세계 어디든 추가 가능.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">✨</span><h4>AI 상품명 자동생성 (SEO 최적화)</h4></div><p>마켓별 검색 알고리즘에 맞춰 AI가 최적화된 상품명을 자동으로 생성합니다. 스스·쿠팡·G마켓 각각 다르게 적용.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">🏪</span><h4>10개+ 마켓 동시 등록</h4></div><p>스마트스토어·쿠팡·G마켓·옥션·11번가·롯데ON·토스쇼핑 동시 등록.<br><span style="font-size:12px;color:rgba(79,140,255,0.8)">추가 예정: 카카오쇼핑·SSG·카페24·아임웹</span></p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">📄</span><h4>상세페이지 고도화</h4></div><p>단순 번역을 넘어 — 구성·레이아웃·설득 문구까지 한국 셀러 스타일로 자동 고도화합니다.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">🔍</span><h4>마켓 속성값 자동입력</h4></div><p>스마트스토어·쿠팡 등 카테고리별 필수 속성값을 AI가 자동으로 채웁니다. 수동 입력 없이 검색 노출 최적화.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">📦</span><h4>대량 · 반자동 · 수동 전부 지원</h4></div><p>상황에 맞게 등록 방식을 골라 쓰세요. 대량 자동부터 1개 수동까지 하나의 프로그램에서 모두 가능합니다.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">🖼️</span><h4>썸네일 배경 자동제거 · 새 이미지 자동생성</h4></div><p>흰 배경이 필수인 마켓을 위해 AI가 썸네일 배경을 자동으로 제거합니다. 원하는 배경으로 새 이미지를 자동 생성할 수도 있습니다.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">📊</span><h4>엑셀 내려받아 일괄수정</h4></div><p>등록 상품을 엑셀로 내려받아 가격·재고·상품명을 한 번에 수정 후 재업로드. 수백 개도 몇 분이면 끝납니다.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">📈</span><h4>등록 현황 대시보드</h4></div><p>마켓별 등록 상태·판매 현황을 한눈에 확인합니다. 어디에 뭐가 올라갔는지 일일이 들어가 확인할 필요 없습니다.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">👥</span><h4>직원별 권한 부여</h4></div><p>직원마다 접근 가능한 기능과 마켓을 따로 설정할 수 있습니다. 팀 운영 시 권한 관리가 한 곳에서 가능합니다.</p></div>
     </div>
   </div>
 </section>
@@ -482,18 +484,18 @@
 <section class="upcoming">
   <div class="section-inner">
     <p class="section-label reveal" style="text-align:center">추후 업데이트</p>
-    <h2 class="section-title reveal" style="text-align:center">ALL8은 계속<br>확장됩니다</h2>
+    <h2 class="section-title reveal" style="text-align:center"><span class="all8">ALL8</span>은 계속<br>확장됩니다</h2>
     <div class="upcoming-grid reveal">
       <div class="upcoming-card">
         <div class="upcoming-icon">🛒</div>
         <h3>주문관리 프로그램</h3>
-        <p>각 마켓에 흩어진 주문을 한 곳에서 통합 관리합니다. 발주·송장 입력·CS 처리까지 ALL8 하나로 완결됩니다.</p>
+        <p>각 마켓에 흩어진 주문을 한 곳에서 통합 관리합니다. 발주·송장 입력·CS 처리까지 <span class="all8">ALL8</span> 하나로 완결됩니다.</p>
         <span class="upcoming-badge">오픈 예정</span>
       </div>
       <div class="upcoming-card">
         <div class="upcoming-icon">🌏</div>
         <h3>역직구 · 쇼피 연동</h3>
-        <p>국내 소싱 상품을 동남아 쇼피 마켓에 역방향으로 수출합니다. 구매대행의 반대 방향, 역직구 시장을 ALL8으로 공략하세요.</p>
+        <p>국내 소싱 상품을 동남아 쇼피 마켓에 역방향으로 수출합니다. 구매대행의 반대 방향, 역직구 시장을 <span class="all8">ALL8</span>으로 공략하세요.</p>
         <span class="upcoming-badge">오픈 예정</span>
       </div>
     </div>
@@ -503,7 +505,7 @@
 <section class="cta-banner">
   <div class="cta-inner">
     <h2 class="reveal">마켓마다 들어가서<br>복붙하던 시간,<br><span style="background:linear-gradient(135deg,#4f8cff,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent">이제 없어도 됩니다.</span></h2>
-    <p class="reveal">ALL8과 함께라면 소싱에만 집중할 수 있습니다.</p>
+    <p class="reveal"><span class="all8">ALL8</span>과 함께라면 소싱에만 집중할 수 있습니다.</p>
     <a href="https://all8.io" class="btn-primary reveal">지금 시작하기 →</a>
     <p class="open-date reveal"><strong>오픈 베타 · 2026년 7월 6일</strong> · all8.io</p>
   </div>
