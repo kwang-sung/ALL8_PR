@@ -186,6 +186,7 @@
     .price-note { font-size:13px;color:var(--muted);margin-top:-24px;margin-bottom:36px;padding:14px 20px;background:rgba(52,211,153,0.05);border:1px solid rgba(52,211,153,0.15);border-radius:10px; }
     .btn-pricing { display:block;background:linear-gradient(135deg,#4f8cff,#a78bfa);color:#fff;font-size:18px;font-weight:800;padding:20px;border-radius:14px;text-decoration:none;box-shadow:0 0 40px rgba(79,140,255,0.4);transition:transform .2s,box-shadow .2s; }
     .btn-pricing:hover { transform:translateY(-3px);box-shadow:0 0 60px rgba(79,140,255,0.55); }
+    .lt-plan-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px;margin:0 auto; }
 
     /* CTA */
     .cta-banner { background:linear-gradient(135deg,rgba(79,140,255,0.12) 0%,rgba(167,139,250,0.12) 100%);border-top:1px solid rgba(79,140,255,0.15);border-bottom:1px solid rgba(79,140,255,0.15); }
@@ -235,6 +236,7 @@
       .hero-stats{gap:32px}
       .pricing-card{padding:40px 28px}
       .upcoming-grid{grid-template-columns:1fr}
+      .lt-plan-grid{grid-template-columns:1fr}
       footer{flex-direction:column;text-align:center}
     }
   </style>
@@ -515,6 +517,62 @@
       </ul>
       <a href="#" class="btn-pricing" id="pricing-cta">오픈 알림 신청하기 →</a>
     </div>
+
+    <!-- 장기결제 우대 혜택 -->
+    <p class="section-label reveal" style="text-align:center;margin-top:72px;">장기결제 우대 혜택</p>
+    <h2 class="section-title reveal" style="text-align:center;margin-bottom:10px;">🎁 길게 쓸수록<br>더 많이 드립니다</h2>
+    <p class="reveal" style="text-align:center;color:var(--muted);font-size:14px;margin-bottom:44px;">3·6·12개월 장기결제 시 도구 + 강의 + 파트너십 추가 제공</p>
+
+    <div class="lt-plan-grid reveal">
+
+      <!-- 3개월 -->
+      <div style="background:var(--card);border:1.5px solid rgba(79,140,255,0.25);border-radius:20px;padding:28px 22px;position:relative;">
+        <div style="font-size:11px;font-weight:700;color:#a78bfa;letter-spacing:.8px;margin-bottom:10px;">3개월</div>
+        <div style="font-size:30px;font-weight:900;color:#e2e8f0;line-height:1;">450,000<span style="font-size:14px;font-weight:500;color:var(--muted);">원</span></div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;margin-bottom:20px;">VAT 별도</div>
+        <div style="border-top:1px solid var(--border);padding-top:14px;display:flex;flex-direction:column;gap:8px;margin-bottom:20px;">
+          <div style="font-size:12px;color:#c4d0e8;display:flex;gap:8px;align-items:flex-start;"><span style="color:#4f8cff;flex-shrink:0;">✦</span><span><strong style="color:#e2e8f0;">상품명 변환 &amp; 소싱 핀셋</strong> 3개월 제공</span></div>
+          <div style="font-size:12px;color:#c4d0e8;display:flex;gap:8px;align-items:flex-start;"><span style="color:#4f8cff;flex-shrink:0;">✦</span><span><strong style="color:#e2e8f0;">쿠파스용 유튜브 영상 자동화</strong> 제공</span></div>
+          <div style="font-size:12px;color:#c4d0e8;display:flex;gap:8px;align-items:flex-start;"><span style="color:#4f8cff;flex-shrink:0;">✦</span><span><strong style="color:#e2e8f0;">미국 현지 배대지 &amp; 건기식 도매처</strong> 가입</span></div>
+          <div style="font-size:12px;color:#c4d0e8;display:flex;gap:8px;align-items:flex-start;"><span style="color:#4f8cff;flex-shrink:0;">✦</span><span><strong style="color:#e2e8f0;">유럽 부가세 12% 선할인</strong> 파트너</span></div>
+        </div>
+        <a href="#" class="btn-pricing" style="padding:14px;font-size:15px;background:rgba(79,140,255,0.12);border:1.5px solid rgba(79,140,255,0.4);color:#4f8cff;box-shadow:none;">결제하기 →</a>
+      </div>
+
+      <!-- 6개월 MOST POPULAR -->
+      <div style="background:var(--card);border:2px solid #4f8cff;border-radius:20px;padding:28px 22px;position:relative;box-shadow:0 0 48px rgba(79,140,255,0.18);">
+        <div style="position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#4f8cff,#a78bfa);color:#fff;font-size:11px;font-weight:800;padding:4px 16px;border-radius:20px;white-space:nowrap;letter-spacing:.3px;">MOST POPULAR</div>
+        <div style="font-size:11px;font-weight:700;color:#4f8cff;letter-spacing:.8px;margin-bottom:10px;">6개월</div>
+        <div style="font-size:30px;font-weight:900;color:#e2e8f0;line-height:1;">900,000<span style="font-size:14px;font-weight:500;color:var(--muted);">원</span></div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;margin-bottom:20px;">VAT 별도</div>
+        <div style="border-top:1px solid var(--border);padding-top:14px;display:flex;flex-direction:column;gap:8px;margin-bottom:20px;">
+          <div style="font-size:12px;background:rgba(167,139,250,0.1);border-radius:6px;padding:6px 10px;color:#a78bfa;font-weight:700;">☑ 3개월 모든 혜택 포함</div>
+          <div style="font-size:12px;color:#c4d0e8;display:flex;gap:8px;align-items:flex-start;"><span style="color:#a78bfa;flex-shrink:0;">✦</span><span><strong style="color:#e2e8f0;">쿠팡 발주 노하우 라이브강의</strong> &amp; 자료제공</span></div>
+          <div style="font-size:12px;color:#c4d0e8;display:flex;gap:8px;align-items:flex-start;"><span style="color:#a78bfa;flex-shrink:0;">✦</span><span><strong style="color:#e2e8f0;">이미지 자동화 프로그램</strong> 6개월 제공</span></div>
+          <div style="font-size:12px;color:#c4d0e8;display:flex;gap:8px;align-items:flex-start;"><span style="color:#a78bfa;flex-shrink:0;">✦</span><span><strong style="color:#e2e8f0;">유튜브 롱폼 비디오프로</strong> 제공</span></div>
+        </div>
+        <a href="#" class="btn-pricing" style="padding:14px;font-size:15px;">결제하기 →</a>
+      </div>
+
+      <!-- 12개월 완성형 -->
+      <div style="background:var(--card);border:1.5px solid rgba(52,211,153,0.35);border-radius:20px;padding:28px 22px;position:relative;">
+        <div style="position:absolute;top:-13px;right:18px;background:rgba(52,211,153,0.15);border:1px solid rgba(52,211,153,0.5);color:#34d399;font-size:11px;font-weight:800;padding:4px 12px;border-radius:20px;white-space:nowrap;">완성형 패키지</div>
+        <div style="font-size:11px;font-weight:700;color:#34d399;letter-spacing:.8px;margin-bottom:10px;">12개월</div>
+        <div style="font-size:30px;font-weight:900;color:#e2e8f0;line-height:1;">1,800,000<span style="font-size:14px;font-weight:500;color:var(--muted);">원</span></div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px;margin-bottom:20px;">VAT 별도 · "쿠팡 셀링의 완성형 패키지"</div>
+        <div style="border-top:1px solid var(--border);padding-top:14px;display:flex;flex-direction:column;gap:8px;margin-bottom:20px;">
+          <div style="font-size:12px;background:rgba(52,211,153,0.07);border-radius:6px;padding:6px 10px;color:#34d399;font-weight:700;">☑ 3개월 + 6개월 모든 혜택 포함</div>
+          <div style="font-size:12px;color:#c4d0e8;display:flex;gap:8px;align-items:flex-start;"><span style="color:#34d399;flex-shrink:0;">✦</span><span><strong style="color:#e2e8f0;">리셀 수집기능 오픈</strong></span></div>
+          <div style="font-size:12px;color:#c4d0e8;display:flex;gap:8px;align-items:flex-start;"><span style="color:#34d399;flex-shrink:0;">✦</span><span><strong style="color:#e2e8f0;">기존강의 녹화본</strong> (리셀·중국·미국·일본·유럽)</span></div>
+          <div style="font-size:12px;color:#c4d0e8;display:flex;gap:8px;align-items:flex-start;"><span style="color:#34d399;flex-shrink:0;">✦</span><span><strong style="color:#e2e8f0;">1:1 개인 코칭 1시간</strong> (전화)</span></div>
+          <div style="font-size:12px;color:#c4d0e8;display:flex;gap:8px;align-items:flex-start;"><span style="color:#34d399;flex-shrink:0;">✦</span><span><strong style="color:#e2e8f0;">하이브리드 전략 8주 라이브 가이드</strong> (매출 3천 달성 집중 과정)</span></div>
+        </div>
+        <a href="#" class="btn-pricing" style="padding:14px;font-size:15px;background:linear-gradient(135deg,rgba(52,211,153,0.18),rgba(79,140,255,0.18));border:1.5px solid rgba(52,211,153,0.45);box-shadow:none;">결제하기 →</a>
+      </div>
+
+    </div>
+    <p class="reveal" style="text-align:center;font-size:12px;color:var(--muted);margin-top:20px;margin-bottom:0;">모든 장기결제 플랜 VAT 별도 · 오픈 베타 한정 혜택</p>
+
   </div>
 </section>
 
