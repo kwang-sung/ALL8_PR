@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ALL8 사용 설명서</title>
+<style>
+  :root{
+    --paper:#F3F4F1;
+    --paper-raised:#FBFBF9;
+    --ink:#1B2430;
+    --ink-soft:#4B5563;
+    --line:#DDDBD0;
+    --accent:#0B6E63;
+    --accent-soft:#DCEDE9;
+    --accent-ink:#064B43;
+    --tip:#A9720A;
+    --tip-soft:#FBF0DA;
+    --note:#6B7280;
+    --note-soft:#EAEAE6;
+    --font-kr:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",sans-serif;
+    --font-mono:"D2Coding","JetBrains Mono",Consolas,"Courier New",monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-kr);
+    font-size:16px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent-ink);}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+
+  .shell{
+    display:grid;
+    grid-template-columns:272px minmax(0,1fr);
+    max-width:1220px;
+    margin:0 auto;
+    align-items:start;
+  }
+
+  .side{
+    position:sticky;
+    top:0;
+    height:100vh;
+    overflow-y:auto;
+    padding:30px 16px 40px 26px;
+    border-right:1px solid var(--line);
+  }
+  .side-brand{font-weight:800;font-size:1.1rem;letter-spacing:.01em;margin:0 0 2px;}
+  .side-brand span{color:var(--accent);}
+  .side-sub{font-size:.78rem;color:var(--ink-soft);margin:0 0 20px;}
+  .side-group-title{
+    font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--note);margin:20px 0 7px;
+  }
+  .side nav ul{list-style:none;margin:0;padding:0;}
+  .side nav li{margin:0;}
+  .side nav a{
+    display:block;text-decoration:none;color:var(--ink-soft);
+    font-size:.85rem;padding:6px 9px;border-radius:7px;line-height:1.4;
+  }
+  .side nav a:hover{background:var(--paper-raised);color:var(--ink);}
+  .side nav a.no-match{opacity:.32;}
+
+  .search-wrap{position:relative;margin:0 0 16px;}
+  .search-wrap svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--ink-soft);}
+  #searchInput{
+    width:100%;padding:9px 34px 9px 34px;border:1px solid var(--line);border-radius:9px;
+    background:var(--paper-raised);color:var(--ink);font-family:var(--font-kr);font-size:.86rem;
+  }
+  #searchInput::placeholder{color:var(--ink-soft);}
+  #searchClear{
+    position:absolute;right:6px;top:50%;transform:translateY(-50%);border:none;background:transparent;
+    color:var(--ink-soft);font-size:1rem;line-height:1;padding:5px 6px;cursor:pointer;border-radius:6px;display:none;
+  }
+  #searchClear:hover{background:var(--line);}
+  .search-status{
+    display:none;align-items:center;justify-content:space-between;gap:8px;
+    margin:8px 0 0;font-size:.76rem;color:var(--ink-soft);
+  }
+  .search-status .nav-btns{display:flex;gap:4px;}
+  .search-status button{
+    border:1px solid var(--line);background:var(--paper-raised);color:var(--ink);
+    border-radius:6px;width:24px;height:24px;font-size:.8rem;cursor:pointer;line-height:1;
+  }
+  .search-status button:disabled{opacity:.4;cursor:default;}
+
+  mark.hl{background:var(--tip-soft);color:var(--ink);border-radius:3px;padding:0 1px;}
+  mark.hl.current{background:var(--accent);color:#fff;}
+
+  main{padding:46px 50px 130px;min-width:0;}
+
+  .doc-head{margin-bottom:34px;}
+  h1.doc-title{font-size:2.05rem;font-weight:800;letter-spacing:-.01em;margin:0 0 10px;text-wrap:balance;}
+  .doc-meta{font-size:.94rem;color:var(--ink-soft);margin:0 0 6px;max-width:66ch;}
+
+  section.block{padding-top:54px;border-top:1px solid var(--line);scroll-margin-top:20px;}
+  section.block:first-of-type{border-top:none;}
+  section.sub-block{padding-top:38px;}
+
+  h2.block-title{font-size:1.5rem;font-weight:800;margin:0 0 16px;text-wrap:balance;}
+  h2.block-title .eyebrow{display:block;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--note);margin-bottom:6px;}
+
+  .intro-box{
+    background:var(--accent-soft);
+    border-radius:12px;
+    padding:16px 19px;
+    margin:0 0 24px;
+    max-width:68ch;
+  }
+  .intro-box p{margin:0;color:var(--accent-ink);font-size:.96rem;}
+  .intro-box p + p{margin-top:8px;}
+
+  h3.sub{font-size:1.05rem;font-weight:700;margin:30px 0 11px;}
+  h4.subsub{font-size:.94rem;font-weight:700;margin:20px 0 9px;color:var(--ink);}
+  p{margin:0 0 13px;max-width:68ch;}
+
+  ol.steps{margin:0 0 18px;padding-left:0;list-style:none;counter-reset:step;max-width:70ch;}
+  ol.steps > li{counter-increment:step;position:relative;padding:10px 0 10px 40px;border-bottom:1px dashed var(--line);}
+  ol.steps > li:last-child{border-bottom:none;}
+  ol.steps > li::before{
+    content:counter(step);position:absolute;left:0;top:9px;width:24px;height:24px;border-radius:50%;
+    background:var(--accent);color:#fff;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;
+  }
+  ol.steps b{font-weight:700;}
+
+  ul.plain{margin:0 0 18px;padding-left:20px;max-width:68ch;}
+  ul.plain li{margin-bottom:7px;}
+  ul.plain li b{font-weight:700;}
+
+  .ui{
+    font-family:var(--font-mono);font-size:.85em;background:var(--paper-raised);
+    border:1px solid var(--line);padding:.05em .42em;border-radius:4px;white-space:nowrap;
+  }
+  .quote{
+    font-size:.92em;display:block;background:var(--paper-raised);
+    border-left:3px solid var(--accent);padding:9px 13px;border-radius:0 6px 6px 0;
+    margin:8px 0 15px;color:var(--ink);max-width:64ch;white-space:pre-wrap;
+  }
+
+  .tip{
+    border-radius:10px;padding:13px 16px;margin:16px 0 22px;font-size:.92rem;max-width:68ch;
+    background:var(--tip-soft);
+  }
+  .tip .tip-label{font-weight:700;font-size:.76rem;color:var(--tip);display:block;margin-bottom:5px;}
+
+  .note{
+    border-radius:10px;padding:13px 16px;margin:16px 0 22px;font-size:.92rem;max-width:68ch;
+    background:var(--note-soft);
+  }
+  .note .note-label{font-weight:700;font-size:.76rem;color:var(--note);display:block;margin-bottom:5px;}
+
+  .table-wrap{overflow-x:auto;margin:10px 0 24px;border:1px solid var(--line);border-radius:10px;}
+  table{border-collapse:collapse;width:100%;font-size:.87rem;min-width:400px;}
+  thead th{text-align:left;background:var(--paper-raised);font-weight:700;padding:9px 13px;border-bottom:1px solid var(--line);white-space:nowrap;}
+  tbody td{padding:9px 13px;border-bottom:1px solid var(--line);vertical-align:top;}
+  tbody tr:last-child td{border-bottom:none;}
+  td.num,th.num{font-variant-numeric:tabular-nums;text-align:right;}
+  td.mono{font-family:var(--font-mono);font-size:.85em;}
+
+  .sec-flow{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 26px;font-size:.85rem;}
+  .sec-flow span{
+    background:var(--paper-raised);border:1px solid var(--line);border-radius:999px;
+    padding:5px 12px;color:var(--ink-soft);
+  }
+
+  footer.doc-foot{margin-top:70px;padding-top:22px;border-top:1px solid var(--line);font-size:.8rem;color:var(--ink-soft);}
+
+  @media (max-width:880px){
+    .shell{grid-template-columns:1fr;}
+    .side{position:relative;height:auto;border-right:none;border-bottom:1px solid var(--line);}
+    main{padding:32px 20px 100px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <aside class="side">
+    <p class="side-brand">ALL8 <span>사용 설명서</span></p>
+    <p class="side-sub">전체 메뉴 상세판</p>
+
+    <div class="search-wrap">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input id="searchInput" type="text" placeholder="키워드로 찾기 (예: 서버수집)" autocomplete="off" aria-label="설명서 안에서 키워드 검색">
+      <button id="searchClear" type="button" aria-label="검색어 지우기">✕</button>
+    </div>
+    <div class="search-status" id="searchStatus" role="status" aria-live="polite">
+      <span id="searchCount"></span>
+      <span class="nav-btns">
+        <button id="searchPrev" type="button" aria-label="이전 결과">↑</button>
+        <button id="searchNext" type="button" aria-label="다음 결과">↓</button>
+      </span>
+    </div>
+
+    <p class="side-group-title">시작 화면</p>
+    <nav><ul>
+      <li><a href="#dashboard">대시보드</a></li>
+      <li><a href="#products">상품 목록</a></li>
+      <li><a href="#posted-products">게시된 상품</a></li>
+    </ul></nav>
+
+    <p class="side-group-title">상품 수집</p>
+    <nav><ul>
+      <li><a href="#collect">기본 수집 방법</a></li>
+      <li><a href="#collect-mode">서버수집 · 브라우저수집</a></li>
+      <li><a href="#manual-collect">수동수집</a></li>
+      <li><a href="#inventory-sync">재고연동</a></li>
+    </ul></nav>
+
+    <p class="side-group-title">상품 편집 화면</p>
+    <nav><ul>
+      <li><a href="#editor-overview">편집 화면 한눈에 보기</a></li>
+      <li><a href="#market-select">마켓 선택</a></li>
+      <li><a href="#name">상품명</a></li>
+      <li><a href="#category">카테고리</a></li>
+      <li><a href="#price">옵션 및 가격</a></li>
+      <li><a href="#shipping">배송 및 반품</a></li>
+      <li><a href="#image">이미지</a></li>
+      <li><a href="#detail">상세 설명</a></li>
+      <li><a href="#keywords">상품 태그(키워드)</a></li>
+      <li><a href="#settings">부가 정보</a></li>
+      <li><a href="#memo">메모</a></li>
+    </ul></nav>
+
+    <p class="side-group-title">관리 메뉴</p>
+    <nav><ul>
+      <li><a href="#bulkpreset">일괄 프리셋 적용</a></li>
+      <li><a href="#presets">프리셋 관리</a></li>
+      <li><a href="#prompt-templates">프롬프트 관리</a></li>
+      <li><a href="#markets">마켓 계정 설정</a></li>
+      <li><a href="#filters">금지어·대체어</a></li>
+      <li><a href="#orders">주문 관리</a></li>
+    </ul></nav>
+  </aside>
+
+  <main>
+
+    <div class="doc-head">
+      <h1 class="doc-title">ALL8 사용 설명서</h1>
+      <p class="doc-meta">ALL8은 소싱 사이트에서 상품을 가져와 쿠팡·스마트스토어 같은 마켓에 자동으로 등록해주는 프로그램이에요. 이 설명서는 모든 메뉴를 빠짐없이 상세하게 다룹니다 — 화면에 보이는 버튼 하나하나, 각 선택지의 정확한 의미까지 담았어요. 원하는 메뉴를 왼쪽에서 고르거나 위 검색창으로 찾아보세요.</p>
+    </div>
+
+    <!-- ============ 대시보드 ============ -->
+    <section class="block" id="dashboard">
+      <h2 class="block-title">대시보드</h2>
+      <div class="intro-box">
+        <p>로그인하면 가장 먼저 보이는 화면이에요. 지금 내가 등록한 상품들이 어떤 상태에 몇 개씩 있는지 한눈에 확인할 수 있어요.</p>
+      </div>
+
+      <h3 class="sub">상태 카드 7개</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>카드</th><th>의미</th></tr></thead>
+          <tbody>
+            <tr><td>수집됨</td><td>확장 프로그램으로 담아왔지만 아직 편집을 시작하지 않은 상품</td></tr>
+            <tr><td>처리중</td><td>수집한 상품 정보를 서버가 정리하고 있는 중</td></tr>
+            <tr><td>편집 중</td><td>편집을 시작했지만 아직 다 마치지 않은 상품</td></tr>
+            <tr><td>수정완료</td><td>편집을 마쳐서 마켓에 올릴 준비가 된 상품</td></tr>
+            <tr><td>업로드 중</td><td>지금 마켓에 등록되고 있는 중</td></tr>
+            <tr><td>판매중</td><td>마켓에 정상적으로 등록되어 팔리고 있는 상품</td></tr>
+            <tr><td>에러</td><td>마켓 등록에 실패한 상품</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>카드를 클릭하면 상품 목록 화면으로 이동해요. 특정 상태의 상품만 보고 싶다면, 이동한 뒤 목록 화면 위쪽의 상태 탭을 한 번 더 눌러 필터링해주세요.</p>
+      <p>아래쪽에는 최근에 바뀐 상품들이 나열돼요. 클릭하면 바로 그 상품의 편집 화면으로 이동합니다. 그 아래 <span class="ui">소싱 상품</span> · <span class="ui">편집 상품</span> · <span class="ui">프리셋 관리</span> 버튼으로 자주 가는 화면에 빠르게 이동할 수 있어요.</p>
+    </section>
+
+    <!-- ============ 상품 목록 ============ -->
+    <section class="block" id="products">
+      <h2 class="block-title">상품 목록</h2>
+      <div class="intro-box">
+        <p>수집한 상품과 편집 중인 상품을 한 곳에서 모아 관리하는 화면이에요. 여러 상품을 한 번에 선택해서 프리셋을 적용하거나 마켓에 업로드하는 등 다양한 일괄 작업을 할 수 있어요.</p>
+      </div>
+
+      <h3 class="sub">필터 · 검색 · 정렬</h3>
+      <ul class="plain">
+        <li><b>상태 필터 칩</b> — 수집됨 / 편집중 / 완료 / 업로드중 / 판매중 / 오류 / 보관됨 중에서 골라 보여요.</li>
+        <li><b>소싱 플랫폼 필터</b> — 타오바오·아마존 등 소싱처별로 좁혀볼 수 있어요.</li>
+        <li><b>날짜 범위 필터</b> — 수집일 또는 편집일 기준으로 기간을 지정해서 필터링할 수 있어요.</li>
+        <li><b>정렬</b> — 수집일 최신/오래된순, 편집일 최신/오래된순, 이름순 5가지 중 선택.</li>
+        <li><b>검색</b> — 상품명, 메모, 태그, 상품 ID를 통합 검색해요.</li>
+      </ul>
+
+      <h3 class="sub">인라인 편집</h3>
+      <ul class="plain">
+        <li><b>상품명 빠른 편집</b> — 목록에서 상품명 셀을 길게 누르거나 연필 아이콘을 클릭하면 편집 화면으로 이동하지 않고 이름만 바로 수정할 수 있어요.</li>
+        <li><b>가격 빠른 편집</b> — 가격 셀을 클릭하면 SKU별 판매가 수정 창이 바로 열려요.</li>
+        <li><b>썸네일 미리보기</b> — 썸네일에 마우스를 올리면 확대된 이미지를 바로 볼 수 있어요.</li>
+        <li><b>열 순서·너비 조정</b> — 열 헤더를 드래그해서 순서를 바꾸거나 너비를 조정할 수 있고, 설정은 자동으로 저장돼요.</li>
+      </ul>
+
+      <h3 class="sub">엑셀로 등록/수정</h3>
+      <p>오른쪽 상단의 <span class="ui">엑셀로 등록/수정</span> 버튼을 누르면 `.xlsx` 파일을 올려서 상품을 일괄 생성하거나 기존 상품 정보를 한꺼번에 수정할 수 있어요.</p>
+
+      <h3 class="sub">여러 개 선택했을 때 나오는 버튼들</h3>
+      <ul class="plain">
+        <li><b>프리셋 적용</b> — 선택한 상품들에 미리 만들어둔 프리셋을 한 번에 적용해요.</li>
+        <li><b>엑셀로 추출</b> — 선택한 상품 정보를 엑셀 파일로 내려받아요.</li>
+        <li><b>마켓 업로드</b> — 선택한 상품들을 연결된 마켓 계정으로 바로 등록해요.</li>
+        <li><b>재고 연동 설정</b> — 선택한 상품들의 소싱 원본 재고(품절 여부)를 주기적으로 자동 확인하도록 켜요. 자세한 내용은 아래 "재고연동" 항목을 참고하세요.</li>
+        <li><b>복사/이동</b> — 상품을 다른 워크스페이스로 복사하거나 옮겨요.</li>
+        <li><b>혼합구성 만들기</b> — 여러 상품(옵션)을 묶어서 하나의 세트 상품으로 만들어요.</li>
+        <li><b>삭제</b> — 선택한 상품을 목록에서 삭제해요.</li>
+      </ul>
+      <p>상품을 클릭하면 편집 화면으로 이동해요. 아직 편집을 시작하지 않은 상품이면 자동으로 편집 준비가 된 뒤 이동합니다.</p>
+
+      <div class="note">
+        <span class="note-label">참고</span>
+        마켓에 이미 등록된(판매 중) 상품은 <b>게시된 상품</b> 화면에서 별도로 관리해요. 아래 "게시된 상품" 항목을 참고하세요.
+      </div>
+    </section>
+
+    <!-- ============ 게시된 상품 ============ -->
+    <section class="block" id="posted-products">
+      <h2 class="block-title">게시된 상품</h2>
+      <div class="intro-box">
+        <p>마켓에 실제로 등록되어 판매 중인 상품을 전문적으로 관리하는 화면이에요. 상품 목록과 별도로 운영되며, 판매 현황 파악과 리스팅 수정에 최적화된 3단 구조로 구성돼 있어요.</p>
+      </div>
+
+      <h3 class="sub">화면 구성 — 3단 레이아웃</h3>
+      <ul class="plain">
+        <li><b>왼쪽 — 패싯 탐색</b> : 마켓·계정·사업자·판매상태로 빠르게 좁혀볼 수 있는 필터 패널이에요.</li>
+        <li><b>가운데 — 상품 목록</b> : 게시된 상품들이 나열돼요. 행을 클릭하면 오른쪽 인스펙터 패널이 열려요.</li>
+        <li><b>오른쪽 — 리스팅 인스펙터</b> : 선택한 상품의 마켓별 등록 상태, 판매 통계, 수정 이력 등을 한눈에 볼 수 있어요.</li>
+      </ul>
+
+      <h3 class="sub">정렬 옵션</h3>
+      <p>최근 업데이트순 / 7일 조회순 / 30일 조회순 / 조회 급상승순 / 마켓 수 많은순 / 상품명순 중에서 고를 수 있어요.</p>
+
+      <h3 class="sub">일괄 작업</h3>
+      <p>여러 상품을 선택하면 판매 상태 일괄 변경, 재등록(리퍼블리시), 실패 항목 재시도 등의 작업을 한 번에 처리할 수 있어요.</p>
+    </section>
+
+    <!-- ============ 기본 수집 방법 ============ -->
+    <section class="block" id="collect">
+      <h2 class="block-title">상품 수집 <span class="eyebrow" style="display:inline;text-transform:none;letter-spacing:0;font-weight:400;color:var(--ink-soft);"> — 기본 사용법</span></h2>
+      <div class="intro-box">
+        <p>알리익스프레스, 타오바오, 1688, 아마존, 쿠팡 등 소싱 사이트에서 상품 정보를 자동으로 가져와 ALL8에 등록하는 기능이에요. 크롬 확장 프로그램을 설치하면 브라우저 옆에 작은 창(사이드패널)이 뜨는데, 여기서 상품을 담으면 됩니다.</p>
+      </div>
+
+      <h3 class="sub">처음 시작할 때 — 로그인</h3>
+      <p>확장 프로그램 아이콘을 누르면 사이드패널이 바로 열려요. 처음엔 <span class="ui">카카오 로그인</span> 버튼만 보이는데, 눌러서 카카오 계정으로 로그인하면 바로 사용할 수 있어요. 로그인 중에는 버튼 문구가 <span class="ui">확인 중…</span>으로 바뀌어요.</p>
+
+      <h3 class="sub">화면 구성 — 탭 3개 + 설정</h3>
+      <ul class="plain">
+        <li><b>수집</b> — 기본 화면. 상품 URL이나 목록 페이지에서 상품을 담아 자동으로 수집해요.</li>
+        <li><b>수동수집</b> — 자동 수집이 안 되는 사이트에서 이미지와 정보를 직접 입력해 등록해요.</li>
+        <li><b>재고연동</b> — 이미 등록한 상품이 품절됐는지 주기적으로 확인해주는 기능이에요. (워크스페이스 소유자에게만 이 탭이 보여요)</li>
+        <li>오른쪽 위 ⚙ <b>설정</b> — 지원 사이트 목록(사이트/수집방식/재고연동/상태)과 <span class="ui">중복수집 허용</span> 토글이 있어요.</li>
+      </ul>
+      <p>수집·수동수집 탭 위쪽에는 항상 <b>"보낼 워크스페이스"</b> 드롭다운이 있어, 수집한 상품을 어느 작업공간으로 보낼지 매번 확인할 수 있어요.</p>
+
+      <h3 class="sub">상품을 담는 방법 3가지</h3>
+      <ol class="steps">
+        <li><b>상품 상세 페이지에서 바로 담기</b> — 지원하는 사이트의 상품 페이지를 열어두고 사이드패널을 보면, 상황에 따라 버튼 문구가 달라져요: 큐가 비어있으면 <span class="ui">이 상품 수집</span>(누르면 즉시 담기고 수집 시작), 큐에 이미 대기 항목이 있으면 <span class="ui">＋ 대기열에 추가</span>, 이미 수집이 진행 중이면 <span class="ui">진행 중 수집에 합류</span>.</li>
+        <li><b>목록 페이지에서 여러 개 한 번에 담기</b> — 상품 목록이나 카테고리 페이지를 열면, 지원 사이트는 상품마다 체크박스가 자동으로 나타나요. 원하는 상품을 체크하거나 <span class="ui">페이지의 모든 상품 선택</span>으로 한 번에 담을 수 있어요.</li>
+        <li><b>URL을 직접 붙여넣거나 엑셀로 올리기</b> — <span class="ui">＋ URL · 엑셀로 추가</span>를 눌러 URL 목록(줄바꿈/콤마/공백으로 구분)을 붙여넣거나, <span class="ui">엑셀 양식 다운로드</span>로 받은 양식(url 주소 / 프리셋 ID / 옵션 구성 수집 3열, 최대 2MB·2만행)을 채워 <span class="ui">엑셀/CSV 업로드</span>할 수 있어요.</li>
+      </ol>
+      <p>처음 방문하는 사이트에서는 크롬이 접근 권한을 물어봐요 — 허용을 눌러야 수집이 진행돼요.</p>
+
+      <h3 class="sub">수집 진행 상황 확인</h3>
+      <p>대기열 목록 헤더에 <span class="ui">수집 대기열 (N)</span>과 완료율(%)이 표시돼요. 툴바에는 <span class="ui">수집 시작 (N)</span> / <span class="ui">■ 중지</span> / <span class="ui">↻ 실패 N</span>(일괄 재시도) / <span class="ui">완료·실패 정리</span> / <span class="ui">전체 비우기</span> 버튼이 있어요. 카드별 상태는 <b>대기 / 진행중 / 실패 / 완료</b> 중 하나로 표시돼요.</p>
+      <p>실패한 카드는 옆의 ↻ 아이콘으로 개별 재시도할 수 있어요(단, "중복 상품"으로 실패한 건 재시도 버튼이 안 뜨는데, 이미 수집된 상품이라 재시도할 필요가 없기 때문이에요). 여러 개가 한꺼번에 실패했다면 <span class="ui">↻ 실패 N</span>으로 한 번에 재시도할 수 있어요.</p>
+
+      <div class="tip">
+        <span class="tip-label">알아두면 좋아요</span>
+        실패 사유는 대부분 친절한 한국어 문구로 뜨지만(권한 거부, 중복 상품 등), 드물게 "navigate-fail"처럼 영어로 된 사유가 뜰 수 있어요. 이럴 땐 그냥 재시도 버튼을 눌러보고, 계속 안 되면 문의해주세요.
+      </div>
+    </section>
+
+    <!-- ============ 서버수집 vs 브라우저수집 ============ -->
+    <section class="block" id="collect-mode">
+      <h2 class="block-title">서버수집 · 브라우저수집</h2>
+      <div class="intro-box">
+        <p>타오바오/티몰, 아마존, 알리익스프레스, 1688 — 이 4개 사이트에서만 "수집 방식"을 브라우저와 서버 중에 고를 수 있어요. 그 외 사이트(쿠팡, 네이버, G마켓, 옥션 등 국내 마켓과 알리바바)는 이 선택지 자체가 없고, 전부 브라우저 방식으로만 수집됩니다.</p>
+      </div>
+
+      <h3 class="sub">두 방식의 차이</h3>
+      <ul class="plain">
+        <li><b>브라우저 우선</b> — 확장 프로그램이 실제로 그 상품 페이지를 열어서 화면에 보이는 정보를 직접 읽어와요. 그 사이트에 로그인되어 있어야 정확하게 수집됩니다.</li>
+        <li><b>서버 우선</b> — ALL8 서버가 대신 상품 데이터를 가져다줘요. 브라우저 창을 띄우지 않아도 되고 로그인도 필요 없어요. 이 방식은 크레딧이 차감돼요.</li>
+      </ul>
+
+      <h3 class="sub">사이트별로 수집 방식을 고를 수 있는지</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>사이트</th><th>서버/브라우저 둘 다 선택 가능?</th></tr></thead>
+          <tbody>
+            <tr><td>타오바오 · 티몰</td><td>가능</td></tr>
+            <tr><td>아마존</td><td>가능</td></tr>
+            <tr><td>알리익스프레스</td><td>가능</td></tr>
+            <tr><td>1688</td><td>가능</td></tr>
+            <tr><td>알리바바</td><td>불가 (브라우저 전용)</td></tr>
+            <tr><td>쿠팡·네이버·G마켓·옥션 등 국내 마켓</td><td>불가 (브라우저 전용)</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>서버 우선 방식은 크레딧이 차감돼요. 정확한 차감 금액은 확장 프로그램 화면에서 그때그때 확인할 수 있어요.</p>
+
+      <h3 class="sub">"옵션 구성 수집" 체크박스</h3>
+      <p>이 체크박스는 <b>아마존과 쿠팡</b>에서만 보여요. 켜면 색상·사이즈 등 그 상품의 모든 옵션 조합을 한 번에 수집합니다(꺼두면 지금 화면에 보이는 옵션 1개만 수집). 아마존은 방식에 따라 안내 문구가 달라요:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>상황</th><th>안내 문구</th></tr></thead>
+          <tbody>
+            <tr><td>아마존 · 브라우저 우선</td><td>체크시 브라우저에서 모든 옵션조합을 먼저 수집합니다 (실패 시 서버로 전환)</td></tr>
+            <tr><td>아마존 · 서버 우선</td><td>체크시 서버가 모든 옵션조합을 먼저 수집합니다 (옵션마다 크레딧 차감·실패 시 브라우저로 전환)</td></tr>
+            <tr><td>쿠팡</td><td>체크시 모든 옵션조합을 수집합니다</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">실패하면 자동으로 다른 방식으로 전환돼요</h3>
+      <p>브라우저 우선을 골랐는데 실패하면, ALL8이 자동으로 서버 방식으로 한 번 더 시도해줘요(반대로 서버 우선이 실패하면 브라우저로 자동 전환). 이 자동 전환은 <b>딱 1번만</b> 일어나고, 이미 차감된 크레딧이 중복으로 빠져나가지 않도록 설계되어 있어요. 화면에도 미리 안내돼요:</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>선택</th><th>안내 문구</th></tr></thead>
+          <tbody>
+            <tr><td>브라우저 우선 · 아마존</td><td>브라우저 먼저 · 실패 시 서버 · 아마존 로그인 권장</td></tr>
+            <tr><td>브라우저 우선 · 그 외 3사이트</td><td>브라우저 먼저 · 실패 시 서버 · 로그인 필요</td></tr>
+            <tr><td>서버 우선 · 아마존</td><td>서버 먼저 · 실패 시 브라우저 · 옵션 가격 일부 누락 가능</td></tr>
+            <tr><td>서버 우선 · 그 외 3사이트</td><td>서버 먼저 · 실패 시 브라우저 · 가격 상이 가능</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="tip">
+        <span class="tip-label">크레딧이 부족하면</span>
+        서버 수집을 시도했는데 크레딧이 모자라면 "{사이트} 수집을 위한 크레딧이 부족합니다. 충전 후 다시 시도해주세요" 안내가 뜨고, 이 경우 아예 서버 호출 자체가 일어나지 않아요(불필요한 비용이 나가지 않아요).
+      </div>
+
+      <div class="note">
+        <span class="note-label">재고연동의 "브라우저/서버/복합"과는 다른 설정이에요</span>
+        아래 "재고연동" 항목에도 비슷하게 브라우저/서버/복합을 고르는 곳이 있는데, 이건 상품을 <b>처음 수집할 때</b>의 설정이 아니라 <b>이미 수집한 상품의 재고를 나중에 주기적으로 재확인</b>할 때 쓰는 별도의 설정이에요. 헷갈리지 않게 구분해두세요.
+      </div>
+    </section>
+
+    <!-- ============ 수동수집 ============ -->
+    <section class="block" id="manual-collect">
+      <h2 class="block-title">수동수집</h2>
+      <div class="intro-box">
+        <p>자동 수집을 지원하지 않는 사이트에서 상품을 등록할 때 쓰는 기능이에요. 페이지의 이미지를 가져와서 상품명·옵션·가격을 직접 입력하면 그대로 서버에 등록됩니다. 번역이나 마진 계산 없이 입력한 그대로 전송돼요.</p>
+      </div>
+
+      <ol class="steps">
+        <li>"수동수집" 탭을 열면 자동으로 현재 페이지의 이미지를 불러오려고 시도해요. 처음 방문하는 사이트면 <span class="ui">권한 허용하고 이미지 읽기</span> 버튼을 눌러 접근을 허용해야 해요. (http/https 페이지가 아니면 이미지를 수집할 수 없다는 안내가 떠요)</li>
+        <li><b>페이지 이미지</b> 카드에서 원하는 이미지를 클릭해 선택해요. 선택하면 파란 테두리로 표시되고, 그 아래 <span class="ui">썸네일</span> / <span class="ui">상세</span> 버튼으로 역할을 정할 수 있어요. 선택하는 순간 기본은 "상세"로 지정되고, 필요하면 "썸네일"로 바꿔주면 돼요.</li>
+        <li><b>기본 정보</b> 카드에 상품명(필수), 상품 설명(선택), 브랜드(선택), 제조사(선택), 배송비(선택, 원본 그대로)를 입력해요.</li>
+        <li><b>옵션</b> 카드에서 <span class="ui">+ 옵션그룹</span>으로 색상·사이즈 같은 옵션을 추가하고, 값은 입력 후 Enter로 하나씩 추가해요.</li>
+        <li><b>가격</b> 카드에서 통화(원화/달러/엔화/위안화/유로/파운드 중 선택, 기본은 원화)를 고르고, 옵션 조합별로 원가격과 재고 수량을 입력해요. 각 옵션 행마다 <span class="ui">판매중</span>/<span class="ui">품절</span> 토글도 있어요(기본은 판매중).</li>
+        <li>모든 옵션에 원가격이 입력되어야 <span class="ui">확인 (서버로 전송)</span> 버튼이 눌려요. 전송되면 "상품을 서버로 전송했습니다" 안내와 함께 화면이 초기화돼요.</li>
+      </ol>
+
+      <div class="note">
+        <span class="note-label">참고</span>
+        재고 수량 칸을 비워두면 수량 없이 판매 상태(판매중/품절)만 전송돼요. 한글로 옵션값을 입력할 때 조합 중간에 Enter를 눌러도 중복으로 추가되지 않도록 처리되어 있어요.
+      </div>
+    </section>
+
+    <!-- ============ 재고연동 ============ -->
+    <section class="block" id="inventory-sync">
+      <h2 class="block-title">재고연동</h2>
+      <div class="intro-box">
+        <p>이미 등록한 상품이 소싱처에서 품절되지는 않았는지 주기적으로 자동 확인해주는 기능이에요. 확인 주기, 횟수, 확인 방식을 원하는 대로 설정할 수 있어요.</p>
+      </div>
+
+      <h3 class="sub">재고연동 켜기</h3>
+      <ol class="steps">
+        <li>웹사이트의 <b>상품 목록</b> 화면에서 재고 연동을 켜고 싶은 상품을 체크박스로 선택해요.</li>
+        <li>하단에 나타나는 <span class="ui">재고 연동 설정</span> 버튼을 눌러요.</li>
+        <li>안내창: "선택한 상품의 원본 판매상태와 옵션 품절을 주기적으로 확인합니다. 실제 확인은 브라우저 익스텐션이 켜져 있을 때 수행돼요." — <span class="ui">연동 켜기 (N개)</span>를 누르면 완료.</li>
+      </ol>
+      <p>단, <b>수동으로 직접 등록한 상품</b>(소싱 원본이 없는 상품)이나 <b>재고연동을 지원하지 않는 소싱처</b>의 상품은 켤 수 없고, 안내 문구로 제외 사유가 표시돼요.</p>
+
+      <h3 class="sub">확인 계획 설정 (주기 · 횟수 · 방식)</h3>
+      <ul class="plain">
+        <li><b>확인 주기</b> — 숫자 + "시간마다"/"일마다" (기본 6시간마다)</li>
+        <li><b>총 확인 횟수</b> — 숫자 + "회" (기본 10회), "무제한" 체크 가능</li>
+        <li><b>재고 확인 방식</b>:
+          <ul class="plain" style="margin-top:6px;">
+            <li><b>복합</b>(기본값) — 브라우저로 먼저 확인하고, 실패하면 서버로 자동 전환</li>
+            <li><b>브라우저</b> — 로그인이 필요한 사이트도 있고, 너무 자주 확인하면 계정이 차단될 가능성도 있어요.</li>
+            <li><b>서버</b> — 크레딧이 차감돼요. 가격이 원본과 조금 다르게 나올 수 있어요.</li>
+          </ul>
+        </li>
+      </ul>
+      <p>이미 켜둔 상품의 계획을 바꾸려면, 상품 목록 표의 <b>"재고연동"</b> 칸(파란 글씨)을 클릭하면 됩니다. <b>주의:</b> 계획을 수정해서 저장하면 값이 그대로여도 "확인 횟수"가 0부터 다시 시작돼요.</p>
+
+      <div class="tip">
+        <span class="tip-label">개별 "재고확인" 버튼은 예외예요</span>
+        상품 하나하나 옆의 <span class="ui">재고확인</span> 버튼을 직접 누르면, 설정된 방식(브라우저/서버/복합)과 상관없이 <b>항상 서버로 확인</b>하고, <b>확인 횟수를 깎지 않아요</b>. 급하게 지금 당장 확인하고 싶을 때 쓰면 됩니다.
+      </div>
+
+      <h3 class="sub">상태 표시</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>표시</th><th>의미</th></tr></thead>
+          <tbody>
+            <tr><td>미확인</td><td>아직 한 번도 확인하지 않았어요</td></tr>
+            <tr><td>N개 품절</td><td>일부 옵션이 품절로 확인됐어요</td></tr>
+            <tr><td>옵션 동기화 불가</td><td>소싱 원본의 옵션 구성이 바뀌어서 정확히 매칭이 안 돼요</td></tr>
+            <tr><td>변경 없음</td><td>정상적으로 확인했고 특별한 변화가 없었어요</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">품절이 확인되면 마켓 재고가 자동으로 바뀌나요?</h3>
+      <p>기본값은 <b>"표시만"</b>이에요 — 즉 품절을 화면에 알려줄 뿐, 마켓 재고는 자동으로 바뀌지 않아요. 자동으로 처리하고 싶다면 별도의 "기타 설정" 화면에서 정책을 바꿀 수 있어요:</p>
+      <ul class="plain">
+        <li><b>표시만</b>(기본값) — 마켓은 그대로 두고 화면에 품절만 표시</li>
+        <li><b>하나라도 품절 시 상품 판매중지</b> — 옵션 중 하나라도 품절되면 그 마켓 리스팅 자체를 판매중지. 단, 나중에 재입고돼도 자동으로 재개되지는 않으니 직접 다시 켜야 해요.</li>
+        <li><b>품절된 옵션만 재고 0</b> — 품절된 옵션만 재고를 0으로 바꾸고, 나중에 재입고가 확인되면 자동으로 재고가 복원돼요.</li>
+      </ul>
+      <p>단, 원본과의 매칭이 확실하지 않은 경우(위의 "옵션 동기화 불가" 상태)는 어떤 정책을 골라놨든 절대 자동으로 반영되지 않고 화면 표시만 됩니다 — 잘못 반영되는 걸 막기 위한 안전장치예요.</p>
+
+      <h3 class="sub">확인 횟수를 다 쓰면</h3>
+      <p>설정한 총 확인 횟수를 다 쓰면 더 이상 자동으로 확인하지 않아요(추적 자체는 꺼지지 않고 "완료" 표시만 붙어요). 개별 "재고확인" 버튼은 이후에도 계속 쓸 수 있고, 다시 자동으로 돌아가게 하려면 계획을 한 번 더 저장하면 돼요(저장하는 순간 횟수가 리셋됩니다).</p>
+    </section>
+
+    <!-- ============ 편집 화면 한눈에 보기 ============ -->
+    <section class="block" id="editor-overview">
+      <h2 class="block-title">상품 편집 화면</h2>
+      <div class="intro-box">
+        <p>수집한 상품의 이름, 가격, 이미지 같은 정보를 마켓에 올릴 수 있는 형태로 다듬는 화면이에요. 여러 화면을 넘나드는 게 아니라, 한 화면에서 위에서 아래로 순서대로 채워나가면 됩니다.</p>
+      </div>
+
+      <p>왼쪽 목차를 누르면 해당 항목으로 화면이 부드럽게 스크롤돼요. 순서는 다음과 같아요:</p>
+      <div class="sec-flow">
+        <span>소싱처</span><span>프리셋</span><span>마켓 선택</span><span>상품명</span><span>카테고리</span>
+        <span>옵션 및 가격</span><span>배송 및 반품</span><span>이미지</span>
+        <span>상세 설명</span><span>키워드</span><span>부가 정보</span><span>메모</span>
+      </div>
+      <p>화면 위쪽에는 언제든 누를 수 있는 <span class="ui">저장</span>(편집중으로 저장 / 수정완료로 저장)과 <span class="ui">업로드</span> 버튼이 항상 떠 있어요.</p>
+
+      <h3 class="sub">프리셋 섹션</h3>
+      <p>미리 만들어둔 프리셋을 이 상품에 바로 적용할 수 있는 곳이에요. 카드를 클릭하면 즉시 상품명·마켓·옵션 등 관련 항목들이 그 프리셋대로 채워집니다. 화면 위쪽의 저장 버튼을 눌러야 실제로 저장돼요. (프리셋 자체를 만드는 방법은 아래 "프리셋 관리" 항목을 참고하세요)</p>
+    </section>
+
+    <!-- ============ 마켓 선택 ============ -->
+    <section class="block" id="market-select">
+      <h2 class="block-title">마켓 선택</h2>
+      <div class="intro-box">
+        <p>이 상품을 어느 마켓 계정에 올릴지 고르는 곳이에요. 이미 등록해둔 마켓 계정(마켓 계정 설정 메뉴에서 만든 것)들이 사업자별로 묶여서 나타납니다.</p>
+      </div>
+
+      <ol class="steps">
+        <li>화면에는 <b>사업자(비즈니스)별로 그룹</b>이 나열돼요. 사업자 이름이 없으면 "기본 사업자"로 묶여요.</li>
+        <li>각 그룹 위에 <span class="ui">전체 선택</span> 버튼이 있어요 — 누르면 그 사업자의 활성화된 계정 전체가 선택되고, 다시 누르면 전체 해제돼요. 일부만 선택돼 있으면 체크박스가 반쯤 채워진 모양으로 표시돼요.</li>
+        <li>그 아래 <b>마켓 계정 카드</b>들을 클릭해서 개별로 선택/해제할 수 있어요. 카드에는 마켓 배지, 계정 이름, 마켓 이름이 표시되고, 비활성화된 계정은 흐리게 표시되며 클릭할 수 없어요.</li>
+      </ol>
+
+      <h3 class="sub">카드에 표시되는 업로드 상태</h3>
+      <ul class="plain">
+        <li><b>업로드됨</b>(초록) — 이미 이 마켓에 정상 등록됨, 등록 시각도 함께 표시</li>
+        <li><b>수정 중</b>(주황) — 수정한 내용이 마켓에 반영되고 있는 중</li>
+        <li>실패 시 카드 안에 빨간 박스로 실패 사유가 표시돼요</li>
+      </ul>
+    </section>
+
+    <!-- ============ 상품명 ============ -->
+    <section class="block" id="name">
+      <h2 class="block-title">상품명</h2>
+      <div class="intro-box">
+        <p>마켓에 노출될 상품명을 정하는 곳이에요. 원본 그대로 쓸 수도 있고, AI로 자연스럽게 다시 만들 수도 있어요.</p>
+      </div>
+
+      <ol class="steps">
+        <li><b>기본 상품명</b> 입력창에 직접 타이핑해서 수정할 수 있어요.</li>
+        <li>AI로 새로 만들고 싶으면 <span class="ui">↻ 재번역</span>을 눌러 패널을 펼치고, 모델과 프롬프트를 고른 뒤 <span class="ui">상품명 생성</span>을 눌러요. <b>항상 소싱 원본 상품명을 기준으로</b> 새로 만들어져요(지금 입력해둔 이름이 아니라).</li>
+        <li>그 아래 <b>원본 상품명</b>은 참고용으로만 보여지는 읽기 전용 텍스트예요 (소싱 사이트에서 가져온 원문).</li>
+        <li><b>"▾ 마켓별 상품명"</b>을 펼치면, 선택한 마켓 계정마다 다른 상품명을 따로 입력할 수 있어요. 비워두면 위의 기본 상품명이 그대로 쓰여요. 마켓별로도 각각 AI 재번역이 가능해요.</li>
+      </ol>
+
+      <div class="note">
+        <span class="note-label">참고</span>
+        상품명 글자수 제한을 넘기거나 금지어가 포함되면 빨간 경고 문구가 바로 뜹니다.
+      </div>
+    </section>
+
+    <!-- ============ 카테고리 ============ -->
+    <section class="block" id="category">
+      <h2 class="block-title">카테고리</h2>
+      <div class="intro-box">
+        <p>이 상품이 각 마켓에서 어느 카테고리로 등록될지 정하는 곳이에요. 마켓마다 카테고리 체계가 달라서, 마켓별로 한 줄씩 따로 지정합니다.</p>
+      </div>
+
+      <ol class="steps">
+        <li>화면을 열면 각 마켓 줄에 <b>AI가 추천한 카테고리</b>가 회색 글씨로 미리 채워져 있어요(예: "패션의류 &gt; 여성의류 &gt; 반팔티셔츠 (AI 추천)"). 그대로 둬도 괜찮으면 별도 조작이 필요 없어요.</li>
+        <li>직접 바꾸고 싶으면 그 줄을 클릭 → 검색창에 원하는 키워드 입력 → 후보 목록이 뜨면 선택해요.</li>
+        <li>후보를 고를 때 <span class="ui">이 마켓만</span>(그 마켓 하나에만 적용) 또는 <span class="ui">전 마켓</span>(다른 마켓들도 비슷한 카테고리로 자동 매칭 시도 → 미리보기 확인 후 적용) 중 고를 수 있어요. "전 마켓"을 누르면 마켓별 매칭 후보와 일치율(%)이 표시되는 확인창이 뜨고, <span class="ui">적용</span>을 눌러야 실제로 반영돼요. 자동 매칭에 실패한 마켓은 별도로 수동 선택해야 해요.</li>
+        <li>바꾼 걸 되돌리고 싶으면 <span class="ui">되돌리기</span> 버튼을 눌러요.</li>
+      </ol>
+
+      <div class="note">
+        <span class="note-label">카테고리별 필수 정보는 여기 없어요</span>
+        인증정보, 원산지 같은 카테고리별 필수 입력 항목은 이 섹션이 아니라 아래 "부가 정보" 섹션의 "마켓별 조정"에서 입력해요.
+      </div>
+
+      <div class="tip">
+        <span class="tip-label">알아두면 좋아요</span>
+        카테고리를 잘못 골랐는지는 이 화면에서 미리 알려주지 않아요 — 실제로 <b>업로드를 시도했을 때</b>에만 문제(예: "이 카테고리는 이 마켓에 등록할 수 없습니다")를 알 수 있어요. 카테고리 관련 오류가 뜨면 이 섹션으로 돌아와 더 구체적이거나 다른 카테고리로 바꿔보세요.
+      </div>
+    </section>
+
+    <!-- ============ 옵션 및 가격 ============ -->
+    <section class="block" id="price">
+      <h2 class="block-title">옵션 및 가격</h2>
+      <div class="intro-box">
+        <p>상품의 판매 가격을 정하고, 색상·사이즈 같은 옵션별로 재고와 가격을 관리하는 곳이에요. 원가에 마진을 붙여 자동으로 판매가를 계산해주는 계산기가 들어 있어서, 매번 직접 계산할 필요가 없어요.</p>
+      </div>
+
+      <h3 class="sub">가격 계산식 설정</h3>
+      <p>섹션 상단의 계산식 드롭다운에서 미리 만들어둔 계산식 프리셋을 바로 불러올 수 있어요. 새로 설정하거나 수정하려면 <span class="ui">계산식 설정</span> 버튼을 누르면 모달 창이 열려요.</p>
+      <ol class="steps">
+        <li><b>비용</b>(매입가, 환율, 카드수수료, 관부가세, 부가세 등)과 <b>마진</b>(곱하기마진, 더하기마진) 값을 입력해요.</li>
+        <li>계산식은 직접 타이핑하지 않고, 변수 버튼과 연산 기호 버튼(+ − × ÷)을 <b>눌러서 조립</b>해요. 예: <span class="ui">매입가</span> <span class="ui">×</span> <span class="ui">곱하기마진</span></li>
+        <li>값을 입력하면 자동으로 <b>모든 옵션의 판매가가 다시 계산</b>돼요. 따로 "적용" 버튼을 누를 필요가 없어요.</li>
+        <li>매입가 구간마다 마진을 다르게 주고 싶다면 "구간별 계산식"에서 설정할 수 있어요.</li>
+        <li>단수처리(예: 100원 단위로 올림)도 여기서 정할 수 있어요.</li>
+      </ol>
+
+      <h3 class="sub">옵션별 가격표(SKU 표)</h3>
+      <p>색상·사이즈 등 옵션 조합마다 한 줄씩 나열되고, 판매가와 재고를 직접 수정할 수도 있어요. 특정 옵션 하나만 가격을 다르게 하고 싶다면 그 칸을 직접 고치면 되는데, 이후에 계산기 값을 다시 바꾸면 그 값도 함께 재계산될 수 있어요. 그럴 땐 그 줄에 나타나는 <span class="ui">계산식 조정</span> 버튼을 눌러서, 원하는 가격에 맞게 계산식 자체를 맞춰줄 수 있어요.</p>
+
+      <h3 class="sub">마켓별로 가격을 다르게 하고 싶을 때</h3>
+      <p>마켓마다 수수료가 다르기 때문에, 마켓 계정별로 판매가를 따로 조정할 수 있는 표가 아래에 있어요. 비워두면 기본 판매가에 그 마켓 수수료만 자동으로 반영돼서 계산돼요.</p>
+    </section>
+
+    <!-- ============ 배송 및 반품 ============ -->
+    <section class="block" id="shipping">
+      <h2 class="block-title">배송 및 반품</h2>
+      <div class="intro-box">
+        <p>이 상품의 배송비와 반품 관련 정책을 설정하는 곳이에요.</p>
+      </div>
+
+      <h3 class="sub">배송비 유형 4가지</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>유형</th><th>추가로 나타나는 입력 필드</th></tr></thead>
+          <tbody>
+            <tr><td>무료</td><td>반품 배송비만 입력</td></tr>
+            <tr><td>고정</td><td>판매배송비 → 반품 배송비</td></tr>
+            <tr><td>조건부</td><td>무료배송 기준금액 → 판매배송비 → 반품 배송비</td></tr>
+            <tr><td>수량별</td><td>"기준 수량" 입력(예: 1개당) → 판매배송비 → 반품 배송비 — 주문 수량만큼 배송비가 반복 부과돼요</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><b>반품 배송비</b>는 편도 배송비이고, 이 배송비 유형과 상관없이 항상 입력할 수 있어요.</p>
+
+      <div class="tip">
+        <span class="tip-label">11번가는 예외예요</span>
+        11번가는 "조건부" 유형을 지원하지 않아서, 등록할 때 자동으로 "고정"으로 바뀌고 무료배송 기준금액은 무시돼요. 또 고정 배송비가 판매가의 50%를 넘으면 등록 자체가 거부되니 참고하세요.
+      </div>
+
+      <h3 class="sub">교환 배송비(왕복)</h3>
+      <p>이건 "배송 및 반품" 섹션이 아니라 <b>"부가 정보" 섹션</b>에서(스마트스토어·11번가·토스 계정에서만) 설정해요. 별도로 입력하지 않으면 "반품 배송비 × 2"로 자동 계산되고, 필요하면 직접 값을 고칠 수도 있어요.</p>
+
+      <h3 class="sub">택배사·발송마감·도서산간 추가비는 여기 없어요</h3>
+      <p>이런 항목들은 상품마다 입력하는 게 아니라 <b>마켓 계정 설정</b>에서 계정당 한 번만 설정합니다(예: 쿠팡의 도서산간 배송 가능 여부, 롯데온의 평일 발송 마감 시간, 11번가/토스의 제주·도서산간 추가 배송비 등).</p>
+
+      <h3 class="sub">마켓별로 배송 설정을 다르게 하고 싶을 때</h3>
+      <p>섹션 하단의 "마켓별 배송 설정"에서 마켓 계정별로 배송 정보를 따로 지정할 수 있어요. 실제 적용되는 값은 다음 우선순위로 정해져요: <b>① 지금 이 화면에서 마켓별로 새로 입력한 값 → ② 예전에 저장해둔 마켓별 설정값 → ③ 마켓 계정 설정의 기본값 → ④ 이 섹션(공통) 설정값</b>. 화면에 지금 어떤 값이 적용되고 있는지 표시되니 참고하세요.</p>
+    </section>
+
+    <!-- ============ 이미지 ============ -->
+    <section class="block" id="image">
+      <h2 class="block-title">이미지</h2>
+      <div class="intro-box">
+        <p>상품 이미지를 추가·정리하고, AI로 배경을 지우거나 이미지 속 외국어 글자를 한글로 바꿔주는 기능이에요.</p>
+      </div>
+
+      <ol class="steps">
+        <li>이미지 카드를 클릭하거나 체크박스로 한 장 이상 선택하면 위쪽에 처리 버튼들이 나타나요.</li>
+        <li><span class="ui">배경제거</span> — 이미지 배경을 지워줘요.</li>
+        <li><span class="ui">텍스트번역</span> — 이미지 안에 있는 외국어 글자를 한글로 바꿔줘요.</li>
+        <li><span class="ui">텍스트제거</span> — 이미지 안의 글자를 지워줘요.</li>
+        <li>처리 결과를 새 이미지로 추가할지, 원래 이미지를 대체할지 선택할 수 있어요.</li>
+        <li>처리가 끝나면 자동으로 이미지가 바뀐 걸 확인할 수 있어요.</li>
+      </ol>
+
+      <p><b>이미지 추가</b>는 <span class="ui">+ 이미지 추가</span>를 눌러 URL 입력, 파일 업로드, 또는 이미지 보관함에서 고를 수 있어요. <b>순서 변경</b>은 카드를 드래그해서 옮기면 되고, 대표 이미지 자리에 끌어다 놓으면 그 이미지가 대표 이미지가 돼요. <b>삭제</b>는 여러 장을 선택한 뒤 한 번에 지울 수 있어요.</p>
+
+      <div class="note">
+        <span class="note-label">참고</span>
+        회전·좌우반전 버튼은 아직 준비 중이라 눌러도 이미지가 바뀌지 않아요.
+      </div>
+
+      <p>옵션(색상·사이즈 등)에 달린 이미지는 이 화면이 아니라 "옵션 및 가격" 화면의 옵션 카드에서 처리해요(회전·좌우반전·배경제거·텍스트번역·텍스트제거 버튼이 있어요). 상세 설명에 들어갈 이미지 관련 기능은 다음 항목("상세 설명")에서 다룹니다.</p>
+    </section>
+
+    <!-- ============ 상세 설명 ============ -->
+    <section class="block" id="detail">
+      <h2 class="block-title">상세 설명</h2>
+      <div class="intro-box">
+        <p>상품 페이지에 보여줄 본문을 꾸미는 곳이에요. 글자 서식을 자유롭게 바꿀 수 있는 편집기가 들어 있고, 이미지·비디오·미리 등록해둔 로고나 배너도 본문에 바로 넣을 수 있어요.</p>
+      </div>
+
+      <h3 class="sub">본문 위 삽입 버튼 4개</h3>
+      <ul class="plain">
+        <li><b>상품명</b> — 상세 설명 맨 위에 상품명을 크게 넣어요.</li>
+        <li><b>상품이미지</b> — 상품 이미지들을 순서대로 상세 설명 맨 위에 추가해요.</li>
+        <li><b>비디오</b> — 클릭하면 창이 열려요. "음성 포함"/"음성 제거"를 먼저 고르고, 이미 수집해둔 영상 중에서 고르거나 직접 파일을 업로드해서 넣을 수 있어요.</li>
+        <li><b>옵션 이미지</b> — 판매 중인 옵션의 이미지와 옵션명을 카드 형태로 묶어서 본문에 넣어요.</li>
+      </ul>
+      <p>이미 넣은 항목은 버튼이 파란 배경으로 바뀌고, 다시 누르면 빼낼 수 있어요.</p>
+
+      <h3 class="sub">본문 편집기 (서식 도구)</h3>
+      <p>글꼴(11종), 글자 크기(12~48px), 글자 색, 굵게·기울임·밑줄·취소선, 정렬(왼쪽/가운데/오른쪽), 목록(번호/기호), 링크 추가, 이미지 URL·파일 추가를 지원해요. 이미지는 복사해서 바로 붙여넣기(Ctrl+V)도 가능해요. (표 삽입 기능은 아직 없어요, HTML 직접 편집 모드도 없어요 — 화면에 보이는 서식 도구만으로 편집합니다)</p>
+
+      <h3 class="sub">에셋 (미리 등록해둔 로고·배너)</h3>
+      <p>편집기 툴바의 <b>"에셋"</b> 버튼을 누르면 미리 등록해둔 이미지들이 카테고리별(전체/브랜드/배송·반품/사이즈·스펙/이벤트/기타/프리셋)로 정리되어 나타나요. 카드를 클릭하면 커서 위치에 바로 삽입되고, 여러 장을 연속으로 추가할 수도 있어요.</p>
+
+      <div class="note">
+        <span class="note-label">참고</span>
+        상세 설명 상단·하단에 자동으로 들어갈 이미지(마켓별로 다르게 지정 가능)는 이 섹션 안의 본문에 포함되어 함께 편집돼요. 마켓 계정 설정에서 상/하단 이미지를 지정해두면, 업로드할 때 그 마켓에서는 지정한 이미지로 자동 교체됩니다.
+      </div>
+    </section>
+
+    <!-- ============ 상품 태그(키워드) ============ -->
+    <section class="block" id="keywords">
+      <h2 class="block-title">상품 태그(키워드)</h2>
+      <div class="intro-box">
+        <p>마켓 검색에 노출되도록 도와주는 키워드를 등록하는 곳이에요.</p>
+      </div>
+      <ol class="steps">
+        <li>등록된 키워드는 한 줄씩 표시되고, 클릭해서 바로 수정하거나 <span class="ui">제거</span> 버튼으로 지울 수 있어요.</li>
+        <li>새 키워드는 입력창에 쓰고 <b>Enter</b>를 누르면 바로 추가돼요. 개수 제한은 없어요.</li>
+        <li>선택된 마켓 계정이 있으면 <b>"마켓별 키워드"</b>를 펼쳐서 그 계정에만 추가로 붙는 키워드를 따로 넣을 수 있어요(공통 키워드 뒤에 이어붙는 방식).</li>
+        <li>스마트스토어 계정이 있으면 <span class="ui">네이버 키워드 추천</span> 버튼도 함께 있어서, 상품명 기준으로 추천 키워드를 받아와 추가할 수 있어요.</li>
+      </ol>
+    </section>
+
+    <!-- ============ 부가 정보 ============ -->
+    <section class="block" id="settings">
+      <h2 class="block-title">부가 정보</h2>
+      <div class="intro-box">
+        <p>브랜드, 제조사, 출고일처럼 상품 전반에 걸친 정보와, 마켓마다 다르게 요구하는 세부 항목을 입력하는 곳이에요.</p>
+      </div>
+
+      <h3 class="sub">공통 항목 7가지</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>항목</th><th>입력 방식 / 선택지</th></tr></thead>
+          <tbody>
+            <tr><td>브랜드</td><td>텍스트 (최대 100자)</td></tr>
+            <tr><td>제조사</td><td>텍스트 (최대 100자)</td></tr>
+            <tr><td>출고일</td><td>1~30 영업일 중 선택</td></tr>
+            <tr><td>성인용품 여부</td><td>아니오(기본) / 예</td></tr>
+            <tr><td>과세 유형</td><td>과세(기본) / 면세 / 영세</td></tr>
+            <tr><td>관부가세</td><td>부과대상 아님(기본) / 판매가에 포함 / 판매가에 미포함</td></tr>
+            <tr><td>1인 구매 제한</td><td>숫자 입력, 0(빈칸)이면 제한 없음. 롯데온은 이 설정을 지원하지 않아요.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">마켓별 조정 — 마켓마다 다르게 요구하는 항목</h3>
+      <p>선택한 마켓 계정마다 이 아래에 각각의 항목이 나타나요. 안내문: <span class="quote">상품마다 다른 값만 입력하세요. 비워두면 마켓 설정의 기본값이 적용됩니다.</span></p>
+      <ul class="plain">
+        <li><b>쿠팡</b> — 해외구매 여부(예를 고르면 개인통관부호 입력란이 추가로 나타남)</li>
+        <li><b>스마트스토어</b> — 배송 속성(일반/오늘출발/희망일배송), 카테고리별 필수 상품속성, 인증대상 여부 안내</li>
+        <li><b>G마켓/옥션</b> — 면세 여부, 추천옵션 타입, 상품고시 그룹</li>
+        <li><b>11번가</b> — 셀러 상품코드, 원산지, 상품유형·판매방식 등</li>
+        <li><b>롯데온</b> — 업체상품번호, 판매유형·상품유형·상품상태·원산지, 재고관리 여부</li>
+        <li><b>토스</b> — 노출 설명(최대 1500자, 비워두면 상세설명에서 자동 생성), 상품고시</li>
+        <li><b>11번가 글로벌</b> — 상품별로 따로 조정할 항목은 없어요</li>
+        <li><b>교환 배송비</b>(스마트스토어/11번가/토스 공용) — 기본값은 반품비의 2배로 자동 계산되고, 직접 값을 바꿀 수도 있어요</li>
+      </ul>
+    </section>
+
+    <!-- ============ 메모 ============ -->
+    <section class="block" id="memo">
+      <h2 class="block-title">메모</h2>
+      <div class="intro-box">
+        <p>이 섹션에는 서로 다른 두 가지 입력이 함께 있어요 — 나만 보는 메모와, 검색에 쓰이는 태그예요. 둘 다 <b>마켓에는 절대 전송되지 않아요.</b></p>
+      </div>
+
+      <h3 class="sub">메모</h3>
+      <p>재발주 일정, 시즌 메모 등 나만 보는 내부 기록용 텍스트예요. 최대 2000자까지 입력할 수 있고, 상품 목록 화면에서 검색할 때(상품명·메모·태그 통합검색) 함께 검색돼요.</p>
+
+      <h3 class="sub">태그</h3>
+      <p>해시태그(#) 형태로 등록하는 별도의 분류용 태그예요 — 위에서 다룬 "상품 태그(키워드)"와는 다른 항목이니 혼동하지 마세요. 입력 후 Enter나 콤마(,)로 추가하고, 태그 하나당 최대 40자, 총 최대 30개까지 등록할 수 있어요. 이것도 마켓에 전송되지 않고 상품 목록 검색에만 쓰여요.</p>
+    </section>
+
+    <!-- ============ 일괄 프리셋 적용 ============ -->
+    <section class="block" id="bulkpreset">
+      <h2 class="block-title">일괄 프리셋 적용</h2>
+      <div class="intro-box">
+        <p>여러 상품을 하나하나 고치지 않고, 미리 만들어둔 설정(프리셋)을 여러 상품에 한꺼번에 적용하는 기능이에요. 상품 100개에 똑같은 상품명 규칙이나 가격 공식을 적용하고 싶을 때 유용해요.</p>
+      </div>
+
+      <ol class="steps">
+        <li>상품 목록에서 원하는 상품 여러 개를 체크해요.</li>
+        <li>아래에 나타나는 <span class="ui">프리셋 적용</span> 버튼을 눌러요.</li>
+        <li>적용할 프리셋을 목록에서 선택해요.</li>
+        <li>선택한 프리셋에 이미지 처리 설정이 있으면 이미지도 함께 처리할지 물어봐요 — 원하는 대로 선택하면 돼요.</li>
+        <li>적용이 끝나면 몇 개가 성공했는지 결과를 보여줘요.</li>
+      </ol>
+    </section>
+
+    <!-- ============ 프리셋 관리 ============ -->
+    <section class="block" id="presets">
+      <h2 class="block-title">프리셋 관리</h2>
+      <div class="intro-box">
+        <p><b>프리셋이란</b> 자주 쓰는 설정을 미리 저장해뒀다가, 나중에 클릭 한 번으로 불러와 쓰는 기능이에요. 예를 들어 "쿠팡에 올릴 때 상품명 앞에 항상 붙이는 문구", "내가 자주 쓰는 가격 계산 공식" 같은 걸 미리 만들어두면, 새 상품을 편집할 때마다 같은 설정을 반복해서 입력하지 않아도 돼요.</p>
+      </div>
+
+      <p><span class="ui">새 프리셋</span> 버튼을 눌러 이름을 정하면(예: "쿠팡 풀세트"), 아래 10개 항목 중 필요한 것만 채우면 됩니다. 전부 채울 필요는 없고, 채운 항목에는 "입력됨" 표시가 붙어요. 프리셋은 이름만 겹치지 않으면 몇 개든 만들 수 있어요.</p>
+
+      <h4 class="subsub">1. 상품명</h4>
+      <p>상품명을 새로 만들 때 쓸 AI 모델과 프롬프트(지시문)를 설정해요.</p>
+
+      <h4 class="subsub">2. 옵션명</h4>
+      <p>색상·사이즈 같은 옵션명을 번역할 AI 모델과 프롬프트를 설정해요. <span class="ui">번역 안함</span> 체크박스로 번역을 아예 끌 수도 있고, 옵션이미지가 있는 속성에 순서대로 번호(1, 2, 3…)를 매기는 "옵션이미지 넘버링" 설정도 여기 있어요.</p>
+
+      <h4 class="subsub">3. 상품 태그</h4>
+      <p>항상 붙이고 싶은 고정 키워드를 등록해요. 개수 제한은 없어요.</p>
+
+      <h4 class="subsub">4. 업로드 마켓</h4>
+      <p>이 프리셋을 적용하면 어느 마켓 계정으로 업로드할지 미리 정해둘 수 있어요(체크박스로 여러 계정 선택 가능). 토스나 쿠팡 계정을 골랐다면, 그 마켓의 카테고리 구조에 맞게 옵션을 자동으로 변환할지("변환 안 함"/"토스쇼핑"/"쿠팡" 중 선택)도 함께 정할 수 있어요.</p>
+
+      <h4 class="subsub">5. 계산식</h4>
+      <p>가격 계산 공식(변수, 마진, 반올림 방식 등)을 미리 저장해둬요. 위의 "옵션 및 가격" 섹션에서 쓰는 계산기와 동일한 방식이에요.</p>
+
+      <h4 class="subsub">6. 이미지</h4>
+      <p><b>"상품 이미지(썸네일)"</b>와 <b>"옵션 이미지"</b> 두 카드로 나뉘어요. 각각 "이미지 자동 수정"을 켜면, 배경제거·이미지번역·AI 이미지 변형(모델·프롬프트 선택 가능) 중 하나를 자동으로 적용하도록 설정할 수 있어요. 상품 이미지는 처리 결과를 "덮어쓰기"할지 "추가(원본 유지)"할지도 고를 수 있어요.</p>
+      <div class="note">
+        <span class="note-label">참고</span>
+        이 자동 처리는 <b>상품을 새로 수집하는 순간에만</b> 적용돼요. 이미 수집된 상품에 이 프리셋을 나중에 적용해도 이미지는 그대로 유지됩니다.
+      </div>
+
+      <h4 class="subsub">7. 상세 설명</h4>
+      <p>상세 설명 상단·하단에 자동으로 넣을 이미지 등을 설정해요.</p>
+
+      <h4 class="subsub">8. 부가 정보</h4>
+      <p>브랜드, 제조사, 출고일 등 "부가 정보" 섹션의 값들을 미리 정해둬요.</p>
+
+      <h4 class="subsub">9. 금지어/대체어</h4>
+      <p>이 프리셋을 적용한 상품에 금지어·대체어 규칙을 적용할지 여부만 켜고 끄는 곳이에요(체크박스 2개: 금지어 적용 / 대체어 적용). 실제 금지어·대체어 단어 목록 자체는 여기가 아니라 "금지어·대체어 관리" 메뉴에서 등록합니다.</p>
+
+      <h4 class="subsub">10. 상품 속성</h4>
+      <p>"수집 시 스마트스토어 속성 자동 매칭" 체크박스 하나예요. 켜두면 상품을 수집할 때 예측된 카테고리에 맞는 스마트스토어 상품 속성을 AI가 자동으로 골라줘요(정확하지 않을 수 있으니 편집 화면에서 검토하는 걸 추천해요). 이것도 수집 시에만 동작해요.</p>
+
+      <p>이렇게 만든 프리셋은 상품 편집 화면의 "프리셋" 섹션에서 클릭 한 번으로 적용하거나, 여러 상품에 한 번에 적용(위의 "일괄 프리셋 적용" 참고)할 수 있어요.</p>
+    </section>
+
+    <!-- ============ 마켓 계정 설정 ============ -->
+    <section class="block" id="markets">
+      <h2 class="block-title">마켓 계정 설정</h2>
+      <div class="intro-box">
+        <p>쿠팡, 스마트스토어 같은 마켓에 상품을 자동으로 올리려면, 그 마켓의 판매자 계정 정보를 ALL8에 미리 등록해둬야 해요. 계정은 <b>사업자</b> 단위로 그룹화되어 관리됩니다.</p>
+      </div>
+
+      <h3 class="sub">사업자(비즈니스) 구조</h3>
+      <p>ALL8의 마켓 계정 설정은 <b>사업자 → 마켓 계정</b>의 2단 구조예요. 사업자 한 개에 여러 마켓 계정(쿠팡, 스마트스토어 등)을 묶어서 관리할 수 있어요. 개인 셀러라도 "기본 사업자"가 자동으로 만들어지니 별도 설정 없이 바로 계정을 추가할 수 있어요.</p>
+
+      <h3 class="sub">사업자 추가·수정</h3>
+      <p><span class="ui">사업자 추가</span> 버튼으로 새 사업자를 만들 수 있어요. 사업자 이름, 사업자등록번호, 담당자 연락처를 입력합니다. 이미 마켓 계정이 연결된 사업자를 삭제하려 하면 경고가 떠요.</p>
+
+      <h3 class="sub">마켓 계정 추가</h3>
+      <ol class="steps">
+        <li>사업자 그룹 오른쪽의 <span class="ui">마켓 추가</span>를 눌러요.</li>
+        <li>마켓 종류(쿠팡/스마트스토어/ESM/11번가/롯데온/11번가글로벌/토스)를 선택하고 계정 닉네임을 정해요.</li>
+        <li>해당 마켓에서 발급받은 인증 정보(API 키 등)를 입력해요.</li>
+        <li><span class="ui">연결 테스트</span>를 눌러 실제 연결이 되는지 확인해요.</li>
+        <li>쿠팡은 출고지·반품지를 직접 입력하지 않고, <span class="ui">출고지 조회</span> / <span class="ui">반품·교환지 조회</span>로 등록된 목록에서 선택해요.</li>
+        <li>수수료율, 기본 배송비, 반품 배송비 같은 기본값을 설정해요. 여기서 정한 값은 상품마다 따로 입력하지 않아도 자동으로 적용돼요.</li>
+        <li><span class="ui">저장</span>을 눌러 완료.</li>
+      </ol>
+
+      <div class="tip">
+        <span class="tip-label">알아두면 좋아요</span>
+        쿠팡·롯데온은 연결 테스트가 통과했다고 해서 인증 정보가 100% 맞다는 뜻은 아니에요. 확실하게 확인하고 싶다면 실제 상품을 하나 등록해보는 걸 추천해요.
+      </div>
+
+      <div class="note">
+        <span class="note-label">고정 설정 vs 상품별 설정</span>
+        출고지·반품지 코드, 공통 정책처럼 마켓 계정 단위로 고정되는 항목은 여기서 설정해요. 원산지, 판매 기간처럼 상품마다 다른 값은 상품 편집 화면의 "부가 정보 → 마켓별 조정"에서 입력합니다.
+      </div>
+    </section>
+
+    <!-- ============ 금지어/대체어 ============ -->
+    <section class="block" id="filters">
+      <h2 class="block-title">금지어 · 대체어</h2>
+      <div class="intro-box">
+        <p>상품명에 쓰면 안 되는 단어를 자동으로 지워주거나(금지어), 다른 단어로 자동 치환해주는(대체어) 기능이에요. 예를 들어 마켓 정책상 "정품"이라는 단어를 쓸 수 없다면, 이 단어를 금지어로 등록해두면 상품명을 저장할 때마다 자동으로 빠져요.</p>
+        <p>적용 순서는 <b>대체어로 먼저 바꾼 뒤, 남은 금지어를 지우는 순서</b>예요. 대소문자 구분 없이 적용됩니다.</p>
+      </div>
+
+      <h3 class="sub">단어 추가</h3>
+      <p><span class="ui">단어 추가</span> 버튼을 누르면 <b>단건 추가</b>와 <b>일괄 추가</b> 두 가지 모드 중 고를 수 있어요.</p>
+      <ul class="plain">
+        <li><b>단건 추가</b> — 금지어(또는 대체 전 단어) 하나씩 입력해요. 대체어는 "원본 → 대체어" 형태로 입력해요.</li>
+        <li><b>일괄 추가</b> — 최대 10,000개를 한 번에 붙여넣어 추가해요. 대체어는 각 줄에 <span class="ui">원본 -> 대체어</span> 형식으로 입력해요.</li>
+      </ul>
+      <p>대체어는 등록 후 연필 아이콘으로 수정할 수 있어요. 금지어는 삭제만 가능해요.</p>
+
+      <h3 class="sub">엑셀 내보내기 · 가져오기</h3>
+      <p>등록된 단어가 많을 땐 <span class="ui">엑셀 추출</span> 버튼으로 전체 목록을 내려받고, 수정 후 <span class="ui">엑셀 업로드</span>로 다시 올릴 수 있어요. 업로드 시에는 두 가지 방식 중 하나를 선택해요:</p>
+      <ul class="plain">
+        <li><b>덮어쓰기</b> — 기존 목록을 전부 지우고 파일 내용으로 교체해요. 파일에 오류가 있으면 덮어쓰기 버튼이 비활성화돼요.</li>
+        <li><b>추가</b> — 기존 목록은 그대로 두고 파일 내용을 이어붙여요. 이미 있는 단어는 중복 추가되지 않아요.</li>
+      </ul>
+    </section>
+
+    <!-- ============ 프롬프트 관리 ============ -->
+    <section class="block" id="prompt-templates">
+      <h2 class="block-title">프롬프트 관리</h2>
+      <div class="intro-box">
+        <p>상품명 번역, 옵션명 번역, AI 이미지 수정·생성에 쓰이는 AI 지시문(프롬프트)을 미리 만들어두고 관리하는 곳이에요. 프리셋에서 "어떤 모델과 프롬프트로 만들지"를 고를 때 여기서 만든 프롬프트가 목록에 나타나요.</p>
+      </div>
+
+      <h3 class="sub">탭 4가지</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>탭</th><th>용도</th></tr></thead>
+          <tbody>
+            <tr><td>상품명 프롬프트</td><td>상품명을 번역·생성할 때 쓸 지시문. LLM 모델 선택.</td></tr>
+            <tr><td>옵션명 프롬프트</td><td>색상·사이즈 등 옵션명을 번역할 때 쓸 지시문. LLM 모델 선택.</td></tr>
+            <tr><td>AI 이미지 수정</td><td>배경제거·텍스트 처리 등 이미지를 가공할 때 쓸 변환 프롬프트. 이미지 변환 모델 선택.</td></tr>
+            <tr><td>AI 이미지 생성</td><td>새 이미지를 만들어낼 때 쓸 생성 프롬프트. 이미지 생성 모델 선택.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">프롬프트 만들기 · 수정 · 삭제</h3>
+      <ol class="steps">
+        <li><span class="ui">+ 새 프롬프트</span> 버튼을 눌러 이름, 모델, 지시문 내용을 입력해요.</li>
+        <li>목록에서 행을 클릭하면 수정 창이 열려요.</li>
+        <li>삭제는 행 오른쪽의 삭제 버튼을 눌러요. 기본값으로 지정된 프롬프트는 삭제 전에 기본값을 먼저 해제해야 해요.</li>
+      </ol>
+
+      <h3 class="sub">기본 프롬프트 지정</h3>
+      <p>각 탭에서 프롬프트 하나에 ⭐ 아이콘을 눌러 기본값으로 지정할 수 있어요. 기본값으로 지정된 프롬프트는 프리셋이나 편집 화면에서 처음 열었을 때 자동으로 선택돼요. 다시 누르면 기본값이 해제돼요.</p>
+    </section>
+
+    <!-- ============ 주문 관리 ============ -->
+    <section class="block" id="orders">
+      <h2 class="block-title">주문 관리</h2>
+      <div class="note">
+        <span class="note-label">아직 준비 중이에요</span>
+        마켓에서 들어온 주문을 확인하고 처리하는 기능은 현재 준비 중이에요. 곧 업데이트를 통해 추가될 예정입니다.
+      </div>
+    </section>
+
+    <footer class="doc-foot">ALL8 사용 설명서 — 전체 메뉴 상세판</footer>
+
+  </main>
+</div>
+
+<script>
+(function(){
+  var input = document.getElementById('searchInput');
+  var clearBtn = document.getElementById('searchClear');
+  var statusBar = document.getElementById('searchStatus');
+  var countEl = document.getElementById('searchCount');
+  var prevBtn = document.getElementById('searchPrev');
+  var nextBtn = document.getElementById('searchNext');
+  var main = document.querySelector('main');
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.side nav a'));
+  var marks = [];
+  var currentIndex = -1;
+  var debounceTimer = null;
+
+  function clearHighlights(){
+    var existing = main.querySelectorAll('mark.hl');
+    existing.forEach(function(m){
+      var parent = m.parentNode;
+      parent.replaceChild(document.createTextNode(m.textContent), m);
+      parent.normalize();
+    });
+    marks = [];
+    currentIndex = -1;
+  }
+
+  function resetNavFilter(){
+    navLinks.forEach(function(a){ a.classList.remove('no-match'); });
+  }
+
+  function walkAndHighlight(root, query){
+    var lowerQuery = query.toLowerCase();
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(node){
+        if (!node.nodeValue || !node.nodeValue.toLowerCase().includes(lowerQuery)) return NodeFilter.FILTER_REJECT;
+        if (node.parentNode && (node.parentNode.tagName === 'SCRIPT' || node.parentNode.tagName === 'STYLE')) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var targets = [];
+    var n;
+    while ((n = walker.nextNode())) targets.push(n);
+
+    targets.forEach(function(node){
+      var text = node.nodeValue;
+      var lower = text.toLowerCase();
+      var frag = document.createDocumentFragment();
+      var lastIndex = 0;
+      var idx = lower.indexOf(lowerQuery);
+      while (idx !== -1) {
+        if (idx > lastIndex) frag.appendChild(document.createTextNode(text.slice(lastIndex, idx)));
+        var mark = document.createElement('mark');
+        mark.className = 'hl';
+        mark.textContent = text.slice(idx, idx + query.length);
+        frag.appendChild(mark);
+        marks.push(mark);
+        lastIndex = idx + query.length;
+        idx = lower.indexOf(lowerQuery, lastIndex);
+      }
+      if (lastIndex < text.length) frag.appendChild(document.createTextNode(text.slice(lastIndex)));
+      node.parentNode.replaceChild(frag, node);
+    });
+  }
+
+  function filterNav(query){
+    var lowerQuery = query.toLowerCase();
+    var sectionHasMatch = {};
+    marks.forEach(function(m){
+      var section = m.closest('section.block');
+      if (section) sectionHasMatch[section.id] = true;
+    });
+    navLinks.forEach(function(a){
+      var id = a.getAttribute('href').slice(1);
+      var labelMatches = a.textContent.toLowerCase().includes(lowerQuery);
+      var hasMatch = sectionHasMatch[id] || labelMatches;
+      a.classList.toggle('no-match', !hasMatch);
+    });
+  }
+
+  function goToMatch(index){
+    if (!marks.length) return;
+    if (currentIndex >= 0 && marks[currentIndex]) marks[currentIndex].classList.remove('current');
+    currentIndex = (index + marks.length) % marks.length;
+    var m = marks[currentIndex];
+    m.classList.add('current');
+    m.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    countEl.textContent = (currentIndex + 1) + ' / ' + marks.length + '개 결과';
+  }
+
+  function runSearch(){
+    var query = input.value.trim();
+    clearHighlights();
+    resetNavFilter();
+    clearBtn.style.display = query ? 'block' : 'none';
+
+    if (!query) {
+      statusBar.style.display = 'none';
+      return;
+    }
+
+    walkAndHighlight(main, query);
+    filterNav(query);
+
+    if (!marks.length) {
+      statusBar.style.display = 'flex';
+      countEl.textContent = '결과 없음';
+      prevBtn.disabled = true;
+      nextBtn.disabled = true;
+      return;
+    }
+
+    statusBar.style.display = 'flex';
+    prevBtn.disabled = false;
+    nextBtn.disabled = false;
+    goToMatch(0);
+  }
+
+  input.addEventListener('input', function(){
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(runSearch, 150);
+  });
+
+  input.addEventListener('keydown', function(e){
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (marks.length) goToMatch(currentIndex + (e.shiftKey ? -1 : 1));
+    } else if (e.key === 'Escape') {
+      input.value = '';
+      runSearch();
+      input.blur();
+    }
+  });
+
+  clearBtn.addEventListener('click', function(){
+    input.value = '';
+    runSearch();
+    input.focus();
+  });
+
+  prevBtn.addEventListener('click', function(){ goToMatch(currentIndex - 1); });
+  nextBtn.addEventListener('click', function(){ goToMatch(currentIndex + 1); });
+})();
+</script>
+
+</body>
+</html>
