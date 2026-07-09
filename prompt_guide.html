@@ -779,22 +779,22 @@ GOOD: 스탠리 하루종일 얼음 안녹는 퀜처 텀블러 40oz 대용량
   <!-- ============ 마켓별 SEO 상품명 ============ -->
   <section class="section" id="s-market">
     <div class="section-head"><h2>마켓별 SEO 상품명</h2><span class="count">공통 2 + 마켓 8종</span></div>
-    <p class="section-sub">아래 3단계를 순서대로 이어 붙여서 씁니다: <b>① 공통(PART A)</b> → <b>② 판매할 마켓 카드 1개</b> → <b>③ 공통(PART C)</b>. 세 개를 이어 붙인 뒤 원본 상품명을 넣으면 그 마켓에 맞는 글자수·구조로 상품명 2개가 나옵니다.</p>
+    <p class="section-sub">판매할 <b>마켓 카드 1개</b>의 "복사" 버튼을 누르면 <b>① 공통(PART A) + ② 그 마켓 + ③ 공통(PART C)</b>이 자동으로 합쳐져 한 번에 복사됩니다. 붙여넣고 원본 상품명을 입력하면 그 마켓에 맞는 글자수·구조로 상품명 1개가 나옵니다.</p>
 
     <!-- PART A -->
     <article class="card" data-cat="상품명">
       <div class="card-head">
         <div class="meta">
-          <span class="cat-tag">① 공통 · 항상 맨 먼저</span>
+          <span class="cat-tag">① 공통 · 마켓 카드 복사에 자동 포함됨</span>
           <h3>PART A — 역할 · 핵심 공식</h3>
-          <p class="purpose">역할, SEO/베네핏 공식, 브랜드 판별, 가격비교 회피, Before/After 예시.</p>
+          <p class="purpose">역할, SEO/베네핏 공식, 브랜드 판별, 가격비교 회피, Before/After 예시. 내용 확인용 — 아래 마켓 카드를 복사하면 이 내용이 자동으로 맨 앞에 붙습니다.</p>
         </div>
         <button class="copy-btn" aria-label="복사">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>복사</span>
         </button>
       </div>
       <div class="body-wrap">
-<pre class="prompt-body">[역할]
+<pre class="prompt-body" id="prompt-part-a">[역할]
 당신은 연매출 100억원 이상 글로벌 구매대행 셀러 출신이자, 한국 오픈마켓(쿠팡·스마트스토어 등) 상품명 최적화를 전문으로 하는 SEO 카피라이터 겸 광고 카피라이터입니다.
 
 [핵심 철학]
@@ -872,7 +872,7 @@ B4. 위 3가지 중 "이게 내 얘기네" 반응이 가장 강한 킬러 표현
           <h3>범용 (마켓 미지정)</h3>
           <p class="purpose">목표 35~40자. 특정 마켓이 정해지지 않았을 때.</p>
         </div>
-        <button class="copy-btn" aria-label="복사">
+        <button class="copy-btn" aria-label="복사" data-market-combo="1">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>복사</span>
         </button>
       </div>
@@ -893,7 +893,7 @@ B4. 위 3가지 중 "이게 내 얘기네" 반응이 가장 강한 킬러 표현
           <h3>쿠팡 — 골든서치 정확도 + 모바일 절단 대응</h3>
           <p class="purpose">목표 35~40자. 앞 15~20자 안에 핵심 완결.</p>
         </div>
-        <button class="copy-btn" aria-label="복사">
+        <button class="copy-btn" aria-label="복사" data-market-combo="1">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>복사</span>
         </button>
       </div>
@@ -918,7 +918,7 @@ B4. 위 3가지 중 "이게 내 얘기네" 반응이 가장 강한 킬러 표현
           <h3>스마트스토어 — 적합도 매칭 · 검색용 필드 수정불가</h3>
           <p class="purpose">목표 35~40자(100byte 이내). 키워드 다양성 우선, 중복 배치 금지.</p>
         </div>
-        <button class="copy-btn" aria-label="복사">
+        <button class="copy-btn" aria-label="복사" data-market-combo="1">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>복사</span>
         </button>
       </div>
@@ -940,7 +940,7 @@ B4. 위 3가지 중 "이게 내 얘기네" 반응이 가장 강한 킬러 표현
           <h3>G마켓 — CTR·전환 반영 랭킹</h3>
           <p class="purpose">목표 35~40자(100byte). 검색용/프로모션용 분리 조립.</p>
         </div>
-        <button class="copy-btn" aria-label="복사">
+        <button class="copy-btn" aria-label="복사" data-market-combo="1">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>복사</span>
         </button>
       </div>
@@ -961,7 +961,7 @@ B4. 위 3가지 중 "이게 내 얘기네" 반응이 가장 강한 킬러 표현
           <h3>옥션 — 리터럴(정확) 매칭 위주</h3>
           <p class="purpose">목표 35~40자(100byte). 창의적 치환보다 표준 검색어 그대로.</p>
         </div>
-        <button class="copy-btn" aria-label="복사">
+        <button class="copy-btn" aria-label="복사" data-market-combo="1">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>복사</span>
         </button>
       </div>
@@ -983,7 +983,7 @@ B4. 위 3가지 중 "이게 내 얘기네" 반응이 가장 강한 킬러 표현
           <h3>11번가 — 공식 슬롯 구조 엄수</h3>
           <p class="purpose">목표 35~40자. 제조사→브랜드→시리즈→제품명→사양→성별→품목→판매단위 순서 고정.</p>
         </div>
-        <button class="copy-btn" aria-label="복사">
+        <button class="copy-btn" aria-label="복사" data-market-combo="1">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>복사</span>
         </button>
       </div>
@@ -1005,7 +1005,7 @@ B4. 위 3가지 중 "이게 내 얘기네" 반응이 가장 강한 킬러 표현
           <h3>롯데ON — 카테고리 매핑 정확도 · 33자 강제 압축</h3>
           <p class="purpose">⚠ 목표 28~33자, 최대 33자(초과 시 잘림). 브랜드명 포함 금지.</p>
         </div>
-        <button class="copy-btn" aria-label="복사">
+        <button class="copy-btn" aria-label="복사" data-market-combo="1">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>복사</span>
         </button>
       </div>
@@ -1028,7 +1028,7 @@ B4. 위 3가지 중 "이게 내 얘기네" 반응이 가장 강한 킬러 표현
           <h3>토스쇼핑 — 피드·카드형 노출 · 신뢰 소구</h3>
           <p class="purpose">목표 20~28자 (가장 짧게). 정보값 우선, 신뢰 신호 강조.</p>
         </div>
-        <button class="copy-btn" aria-label="복사">
+        <button class="copy-btn" aria-label="복사" data-market-combo="1">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>복사</span>
         </button>
       </div>
@@ -1047,16 +1047,16 @@ B4. 위 3가지 중 "이게 내 얘기네" 반응이 가장 강한 킬러 표현
     <article class="card" data-cat="상품명">
       <div class="card-head">
         <div class="meta">
-          <span class="cat-tag">③ 공통 · 항상 맨 마지막</span>
+          <span class="cat-tag">③ 공통 · 마켓 카드 복사에 자동 포함됨</span>
           <h3>PART C — 금지어 필터 · 출력 지시 · 원본 입력</h3>
-          <p class="purpose">필수 삭제어, 법적 금지 표현, 출력 형식(1개 버전). 마지막에 이어 붙이고 원본 상품명을 입력.</p>
+          <p class="purpose">필수 삭제어, 법적 금지 표현, 출력 형식(1개 버전). 내용 확인용 — 아래 마켓 카드를 복사하면 이 내용이 자동으로 맨 뒤에 붙습니다.</p>
         </div>
         <button class="copy-btn" aria-label="복사">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>복사</span>
         </button>
       </div>
       <div class="body-wrap">
-<pre class="prompt-body">[필수 삭제 — 상품명에 아래 유형은 절대 포함 금지]
+<pre class="prompt-body" id="prompt-part-c">[필수 삭제 — 상품명에 아래 유형은 절대 포함 금지]
 도매처명/공급처명/판매자명/총판명/셀러닉네임/스토어명
 상품코드/SKU/모델번호(소비자 비검색 코드류)
 배송문구(무료배송/당일발송/빠른배송/당일출고)
@@ -1337,10 +1337,15 @@ B4. 위 3가지 중 "이게 내 얘기네" 반응이 가장 강한 킬러 표현
       document.body.removeChild(ta);
     });
   }
+  var partAEl = document.getElementById('prompt-part-a');
+  var partCEl = document.getElementById('prompt-part-c');
   document.querySelectorAll('.copy-btn').forEach(function(btn){
     btn.addEventListener('click', function(){
       var body = btn.closest('.card').querySelector('.prompt-body');
       var text = body.textContent;
+      if(btn.hasAttribute('data-market-combo') && partAEl && partCEl){
+        text = partAEl.textContent + '\n\n' + text + '\n\n' + partCEl.textContent;
+      }
       copyText(text).then(function(){
         var label = btn.querySelector('span');
         var prev = label.textContent;
