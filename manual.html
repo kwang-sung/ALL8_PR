@@ -474,21 +474,147 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
     </div>
 
     <!-- ────────── 상품 편집 ────────── -->
-    <div class="content-section" id="edit" data-section data-keywords="편집 상품명 카테고리 가격 마진 배송 이미지 상세설명 키워드 태그 옵션 부가정보 원산지 메모 마켓선택">
+    <div class="content-section" id="edit" data-section data-keywords="편집 소싱처 프리셋 마켓선택 상품명 카테고리 옵션 가격 마진 배송 반품 썸네일 이미지 상세설명 부가정보 원산지 메모 업로드플로우">
       <div class="section-head">
         <div class="section-icon">✏️</div>
         <div class="section-meta">
-          <div class="section-label">EDIT</div>
-          <div class="section-title">상품 편집 — 마켓에 올리기 전 설정</div>
+          <div class="section-label">EDIT · 업로드 플로우</div>
+          <div class="section-title">상품 편집 — 11단계 업로드 플로우</div>
         </div>
       </div>
-      <p class="section-desc">상품을 클릭하면 편집 화면이 열려요. 위에서 아래로 채워나가면 됩니다. 어렵지 않아요.</p>
+      <p class="section-desc">수집된 상품을 클릭하면 편집 화면이 열려요. 화면 오른쪽에 <strong>업로드 플로우</strong>가 있는데, 위에서 아래로 체크하면서 내려가면 됩니다. 초록 체크 = 완료, 빨간 점 = 반드시 해야 함, 빈 원 = 선택 사항이에요.</p>
 
+      <!-- 플로우 시각화 -->
+      <div class="card" style="margin-bottom:20px;">
+        <div class="card-title">📋 업로드 플로우 전체 순서</div>
+        <div style="display:flex;flex-direction:column;gap:0;">
+          <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);">
+            <span style="width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;font-size:.7rem;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;">1</span>
+            <span style="font-weight:600;">소싱처</span>
+            <span style="margin-left:auto;font-size:.8rem;color:var(--ink3);">어디서 가져온 상품인지 확인</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);">
+            <span style="width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;font-size:.7rem;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;">2</span>
+            <span style="font-weight:600;">프리셋</span>
+            <span style="margin-left:auto;font-size:.8rem;color:var(--ink3);">저장된 설정 한 번에 적용</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);">
+            <span style="width:22px;height:22px;border-radius:50%;background:#ef4444;color:#fff;font-size:.7rem;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;">3</span>
+            <span style="font-weight:700;color:#ef4444;">마켓 선택</span>
+            <span style="margin-left:auto;font-size:.8rem;color:#ef4444;font-weight:600;">필수 — 안 하면 업로드 불가</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);">
+            <span style="width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;font-size:.7rem;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;">4</span>
+            <span style="font-weight:600;">상품명</span>
+            <span style="margin-left:auto;font-size:.8rem;color:var(--ink3);">AI 번역 확인 및 수정</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);">
+            <span style="width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;font-size:.7rem;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;">5</span>
+            <span style="font-weight:600;">카테고리</span>
+            <span style="margin-left:auto;font-size:.8rem;color:var(--ink3);">마켓별 분류 선택</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);">
+            <span style="width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;font-size:.7rem;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;">6</span>
+            <span style="font-weight:600;">옵션 및 가격</span>
+            <span style="margin-left:auto;font-size:.8rem;color:var(--ink3);">색상/사이즈/가격 설정</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);">
+            <span style="width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;font-size:.7rem;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;">7</span>
+            <span style="font-weight:600;">배송 및 반품</span>
+            <span style="margin-left:auto;font-size:.8rem;color:var(--ink3);">배송비·출고지·반품 정책</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);">
+            <span style="width:22px;height:22px;border-radius:50%;background:#d1d5db;color:#6b7280;font-size:.7rem;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;">8</span>
+            <span style="font-weight:600;">썸네일/옵션 이미지</span>
+            <span style="margin-left:auto;font-size:.8rem;color:var(--ink3);">선택사항 — 대표·옵션별 이미지</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);">
+            <span style="width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;font-size:.7rem;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;">9</span>
+            <span style="font-weight:600;">상세 설명</span>
+            <span style="margin-left:auto;font-size:.8rem;color:var(--ink3);">AI 상세페이지 확인</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);">
+            <span style="width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;font-size:.7rem;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;">10</span>
+            <span style="font-weight:600;">부가 정보</span>
+            <span style="margin-left:auto;font-size:.8rem;color:var(--ink3);">원산지·브랜드·KC인증</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;padding:8px 0;">
+            <span style="width:22px;height:22px;border-radius:50%;background:#d1d5db;color:#6b7280;font-size:.7rem;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-weight:800;">11</span>
+            <span style="font-weight:600;">메모</span>
+            <span style="margin-left:auto;font-size:.8rem;color:var(--ink3);">선택사항 — 내부 메모</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 1. 소싱처 -->
       <div class="subsection">
-        <div class="subsection-title">1) 마켓 선택</div>
+        <div class="subsection-title">① 소싱처 — 어디서 가져온 상품인지 확인</div>
         <div class="card">
-          <p style="font-size:.9rem;color:var(--ink2);margin-bottom:8px;">어느 마켓에 올릴지 선택해요. 미리 계정을 연결해뒀어야 보여요.</p>
-          <div class="badge-row">
+          <p style="font-size:.9rem;color:var(--ink2);margin-bottom:12px;">이 상품이 어떤 사이트에서 수집된 건지 표시되는 곳이에요. 직접 뭔가 입력하는 곳이 아니라, <strong>정보를 확인하는 곳</strong>이에요.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>표시 정보</th><th>설명</th></tr>
+              <tr><td><strong>소싱처 이름</strong></td><td>알리익스프레스, 타오바오, 1688 등 어디서 가져왔는지 표시</td></tr>
+              <tr><td><strong>원본 링크</strong></td><td>클릭하면 소싱처 원본 상품 페이지로 이동. 가격 확인이나 추가 정보 확인 시 사용.</td></tr>
+              <tr><td><strong>소싱처 가격</strong></td><td>수집 당시 소싱처의 원래 가격. 환율 변동이 있으면 원가 입력 시 직접 수정하세요.</td></tr>
+              <tr><td><strong>수집 날짜</strong></td><td>언제 이 상품을 담았는지. 오래된 상품은 가격이 바뀌었을 수 있어요.</td></tr>
+            </table>
+          </div>
+          <div class="callout tip">
+            <div class="callout-title">💡 소싱처 가격 확인이 중요해요</div>
+            환율이나 소싱처 가격이 바뀌었을 수 있어요. 업로드 전에 원본 링크를 눌러서 현재 가격을 한 번 확인하는 습관을 들이세요. 특히 환율 변동이 크거나 오래된 상품일수록 꼭 확인하세요.
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. 프리셋 -->
+      <div class="subsection">
+        <div class="subsection-title">② 프리셋 — 저장된 설정 한 번에 적용</div>
+        <div class="card">
+          <p style="font-size:.9rem;color:var(--ink2);margin-bottom:12px;">편집 화면에서 가장 먼저 해야 할 일이에요. 프리셋을 적용하면 배송비·마진율·반품지·마켓 계정 등 설정이 한꺼번에 자동으로 채워집니다.</p>
+          <ol class="steps">
+            <li>
+              <strong>업로드 플로우에서 <span class="btn">프리셋</span> 클릭</strong>
+              <span>저장된 프리셋 목록이 드롭다운으로 나와요.</span>
+            </li>
+            <li>
+              <strong>이 상품에 맞는 프리셋 선택</strong>
+              <span>예: 타오바오에서 담은 패션 상품이면 "타오바오-패션-쿠팡" 선택</span>
+            </li>
+            <li>
+              <strong>자동으로 아래 항목들이 채워짐</strong>
+              <span>마켓 선택, 배송비, 출고지, 반품지, 마진율 등이 한꺼번에 입력돼요.</span>
+            </li>
+            <li>
+              <strong>이 상품만 다르게 할 부분만 수동 수정</strong>
+              <span>대부분 그대로 써도 되지만, 이 상품만 특별히 다른 설정이 있으면 아래에서 수정하세요.</span>
+            </li>
+          </ol>
+          <div class="callout good">
+            <div class="callout-title">✅ 프리셋이 없으면?</div>
+            프리셋이 아직 없으면 일단 넘어가도 되지만, 아래 항목들을 하나씩 수동으로 입력해야 해요. 프리셋 만드는 방법은 <a href="#preset" style="color:inherit;font-weight:700;">프리셋 관리 섹션</a>을 참고하세요.
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. 마켓 선택 -->
+      <div class="subsection">
+        <div class="subsection-title">③ 마켓 선택 — 🔴 반드시 해야 해요</div>
+        <div class="card">
+          <div class="callout warn" style="margin-bottom:12px;">
+            <div class="callout-title">⚠️ 빨간 점 = 필수 항목</div>
+            마켓을 선택하지 않으면 업로드 버튼 자체가 활성화되지 않아요. 편집 화면에서 빨간 점(🔴)이 보이면 여기를 가장 먼저 해결하세요.
+          </div>
+          <p style="font-size:.9rem;color:var(--ink2);margin-bottom:12px;">어느 마켓에 이 상품을 올릴지 선택해요. 프리셋을 적용했다면 이미 선택되어 있을 거예요.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>항목</th><th>설명</th></tr>
+              <tr><td><strong>마켓 계정 선택</strong></td><td>미리 연결해둔 마켓 계정 목록이 나와요. 없으면 마켓 설정에서 먼저 계정을 연결해야 해요.</td></tr>
+              <tr><td><strong>여러 마켓 동시 선택</strong></td><td>체크박스로 여러 마켓을 동시에 선택하면, 버튼 한 번으로 여러 곳에 동시 업로드돼요.</td></tr>
+              <tr><td><strong>마켓별 설정 탭</strong></td><td>마켓을 선택하면 해당 마켓의 카테고리, 가격 등이 마켓 기준으로 표시돼요.</td></tr>
+            </table>
+          </div>
+          <div class="badge-row" style="margin-top:10px;">
             <span class="badge green">쿠팡</span>
             <span class="badge green">스마트스토어</span>
             <span class="badge green">11번가</span>
@@ -496,147 +622,442 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
             <span class="badge green">옥션</span>
             <span class="badge green">인터파크</span>
             <span class="badge green">쇼피</span>
-            <span class="badge gray">그 외</span>
-          </div>
-          <div class="callout tip" style="margin-top:8px;">
-            <div class="callout-title">💡 여러 마켓 동시에 선택 가능</div>
-            마켓을 여러 개 선택하면 한 번에 여러 곳에 올릴 수 있어요.
+            <span class="badge gray">그 외 다수</span>
           </div>
         </div>
       </div>
 
+      <!-- 4. 상품명 -->
       <div class="subsection">
-        <div class="subsection-title">2) 상품명</div>
+        <div class="subsection-title">④ 상품명 — AI 번역 확인 및 수정</div>
         <div class="card">
-          <ul class="dots">
-            <li>AI가 소싱처 상품명을 자동으로 번역·정리해줘요.</li>
-            <li>마음에 안 들면 직접 수정하세요. 클릭하면 편집할 수 있어요.</li>
-            <li>금지어가 포함되어 있으면 자동으로 걸러줘요 (금지어 설정에서 미리 등록 필요).</li>
-            <li>마켓마다 상품명 글자 수 제한이 있어요. 쿠팡은 100자, 스마트스토어는 100자 이내.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="subsection">
-        <div class="subsection-title">3) 카테고리</div>
-        <div class="card">
-          <ul class="dots">
-            <li>AI가 상품에 맞는 카테고리를 자동으로 추천해줘요.</li>
-            <li>틀렸다 싶으면 검색창에서 직접 찾아서 바꿀 수 있어요.</li>
-            <li>마켓마다 카테고리 체계가 달라서 각각 따로 선택해야 해요.</li>
-          </ul>
-          <div class="callout warn" style="margin-top:8px;">
-            <div class="callout-title">⚠️ 카테고리가 잘못되면</div>
-            마켓에서 등록을 거부하거나 잘못된 곳에 올라갈 수 있어요. AI 추천을 한 번 확인하고 넘어가세요.
-          </div>
-        </div>
-      </div>
-
-      <div class="subsection">
-        <div class="subsection-title">4) 가격 설정</div>
-        <div class="card">
+          <p style="font-size:.9rem;color:var(--ink2);margin-bottom:12px;">소싱처의 원본 상품명(중국어, 영어 등)을 AI가 자동으로 한국어로 번역·정리해줘요.</p>
           <div class="tbl-wrap">
             <table>
-              <tr><th>항목</th><th>설명</th></tr>
-              <tr><td><strong>원가 (소싱 단가)</strong></td><td>소싱처에서 실제로 구매하는 가격. 자동으로 가져오는데, 환율 등이 반영 안 됐으면 수동 수정하세요.</td></tr>
-              <tr><td><strong>마진율 (%)</strong></td><td>원가에서 얼마나 남길 건지 비율. 예: 원가 10,000원 + 마진 30% = 판매가 13,000원.</td></tr>
-              <tr><td><strong>추가 비용</strong></td><td>배송비, 수수료 등 원가 외 드는 비용.</td></tr>
-              <tr><td><strong>판매가</strong></td><td>위 항목을 기반으로 자동 계산돼요. 직접 입력해서 바꿀 수도 있어요.</td></tr>
+              <tr><th>기능</th><th>설명</th><th>팁</th></tr>
+              <tr>
+                <td><strong>AI 번역</strong></td>
+                <td>원본 상품명을 한국어로 자동 번역</td>
+                <td>번역이 이상하면 클릭해서 직접 수정. 특히 브랜드명, 고유명사는 번역이 틀릴 수 있어요.</td>
+              </tr>
+              <tr>
+                <td><strong>글자수 제한</strong></td>
+                <td>마켓마다 최대 글자수가 달라요</td>
+                <td>쿠팡·스마트스토어 100자 이내, 11번가 100자 이내. 초과하면 업로드 거부될 수 있어요.</td>
+              </tr>
+              <tr>
+                <td><strong>금지어 자동 제거</strong></td>
+                <td>금지어 설정에 등록된 단어 자동 삭제</td>
+                <td>마켓에서 금지하는 표현이 자동으로 걸러져요. 미리 금지어 등록해두면 편해요.</td>
+              </tr>
+              <tr>
+                <td><strong>프리셋 접두/접미사</strong></td>
+                <td>프리셋에 설정한 앞뒤 문구 자동 추가</td>
+                <td>예: "[당일발송]" 접두사 → "[당일발송] 남성 반팔 티셔츠"</td>
+              </tr>
+              <tr>
+                <td><strong>마켓별 상품명</strong></td>
+                <td>마켓마다 다른 상품명 사용 가능</td>
+                <td>쿠팡용 상품명과 스마트스토어용 상품명을 따로 설정할 수 있어요.</td>
+              </tr>
             </table>
           </div>
-          <div class="callout info" style="margin-top:10px;">
-            <div class="callout-title">📌 프리셋에 저장하면 편해요</div>
-            마진율을 매번 입력하기 귀찮으면 프리셋으로 저장해두세요. 다음엔 클릭 한 번으로 끝나요.
+          <div class="callout tip" style="margin-top:10px;">
+            <div class="callout-title">💡 좋은 상품명 만드는 법</div>
+            핵심 키워드를 앞에 배치하세요. 예: "남성 반팔 티셔츠 여름 루즈핏 오버사이즈 면" 처럼 검색어가 될 단어 위주로 구성하면 노출이 잘 돼요. 특수문자, 과장 표현은 마켓에서 제재받을 수 있어요.
           </div>
         </div>
       </div>
 
+      <!-- 5. 카테고리 -->
       <div class="subsection">
-        <div class="subsection-title">5) 배송 설정</div>
+        <div class="subsection-title">⑤ 카테고리 — 마켓에서 어느 코너에 올릴지</div>
         <div class="card">
+          <p style="font-size:.9rem;color:var(--ink2);margin-bottom:12px;">오프라인 마트로 치면 어느 진열대에 놓을지 정하는 거예요. AI가 추천해주지만, 한 번 확인하고 올리는 게 안전해요.</p>
           <div class="tbl-wrap">
             <table>
-              <tr><th>항목</th><th>설명</th></tr>
-              <tr><td><strong>배송비</strong></td><td>고객에게 받을 배송비. 무료배송이면 0원 입력.</td></tr>
-              <tr><td><strong>배송 방법</strong></td><td>택배, 직접 배송 등 선택.</td></tr>
-              <tr><td><strong>출고지</strong></td><td>상품이 출발하는 주소. 마켓에 등록된 주소와 같으면 그대로 두세요.</td></tr>
-              <tr><td><strong>반품지</strong></td><td>반품 받을 주소. 보통 출고지와 같아요.</td></tr>
-              <tr><td><strong>반품 배송비</strong></td><td>고객이 반품할 때 내는 배송비.</td></tr>
+              <tr><th>기능</th><th>설명</th></tr>
+              <tr>
+                <td><strong>AI 카테고리 추천</strong></td>
+                <td>상품명과 정보를 바탕으로 AI가 자동으로 카테고리를 추천해줘요. 대부분 맞지만 가끔 틀릴 수 있어요.</td>
+              </tr>
+              <tr>
+                <td><strong>직접 검색</strong></td>
+                <td>카테고리 검색창에 키워드 입력 → 원하는 카테고리 선택. AI 추천이 틀렸을 때 사용.</td>
+              </tr>
+              <tr>
+                <td><strong>마켓별 별도 설정</strong></td>
+                <td>쿠팡, 스마트스토어, 11번가 각각 카테고리 체계가 달라요. 마켓 탭 전환하면서 각각 확인하세요.</td>
+              </tr>
             </table>
           </div>
-        </div>
-      </div>
-
-      <div class="subsection">
-        <div class="subsection-title">6) 이미지</div>
-        <div class="card">
-          <ul class="dots">
-            <li>소싱처 상품 이미지를 자동으로 가져와요.</li>
-            <li><strong>순서 변경</strong>: 이미지를 드래그해서 순서를 바꿀 수 있어요. 첫 번째 이미지가 대표 이미지가 돼요.</li>
-            <li><strong>삭제</strong>: 불필요한 이미지 위에 마우스를 올리면 삭제 버튼이 뜨거요.</li>
-            <li><strong>추가</strong>: 내 컴퓨터에서 이미지를 직접 올릴 수도 있어요.</li>
-            <li>마켓마다 이미지 개수 제한이 있어요 (쿠팡 10장, 스마트스토어 10장 등).</li>
-          </ul>
-          <div class="callout tip">
-            <div class="callout-title">💡 대표 이미지가 중요해요</div>
-            검색 결과에서 처음 보이는 이미지예요. 깔끔하고 상품이 잘 보이는 이미지를 첫 번째로 두세요.
+          <div class="callout warn" style="margin-top:10px;">
+            <div class="callout-title">⚠️ 카테고리가 잘못되면 생기는 문제</div>
+            <ul class="dots" style="margin-top:6px;">
+              <li>마켓에서 등록 거부 (카테고리에 맞지 않는 상품)</li>
+              <li>잘못된 위치에 올라가서 검색이 안 됨</li>
+              <li>특정 카테고리는 KC 인증·원산지 필수 입력이라 누락 시 오류</li>
+            </ul>
           </div>
         </div>
       </div>
 
+      <!-- 6. 옵션 및 가격 -->
       <div class="subsection">
-        <div class="subsection-title">7) 상세 설명 (상세페이지)</div>
-        <div class="card">
-          <ul class="dots">
-            <li>AI가 소싱처 상세페이지를 번역·정리해서 자동으로 만들어줘요.</li>
-            <li>마음에 안 들면 직접 수정할 수 있어요.</li>
-            <li>HTML 편집도 가능해요 (HTML 탭으로 전환).</li>
-            <li>프롬프트 관리에서 AI 작성 방식을 커스터마이즈할 수 있어요.</li>
-          </ul>
+        <div class="subsection-title">⑥ 옵션 및 가격 — 가장 신경 써야 할 부분</div>
+        <div class="card" style="margin-bottom:10px;">
+          <div class="card-title">옵션이란?</div>
+          <p style="font-size:.9rem;color:var(--ink2);margin-bottom:10px;">같은 상품인데 <strong>색상, 사이즈, 재질</strong> 등이 다른 경우를 "옵션"이라고 해요.</p>
+          <div class="compare">
+            <div class="compare-box">
+              <h4>옵션이 없는 상품</h4>
+              <ul class="dots">
+                <li>색상, 사이즈 구분 없이 딱 하나만 있는 상품</li>
+                <li>예: 특정 사이즈 단일 상품, 유일한 디자인</li>
+                <li>가격 하나만 입력하면 끝</li>
+              </ul>
+            </div>
+            <div class="compare-box highlight">
+              <h4>옵션이 있는 상품</h4>
+              <ul class="dots">
+                <li>색상: 빨강, 파랑, 흰색</li>
+                <li>사이즈: S, M, L, XL</li>
+                <li>조합: 빨강-S, 빨강-M, 파랑-S...</li>
+                <li>각 조합마다 가격·재고 설정 가능</li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="subsection">
-        <div class="subsection-title">8) 키워드 / 태그</div>
-        <div class="card">
-          <ul class="dots">
-            <li>마켓 검색 시 내 상품이 잘 걸리게 하는 검색어예요.</li>
-            <li>AI가 자동으로 추천해줘요. 추가하거나 삭제할 수 있어요.</li>
-            <li>쉼표(,)로 구분해서 입력하세요.</li>
-            <li>마켓마다 태그 수 제한이 달라요.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="subsection">
-        <div class="subsection-title">9) 부가 정보</div>
-        <div class="card">
+        <div class="card" style="margin-bottom:10px;">
+          <div class="card-title">옵션 설정 방법</div>
           <div class="tbl-wrap">
             <table>
-              <tr><th>항목</th><th>설명</th></tr>
-              <tr><td><strong>원산지</strong></td><td>상품이 만들어진 나라. 중국 소싱이면 보통 "중국".</td></tr>
-              <tr><td><strong>제조사 / 브랜드</strong></td><td>만든 회사 이름. 모르면 "기타" 또는 "-"로 입력하세요.</td></tr>
-              <tr><td><strong>모델명</strong></td><td>상품 모델 번호. 없으면 비워두세요.</td></tr>
-              <tr><td><strong>KC 인증</strong></td><td>해당하는 상품(전기제품, 어린이용품 등)은 인증 번호를 입력해야 해요.</td></tr>
+              <tr><th>항목</th><th>설명</th><th>예시</th></tr>
+              <tr>
+                <td><strong>옵션 자동 가져오기</strong></td>
+                <td>소싱처 상품의 옵션 정보를 자동으로 불러와요</td>
+                <td>타오바오에서 색상 5가지·사이즈 4가지가 있으면 자동으로 다 가져와요</td>
+              </tr>
+              <tr>
+                <td><strong>옵션명 수정</strong></td>
+                <td>중국어로 된 옵션명을 한국어로 수정</td>
+                <td>"红色" → "빨강", "蓝色" → "파랑"으로 수정</td>
+              </tr>
+              <tr>
+                <td><strong>불필요한 옵션 삭제</strong></td>
+                <td>팔지 않을 옵션(색상, 사이즈)은 삭제</td>
+                <td>XL 이상 팔기 싫으면 해당 옵션 체크 해제 또는 삭제</td>
+              </tr>
+              <tr>
+                <td><strong>옵션 추가</strong></td>
+                <td>소싱처에 없어도 새 옵션 직접 추가 가능</td>
+                <td>"선물포장 여부" 같은 서비스 옵션 추가</td>
+              </tr>
+              <tr>
+                <td><strong>옵션 재고 수량</strong></td>
+                <td>각 옵션별 재고를 따로 설정</td>
+                <td>빨강-M: 10개, 파랑-L: 5개처럼 옵션별로 다르게</td>
+              </tr>
             </table>
           </div>
-          <div class="callout warn">
-            <div class="callout-title">⚠️ KC 인증 주의</div>
-            전기용품, 어린이 제품 등 일부 품목은 KC 인증 없이 등록하면 마켓에서 삭제될 수 있어요.
+        </div>
+
+        <div class="card" style="margin-bottom:10px;">
+          <div class="card-title">가격 설정 방법</div>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>항목</th><th>설명</th><th>입력 방법</th></tr>
+              <tr>
+                <td><strong>원가 (소싱 단가)</strong></td>
+                <td>내가 소싱처에서 실제로 사는 가격</td>
+                <td>자동으로 가져오지만 환율이나 추가비용 반영 안 됐으면 직접 수정. 단위: 원(₩)</td>
+              </tr>
+              <tr>
+                <td><strong>마진율 (%)</strong></td>
+                <td>원가에서 얼마나 남길지 비율</td>
+                <td>숫자만 입력. 예: 35 입력 → 원가의 35% 마진</td>
+              </tr>
+              <tr>
+                <td><strong>추가 비용</strong></td>
+                <td>마진 외 추가로 드는 고정 비용</td>
+                <td>예: 포장재 500원, 검수비 200원</td>
+              </tr>
+              <tr>
+                <td><strong>판매가 (자동 계산)</strong></td>
+                <td>원가 + 마진 + 추가비용 = 판매가</td>
+                <td>자동으로 계산되지만 직접 입력해서 덮어쓸 수도 있어요</td>
+              </tr>
+              <tr>
+                <td><strong>할인가</strong></td>
+                <td>마켓에 표시할 할인 후 가격</td>
+                <td>입력하면 정가에서 X% 할인처럼 표시돼요 (구매자에게 매력적으로 보임)</td>
+              </tr>
+              <tr>
+                <td><strong>옵션별 추가금</strong></td>
+                <td>특정 옵션 선택 시 기본가에서 추가되는 금액</td>
+                <td>예: XL 사이즈 선택하면 2,000원 추가 → 기본가 15,000 + 2,000 = 17,000원</td>
+              </tr>
+            </table>
+          </div>
+          <div class="callout tip" style="margin-top:10px;">
+            <div class="callout-title">💡 가격 계산 예시</div>
+            원가 8,000원 / 마진율 35% / 추가비용 500원<br>
+            → 판매가 = (8,000 × 1.35) + 500 = <strong>11,300원</strong><br>
+            XL 옵션 추가금 2,000원 → XL 선택 시 <strong>13,300원</strong>
           </div>
         </div>
       </div>
 
+      <!-- 7. 배송 및 반품 -->
       <div class="subsection">
-        <div class="subsection-title">10) 메모</div>
+        <div class="subsection-title">⑦ 배송 및 반품 — 프리셋 적용했으면 확인만</div>
         <div class="card">
-          <p style="font-size:.9rem;color:var(--ink2);">마켓에는 노출되지 않는 내부 메모예요. "이 상품 잘 나가니까 재고 추가", "반품 많음 주의" 같은 내 전용 기록을 남길 수 있어요.</p>
+          <p style="font-size:.9rem;color:var(--ink2);margin-bottom:12px;">프리셋을 적용했다면 이미 자동으로 채워져 있을 거예요. 한 번 확인하고 넘어가세요.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>항목</th><th>설명</th><th>구매대행 권장 설정</th></tr>
+              <tr>
+                <td><strong>배송 방법</strong></td>
+                <td>택배 / 직접배송 / 방문수령 중 선택</td>
+                <td>택배 선택</td>
+              </tr>
+              <tr>
+                <td><strong>배송비</strong></td>
+                <td>고객에게 받을 배송비</td>
+                <td>무료배송(0원) 또는 3,000원. 무료배송이 클릭률 높아요.</td>
+              </tr>
+              <tr>
+                <td><strong>조건부 무료배송</strong></td>
+                <td>N원 이상 구매 시 배송비 무료</td>
+                <td>예: 50,000원 이상 무료</td>
+              </tr>
+              <tr>
+                <td><strong>출고지 주소</strong></td>
+                <td>상품 발송하는 주소 (내 주소)</td>
+                <td>실제 발송 주소 입력 (허위 입력 시 마켓 제재)</td>
+              </tr>
+              <tr>
+                <td><strong>반품지 주소</strong></td>
+                <td>반품 받을 주소</td>
+                <td>보통 출고지와 동일. "출고지와 동일" 체크하면 자동 입력.</td>
+              </tr>
+              <tr>
+                <td><strong>반품 배송비</strong></td>
+                <td>고객이 단순 변심 반품 시 부담하는 배송비</td>
+                <td>편도 3,000원 (마켓 기본값)</td>
+              </tr>
+              <tr>
+                <td><strong>교환 배송비</strong></td>
+                <td>교환 시 왕복 배송비</td>
+                <td>6,000원 (왕복 = 반품배송비 × 2)</td>
+              </tr>
+              <tr>
+                <td><strong>출고 가능일</strong></td>
+                <td>주문 후 며칠 안에 발송 가능한지</td>
+                <td>구매대행은 3~7일. 너무 짧게 설정하면 발송 지연 시 페널티.</td>
+              </tr>
+            </table>
+          </div>
+          <div class="callout warn" style="margin-top:10px;">
+            <div class="callout-title">⚠️ 출고 가능일은 여유있게</div>
+            구매대행은 소싱처에서 배송받아 재발송해야 해서 시간이 걸려요. 쿠팡은 출고 기한을 지키지 않으면 셀러 점수가 깎여요. 현실적인 일수로 설정하세요.
+          </div>
         </div>
       </div>
 
+      <!-- 8. 썸네일/옵션 이미지 -->
+      <div class="subsection">
+        <div class="subsection-title">⑧ 썸네일/옵션 이미지 — 선택이지만 중요해요</div>
+        <div class="card" style="margin-bottom:10px;">
+          <div class="card-title">썸네일 vs 옵션 이미지, 뭐가 달라요?</div>
+          <div class="compare">
+            <div class="compare-box highlight">
+              <h4>🖼️ 썸네일 (대표 이미지)</h4>
+              <ul class="dots">
+                <li>검색 결과에서 보이는 첫 번째 이미지</li>
+                <li>고객이 클릭할지 말지 결정하는 이미지</li>
+                <li>깔끔하고 상품이 잘 보여야 해요</li>
+                <li>마켓마다 권장 비율 다름 (보통 1:1 정사각형)</li>
+              </ul>
+            </div>
+            <div class="compare-box">
+              <h4>🎨 옵션 이미지</h4>
+              <ul class="dots">
+                <li>고객이 색상·사이즈 선택할 때 보이는 이미지</li>
+                <li>"빨강" 클릭 → 빨간 상품 이미지로 전환</li>
+                <li>옵션이 없으면 설정 안 해도 됨</li>
+                <li>설정하면 구매 전환율이 올라가요</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">설정 방법</div>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>기능</th><th>설명</th></tr>
+              <tr>
+                <td><strong>이미지 자동 가져오기</strong></td>
+                <td>소싱처 상품 이미지를 자동으로 불러와요. 불필요한 이미지(중국어 텍스트 포함 이미지 등)는 삭제하세요.</td>
+              </tr>
+              <tr>
+                <td><strong>순서 변경 (드래그)</strong></td>
+                <td>이미지를 드래그해서 순서 조정. 가장 잘 나온 이미지를 첫 번째(썸네일)로 두세요.</td>
+              </tr>
+              <tr>
+                <td><strong>이미지 삭제</strong></td>
+                <td>이미지 위에 마우스 올리면 X 버튼. 중국어, 로고, 비교 이미지 등 불필요한 건 삭제.</td>
+              </tr>
+              <tr>
+                <td><strong>이미지 직접 업로드</strong></td>
+                <td>내 컴퓨터에서 이미지 추가. 직접 촬영한 이미지나 편집한 이미지를 넣을 때.</td>
+              </tr>
+              <tr>
+                <td><strong>옵션별 이미지 연결</strong></td>
+                <td>옵션(색상 등)이 있으면, 각 옵션값과 이미지를 연결. "빨강" 옵션 → 빨간 이미지 선택.</td>
+              </tr>
+              <tr>
+                <td><strong>마켓별 이미지 개수 제한</strong></td>
+                <td>쿠팡·스마트스토어·11번가 모두 최대 10장. 초과하면 자동으로 잘려나가요.</td>
+              </tr>
+            </table>
+          </div>
+          <div class="callout tip" style="margin-top:10px;">
+            <div class="callout-title">💡 썸네일 이미지 잘 고르는 법</div>
+            <ul class="dots">
+              <li>배경이 흰색이거나 깔끔한 이미지 선택</li>
+              <li>상품 전체가 잘 보이는 이미지</li>
+              <li>중국어 텍스트나 로고가 없는 이미지</li>
+              <li>마켓에서 심사 통과율이 높은 정방형(1:1) 이미지</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. 상세 설명 -->
+      <div class="subsection">
+        <div class="subsection-title">⑨ 상세 설명 — AI가 만들어준 상세페이지 확인</div>
+        <div class="card">
+          <p style="font-size:.9rem;color:var(--ink2);margin-bottom:12px;">상품 상세 페이지에 들어갈 설명이에요. AI가 소싱처 상세 정보를 번역·정리해서 자동으로 만들어줘요.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>기능</th><th>설명</th></tr>
+              <tr>
+                <td><strong>AI 자동 생성</strong></td>
+                <td>소싱처 상세페이지 내용을 AI가 번역하고 정리해서 보여줘요. 대부분 그대로 써도 되지만 확인은 필요해요.</td>
+              </tr>
+              <tr>
+                <td><strong>직접 편집</strong></td>
+                <td>텍스트 에디터로 내용 수정 가능. 클릭해서 바로 편집.</td>
+              </tr>
+              <tr>
+                <td><strong>HTML 편집 모드</strong></td>
+                <td>HTML 탭으로 전환하면 직접 HTML 코드 편집 가능. 고급 사용자용.</td>
+              </tr>
+              <tr>
+                <td><strong>이미지 포함</strong></td>
+                <td>소싱처 상세페이지 이미지도 자동으로 포함돼요. 불필요한 이미지(중국어 텍스트 등)는 삭제하세요.</td>
+              </tr>
+              <tr>
+                <td><strong>AI 재생성</strong></td>
+                <td>마음에 안 들면 재생성 버튼으로 다시 만들어달라고 할 수 있어요.</td>
+              </tr>
+              <tr>
+                <td><strong>프롬프트 커스터마이즈</strong></td>
+                <td>AI가 상세설명 쓰는 방식 자체를 바꾸고 싶으면 프롬프트 관리에서 설정.</td>
+              </tr>
+            </table>
+          </div>
+          <div class="callout warn" style="margin-top:10px;">
+            <div class="callout-title">⚠️ 반드시 확인해야 할 것들</div>
+            <ul class="dots">
+              <li>중국어나 영어가 그대로 남아있지 않은지</li>
+              <li>과장 광고 표현 ("최고", "1등", "세계 최초") — 마켓 심사에서 걸릴 수 있어요</li>
+              <li>허위·과장 정보가 포함되어 있지 않은지</li>
+              <li>연락처, 외부 링크 포함 여부 — 대부분 마켓에서 금지</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 10. 부가 정보 -->
+      <div class="subsection">
+        <div class="subsection-title">⑩ 부가 정보 — 마켓 필수 입력 항목</div>
+        <div class="card">
+          <p style="font-size:.9rem;color:var(--ink2);margin-bottom:12px;">마켓에서 상품 등록 시 요구하는 추가 정보예요. 빠진 항목이 있으면 업로드 오류가 나요.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>항목</th><th>설명</th><th>입력 방법</th></tr>
+              <tr>
+                <td><strong>원산지</strong></td>
+                <td>상품이 제조된 나라</td>
+                <td>중국 소싱 → "중국", 미국 아마존 → "미국". 모르면 "기타" 선택.</td>
+              </tr>
+              <tr>
+                <td><strong>제조사</strong></td>
+                <td>만든 회사 이름</td>
+                <td>소싱처에서 확인. 모르면 "기타" 또는 "-" 입력.</td>
+              </tr>
+              <tr>
+                <td><strong>브랜드</strong></td>
+                <td>상품 브랜드명</td>
+                <td>정품 브랜드면 정확히 입력. 브랜드가 없으면 "노브랜드" 또는 "-".</td>
+              </tr>
+              <tr>
+                <td><strong>모델명</strong></td>
+                <td>상품 모델 번호</td>
+                <td>있으면 입력, 없으면 비워두거나 상품명 요약 입력.</td>
+              </tr>
+              <tr>
+                <td><strong>KC 인증 번호</strong></td>
+                <td>국내 안전 인증 번호</td>
+                <td>전기용품·어린이용품·생활용품 일부는 필수. 없으면 등록 거부되거나 삭제됨.</td>
+              </tr>
+              <tr>
+                <td><strong>미성년자 구매 여부</strong></td>
+                <td>미성년자가 구매 가능한지</td>
+                <td>주류·담배·성인용품은 "불가" 선택.</td>
+              </tr>
+            </table>
+          </div>
+          <div class="callout warn" style="margin-top:10px;">
+            <div class="callout-title">⚠️ KC 인증이 필요한 품목</div>
+            아래 품목은 KC 인증 없이 올리면 마켓에서 즉시 삭제되거나 판매정지될 수 있어요.
+            <ul class="dots" style="margin-top:6px;">
+              <li>전기용품: 충전기, 이어폰, 전동제품, 조명 등</li>
+              <li>어린이 제품: 장난감, 어린이 의류, 유아용품</li>
+              <li>생활화학제품: 방향제, 세정제, 방충제 등</li>
+              <li>가스용품: 라이터 등</li>
+            </ul>
+            KC 인증이 없는 상품이라면 이 품목들은 취급하지 않는 게 안전해요.
+          </div>
+        </div>
+      </div>
+
+      <!-- 11. 메모 -->
+      <div class="subsection">
+        <div class="subsection-title">⑪ 메모 — 내부 기록 (고객에게 안 보여요)</div>
+        <div class="card">
+          <p style="font-size:.9rem;color:var(--ink2);margin-bottom:10px;">마켓에는 절대 노출되지 않는 나만 보는 메모예요. 선택 사항이라 안 써도 되지만, 써두면 나중에 관리가 쉬워요.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>활용 예시</th><th>메모 내용</th></tr>
+              <tr><td>재고 관리</td><td>"재고 20개 이하면 추가 주문", "품절 빠른 상품"</td></tr>
+              <tr><td>소싱 정보</td><td>"타오바오 A공장, MOQ 없음, 배송 3~5일"</td></tr>
+              <tr><td>반품·불만 기록</td><td>"사이즈 크게 나옴 주의", "색상 실제와 다를 수 있다는 안내 필요"</td></tr>
+              <tr><td>마진 메모</td><td>"실제 마진 28% (환율 반영)", "프로모션 시 마진 15%"</td></tr>
+              <tr><td>기타</td><td>"이 상품 잘 나가서 광고 연동 중", "시즌상품 — 11월 이후 내리기"</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 완료 -->
       <div class="callout good">
-        <div class="callout-title">✅ 편집 완료 후</div>
-        <span class="btn">저장</span> 버튼을 누르면 상태가 "수정완료"로 바뀌어요. 이제 <span class="btn">마켓 업로드</span>를 누르면 상품이 올라갑니다!
+        <div class="callout-title">✅ 편집 완료 후 업로드</div>
+        11단계를 다 채웠으면 화면 하단 <span class="btn">저장</span> → 상태가 "수정완료"로 바뀜 → <span class="btn">마켓 업로드</span> 클릭 → 마켓에 올라갑니다!<br>
+        업로드 후 "작업 큐"에서 진행 상태를 확인하세요. 에러가 나면 원인이 표시돼요.
       </div>
     </div>
 
