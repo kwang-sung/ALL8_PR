@@ -152,6 +152,13 @@ tr:hover td{background:#fafafa;}
 /* ── 하이라이트 ── */
 mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
 
+/* ── 문의 플로팅 버튼 ── */
+.float-contact{position:fixed;bottom:28px;right:28px;z-index:999;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+.float-contact-btn{display:flex;align-items:center;gap:8px;background:#ef4444;color:#fff;font-size:.88rem;font-weight:800;padding:12px 20px;border-radius:100px;box-shadow:0 4px 16px rgba(239,68,68,.4);text-decoration:none;white-space:nowrap;transition:.15s;border:2px solid #dc2626;}
+.float-contact-btn:hover{background:#dc2626;transform:translateY(-2px);box-shadow:0 6px 20px rgba(239,68,68,.5);}
+.float-contact-bubble{background:#fff;border:2px solid #ef4444;border-radius:12px;padding:10px 14px;font-size:.8rem;font-weight:600;color:#ef4444;box-shadow:0 4px 12px rgba(0,0,0,.12);white-space:nowrap;}
+@media(max-width:720px){.float-contact{bottom:16px;right:16px;}.float-contact-btn{font-size:.82rem;padding:10px 16px;}}
+
 @media(max-width:720px){
   .sidebar{display:none;}
   .content-section{padding:28px 18px;}
@@ -202,6 +209,8 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
       <a class="nav-item" href="#order">📦 주문 관리</a>
       <a class="nav-item" href="#prompt">🤖 프롬프트 관리</a>
       <a class="nav-item" href="#billing">💳 결제 내역</a>
+      <a class="nav-item" href="#other-settings">🔧 기타 설정</a>
+      <a class="nav-item" href="#staff">👥 직원 관리</a>
     </div>
     <div class="sidebar-cta">
       매주 수·일 저녁 9시<br>무료 라이브 강의 🎓<br>
@@ -1650,6 +1659,243 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
       </div>
     </div>
 
+    <!-- ────────── 기타 설정 ────────── -->
+    <div class="content-section" id="other-settings" data-section data-keywords="기타설정 알림 언어 계정 비밀번호 2단계인증 테마 초기화 개인정보">
+      <div class="section-head">
+        <div class="section-icon">🔧</div>
+        <div class="section-meta">
+          <div class="section-label">SETTINGS</div>
+          <div class="section-title">기타 설정 — 계정 및 환경 설정</div>
+        </div>
+      </div>
+      <p class="section-desc">ALL8 계정 정보, 알림, 화면 환경 등을 설정하는 곳이에요. 처음에 한 번 설정해두면 자주 올 일은 없어요.</p>
+
+      <div class="subsection">
+        <div class="subsection-title">계정 정보</div>
+        <div class="card">
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>항목</th><th>설명</th><th>언제 쓰나요?</th></tr>
+              <tr>
+                <td><strong>이름 / 닉네임</strong></td>
+                <td>ALL8 내에서 표시되는 이름</td>
+                <td>가입 후 처음 한 번 설정하면 됨</td>
+              </tr>
+              <tr>
+                <td><strong>이메일</strong></td>
+                <td>로그인·공지 수신에 쓰이는 이메일</td>
+                <td>변경 시 인증 메일이 발송됨</td>
+              </tr>
+              <tr>
+                <td><strong>연락처</strong></td>
+                <td>고객지원·알림 수신 전화번호</td>
+                <td>필요 시 업데이트</td>
+              </tr>
+              <tr>
+                <td><strong>비밀번호 변경</strong></td>
+                <td>현재 비밀번호 입력 후 새 비밀번호 설정</td>
+                <td>보안상 3개월마다 변경 권장</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">알림 설정</div>
+        <div class="card">
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>알림 종류</th><th>설명</th><th>권장 설정</th></tr>
+              <tr>
+                <td><strong>업로드 완료 알림</strong></td>
+                <td>상품이 마켓에 올라갔을 때 알림</td>
+                <td>켜기 — 대량 업로드 시 완료 확인에 유용</td>
+              </tr>
+              <tr>
+                <td><strong>에러 알림</strong></td>
+                <td>업로드나 수집에서 오류 발생 시 알림</td>
+                <td>반드시 켜기 — 모르고 지나치면 손해</td>
+              </tr>
+              <tr>
+                <td><strong>재고 품절 알림</strong></td>
+                <td>재고 연동 중인 상품이 소싱처에서 품절됐을 때</td>
+                <td>켜기 — 주문받고 못 보내는 상황 방지</td>
+              </tr>
+              <tr>
+                <td><strong>크레딧 부족 알림</strong></td>
+                <td>크레딧이 일정 수준 이하로 떨어지면 알림</td>
+                <td>켜기 — 서버 수집 갑자기 안 되는 상황 방지</td>
+              </tr>
+              <tr>
+                <td><strong>공지·업데이트 알림</strong></td>
+                <td>ALL8 새 기능 출시, 점검 공지 등</td>
+                <td>켜기 — 유용한 기능 놓치지 않으려면</td>
+              </tr>
+            </table>
+          </div>
+          <div class="callout tip">
+            <div class="callout-title">💡 알림 받는 방법</div>
+            이메일 알림, 브라우저 알림(PC), 카카오 알림톡 중 원하는 방식을 선택할 수 있어요. 가능하면 카카오 알림톡을 켜두면 스마트폰으로 바로 받을 수 있어요.
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">화면 설정</div>
+        <div class="card">
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>항목</th><th>설명</th></tr>
+              <tr>
+                <td><strong>언어</strong></td>
+                <td>인터페이스 언어 선택 (현재 한국어 기본)</td>
+              </tr>
+              <tr>
+                <td><strong>상품 목록 기본 정렬</strong></td>
+                <td>상품 목록을 열 때 기본으로 어떤 순서로 보여줄지 (최신순, 등록순 등)</td>
+              </tr>
+              <tr>
+                <td><strong>한 페이지에 보여줄 상품 수</strong></td>
+                <td>20개 / 50개 / 100개 중 선택. 많을수록 로딩이 약간 느릴 수 있어요.</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">보안 설정</div>
+        <div class="card">
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>항목</th><th>설명</th></tr>
+              <tr>
+                <td><strong>2단계 인증 (2FA)</strong></td>
+                <td>로그인 시 비밀번호 외에 추가 인증(OTP, 이메일 코드)을 요구. 계정 보안이 높아져요.</td>
+              </tr>
+              <tr>
+                <td><strong>로그인 기록</strong></td>
+                <td>최근 로그인 날짜·기기·IP 기록. 이상한 로그인이 있으면 즉시 비밀번호 변경하세요.</td>
+              </tr>
+              <tr>
+                <td><strong>세션 로그아웃</strong></td>
+                <td>다른 기기에서 로그인된 세션을 강제 종료할 수 있어요.</td>
+              </tr>
+            </table>
+          </div>
+          <div class="callout warn">
+            <div class="callout-title">⚠️ 마켓 API 키 주의</div>
+            ALL8에 쿠팡·스마트스토어 API 키를 입력해뒀다면, 계정이 탈취되면 마켓 계정까지 위험해요. 2단계 인증은 꼭 켜두세요.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ────────── 직원 관리 ────────── -->
+    <div class="content-section" id="staff" data-section data-keywords="직원 직원관리 팀원 권한 계정 추가 멤버 공유 팀">
+      <div class="section-head">
+        <div class="section-icon">👥</div>
+        <div class="section-meta">
+          <div class="section-label">STAFF</div>
+          <div class="section-title">직원 관리 — 팀원 계정 & 권한 설정</div>
+        </div>
+      </div>
+      <p class="section-desc">혼자 쓰는 게 아니라 직원이나 팀원이 있다면, 각자 계정을 만들어서 역할에 맞게 기능을 쓸 수 있어요. 내 마스터 계정 정보를 공유하지 않아도 되고, 누가 무엇을 했는지 추적도 가능해요.</p>
+
+      <div class="subsection">
+        <div class="subsection-title">직원 계정 추가하기</div>
+        <div class="card">
+          <ol class="steps">
+            <li>
+              <strong>왼쪽 메뉴 → <span class="btn">직원 관리</span> 클릭</strong>
+              <span>현재 등록된 직원 목록이 보여요.</span>
+            </li>
+            <li>
+              <strong><span class="btn">+ 직원 초대</span> 클릭</strong>
+              <span></span>
+            </li>
+            <li>
+              <strong>직원의 이메일 입력 → 권한 선택 → 초대 전송</strong>
+              <span>직원에게 초대 메일이 발송돼요. 직원이 수락하면 계정이 생성돼요.</span>
+            </li>
+            <li>
+              <strong>직원은 본인 이메일로 별도 로그인</strong>
+              <span>내 계정 정보를 알려줄 필요 없어요. 직원은 자기 계정으로 접속해요.</span>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">권한 종류 — 직원마다 다르게 설정</div>
+        <div class="card">
+          <p style="font-size:.9rem;color:var(--ink2);margin-bottom:12px;">직원에게 <strong>딱 필요한 기능만</strong> 줄 수 있어요. 결제나 계정 설정 같은 중요한 기능은 마스터만 쓸 수 있게 제한하세요.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>권한 항목</th><th>설명</th><th>직원 부여 권장</th></tr>
+              <tr>
+                <td><strong>상품 수집</strong></td>
+                <td>소싱처에서 상품 담기</td>
+                <td>✅ 허용 — 가장 기본 업무</td>
+              </tr>
+              <tr>
+                <td><strong>상품 편집</strong></td>
+                <td>상품명, 가격, 이미지 등 편집</td>
+                <td>✅ 허용 — 필요 시</td>
+              </tr>
+              <tr>
+                <td><strong>마켓 업로드</strong></td>
+                <td>마켓에 상품 올리기</td>
+                <td>✅ 허용 — 필요 시 (신중하게)</td>
+              </tr>
+              <tr>
+                <td><strong>게시된 상품 관리</strong></td>
+                <td>올라간 상품 가격수정, 판매중지 등</td>
+                <td>⚠️ 신중하게 — 잘못 건드리면 판매에 영향</td>
+              </tr>
+              <tr>
+                <td><strong>프리셋 관리</strong></td>
+                <td>프리셋 생성·수정·삭제</td>
+                <td>⚠️ 신중하게 — 삭제하면 복구 안 됨</td>
+              </tr>
+              <tr>
+                <td><strong>마켓 계정 설정</strong></td>
+                <td>마켓 API 키 등록·수정</td>
+                <td>❌ 비추 — 마스터만 관리</td>
+              </tr>
+              <tr>
+                <td><strong>결제 관리</strong></td>
+                <td>구독, 크레딧 충전, 카드 정보</td>
+                <td>❌ 비추 — 마스터만 관리</td>
+              </tr>
+              <tr>
+                <td><strong>직원 관리</strong></td>
+                <td>다른 직원 초대·삭제</td>
+                <td>❌ 비추 — 마스터만 관리</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">직원 활동 확인</div>
+        <div class="card">
+          <ul class="dots">
+            <li><strong>작업 기록</strong>: 직원이 수집한 상품, 업로드한 상품, 수정한 내용 등의 로그를 볼 수 있어요.</li>
+            <li><strong>마지막 접속</strong>: 직원이 언제 마지막으로 로그인했는지 확인 가능.</li>
+            <li><strong>계정 비활성화</strong>: 직원이 퇴사하거나 임시로 접근을 막을 때. 삭제하지 않고 비활성화만 해두면 나중에 다시 켤 수 있어요.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout good">
+        <div class="callout-title">✅ 직원 관리 활용 팁</div>
+        직원마다 권한을 최소화하세요. 예: 상품 수집·편집 담당 직원은 "수집+편집"만, 마켓 업로드 담당 직원은 "업로드"만. 역할이 분리될수록 실수나 사고가 줄어요.
+      </div>
+    </div>
+
     <!-- CTA -->
     <div class="cta-banner" style="margin:28px 28px 0;">
       <h3>모르는 거 있으면 바로 물어보세요!</h3>
@@ -1659,9 +1905,17 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
         <a class="cta-btn outline" href="https://all8.io/" target="_blank">🚀 ALL8 바로가기</a>
       </div>
     </div>
-    <div style="height:60px;"></div>
+    <div style="height:100px;"></div>
 
   </main>
+</div>
+
+<!-- 문의 플로팅 버튼 -->
+<div class="float-contact">
+  <div class="float-contact-bubble">💬 ALL8 말풍선에 문의주세요!</div>
+  <a class="float-contact-btn" href="https://all8.io/" target="_blank">
+    🆘 ALL8 문의하기
+  </a>
 </div>
 
 <script>
