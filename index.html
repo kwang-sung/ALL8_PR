@@ -187,6 +187,9 @@
     .btn-pricing { display:block;background:linear-gradient(135deg,#3EAA4E,#52C465);color:#fff;font-size:18px;font-weight:800;padding:20px;border-radius:14px;text-decoration:none;box-shadow:0 0 40px rgba(62,170,78,0.4);transition:transform .2s,box-shadow .2s; }
     .btn-pricing:hover { transform:translateY(-3px);box-shadow:0 0 60px rgba(62,170,78,0.55); }
     .lt-plan-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px;margin:0 auto; }
+    .lt-plan-grid > div { display:flex;flex-direction:column; }
+    .lt-plan-grid > div > a.btn-pricing { margin-top:auto; }
+    .lt-plan-grid > div > div:last-of-type { flex:1; }
 
     /* CTA */
     .cta-banner { background:linear-gradient(135deg,rgba(62,170,78,0.12) 0%,rgba(82,196,101,0.12) 100%);border-top:1px solid rgba(62,170,78,0.15);border-bottom:1px solid rgba(62,170,78,0.15); }
