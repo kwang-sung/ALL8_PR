@@ -158,7 +158,8 @@
     .market-tag:hover { border-color:rgba(62,170,78,0.3);background:rgba(62,170,78,0.05); }
     .market-tag.highlight { border-color:rgba(255,255,255,0.22);background:rgba(255,255,255,0.07);color:var(--text); }
     .market-tag.pending { border-color:rgba(82,196,101,0.5);background:rgba(82,196,101,0.12);color:#52C465;font-weight:700; }
-    .region-row { display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:10px 14px;margin-bottom:6px;border-radius:12px; }
+    .region-row { display:flex;align-items:flex-start;gap:10px;padding:10px 14px;margin-bottom:6px;border-radius:12px; }
+    .region-tags { display:flex;flex-wrap:wrap;gap:10px;flex:1; }
     .region-row:nth-child(odd) { background:rgba(255,255,255,0.018); }
     .region-row:nth-child(even) { background:rgba(62,170,78,0.025); }
     .region-label { font-size:11px;font-weight:700;letter-spacing:1px;color:var(--muted);background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:6px;padding:4px 10px;white-space:nowrap; }
@@ -323,72 +324,84 @@
 
         <div class="region-row">
           <span class="region-label">🇰🇷 국내</span>
-          <span class="market-tag highlight">쿠팡</span>
-          <span class="market-tag highlight">스마트스토어</span>
-          <span class="market-tag highlight">네이버 브랜드스토어</span>
-          <span class="market-tag highlight">옥션</span>
-          <span class="market-tag highlight">지마켓</span>
-          <span class="market-tag highlight">11번가</span>
-          <span class="market-tag highlight">무신사</span>
-          <span class="market-tag highlight">오늘의집</span>
-          <span class="market-tag highlight">올리브영</span>
-          <span class="market-tag highlight">코스트코</span>
-          <span class="market-tag highlight">롯데ON</span>
-          <span class="market-tag highlight">SSG닷컴</span>
-          <span class="market-tag highlight">카카오톡 스토어</span>
-          <span class="market-tag highlight">이케아</span>
-          <span class="market-tag pending">도매매 예정</span>
+          <div class="region-tags">
+            <span class="market-tag highlight">쿠팡</span>
+            <span class="market-tag highlight">스마트스토어</span>
+            <span class="market-tag highlight">네이버 브랜드스토어</span>
+            <span class="market-tag highlight">옥션</span>
+            <span class="market-tag highlight">지마켓</span>
+            <span class="market-tag highlight">11번가</span>
+            <span class="market-tag highlight">무신사</span>
+            <span class="market-tag highlight">오늘의집</span>
+            <span class="market-tag highlight">올리브영</span>
+            <span class="market-tag highlight">코스트코</span>
+            <span class="market-tag highlight">롯데ON</span>
+            <span class="market-tag highlight">SSG닷컴</span>
+            <span class="market-tag highlight">카카오톡 스토어</span>
+            <span class="market-tag highlight">이케아</span>
+            <span class="market-tag pending">도매매 예정</span>
+          </div>
         </div>
 
         <div class="region-row">
           <span class="region-label">🇨🇳 중국</span>
-          <span class="market-tag highlight">타오바오</span>
-          <span class="market-tag highlight">알리익스프레스</span>
-          <span class="market-tag highlight">1688</span>
-          <span class="market-tag highlight">알리바바</span>
-          <span class="market-tag highlight">티몰</span>
-          <span class="market-tag pending">징동 예정</span>
-          <span class="market-tag pending">VVIC 예정</span>
+          <div class="region-tags">
+            <span class="market-tag highlight">타오바오</span>
+            <span class="market-tag highlight">알리익스프레스</span>
+            <span class="market-tag highlight">1688</span>
+            <span class="market-tag highlight">알리바바</span>
+            <span class="market-tag highlight">티몰</span>
+            <span class="market-tag pending">징동 예정</span>
+            <span class="market-tag pending">VVIC 예정</span>
+          </div>
         </div>
 
         <div class="region-row">
           <span class="region-label">🇯🇵 일본</span>
-          <span class="market-tag highlight">라쿠텐</span>
-          <span class="market-tag highlight">라쿠텐 패션</span>
-          <span class="market-tag highlight">야후옥션</span>
-          <span class="market-tag pending">조조타운 예정</span>
-          <span class="market-tag highlight">아마존 재팬</span>
-          <span class="market-tag pending">슈퍼딜리버리 예정</span>
-          <span class="market-tag pending">유니클로 재팬 예정</span>
+          <div class="region-tags">
+            <span class="market-tag highlight">라쿠텐</span>
+            <span class="market-tag highlight">라쿠텐 패션</span>
+            <span class="market-tag highlight">야후옥션</span>
+            <span class="market-tag highlight">아마존 재팬</span>
+            <span class="market-tag pending">조조타운 예정</span>
+            <span class="market-tag pending">슈퍼딜리버리 예정</span>
+            <span class="market-tag pending">유니클로 재팬 예정</span>
+          </div>
         </div>
 
         <div class="region-row">
           <span class="region-label">🇺🇸 미국</span>
-          <span class="market-tag highlight">아마존</span>
-          <span class="market-tag highlight">이베이 미국</span>
-          <span class="market-tag pending">6PM 예정</span>
-          <span class="market-tag pending">노드스트롬랙 예정</span>
-          <span class="market-tag pending">SSENSE 예정</span>
-          <span class="market-tag pending">세포라 US 예정</span>
-          <span class="market-tag pending">월마트 예정</span>
-          <span class="market-tag pending">풋라커 예정</span>
+          <div class="region-tags">
+            <span class="market-tag highlight">아마존</span>
+            <span class="market-tag highlight">이베이 미국</span>
+            <span class="market-tag pending">6PM 예정</span>
+            <span class="market-tag pending">노드스트롬랙 예정</span>
+            <span class="market-tag pending">SSENSE 예정</span>
+            <span class="market-tag pending">세포라 US 예정</span>
+            <span class="market-tag pending">월마트 예정</span>
+            <span class="market-tag pending">풋라커 예정</span>
+          </div>
         </div>
 
         <div class="region-row">
           <span class="region-label">🇬🇧 영국</span>
-          <span class="market-tag highlight">이베이 영국</span>
-          <span class="market-tag pending">파페치 예정</span>
-          <span class="market-tag pending">ASOS 예정</span>
+          <div class="region-tags">
+            <span class="market-tag highlight">이베이 영국</span>
+            <span class="market-tag pending">파페치 예정</span>
+            <span class="market-tag pending">ASOS 예정</span>
+          </div>
         </div>
 
         <div class="region-row">
           <span class="region-label">🇪🇺 유럽</span>
-          <span class="market-tag pending">잘란도 예정</span>
-          <span class="market-tag pending">베스트시크릿 예정</span>
-          <span class="market-tag pending">마이테레사 예정</span>
-          <span class="market-tag pending">노티노 예정</span>
-          <span class="market-tag pending">브라이닝거 예정</span>
-          <span class="market-tag highlight">아마존 독일</span>
+          <div class="region-tags">
+            <span class="market-tag highlight">아마존 독일</span>
+            <span class="market-tag pending">잘란도 예정</span>
+            <span class="market-tag pending">베스트시크릿 예정</span>
+            <span class="market-tag pending">마이테레사 예정</span>
+            <span class="market-tag pending">노티노 예정</span>
+            <span class="market-tag pending">브라이닝거 예정</span>
+          </div>
         </div>
       </div>
 
