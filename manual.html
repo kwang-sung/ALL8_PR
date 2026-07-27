@@ -203,9 +203,14 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
       <a class="nav-item" href="#published">🛒 게시된 상품</a>
     </div>
     <div class="nav-group">
+      <div class="nav-group-title">소싱 발굴</div>
+      <a class="nav-item" href="#sourcing">🔍 1688 소싱기</a>
+    </div>
+    <div class="nav-group">
       <div class="nav-group-title">설정 & 관리</div>
       <a class="nav-item" href="#preset">⚙️ 프리셋 관리</a>
       <a class="nav-item" href="#market-account">🏪 마켓 계정 설정</a>
+      <a class="nav-item" href="#tag-sets">🏷️ 상품 태그 관리</a>
       <a class="nav-item" href="#keyword-filter">🚫 금지어·대체어</a>
       <a class="nav-item" href="#order">📦 주문 관리</a>
       <a class="nav-item" href="#prompt">🤖 프롬프트 관리</a>
@@ -2494,6 +2499,236 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
             ALL8에 쿠팡·스마트스토어 API 키를 입력해뒀다면, 계정이 탈취되면 마켓 계정까지 위험해요. 2단계 인증은 꼭 켜두세요.
           </div>
         </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">네이버 API 설정 — 소싱기 키워드 확장용</div>
+        <p style="font-size:.88rem;color:var(--ink2);margin-bottom:10px;">1688 소싱기의 <strong>키워드 확장</strong> 기능을 쓰려면 아래 API 키를 등록해야 해요.</p>
+        <div class="card">
+          <div class="tbl-wrap">
+            <table>
+              <tr><th style="width:35%">항목</th><th>설명</th></tr>
+              <tr>
+                <td><strong>네이버 광고 API</strong><br><span style="font-size:.8rem;color:var(--ink3)">CUSTOMER_ID / 액세스라이선스 / 비밀키</span></td>
+                <td>소싱 그룹에서 "키워드 확장" 체크 시 연관 키워드를 자동 추가하는 데 사용. <a href="https://searchad.naver.com/" target="_blank" style="color:var(--green);">네이버 광고 센터</a>에서 발급받을 수 있어요.</td>
+              </tr>
+              <tr>
+                <td><strong>네이버 오픈 API</strong><br><span style="font-size:.8rem;color:var(--ink3)">Client ID / Secret</span></td>
+                <td>네이버 검색 및 데이터랩 활용 시 사용. <a href="https://developers.naver.com/" target="_blank" style="color:var(--green);">네이버 개발자센터</a>에서 발급.</td>
+              </tr>
+              <tr>
+                <td><strong>네이버 API Hub</strong><br><span style="font-size:.8rem;color:var(--ink3)">Key ID / Key</span></td>
+                <td>네이버 신규 API 방식. 기존 오픈 API가 지원 종료될 경우 이쪽으로 전환.</td>
+              </tr>
+            </table>
+          </div>
+          <div class="callout tip">
+            <div class="callout-title">💡 키워드 확장만 쓰려면</div>
+            네이버 광고 API만 등록하면 충분해요. 나머지는 고급 기능용이에요.
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">재고연동 품절 정책</div>
+        <p style="font-size:.88rem;color:var(--ink2);margin-bottom:10px;">소싱처 상품이 품절됐을 때 마켓 상품을 어떻게 처리할지 선택하는 설정이에요.</p>
+        <div class="card">
+          <div class="tbl-wrap">
+            <table>
+              <tr><th style="width:40%">정책</th><th>동작</th><th>추천 상황</th></tr>
+              <tr>
+                <td><strong>표시만</strong></td>
+                <td>품절 알림만 보내고 마켓 상품은 그대로 유지</td>
+                <td>직접 확인 후 수동으로 처리하고 싶을 때</td>
+              </tr>
+              <tr>
+                <td><strong>하나라도 품절 시 판매 중지</strong></td>
+                <td>옵션 하나라도 품절이면 상품 전체를 판매중지 처리</td>
+                <td>재고 위험을 최소화하고 싶을 때 (권장)</td>
+              </tr>
+              <tr>
+                <td><strong>품절 옵션만 재고 0</strong></td>
+                <td>품절된 옵션만 재고 0으로 변경, 나머지 옵션은 계속 판매</td>
+                <td>옵션이 많고 일부만 품절될 때</td>
+              </tr>
+            </table>
+          </div>
+          <div class="callout warn">
+            <div class="callout-title">⚠️ 초보자 추천 설정: "하나라도 품절 시 판매 중지"</div>
+            주문받고 재고가 없어 취소하면 마켓 페널티를 받아요. 처음엔 안전하게 전체 판매 중지 정책으로 설정하세요.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ────────── 1688 소싱기 ────────── -->
+    <div class="content-section" id="sourcing" data-section data-keywords="소싱기 1688 소싱그룹 키워드 발굴 네이버 매칭 구매건수 인기상품 페이지수 최대수집">
+      <div class="section-head">
+        <div class="section-icon">🔍</div>
+        <div class="section-meta">
+          <div class="section-label">SOURCING · BETA</div>
+          <div class="section-title">1688 소싱기 — 키워드로 팔리는 상품 발굴</div>
+        </div>
+      </div>
+      <p class="section-desc">네이버쇼핑에서 잘 팔리는 상품을 키워드로 찾고, 1688에서 소싱처를 자동 매칭해주는 도구예요. 내가 직접 뒤지는 게 아니라 <strong>팔리는 상품을 먼저 발견하고 역으로 소싱처를 찾는</strong> 방식이에요.</p>
+
+      <div class="callout info">
+        <div class="callout-title">📌 소싱기 사용 전 필수 확인</div>
+        소싱기는 ALL8 <strong>크롬 확장프로그램이 실행 중</strong>일 때만 작동해요. 발굴 시작 전에 확장프로그램이 열려 있는지 확인하세요.
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">① 전체 워크플로우</div>
+        <div class="flow">
+          <div class="flow-item">소싱 그룹 만들기</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item">발굴 시작</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item">네이버 크롤</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item">아이템 검토</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item">1688 매칭</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item">수집 보내기</div>
+        </div>
+        <p style="font-size:.88rem;color:var(--ink3);margin-top:8px;">발굴이 완료되면 아이템 목록에서 네이버 판매데이터와 1688 매칭 후보를 비교해 마음에 드는 것만 수집할 수 있어요.</p>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">② 소싱 그룹 만들기 — 필터 항목 설명</div>
+        <p style="font-size:.88rem;color:var(--ink2);margin-bottom:12px;"><span class="btn">+ 새 그룹</span> 버튼을 누르면 아래 항목을 설정하는 창이 열려요.</p>
+        <div class="card">
+          <div class="tbl-wrap">
+            <table>
+              <tr><th style="width:30%">항목</th><th style="width:15%">기본값</th><th>설명 & 팁</th></tr>
+              <tr>
+                <td><strong>그룹 이름</strong></td>
+                <td>—</td>
+                <td>이 소싱 그룹을 구분할 이름. 예: "여름 니트 소싱", "주방용품 7월". 나중에 찾기 편하게 구체적으로 써두세요.</td>
+              </tr>
+              <tr>
+                <td><strong>키워드</strong></td>
+                <td>—</td>
+                <td>네이버쇼핑에서 검색할 키워드. 쉼표(,) 또는 엔터로 여러 개 입력 가능해요. 예: <code>무선이어폰, 블루투스이어폰</code>. 키워드별로 네이버 검색 결과를 크롤해요.</td>
+              </tr>
+              <tr>
+                <td><strong>키워드 확장</strong><br><span style="font-size:.8rem;color:var(--ink3)">(체크박스)</span></td>
+                <td>꺼짐</td>
+                <td>켜면 네이버 광고 API를 통해 연관 키워드를 자동으로 추가해 검색 범위를 넓혀줘요. <strong>기타 설정에서 네이버 광고 API 키를 등록해야 작동</strong>해요. 키워드가 적을 때 더 많은 상품을 발굴하고 싶을 때 사용하세요.</td>
+              </tr>
+              <tr>
+                <td><strong>페이지 수</strong><br><span style="font-size:.8rem;color:var(--ink3)">(1~4)</span></td>
+                <td>1</td>
+                <td>키워드당 네이버 검색 결과를 몇 페이지까지 크롤할지예요. 1페이지 = 약 40~80개 상품. <strong>처음엔 1~2페이지로 시작</strong>하는 게 좋아요. 4페이지로 설정하면 키워드 하나당 최대 320개까지 수집하지만 시간이 오래 걸려요.</td>
+              </tr>
+              <tr>
+                <td><strong>최대 수집 수</strong></td>
+                <td>100</td>
+                <td>이 그룹 전체에서 수집할 아이템 최대 개수예요. 이 수에 도달하면 크롤이 자동으로 멈춰요. 처음 쓸 때는 50~100개로 설정해 결과를 먼저 확인하세요. 너무 많이 설정하면 검토하기 힘들어요.</td>
+              </tr>
+              <tr>
+                <td><strong>최소 구매건수</strong></td>
+                <td>1</td>
+                <td>네이버에서 수집한 상품의 구매건수가 이 숫자 미만이면 목록에서 제외해요. <strong>구매건수 = 실제 팔린 수</strong>니까 높게 설정할수록 이미 검증된 상품만 걸러져요. 예: 100 입력 시 → 구매건수 100개 이상 상품만 수집. 처음엔 10~50으로 설정 추천.</td>
+              </tr>
+              <tr>
+                <td><strong>상위 판매자 인기상품도 수집</strong><br><span style="font-size:.8rem;color:var(--ink3)">(체크박스)</span></td>
+                <td>꺼짐</td>
+                <td>켜면 키워드 검색 결과에 나오는 상위 판매자 스토어를 직접 방문해 해당 스토어의 인기상품도 함께 수집해요. 키워드에 직접 잡히지 않는 숨은 상품을 발굴할 때 유용해요. <span style="color:var(--yellow-ink);font-weight:600;">단, 이 방식으로 수집된 상품은 "해외배송 미확인" 배지가 붙어요.</span> 해외 소싱 가능 여부를 반드시 직접 확인하세요.</td>
+              </tr>
+              <tr>
+                <td><strong>방문 스토어 수</strong><br><span style="font-size:.8rem;color:var(--ink3)">(위 옵션 켤 때만 표시)</span></td>
+                <td>20</td>
+                <td>상위 판매자 인기상품 수집 시 몇 개의 스토어까지 방문할지 상한선이에요. 숫자가 클수록 더 많은 상품을 발굴하지만 시간이 오래 걸려요.</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="callout tip">
+          <div class="callout-title">💡 처음 쓸 때 추천 설정</div>
+          키워드 2~3개 | 페이지 수 1 | 최대 수집 수 50 | 최소 구매건수 30 | 나머지 기본값<br>
+          결과 보고 마음에 들면 다음 그룹에서 범위를 넓혀가세요.
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">③ 아이템 검토 테이블 — 발굴 결과 확인</div>
+        <p style="font-size:.88rem;color:var(--ink2);margin-bottom:12px;">그룹 카드를 클릭하면 수집된 아이템 목록이 테이블로 열려요 (데스크톱 전용).</p>
+        <div class="card">
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>컬럼</th><th>내용</th></tr>
+              <tr><td><strong>상품명</strong></td><td>네이버 판매페이지 링크. 어떤 키워드로 수집됐는지 태그 표시</td></tr>
+              <tr><td><strong>정확 판매데이터</strong></td><td>스마트스토어에서 가져온 실제 판매 수치. 구매(오늘/3일/1주/1달/3달), 재구매율, 구매확정 수로 나뉘어 표시돼요. 숫자가 클수록 검증된 상품이에요.</td></tr>
+              <tr><td><strong>가격</strong></td><td>네이버 판매가 (원화)</td></tr>
+              <tr><td><strong>원본·매칭 썸네일</strong></td><td>왼쪽=스마트스토어 원본 이미지, 오른쪽=1688 매칭 이미지. 매칭 전엔 비어있어요.</td></tr>
+              <tr><td><strong>1688 가격</strong></td><td>매칭된 1688 상품의 위안(¥) 가격 + 실시간 환율 기준 원화 환산</td></tr>
+              <tr><td><strong>배수·마진</strong></td><td>판매가 ÷ 매입가 배수 + 원화 마진. 초록=플러스 마진, 빨강=역마진</td></tr>
+            </table>
+          </div>
+        </div>
+        <div class="badge-row">
+          <span class="badge yellow">📋 상태 필터: 전체 / 미매칭 / 매칭완료 / 전송완료</span>
+          <span class="badge blue">↕ 배수 높은순/낮은순 정렬 가능</span>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">④ 1688 매칭 — 소싱처 자동 연결</div>
+        <div class="card">
+          <ol class="steps">
+            <li>
+              <strong>아이템 선택 후 <span class="btn">1688 매칭</span> 클릭 (최대 20건 동시)</strong>
+              <span>AI가 네이버 상품 이미지를 기반으로 1688에서 유사 상품을 찾아 자동 연결해줘요. 건당 크레딧이 소모돼요. 다이얼로그를 닫아도 백그라운드에서 계속 진행돼요.</span>
+            </li>
+            <li>
+              <strong>매칭 결과 확인 — 원하는 후보로 변경 가능</strong>
+              <span>매칭된 썸네일을 클릭하면 3분할 비교 화면이 열려요. 왼쪽=원본, 가운데=선택 중인 후보(공장가·MOQ·판매수 표시), 오른쪽=후보 목록(최대 20개). 후보를 바꾸는 건 <strong>추가 크레딧 없이 무제한</strong>으로 가능해요.</span>
+            </li>
+            <li>
+              <strong><span class="btn">수집 보내기</span> 클릭</strong>
+              <span>매칭 완료된 아이템을 익스텐션 수집대기열로 보내요. 최대 100건 선택 가능. 미매칭 아이템은 자동 제외돼요. 이후 익스텐션이 1688 상품을 수집해 상품 목록에 등록해요.</span>
+            </li>
+          </ol>
+        </div>
+        <div class="callout warn">
+          <div class="callout-title">⚠️ 1688 매칭 후보 확인은 필수</div>
+          자동 매칭이 항상 정확하진 않아요. 실제로 올릴 상품이니까 <strong>이미지·가격·MOQ를 반드시 눈으로 확인</strong>하고 맞지 않으면 후보를 바꿔주세요.
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">⑤ 소싱 그룹 카드 진행 상태</div>
+        <p style="font-size:.88rem;color:var(--ink2);">그룹 카드에서 3가지 진행 수치를 실시간으로 확인할 수 있어요.</p>
+        <div class="badge-row">
+          <span class="badge blue">발굴 N개 — 네이버에서 수집한 상품 수</span>
+          <span class="badge yellow">매칭 N개 — 1688 매칭 완료된 수</span>
+          <span class="badge green">수집 완료 N개 — 익스텐션이 1688 수집까지 마친 수</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ────────── 상품 태그 관리 ────────── -->
+    <div class="content-section" id="tag-sets" data-section data-keywords="태그 태그관리 태그셋 스마트스토어 쿠팡 상품태그 자동태그">
+      <div class="section-head">
+        <div class="section-icon">🏷️</div>
+        <div class="section-meta">
+          <div class="section-label">SETTINGS</div>
+          <div class="section-title">상품 태그 관리 — 마켓별 자동 태그 세트</div>
+        </div>
+      </div>
+      <p class="section-desc">상품 업로드 시 자동으로 붙일 태그 세트를 미리 만들어두는 곳이에요. 스마트스토어·쿠팡 각각 따로 관리돼요.</p>
+      <div class="card">
+        <ul class="dots">
+          <li><strong>태그셋 생성</strong>: 이름을 정하고 태그 목록을 입력해 저장. 예: "여름의류 공통태그" → 반팔, 여름, 니트, 루즈핏</li>
+          <li><strong>마켓별 독립 관리</strong>: 스마트스토어와 쿠팡의 태그 규칙이 달라서 각각 분리 관리돼요.</li>
+          <li><strong>프리셋에서 연결</strong>: 만들어둔 태그셋을 프리셋의 "상품 태그" 섹션에서 선택하면 해당 프리셋으로 올리는 모든 상품에 자동 적용돼요.</li>
+        </ul>
+      </div>
+      <div class="callout tip">
+        <div class="callout-title">💡 태그 전략 팁</div>
+        카테고리별 태그셋을 하나씩 만들어두면 효율적이에요. 예: "주방용품 태그셋", "의류 공통 태그셋", "전자제품 태그셋". 프리셋과 연결해두면 업로드할 때마다 따로 입력할 필요 없어요.
       </div>
     </div>
 
