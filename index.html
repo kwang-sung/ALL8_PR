@@ -253,6 +253,28 @@
 
     @media(max-width:900px){ .plan-grid{grid-template-columns:1fr 1fr} }
 
+    /* 이벤트 배너 */
+    .event-banner { background:linear-gradient(135deg,rgba(62,170,78,0.12),rgba(82,196,101,0.06));border-top:1.5px solid rgba(82,196,101,0.25);border-bottom:1.5px solid rgba(82,196,101,0.25);padding:44px 20px;text-align:center; }
+    .event-banner-eyebrow { font-size:11px;font-weight:800;color:#52C465;letter-spacing:1.4px;text-transform:uppercase;margin-bottom:14px; }
+    .event-banner-title { font-size:clamp(22px,3.5vw,32px);font-weight:900;color:#e2e8f0;line-height:1.25;margin-bottom:10px; }
+    .event-banner-sub { font-size:14px;color:var(--muted);margin-bottom:14px; }
+    .event-banner-cond { display:inline-block;font-size:11px;font-weight:700;color:#52C465;background:rgba(82,196,101,0.1);border:1px solid rgba(82,196,101,0.25);border-radius:20px;padding:5px 16px;margin-bottom:28px; }
+    .event-banner-pills { display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:28px; }
+    .event-pill { display:flex;align-items:center;gap:8px;background:var(--card);border:1.5px solid rgba(82,196,101,0.3);border-radius:14px;padding:12px 20px; }
+    .event-pill-num { font-size:22px;font-weight:900;color:#3EAA4E;line-height:1; }
+    .event-pill-label { font-size:11px;color:var(--muted);text-align:left;line-height:1.4; }
+
+    /* 무료 플랜 카드 */
+    .free-plan-card { max-width:380px;margin:44px auto 36px;background:rgba(82,196,101,0.05);border:1.5px dashed rgba(82,196,101,0.35);border-radius:20px;padding:28px 32px;text-align:center;position:relative; }
+    .free-plan-badge { position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#3EAA4E;color:#fff;font-size:11px;font-weight:800;padding:4px 18px;border-radius:20px;letter-spacing:.5px;white-space:nowrap; }
+    .free-plan-period { font-size:13px;font-weight:700;color:#52C465;margin-bottom:6px;margin-top:4px; }
+    .free-plan-price { font-size:38px;font-weight:900;color:#e2e8f0;line-height:1;margin-bottom:4px; }
+    .free-plan-sub { font-size:12px;color:var(--muted);margin-bottom:16px; }
+    .free-plan-meta { display:flex;justify-content:center;gap:24px;margin-bottom:20px; }
+    .free-plan-meta-item { text-align:center; }
+    .free-plan-meta-item .val { font-size:16px;font-weight:800;color:#e2e8f0; }
+    .free-plan-meta-item .lbl { font-size:10px;color:var(--muted);margin-top:2px; }
+
     @media(max-width:768px){
       nav{padding:16px 20px} .nav-badge{display:none}
       .hero-stats{gap:32px}
@@ -305,6 +327,37 @@
     <div class="hero-stat"><div class="num">10개+</div><div class="label">마켓 동시 등록</div></div>
     <div class="hero-stat"><div class="num">AI 100%</div><div class="label">자동 번역·분류</div></div>
   </div>
+</section>
+
+<!-- 오픈 이벤트 배너 -->
+<section class="event-banner">
+  <div class="event-banner-eyebrow">🎁 8월 한정 특별혜택</div>
+  <h2 class="event-banner-title">30일 결제하면<br><span style="color:#52C465;">45일</span> 드립니다</h2>
+  <p class="event-banner-sub">15일을 무료로 추가해 드립니다</p>
+  <div class="event-banner-cond">이번 달에만 제공되는 혜택입니다</div>
+  <div class="event-banner-pills">
+    <div class="event-pill">
+      <div>
+        <div class="event-pill-num">7일</div>
+        <div class="event-pill-label" style="color:#52C465;font-weight:700;">무료 체험</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;color:var(--muted);font-size:20px;font-weight:300;">→</div>
+    <div class="event-pill">
+      <div>
+        <div class="event-pill-num">30일</div>
+        <div class="event-pill-label">결제 시</div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;color:var(--muted);font-size:20px;font-weight:300;">→</div>
+    <div class="event-pill" style="border-color:#3EAA4E;background:rgba(62,170,78,0.08);">
+      <div>
+        <div class="event-pill-num" style="color:#52C465;">45일</div>
+        <div class="event-pill-label" style="color:#52C465;font-weight:700;">실제 사용</div>
+      </div>
+    </div>
+  </div>
+  <a href="#" class="btn-primary" style="font-size:15px;padding:14px 36px;">지금 무료로 시작하기 →</a>
 </section>
 
 <section class="features" id="features">
@@ -503,6 +556,33 @@
     <p class="section-label reveal" style="text-align:center">요금제</p>
     <h2 class="section-title reveal" style="text-align:center">투명하고 합리적인<br>구독 플랜</h2>
     <p class="reveal" style="text-align:center;color:var(--muted);font-size:14px;margin-top:10px;">모든 플랜 부가세 미포함</p>
+
+    <!-- 무료 플랜 -->
+    <div class="free-plan-card reveal">
+      <div class="free-plan-badge">누구나 가입 시 자동 제공</div>
+      <div class="free-plan-period">7일 무료 체험</div>
+      <div class="free-plan-price">FREE</div>
+      <div class="free-plan-sub">가입 즉시 시작 · 카드 불필요</div>
+      <div class="free-plan-meta">
+        <div class="free-plan-meta-item">
+          <div class="val">2,000</div>
+          <div class="lbl">크레딧 증정</div>
+        </div>
+        <div style="width:1px;background:var(--border);"></div>
+        <div class="free-plan-meta-item">
+          <div class="val">7일</div>
+          <div class="lbl">사용 기간</div>
+        </div>
+        <div style="width:1px;background:var(--border);"></div>
+        <div class="free-plan-meta-item">
+          <div class="val">전체</div>
+          <div class="lbl">기능 체험</div>
+        </div>
+      </div>
+      <a href="#" class="btn-pricing" style="padding:12px;font-size:14px;background:rgba(82,196,101,0.1);border:1.5px solid rgba(82,196,101,0.35);color:#52C465;box-shadow:none;">무료로 시작하기 →</a>
+    </div>
+
+    <p class="reveal" style="text-align:center;font-size:12px;color:var(--muted);margin-bottom:8px;">— 유료 플랜 —</p>
 
     <div class="plan-grid reveal">
 
