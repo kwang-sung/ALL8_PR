@@ -2700,26 +2700,16 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
                 <td>이 그룹 전체에서 수집할 아이템 최대 개수예요. 이 수에 도달하면 크롤이 자동으로 멈춰요. 처음 쓸 때는 50~100개로 설정해 결과를 먼저 확인하세요. 너무 많이 설정하면 검토하기 힘들어요.</td>
               </tr>
               <tr>
-                <td><strong>최소 구매건수</strong></td>
+                <td><strong>최소 리뷰수 (6개월)</strong></td>
                 <td>1</td>
-                <td>네이버에서 수집한 상품의 구매건수가 이 숫자 미만이면 목록에서 제외해요. <strong>구매건수 = 실제 팔린 수</strong>니까 높게 설정할수록 이미 검증된 상품만 걸러져요. 예: 100 입력 시 → 구매건수 100개 이상 상품만 수집. 처음엔 10~50으로 설정 추천.</td>
-              </tr>
-              <tr>
-                <td><strong>상위 판매자 인기상품도 수집</strong><br><span style="font-size:.8rem;color:var(--ink3)">(체크박스)</span></td>
-                <td>꺼짐</td>
-                <td>켜면 키워드 검색 결과에 나오는 상위 판매자 스토어를 직접 방문해 해당 스토어의 인기상품도 함께 수집해요. 키워드에 직접 잡히지 않는 숨은 상품을 발굴할 때 유용해요. <span style="color:var(--yellow-ink);font-weight:600;">단, 이 방식으로 수집된 상품은 "해외배송 미확인" 배지가 붙어요.</span> 해외 소싱 가능 여부를 반드시 직접 확인하세요.</td>
-              </tr>
-              <tr>
-                <td><strong>방문 스토어 수</strong><br><span style="font-size:.8rem;color:var(--ink3)">(위 옵션 켤 때만 표시)</span></td>
-                <td>20</td>
-                <td>상위 판매자 인기상품 수집 시 몇 개의 스토어까지 방문할지 상한선이에요. 숫자가 클수록 더 많은 상품을 발굴하지만 시간이 오래 걸려요.</td>
+                <td>최근 6개월 리뷰수가 이 숫자 미만인 상품은 목록에서 제외해요. 네이버 쇼핑 API는 구매건수를 제공하지 않아 <strong>6개월 리뷰수로 수요를 판단</strong>해요. 20~30 이하 설정 시 경쟁이 붙기 전 선점 가능한 신규 아이템을 발굴할 수 있어요. 100 이상이면 이미 상위 셀러가 자리 잡은 상품이에요.</td>
               </tr>
             </table>
           </div>
         </div>
         <div class="callout tip">
           <div class="callout-title">💡 처음 쓸 때 추천 설정</div>
-          키워드 2~3개 | 페이지 수 1 | 최대 수집 수 50 | 최소 구매건수 30 | 나머지 기본값<br>
+          키워드 2~3개 | 페이지 수 1 | 최대 수집 수 50 | 최소 리뷰수 20 이하 | 나머지 기본값<br>
           결과 보고 마음에 들면 다음 그룹에서 범위를 넓혀가세요.
         </div>
       </div>
@@ -2740,18 +2730,30 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
           <div class="tbl-wrap">
             <table>
               <tr><th>컬럼</th><th>내용</th></tr>
-              <tr><td><strong>상품명</strong></td><td>네이버 판매페이지 링크. 어떤 키워드로 수집됐는지 태그 표시</td></tr>
-              <tr><td><strong>정확 판매데이터</strong></td><td>스마트스토어에서 가져온 실제 판매 수치. 구매(오늘/3일/1주/1달/3달), 재구매율, 구매확정 수로 나뉘어 표시돼요. 숫자가 클수록 검증된 상품이에요.</td></tr>
+              <tr><td><strong>상품명</strong></td><td>파란 링크 → 클릭 시 스마트스토어 판매페이지 새 탭으로 열림. 수집 유형 배지(키워드/유형) 포함. <strong>고정 컬럼</strong> — 이동·리사이즈 불가.</td></tr>
+              <tr><td><strong>리뷰수</strong></td><td>네이버 쇼핑 리뷰 수 (6개월 기준 최소 리뷰수 필터와 동일한 기준)</td></tr>
+              <tr><td><strong>정확 판매데이터</strong></td><td>스마트스토어 상세에서 가져온 실제 판매 신호. 3줄로 표시돼요:<br>① <strong>구매</strong> — 오늘/3일/1주/1달/3달 중 가장 최근 기간 (예: 1주 1,234명)<br>② <strong>재구매</strong> — 최근 3개월 재구매자 수<br>③ <strong>구매확정</strong> — 구매확정 건수<br>enrichment 전엔 <code>—</code>, enrichment 됐으나 수치 없으면 <code>신호 없음</code></td></tr>
               <tr><td><strong>가격</strong></td><td>네이버 판매가 (원화)</td></tr>
-              <tr><td><strong>원본·매칭 썸네일</strong></td><td>왼쪽=스마트스토어 원본 이미지, 오른쪽=1688 매칭 이미지. 매칭 전엔 비어있어요.</td></tr>
+              <tr><td><strong>원본 · 매칭 썸네일</strong></td><td>
+                왼쪽=스마트스토어 원본, 오른쪽=1688 매칭 이미지. 나란히 붙어 표시돼요.<br>
+                <strong>매칭 썸네일 클릭 동작 (4가지):</strong>
+                <ul style="margin:6px 0 0 16px;font-size:.84rem;color:var(--ink2);">
+                  <li>매칭 완료 → <strong>후보 변경 모달 열림</strong> (다른 후보로 교체 가능)</li>
+                  <li>미매칭(none) → <strong>즉시 1건 단독 1688 매칭 실행</strong> ("클릭해 매칭" 텍스트 표시)</li>
+                  <li>광고만 매칭 / 후보 있음 → <strong>후보 변경 모달 열림</strong> ("광고만" 텍스트)</li>
+                  <li>후보 없음 / 실패 → 클릭 동작 없음 (텍스트만)</li>
+                </ul>
+              </td></tr>
               <tr><td><strong>1688 가격</strong></td><td>매칭된 1688 상품의 위안(¥) 가격 + 실시간 환율 기준 원화 환산</td></tr>
-              <tr><td><strong>배수·마진</strong></td><td>판매가 ÷ 매입가 배수 + 원화 마진. 초록=플러스 마진, 빨강=역마진</td></tr>
+              <tr><td><strong>배수·마진</strong></td><td>가격배수(N.Nx) + 원화 마진(+N원). 초록=플러스 마진, 빨강=역마진, 계산 불가=<code>—</code></td></tr>
+              <tr><td><strong>전송</strong></td><td>수집 보내기 상태. <code>—</code>(미전송) / 수집기 전송 / 수집기 대기열 / 대기 / 수집 중 / 수집 완료 / 실패</td></tr>
             </table>
           </div>
         </div>
         <div class="badge-row">
           <span class="badge yellow">📋 상태 필터: 전체 / 미매칭 / 매칭완료 / 전송완료</span>
           <span class="badge blue">↕ 배수 높은순/낮은순 정렬 가능</span>
+          <span class="badge" style="background:var(--ink5);color:var(--ink1);">🔒 컬럼 고정 — 순서 이동·리사이즈 불가</span>
         </div>
       </div>
 
@@ -2760,12 +2762,20 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
         <div class="card">
           <ol class="steps">
             <li>
-              <strong>아이템 선택 후 <span class="btn">1688 매칭</span> 클릭 (최대 20건 동시)</strong>
-              <span>AI가 네이버 상품 이미지를 기반으로 1688에서 유사 상품을 찾아 자동 연결해줘요. 건당 크레딧이 소모돼요. <strong>라이브 매칭 방식</strong>으로 진행돼서 각 상품마다 실시간으로 결과가 표시되고, 다이얼로그를 닫아도 백그라운드에서 계속 진행돼요. 크레딧이 부족하면(402 오류) 남은 항목은 자동 중단되고 알림이 와요.</span>
+              <strong>벌크 매칭: 아이템 선택 후 <span class="btn">1688 매칭</span> 클릭</strong>
+              <span>AI가 네이버 상품 이미지를 기반으로 1688에서 유사 상품을 찾아 자동 연결해줘요. 건당 크레딧 소모. <strong>라이브 매칭 방식</strong> — 확인 즉시 다이얼로그가 닫히고 각 상품에 개별 스피너가 표시되며 백그라운드로 진행돼요. 끝날 때까지 기다리지 않아도 돼요. 완료 시 알림(예: "매칭 18건 완료, 2건 후보 없음"). 크레딧 부족 시 즉시 중단 + 알림.</span>
             </li>
             <li>
-              <strong>매칭 결과 확인 — 원하는 후보로 변경 가능</strong>
-              <span>매칭된 썸네일을 클릭하면 3분할 비교 화면이 열려요. 왼쪽=원본, 가운데=선택 중인 후보(공장가·MOQ·판매수 표시), 오른쪽=후보 목록(최대 20개). <strong>후보 모달에서 상품명(파란색 텍스트)을 클릭하면 1688 상세 페이지로 이동</strong>해요. 후보를 바꾸는 건 <strong>추가 크레딧 없이 무제한</strong>으로 가능해요.</span>
+              <strong>개별 매칭: 미매칭 상품의 썸네일 영역 클릭</strong>
+              <span>체크박스 선택 없이 <strong>상품 한 건만 즉시 매칭</strong>할 수 있어요. 미매칭 상품의 오른쪽 썸네일 영역("클릭해 매칭" 텍스트)을 클릭하면 해당 상품 1건만 매칭이 실행돼요.</span>
+            </li>
+            <li>
+              <strong>매칭 결과 확인 — 3분할 후보 모달로 교체 가능</strong>
+              <span>매칭된 썸네일 클릭 → <strong>3분할 비교 모달</strong>이 열려요.<br>
+              · 왼쪽 패널: 스마트스토어 원본(썸네일·상품명·판매가)<br>
+              · 가운데 패널: 선택 중인 1688 후보 (큰 이미지·공장가·MOQ·판매수·마진)<br>
+              · 오른쪽 패널: 후보 목록(클릭 시 가운데 미리보기 즉시 전환)<br>
+              <strong>상품명(파란 텍스트)을 클릭하면 1688 상세 페이지로 이동</strong>해요. 후보 교체는 <strong>추가 크레딧 없이 무제한</strong>.</span>
             </li>
             <li>
               <strong><span class="btn">수집 보내기</span> 클릭</strong>
