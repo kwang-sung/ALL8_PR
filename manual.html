@@ -199,6 +199,7 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
     <div class="nav-group">
       <div class="nav-group-title">상품 관리</div>
       <a class="nav-item" href="#product-list">📋 상품 목록</a>
+      <a class="nav-item" href="#mixed-bundle">📦 혼합/그룹상품 만들기</a>
       <a class="nav-item" href="#edit">✏️ 상품 편집</a>
       <a class="nav-item" href="#published">🛒 게시된 상품</a>
     </div>
@@ -745,6 +746,163 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
             <li><strong>키워드 검색</strong>: 상품명으로 검색할 수 있어요.</li>
             <li><strong>마켓 필터</strong>: 특정 마켓에 올라간 상품만 골라볼 수 있어요.</li>
           </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- ────────── 혼합/그룹상품 만들기 ────────── -->
+    <div class="content-section" id="mixed-bundle" data-section data-keywords="혼합구성 그룹상품 묶음상품 혼합상품 스마트스토어그룹 번들 세트상품 구성상품">
+      <div class="section-head">
+        <div class="section-icon">📦</div>
+        <div class="section-meta">
+          <div class="section-label">PRODUCT · BUNDLE</div>
+          <div class="section-title">혼합/그룹상품 만들기</div>
+        </div>
+      </div>
+      <p class="section-desc">수집된 상품 2개 이상을 선택해 SKU를 합친 <strong>혼합구성상품</strong>을 만들거나, 스마트스토어 <strong>그룹상품</strong> 형태로 업로드할 수 있어요. 여러 상품을 묶어 세트·구성 상품으로 판매할 때 사용해요.</p>
+
+      <div class="subsection">
+        <div class="subsection-title">① 혼합구성 만들기 — 진입 방법</div>
+        <div class="flow">
+          <div class="flow-item">상품 목록에서<br>2개 이상 선택</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item">하단 액션바<br>"혼합/그룹상품 만들기"</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item">다이얼로그에서<br>구성 설정</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item">만들기 클릭<br>→ 수집 상품에 등록</div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">② 혼합구성 다이얼로그 — 섹션별 설명</div>
+        <div class="card" style="margin-bottom:10px;">
+          <div class="card-title">A. 기본 정보</div>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>항목</th><th>설명</th></tr>
+              <tr>
+                <td><strong>상품명</strong> <span style="color:var(--red);font-size:.8rem;">필수</span></td>
+                <td>생성될 혼합상품의 이름</td>
+              </tr>
+              <tr>
+                <td><strong>프리셋</strong></td>
+                <td>생성 후 자동 적용할 프리셋. 스마트스토어 그룹상품 설정이 포함된 프리셋을 선택하면 <span class="badge green" style="font-size:.75rem;">그룹상품 업로드</span> 배지가 표시돼요. 만들기 완료 후 자동으로 프리셋이 적용돼요.</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="card" style="margin-bottom:10px;">
+          <div class="card-title">B. 옵션 구성 — 묶음 단위 설정</div>
+          <p style="font-size:.88rem;color:var(--ink2);margin-bottom:10px;">"옵션값" 하나 = 하나의 묶음 세트. 예: "A상품 1개 + B상품 2개" 구성. 최대 <strong>100개</strong>까지 추가 가능. 카드 왼쪽 핸들(⠿)로 순서 변경.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>항목</th><th>설명</th></tr>
+              <tr>
+                <td><strong>옵션값 이름</strong> <span style="color:var(--red);font-size:.8rem;">필수</span></td>
+                <td>이 묶음 구성의 이름. 예: "500ml 2개 세트"</td>
+              </tr>
+              <tr>
+                <td><strong>SKU 구성</strong> <span style="color:var(--red);font-size:.8rem;">필수</span></td>
+                <td>선택한 원본 상품별로 그룹이 나뉘어 표시돼요. 체크박스로 SKU 선택 → 수량 스텝퍼([-] N [+]) 활성화. 미선택 시 스텝퍼 비활성.</td>
+              </tr>
+              <tr>
+                <td><strong>옵션 이미지</strong></td>
+                <td>이 구성 값의 대표 이미지 1장. 원본 상품들의 이미지를 통합해 선택할 수 있어요.</td>
+              </tr>
+              <tr>
+                <td><strong>구성 상세</strong></td>
+                <td>이 묶음에 포함된 상품별 상세이미지를 개별 선택. 미선택 시 업로드 단계에서 공통 상세이미지로 대체돼요.</td>
+              </tr>
+              <tr>
+                <td><strong>최대 세트 수 (자동 계산)</strong></td>
+                <td>재고가 가장 적은 SKU 기준으로 만들 수 있는 최대 묶음 수. 0세트면 빨간색 경고 표시.</td>
+              </tr>
+            </table>
+          </div>
+          <div class="callout tip" style="margin-top:10px;">
+            <div class="callout-title">💡 카드가 6개 초과 시 자동 접힘</div>
+            구성이 7개 이상이면 이후 카드는 요약 형태로 접혀요. "펼치기" 버튼으로 확인할 수 있어요.
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">C. 이미지 선택</div>
+          <p style="font-size:.88rem;color:var(--ink2);margin-bottom:10px;">원본 상품들의 이미지를 역할별로 선택해요.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>역할</th><th>상한</th><th>설명</th></tr>
+              <tr><td><strong>대표이미지(썸네일)</strong></td><td>1장</td><td>상품 검색 결과에 표시되는 대표 이미지</td></tr>
+              <tr><td><strong>상품이미지(보조썸네일)</strong></td><td>30장</td><td>상품 상세 페이지 갤러리 이미지</td></tr>
+              <tr><td><strong>상세설명이미지</strong></td><td>200장</td><td>상품 상세 설명 영역 이미지</td></tr>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">③ 만들기 완료 후 흐름</div>
+        <div class="card">
+          <ol class="steps">
+            <li>
+              <strong>[만들기] 클릭 → 다이얼로그 닫힘, 상품 목록에 "처리중" 행 즉시 표시</strong>
+              <span>백그라운드에서 생성이 진행되며, 완료되면 자동으로 정상 행으로 전환돼요.</span>
+            </li>
+            <li>
+              <strong>프리셋 선택했으면 자동 적용</strong>
+              <span>생성 완료 후 즉시 프리셋이 적용돼요. 편집 화면 열면 설정이 미리 채워진 상태예요.</span>
+            </li>
+            <li>
+              <strong>편집 → 마켓 업로드</strong>
+              <span>완성된 상품은 수집된 상품 목록에 등록돼요. 이후 편집 화면에서 마켓을 연결하고 업로드하면 돼요.</span>
+            </li>
+          </ol>
+          <div class="callout warn" style="margin-top:10px;">
+            <div class="callout-title">⚠️ 만들기 버튼 활성화 조건</div>
+            상품명 입력 + 모든 옵션값에 이름 입력 + 모든 옵션값에 SKU 최소 1개 선택 — 3가지 모두 충족해야 활성화돼요. 미충족 항목은 푸터에 힌트 링크로 표시돼요.
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">④ 스마트스토어 그룹상품 — 혼합구성과 차이</div>
+        <div class="compare">
+          <div class="compare-box">
+            <h4>📦 혼합구성 만들기</h4>
+            <ul class="dots">
+              <li>여러 상품 SKU를 묶어 <strong>새 상품 생성</strong></li>
+              <li>상품 목록에서 일괄 작업으로 실행</li>
+              <li>마켓 무관 (쿠팡·스마트스토어 모두)</li>
+            </ul>
+          </div>
+          <div class="compare-box highlight">
+            <h4>🏪 스마트스토어 그룹상품 업로드</h4>
+            <ul class="dots">
+              <li>이미 만들어진 상품을 SS <strong>그룹상품 형태로 업로드</strong></li>
+              <li>상품 편집 화면 > 부가정보 섹션에서 설정</li>
+              <li>스마트스토어 전용 추가 설정</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card" style="margin-top:10px;">
+          <div class="card-title">스마트스토어 그룹상품 설정 방법 (편집 화면에서)</div>
+          <ol class="steps">
+            <li>
+              <strong>상품 편집 화면 → 부가정보 섹션 → "그룹상품으로 업로드" 체크</strong>
+              <span>카테고리 미선택 시 "카테고리를 먼저 선택하면 그룹상품 가이드를 불러옵니다." 메시지 표시. 카테고리가 그룹상품 미지원이면 체크박스 비활성화.</span>
+            </li>
+            <li>
+              <strong>표준 구매 옵션 가이드 선택</strong>
+              <span>스마트스토어 카테고리별 필수 속성 스키마(예: 생수 → "용량", "개수"). ALL8이 자동으로 해당 카테고리 가이드를 조회해서 드롭다운으로 보여줘요.</span>
+            </li>
+            <li>
+              <strong>값매핑 그리드에서 각 옵션값별 속성값 입력</strong>
+              <span>각 구성(옵션값)별로 표준 속성값을 입력. 숫자 타입은 단위 포함 필수 (예: "500ml"). 미입력 셀은 경고 표시.</span>
+            </li>
+          </ol>
+          <div class="callout tip" style="margin-top:10px;">
+            <div class="callout-title">💡 프리셋으로 자동화</div>
+            프리셋 설정에 "스마트스토어 그룹상품 업로드" 옵션을 켜두면, 혼합구성 만들기에서 해당 프리셋 선택 시 만들기 완료 후 자동으로 그룹상품 체크박스가 켜진 상태로 편집 화면이 열려요.
+          </div>
         </div>
       </div>
     </div>
