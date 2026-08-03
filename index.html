@@ -141,12 +141,14 @@
 
     /* FEATURES */
     .features { background: var(--bg); }
-    .feature-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:60px; }
+    .feature-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:60px; }
+    @media(max-width:960px){ .feature-grid { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:540px){ .feature-grid { grid-template-columns:1fr; } }
     .feature-item { background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px 24px;display:flex;flex-direction:column;gap:0;transition:border-color .2s; }
     .feature-item:hover { border-color:rgba(62,170,78,0.25); }
     .fi-head { display:flex;align-items:center;gap:10px;margin-bottom:12px; }
     .feature-icon { flex-shrink:0;font-size:20px;line-height:1; }
-    .feature-item h4 { font-size:20px;font-weight:700;margin-bottom:0;line-height:1.3; }
+    .feature-item h4 { font-size:15px;font-weight:700;margin-bottom:0;line-height:1.4;word-break:keep-all;overflow-wrap:anywhere; }
     .feature-item p { font-size:13px;color:var(--muted);line-height:1.6; }
     .all8 { color:#52C465; }
 
@@ -368,23 +370,26 @@
     <p class="section-desc reveal">소싱부터 등록, 재고 관리까지. 수작업으로 하던 모든 과정이 자동화됩니다.</p>
 
     <div class="feature-grid reveal">
-      <div class="feature-item"><div class="fi-head"><span class="feature-icon">🏷️</span><h4>마켓별 다른 상품명 업로드</h4></div><p>같은 상품을 여러 마켓에 올릴 때 상품명이 마켓별로 자동으로 다르게 생성됩니다. 내 상품끼리 묶이지 않고 더 많은 노출 기회를 가져 매출을 극대화할 수 있습니다.</p></div>
-      <div class="feature-item"><div class="fi-head"><span class="feature-icon">💰</span><h4>자동 마진 계산기</h4></div><p>소싱가 입력 시 배송비·마켓 수수료를 자동으로 차감해 순이익과 권장 판매가를 즉시 계산합니다.</p></div>
-      <div class="feature-item"><div class="fi-head"><span class="feature-icon">🌍</span><h4>전 세계 모든 사이트 초간단 수동 수집</h4></div><p>URL만 있으면 전 세계 어떤 쇼핑몰이든 초간단 수동 수집으로 상품을 바로 가져올 수 있습니다. 소싱처 제한 없이 원하는 상품을 자유롭게 취급하세요.</p></div>
-      <div class="feature-item"><div class="fi-head"><span class="feature-icon">🌐</span><h4>국내외 소싱처 40+</h4></div><p>도매매·1688·타오바오·아마존·라쿠텐 등 핵심 소싱처 기본 제공. URL 입력으로 전 세계 어디든 추가 가능.</p></div>
-      <div class="feature-item"><div class="fi-head"><span class="feature-icon">✨</span><h4>AI 상품명 자동생성 (SEO 최적화)</h4></div><p>마켓별 검색 알고리즘에 맞춰 AI가 최적화된 상품명을 자동으로 생성합니다. 스스·쿠팡·G마켓 각각 다르게 적용.</p></div>
       <div class="feature-item"><div class="fi-head"><span class="feature-icon">🏪</span><h4>10개+ 마켓 동시 등록</h4></div><p>스마트스토어·쿠팡·G마켓·옥션·11번가·롯데ON·토스쇼핑 동시 등록.<br><span style="font-size:12px;color:rgba(62,170,78,0.8)">추가 예정: 카카오쇼핑·SSG·카페24·아임웹</span></p></div>
-      <div class="feature-item"><div class="fi-head"><span class="feature-icon">📄</span><h4>상세페이지 자동 생성·번역</h4></div><p>해외 소싱 상품의 상세페이지를 AI가 자동으로 생성하고 번역합니다. 이미지 속 외국어 텍스트까지 한국어로 변환해 바로 등록 가능합니다.</p></div>
       <div class="feature-item"><div class="fi-head"><span class="feature-icon">📦</span><h4>가격변동과 품절 자동 연동</h4></div><p>소싱처 가격이 바뀌거나 재고가 떨어지면 연동된 전체 마켓에 자동으로 반영됩니다. 새벽에 재고·가격 확인하러 들어갈 필요 없습니다.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">🔗</span><h4>해외구매대행 소싱기</h4></div><p>키워드로 네이버쇼핑 해외배송 상품을 자동 발굴하고, 1688·타오바오·아마존 원본과 자동 매칭합니다. 소싱가·마진 실시간 계산, 가격·재고 변동 전체 마켓 자동 반영.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">✨</span><h4>AI 상품명 자동생성 (SEO 최적화)</h4></div><p>마켓별 검색 알고리즘에 맞춰 AI가 최적화된 상품명을 자동으로 생성합니다. 스스·쿠팡·G마켓 각각 다르게 적용.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">📄</span><h4>상세페이지 자동 생성·번역</h4></div><p>해외 소싱 상품의 상세페이지를 AI가 자동으로 생성하고 번역합니다. 이미지 속 외국어 텍스트까지 한국어로 변환해 바로 등록 가능합니다.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">🏷️</span><h4>마켓별 다른 상품명 업로드</h4></div><p>같은 상품을 여러 마켓에 올릴 때 상품명이 마켓별로 자동으로 다르게 생성됩니다. 내 상품끼리 묶이지 않고 더 많은 노출 기회를 가져 매출을 극대화할 수 있습니다.</p></div>
       <div class="feature-item"><div class="fi-head"><span class="feature-icon">🔍</span><h4>마켓 속성값 자동입력</h4></div><p>스마트스토어·쿠팡 등 카테고리별 필수 속성값을 AI가 자동으로 채웁니다. 수동 입력 없이 검색 노출 최적화.</p></div>
-      <div class="feature-item"><div class="fi-head"><span class="feature-icon">📦</span><h4>대량 · 반자동 · 수동 전부 지원</h4></div><p>상황에 맞게 등록 방식을 골라 쓰세요. 대량 자동부터 1개 수동까지 하나의 프로그램에서 모두 가능합니다.</p></div>
-      <div class="feature-item"><div class="fi-head"><span class="feature-icon">🖼️</span><h4>썸네일 배경 자동제거 · 새 이미지 자동생성</h4></div><p>흰 배경이 필수인 마켓을 위해 AI가 썸네일 배경을 자동으로 제거합니다. 원하는 배경으로 새 이미지를 자동 생성할 수도 있습니다.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">🖼️</span><h4>썸네일 배경 자동제거·이미지 자동생성</h4></div><p>흰 배경이 필수인 마켓을 위해 AI가 썸네일 배경을 자동으로 제거합니다. 원하는 배경으로 새 이미지를 자동 생성할 수도 있습니다.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">📦</span><h4>혼합상품·그룹상품 만들기</h4></div><p>여러 상품의 옵션을 하나의 번들로 묶어 혼합상품을 구성하거나, 스마트스토어 그룹상품 형식으로 한 번에 업로드할 수 있습니다.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">🌍</span><h4>전 세계 어디서든 수동 수집</h4></div><p>URL만 있으면 전 세계 어떤 쇼핑몰이든 초간단 수동 수집으로 상품을 바로 가져올 수 있습니다. 소싱처 제한 없이 원하는 상품을 자유롭게 취급하세요.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">🌐</span><h4>국내외 소싱처 40+</h4></div><p>도매매·1688·타오바오·아마존·라쿠텐 등 핵심 소싱처 기본 제공. URL 입력으로 전 세계 어디든 추가 가능.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">💰</span><h4>자동 마진 계산기</h4></div><p>소싱가 입력 시 배송비·마켓 수수료를 자동으로 차감해 순이익과 권장 판매가를 즉시 계산합니다.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">🔄</span><h4>대량·반자동·수동 전부 지원</h4></div><p>상황에 맞게 등록 방식을 골라 쓰세요. 대량 자동부터 1개 수동까지 하나의 프로그램에서 모두 가능합니다.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">🔀</span><h4>옵션 자동 변환</h4></div><p>소싱처의 복잡한 옵션 구성을 마켓 규격에 맞게 자동으로 재구성합니다. 중국·미국·유럽 사이즈도 국내 기준으로 자동 변환해 등록 오류를 줄입니다.</p></div>
       <div class="feature-item"><div class="fi-head"><span class="feature-icon">📊</span><h4>엑셀 내려받아 일괄수정</h4></div><p>등록 상품을 엑셀로 내려받아 가격·재고·상품명을 한 번에 수정 후 재업로드. 수백 개도 몇 분이면 끝납니다.</p></div>
       <div class="feature-item"><div class="fi-head"><span class="feature-icon">📈</span><h4>등록 현황 대시보드</h4></div><p>마켓별 등록 상태·판매 현황을 한눈에 확인합니다. 어디에 뭐가 올라갔는지 일일이 들어가 확인할 필요 없습니다.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">♾️</span><h4>사업자·마켓 계정 무제한</h4></div><p>하나의 ALL8 계정으로 사업자·마켓 계정 수 제한 없이 법인·개인 혼합 운영이 가능합니다. 계정 1개로 모든 채널을 전부 운영하세요.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">🪙</span><h4>크레딧 기반 AI 사용량 관리</h4></div><p>AI 기능별 사용량을 크레딧으로 투명하게 관리합니다. 필요한 만큼만 쓰고, 사용 내역을 언제든 확인할 수 있습니다.</p></div>
+      <div class="feature-item"><div class="fi-head"><span class="feature-icon">📋</span><h4>상품 복사·다중 마켓 등록</h4></div><p>등록된 상품을 클릭 한 번으로 다른 마켓에 바로 복사 등록합니다. 마켓별 설정을 유지하면서 빠르게 채널을 확장하세요.</p></div>
       <div class="feature-item"><div class="fi-head"><span class="feature-icon">👥</span><h4>직원별 권한 부여</h4></div><p>직원마다 접근 가능한 기능과 마켓을 따로 설정할 수 있습니다. 팀 운영 시 권한 관리가 한 곳에서 가능합니다.</p></div>
-      <div class="feature-item"><div class="fi-head"><span class="feature-icon">📦</span><h4>혼합상품·그룹상품 만들기</h4></div><p>여러 상품의 옵션을 하나의 번들로 묶어 혼합상품을 구성하거나, 스마트스토어 그룹상품 형식으로 한 번에 업로드할 수 있습니다.</p></div>
-      <div class="feature-item"><div class="fi-head"><span class="feature-icon">🔗</span><h4>해외구매대행 소싱기</h4></div><p>키워드로 네이버쇼핑 해외배송 상품을 자동 발굴하고, 발굴된 상품을 1688·타오바오·아마존 원본과 자동 매칭합니다. 소싱가·마진 실시간 계산, 가격·재고 변동 전체 마켓 자동 반영.</p></div>
-      <div class="feature-item"><div class="fi-head"><span class="feature-icon">🔄</span><h4>옵션 자동 변환</h4></div><p>소싱처의 복잡한 옵션 구성을 마켓 규격에 맞게 자동으로 재구성합니다. 중국·미국·유럽 사이즈도 국내 기준으로 자동 변환해 등록 오류를 줄입니다.</p></div>
     </div>
   </div>
 </section>
