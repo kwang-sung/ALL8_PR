@@ -744,8 +744,8 @@
 
   // ── 오픈 D-day 카운트다운 (8월 1일 0시 KST) ──────────────────────────
   const OPEN_DATE    = new Date('2026-08-01T00:00:00+09:00');
-  const INQUIRY_LINK = 'https://admin.coudae.io/#/login';
-  const START_LINK   = 'https://all8.io';
+  const INQUIRY_LINK = 'https://open.kakao.com/o/gKWnrBDg';
+  const START_LINK   = 'https://open.kakao.com/o/gKWnrBDg';
 
   function updateOpenCountdown() {
     const now  = new Date();
@@ -765,7 +765,7 @@
       if (heroCta)    { heroCta.href    = START_LINK; heroCta.textContent    = '지금 시작하기'; }
       if (pricingCta) { pricingCta.href = START_LINK; pricingCta.textContent = '지금 시작하기 →'; }
       if (bannerCta)  { bannerCta.href  = START_LINK; bannerCta.textContent  = '지금 시작하기 →'; }
-      if (navCta)     { navCta.href     = START_LINK; navCta.textContent     = '시작하기 →'; }
+      if (navCta)     { navCta.href     = START_LINK; navCta.textContent     = '문의하기 →'; navCta.target = '_blank'; navCta.rel = 'noopener'; }
     } else {
       const total = Math.floor(diff / 1000);
       const d = Math.floor(total / 86400);
@@ -785,7 +785,7 @@
       if (heroCta)    { heroCta.href    = INQUIRY_LINK; heroCta.textContent    = '오픈 알림 신청하기'; }
       if (pricingCta) { pricingCta.href = INQUIRY_LINK; pricingCta.textContent = '오픈 알림 신청하기 →'; }
       if (bannerCta)  { bannerCta.href  = INQUIRY_LINK; bannerCta.textContent  = '오픈 알림 신청하기 →'; }
-      if (navCta)     { navCta.href     = INQUIRY_LINK; navCta.textContent     = '문의하기 →'; }
+      if (navCta)     { navCta.href     = INQUIRY_LINK; navCta.textContent     = '문의하기 →'; navCta.target = '_blank'; navCta.rel = 'noopener'; }
     }
   }
   updateOpenCountdown();
