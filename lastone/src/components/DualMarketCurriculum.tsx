@@ -32,11 +32,15 @@ export const DualMarketCurriculum: React.FC = () => {
           <div className="md:col-span-5">
             <div className="rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950 aspect-[4/3] relative group shadow-xl">
               <img
-                src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80"
-                alt="Brand product shipping and logistics"
-                referrerPolicy="no-referrer"
+                src="/lastone_amazon.jpg"
+                alt="라스트원 대표 아마존 창고"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-zinc-950/95 to-transparent pt-8 pb-3 px-4">
+                <p className="text-zinc-200 text-xs sm:text-sm font-bold text-center">
+                  라스트원 대표 아마존 창고 브랜드리셀 해상배송
+                </p>
+              </div>
             </div>
           </div>
 
