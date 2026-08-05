@@ -57,39 +57,35 @@ export const AttendeeBenefitsSection: React.FC<AttendeeBenefitsProps> = ({ onApp
 
         {/* Benefits Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
-          {benefitItems.map((item, idx) => (
-            <div
-              key={idx}
-              className={`p-6 rounded-2xl border ${
-                item.highlight
-                  ? 'bg-orange-500/10 border-orange-500/40'
-                  : 'bg-zinc-950 border-zinc-800'
-              } space-y-3 hover:border-orange-500/60 transition-all flex flex-col justify-between`}
-            >
-              <div className="space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className={`text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-md ${
-                    item.highlight ? 'bg-orange-500 text-zinc-950' : 'bg-zinc-800 text-orange-400'
-                  }`}>
-                    {item.badge}
-                  </span>
-                  <CheckCircle2 className="w-4 h-4 text-orange-500" />
-                </div>
-
-                <h3 className="font-bold text-white text-base sm:text-lg">
-                  {item.title}
-                </h3>
-
-                <p className="text-zinc-400 text-xs leading-relaxed">
-                  {item.desc}
-                </p>
+          {/* MAIN BENEFIT 카드 */}
+          <div className="p-6 rounded-2xl border bg-orange-500/10 border-orange-500/40 space-y-3 hover:border-orange-500/60 transition-all flex flex-col justify-between">
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] font-mono font-bold px-2.5 py-0.5 rounded-md bg-orange-500 text-zinc-950">
+                  MAIN BENEFIT
+                </span>
+                <CheckCircle2 className="w-4 h-4 text-orange-500" />
               </div>
-
-              <div className="pt-3 border-t border-zinc-800/80 text-[11px] font-mono text-orange-400 font-bold">
-                {item.free ? '특강 참석자 전원 100% 무료 제공' : '라스트원팀 자체 개발 · 현재 직접 운영 중'}
-              </div>
+              <h3 className="font-bold text-white text-base sm:text-lg">
+                국내 브랜드리셀 프로그램 30일 무료 이용권
+              </h3>
+              <p className="text-zinc-400 text-xs leading-relaxed">
+                끝까지 참석하신 분 전원 30일 무료 제공.
+              </p>
             </div>
-          ))}
+            <div className="pt-3 border-t border-zinc-800/80 text-[11px] font-mono text-orange-400 font-bold">
+              특강 참석자 전원 100% 무료 제공
+            </div>
+          </div>
+
+          {/* 프로그램 이미지 */}
+          <div className="rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950">
+            <img
+              src="/lastone_program.png"
+              alt="라스트원 프로그램"
+              className="w-full h-full object-contain"
+            />
+          </div>
         </div>
 
         {/* Action button */}
