@@ -63,16 +63,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onApplyClick }) => {
         </div>
 
         {/* Sub Hero Banner */}
-        <div className="p-5 rounded-2xl bg-zinc-900/80 border border-zinc-800 text-center flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-3 text-left">
-            <div className="w-10 h-10 rounded-full bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 shrink-0">
-              <TrendingUp className="w-5 h-5" />
+        <div className="p-8 sm:p-10 rounded-3xl bg-zinc-900 border border-zinc-800 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-5 text-left">
+            <div className="w-14 h-14 rounded-2xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 shrink-0">
+              <TrendingUp className="w-7 h-7" />
             </div>
-            <div>
-              <h3 className="text-white font-bold text-base sm:text-lg">
+            <div className="space-y-1.5">
+              <h3 className="text-white font-black text-xl sm:text-2xl leading-snug">
                 "국내+해외역직구를 함께 다루는 특강, 흔치 않습니다"
               </h3>
-              <p className="text-zinc-400 text-xs">
+              <p className="text-zinc-400 text-sm sm:text-base">
                 두 개 시장 매출 파이프라인을 2시간 만에 완파하는 최초 단독 라이브 특강
               </p>
             </div>
@@ -82,10 +82,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onApplyClick }) => {
             href="https://open.kakao.com/o/gKWnrBDg"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-5 py-2.5 rounded-full bg-zinc-800 hover:bg-zinc-700 text-orange-400 font-bold text-xs sm:text-sm border border-zinc-700 transition-all shrink-0 cursor-pointer inline-flex items-center gap-1"
+            className="px-7 py-3.5 rounded-full bg-zinc-800 hover:bg-zinc-700 text-orange-400 font-bold text-sm sm:text-base border border-zinc-700 transition-all shrink-0 cursor-pointer inline-flex items-center gap-2"
           >
             <span>무료특강 바로 신청</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-5 h-5" />
           </a>
         </div>
 
