@@ -36,8 +36,8 @@ export const DualMarketCurriculum: React.FC = () => {
                 alt="라스트원 대표 아마존 창고"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-zinc-950/95 to-transparent pt-8 pb-3 px-4">
-                <p className="text-zinc-200 text-xs sm:text-sm font-bold text-center">
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-zinc-950 to-transparent pt-10 pb-4 px-4">
+                <p className="text-yellow-400 text-base sm:text-xl font-black text-center drop-shadow-lg">
                   라스트원 대표 아마존 창고 브랜드리셀 해상배송
                 </p>
               </div>
