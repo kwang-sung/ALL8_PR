@@ -1,6 +1,6 @@
 import React from 'react';
 import { LECTURE_INFO } from '../data/lectureData';
-import { Sparkles, ArrowRight, Globe, TrendingUp, CheckCircle2 } from 'lucide-react';
+import { Sparkles, ArrowRight, TrendingUp } from 'lucide-react';
 
 interface HeroSectionProps {
   onApplyClick: () => void;
@@ -16,10 +16,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onApplyClick }) => {
         
         {/* Main Hero Banner Container */}
         <div className="p-8 sm:p-12 rounded-3xl bg-zinc-900 border border-zinc-800 shadow-2xl relative overflow-hidden space-y-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            
-            {/* Left Content Column */}
-            <div className="lg:col-span-7 space-y-6">
+          <div className="grid grid-cols-1 gap-8 items-center">
+
+            {/* Content Column */}
+            <div className="space-y-6">
               
               <div className="flex flex-wrap items-center gap-2">
                 <span className="px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/30 text-orange-400 font-mono font-bold text-xs">
@@ -57,60 +57,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onApplyClick }) => {
                 </a>
               </div>
 
-            </div>
-
-            {/* Right Visual Image Card Column */}
-            <div className="lg:col-span-5">
-              <div className="relative rounded-3xl overflow-hidden border border-orange-500/30 bg-zinc-950 p-6 shadow-2xl space-y-4">
-                {/* Visual Header */}
-                <div className="flex items-center justify-between border-b border-zinc-800 pb-3">
-                  <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-red-500/80 inline-block" />
-                    <span className="w-3 h-3 rounded-full bg-yellow-500/80 inline-block" />
-                    <span className="w-3 h-3 rounded-full bg-green-500/80 inline-block" />
-                    <span className="text-xs font-mono text-zinc-400 font-bold ml-1">LASTONE GLOBAL ENGINE</span>
-                  </div>
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/30 font-bold">
-                    LIVE OPERATING
-                  </span>
-                </div>
-
-                {/* Dashboard Stats */}
-                <div className="space-y-3">
-                  <div className="p-4 rounded-2xl bg-zinc-900 border border-zinc-800 space-y-1">
-                    <div className="flex items-center justify-between text-xs text-zinc-400 font-mono">
-                      <span>실시간 글로벌 유통 실적</span>
-                      <span className="text-emerald-400 font-bold">▲ 3330% UP</span>
-                    </div>
-                    <div className="text-2xl sm:text-3xl font-black text-white flex items-center gap-2">
-                      <span className="orange-gradient-text font-extrabold">누적 100억 원</span>
-                    </div>
-                  </div>
-
-                  {/* Dual Market Badges */}
-                  <div className="grid grid-cols-2 gap-2">
-                    <div className="p-3 rounded-xl bg-zinc-900/90 border border-zinc-800 text-left space-y-1">
-                      <span className="text-[10px] text-zinc-400 font-mono block">국내 리셀 마켓</span>
-                      <strong className="text-xs font-bold text-white block">스마트스토어/쿠팡</strong>
-                      <span className="text-[10px] text-orange-400 font-mono font-bold">자동화 소싱 가동</span>
-                    </div>
-                    <div className="p-3 rounded-xl bg-zinc-900/90 border border-orange-500/30 text-left space-y-1">
-                      <span className="text-[10px] text-orange-400 font-mono block">해외 역직구 마켓</span>
-                      <strong className="text-xs font-bold text-white block">eBay / Shopee</strong>
-                      <span className="text-[10px] text-emerald-400 font-mono font-bold">달러 마진 직접 수취</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Bottom Live Indicator Badge */}
-                <div className="pt-2 border-t border-zinc-800/80 flex items-center justify-between text-xs font-bold">
-                  <div className="flex items-center gap-2 text-zinc-200">
-                    <Globe className="w-4 h-4 text-orange-500" />
-                    <span>국내 + 해외역직구 동시 연동 특강</span>
-                  </div>
-                  <span className="text-orange-400 font-mono text-[11px]">100% 실전</span>
-                </div>
-              </div>
             </div>
 
           </div>
