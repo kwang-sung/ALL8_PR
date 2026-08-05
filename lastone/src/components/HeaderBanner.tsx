@@ -39,10 +39,6 @@ export const HeaderBanner: React.FC<HeaderBannerProps> = ({ seatsLeft }) => {
             <span className="w-2 h-2 rounded-full bg-orange-500 animate-ping" />
             <span>올에잇 × 라스트원</span>
           </div>
-          <div className="hidden md:flex items-center gap-2 text-xs text-zinc-300 bg-zinc-900 border border-zinc-800 px-3 py-1 rounded-full">
-            <Users className="w-3.5 h-3.5 text-orange-500" />
-            <span>선착순 마감 임박 | <strong className="text-orange-400">잔여 {seatsLeft}석</strong> / 100석</span>
-          </div>
         </div>
 
         {/* Timer & Quick CTA */}
