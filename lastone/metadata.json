@@ -1,0 +1,6 @@
+{
+  "name": "올에잇 × 라스트원 브랜드리셀 무료특강",
+  "description": "국내 브랜드리셀과 해외역직구 브랜드리셀을 동시에 정복하는 올에잇 × 라스트원 무료특강 신청 및 상세페이지",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
