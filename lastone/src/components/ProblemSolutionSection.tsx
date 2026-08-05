@@ -28,10 +28,9 @@ export const ProblemSolutionSection: React.FC = () => {
           <div className="md:col-span-5">
             <div className="rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-950 aspect-[4/3] relative group shadow-xl">
               <img
-                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80"
-                alt="Brand Reselling"
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                src="/all8_profile.png"
+                alt="올에잇 프로필"
+                className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>
