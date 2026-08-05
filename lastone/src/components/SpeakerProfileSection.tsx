@@ -56,7 +56,7 @@ export const SpeakerProfileSection: React.FC<SpeakerProfileProps> = ({ onApplyCl
               {/* Image */}
               <div className="absolute inset-0 overflow-hidden bg-white">
                 <img
-                  src="/라스트원_대표.jpg"
+                  src="/라스트원_대표.png"
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     if (target.src !== DEFAULT_CEO_PORTRAIT) {
