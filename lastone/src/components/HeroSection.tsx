@@ -63,16 +63,17 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onApplyClick }) => {
         </div>
 
         {/* Sub Hero Banner */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-zinc-900 border border-zinc-800 shadow-2xl flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-5 text-left">
-            <div className="w-14 h-14 rounded-2xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-500 shrink-0">
-              <TrendingUp className="w-7 h-7" />
+        <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-orange-500/15 via-zinc-900 to-orange-500/10 border border-orange-500/50 shadow-2xl shadow-orange-500/10 flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-orange-600/5 to-transparent pointer-events-none" />
+          <div className="flex items-center gap-5 text-left relative z-10">
+            <div className="w-16 h-16 rounded-2xl bg-orange-500/20 border border-orange-500/50 flex items-center justify-center text-orange-400 shrink-0 shadow-lg shadow-orange-500/20">
+              <TrendingUp className="w-8 h-8" />
             </div>
-            <div className="space-y-1.5">
-              <h3 className="text-white font-black text-xl sm:text-2xl leading-snug">
+            <div className="space-y-2">
+              <h3 className="text-white font-black text-2xl sm:text-3xl leading-snug">
                 "국내+해외역직구를 함께 다루는 특강, 흔치 않습니다"
               </h3>
-              <p className="text-zinc-400 text-sm sm:text-base">
+              <p className="text-zinc-300 text-sm sm:text-base">
                 두 개 시장 매출 파이프라인을 2시간 만에 완파하는 최초 단독 라이브 특강
               </p>
             </div>
@@ -82,7 +83,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onApplyClick }) => {
             href="https://open.kakao.com/o/gKWnrBDg"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-7 py-3.5 rounded-full bg-zinc-800 hover:bg-zinc-700 text-orange-400 font-bold text-sm sm:text-base border border-zinc-700 transition-all shrink-0 cursor-pointer inline-flex items-center gap-2"
+            className="relative z-10 px-8 py-4 rounded-full bg-orange-500 hover:bg-orange-400 text-zinc-950 font-black text-sm sm:text-base shadow-lg shadow-orange-500/30 transition-all hover:scale-105 active:scale-95 shrink-0 cursor-pointer inline-flex items-center gap-2"
           >
             <span>무료특강 바로 신청</span>
             <ArrowRight className="w-5 h-5" />
