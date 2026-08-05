@@ -66,14 +66,14 @@ export const AttendeeBenefitsSection: React.FC<AttendeeBenefitsProps> = ({ onApp
                 </span>
                 <CheckCircle2 className="w-4 h-4 text-orange-500" />
               </div>
-              <h3 className="font-bold text-white text-base sm:text-lg">
+              <h3 className="font-black text-white text-2xl sm:text-3xl leading-tight">
                 국내 브랜드리셀 프로그램 30일 무료 이용권
               </h3>
-              <p className="text-zinc-400 text-xs leading-relaxed">
+              <p className="text-zinc-300 text-sm sm:text-base leading-relaxed">
                 끝까지 참석하신 분 전원 30일 무료 제공.
               </p>
             </div>
-            <div className="pt-3 border-t border-zinc-800/80 text-[11px] font-mono text-orange-400 font-bold">
+            <div className="pt-3 border-t border-zinc-800/80 text-sm font-mono text-orange-400 font-bold">
               특강 참석자 전원 100% 무료 제공
             </div>
           </div>
