@@ -2342,7 +2342,7 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
               <tr>
                 <td>5</td>
                 <td><strong>배송 정책</strong></td>
-                <td>택배사, 배송 방법, 출고소요일, 반품비 기준</td>
+                <td>택배사, 배송 방법, 도서산간 배송, 묶음배송, 출고소요일, 반품비 기준 ↓ 아래 상세 가이드 참조</td>
               </tr>
               <tr>
                 <td>6</td>
@@ -2354,6 +2354,59 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
           <div class="callout warn" style="margin-top:10px;">
             <div class="callout-title">⚠️ 판매 유형 먼저 선택하세요</div>
             판매 유형(해외구매대행 여부)에 따라 출고지 선택 가능한 목록이 달라져요. 판매 유형을 설정하지 않은 상태에서 출고지를 선택하면 나중에 다시 바꿔야 할 수 있어요.
+          </div>
+
+          <div style="margin-top:20px;padding-top:16px;border-top:2px solid var(--border);">
+            <div style="font-size:.9rem;font-weight:900;color:var(--ink1);margin-bottom:12px;">🚚 쿠팡 배송 정책 — 항목별 입력 가이드</div>
+            <div class="tbl-wrap">
+              <table>
+                <tr><th style="width:28%">항목</th><th>어떻게 설정하나</th></tr>
+                <tr>
+                  <td><strong>택배사</strong></td>
+                  <td>
+                    <strong>Wing 출고지 주소 설정의 택배사와 반드시 일치</strong>시켜야 해요.<br>
+                    <span style="font-size:.85rem;color:var(--ink2);">Wing → 출고지 주소 수정에서 택배사별 제주(6,000원) / 제주 외 도서산간(8,000원) 금액을 먼저 등록하고, ALL8 배송 정책에서 동일한 택배사를 선택하세요. 불일치하면 도서산간 배송이 안 되고 업로드 에러가 발생해요.</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>배송 방법</strong></td>
+                  <td>
+                    <strong>국내 위탁 판매</strong> → <strong>일반배송(순차배송)</strong> 선택<br>
+                    <strong>해외 구매대행</strong> → <strong>기본값</strong> 그대로 유지
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>도서산간 배송</strong></td>
+                  <td>
+                    <strong>"가능"</strong> 선택<br>
+                    <span style="font-size:.85rem;color:var(--ink2);">Wing 출고지 주소에서 택배사별 도서산간 금액을 등록했을 때만 "가능"으로 설정할 수 있어요. 금액 등록 없이 "가능"으로 설정하면 업로드 에러가 발생해요.</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>묶음배송</strong></td>
+                  <td>
+                    <strong>"불가"</strong> 선택<br>
+                    <span style="font-size:.85rem;color:var(--ink2);">무재고 위탁은 상품마다 공급사가 달라 실제 묶음 발송이 불가능해요.</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>출고소요일</strong></td>
+                  <td>
+                    <strong>해외 구매대행</strong>: <strong>5~6 영업일</strong> 설정<br>
+                    <span style="font-size:.85rem;color:var(--ink2);">쿠팡에서 구매대행 기본 배송기간을 6일로 잡기 때문에, 출고소요일 5~6일로 설정해야 배송기간이 14~15일로 표시돼요. 더 짧게 설정하면 페널티 받을 수 있어요.</span><br><br>
+                    <strong>국내 당일배송</strong>: <strong>1 영업일</strong><br>
+                    <strong>국내 위탁배송</strong>: <strong>2 영업일</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>반품비 기준</strong></td>
+                  <td>
+                    <strong>해외상품 기준</strong> 선택<br>
+                    <span style="font-size:.85rem;color:var(--ink2);">해외 구매대행 상품의 반품비 기준이에요. 국내 판매 상품이면 국내상품 기준으로 변경하세요.</span>
+                  </td>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
       </div>
