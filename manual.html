@@ -1850,387 +1850,480 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
     </div>
 
     <!-- ────────── 프리셋 ────────── -->
-    <div class="content-section" id="preset" data-section data-keywords="프리셋 일괄 설정 저장 배송 마진 반품 자동 배송비 출고지 반품지 마켓 가격 재고 상품명 접두사 접미사">
+    <div class="content-section" id="preset" data-section data-keywords="프리셋 일괄 설정 저장 배송 마진 반품 자동 배송비 출고지 반품지 마켓 가격 재고 상품명 접두사 접미사 계산식 이미지 대체어">
       <div class="section-head">
         <div class="section-icon">⚙️</div>
         <div class="section-meta">
           <div class="section-label">PRESET</div>
-          <div class="section-title">프리셋 관리 — ALL8에서 가장 중요한 기능</div>
+          <div class="section-title">프리셋 만들기 — ALL8에서 가장 중요한 기능</div>
         </div>
       </div>
-      <p class="section-desc">프리셋을 잘 써야 ALL8을 제대로 쓰는 거예요. 처음엔 설정이 복잡해 보여도, 한 번 만들어두면 이후 작업 속도가 완전히 달라집니다.</p>
+      <p class="section-desc">프리셋 = 상품 등록에 필요한 모든 설정을 묶어 저장해두는 템플릿. 한 번 만들어두면 이후 수백 개 상품에 클릭 한 번으로 적용됩니다.</p>
 
-      <!-- 프리셋이 뭔지 -->
+      <!-- 프리셋 개요 -->
       <div class="subsection">
-        <div class="subsection-title">프리셋이 뭔가요? 왜 필요해요?</div>
+        <div class="subsection-title">프리셋이란?</div>
         <div class="card">
-          <p style="font-size:.92rem;color:var(--ink2);margin-bottom:14px;">상품을 마켓에 올리려면 매번 똑같은 것들을 입력해야 해요.</p>
           <div class="compare">
             <div class="compare-box">
               <h4>❌ 프리셋 없을 때</h4>
               <ul class="dots">
-                <li>상품 1개 올릴 때마다 배송비 입력</li>
-                <li>마진율 입력</li>
-                <li>출고지 주소 입력</li>
-                <li>반품지 주소 입력</li>
-                <li>마켓 계정 선택</li>
-                <li>재고 수량 입력</li>
-                <li>상품 100개면 100번 반복 😭</li>
+                <li>상품마다 마켓 계정 선택</li>
+                <li>가격 계산식 설정</li>
+                <li>배송비·반품비 입력</li>
+                <li>AI 번역 프롬프트 입력</li>
+                <li>이미지 가공 방식 선택</li>
+                <li>100개면 100번 반복</li>
               </ul>
             </div>
             <div class="compare-box highlight">
               <h4>✅ 프리셋 쓸 때</h4>
               <ul class="dots">
-                <li>상품 선택</li>
-                <li>프리셋 클릭 한 번</li>
-                <li>위 설정 전부 자동 입력 🎉</li>
-                <li>상품 100개도 30초면 끝</li>
-                <li>실수할 일도 없음</li>
-                <li>내가 직접 바꾸고 싶은 것만 수정</li>
+                <li>상품 선택 → 프리셋 클릭 한 번</li>
+                <li>위 설정 전부 자동 입력</li>
+                <li>100개도 30초면 끝</li>
+                <li>설정이 빠진 섹션만 덮어씌우는 방식</li>
+                <li>상품마다 다른 부분만 수동 수정</li>
               </ul>
             </div>
           </div>
-          <div class="callout good" style="margin-top:0;">
-            <div class="callout-title">💡 한 줄 요약</div>
-            프리셋 = 내가 자주 쓰는 설정 묶음을 저장해두고, 상품에 클릭 한 번으로 붙여넣는 기능
+          <div class="callout info" style="margin-top:12px;">
+            <div class="callout-title">📌 입력 원칙</div>
+            프리셋은 "이 섹션 사용" 체크박스가 따로 없습니다. <strong>값이 채워진 섹션만 상품에 적용</strong>됩니다. 비워두면 그 섹션은 상품 기존 설정 그대로 유지됩니다.
           </div>
         </div>
       </div>
 
-      <!-- 프리셋에 저장되는 항목 -->
+      <!-- 섹션별 상세 -->
       <div class="subsection">
-        <div class="subsection-title">프리셋에 저장할 수 있는 것들</div>
-        <div class="tbl-wrap">
-          <table>
-            <tr><th>메뉴</th><th>저장되는 항목</th><th>예시</th></tr>
-            <tr>
-              <td><strong>📦 배송 설정</strong></td>
-              <td>배송방법, 배송비, 출고지, 반품지, 반품배송비, 교환배송비</td>
-              <td>택배, 무료배송, 서울시 강남구 XX빌딩</td>
-            </tr>
-            <tr>
-              <td><strong>💰 가격 설정</strong></td>
-              <td>마진율(%), 추가비용, 최소 판매가</td>
-              <td>마진 30%, 추가비용 500원</td>
-            </tr>
-            <tr>
-              <td><strong>🏪 마켓 설정</strong></td>
-              <td>업로드할 마켓 계정, 판매 상태</td>
-              <td>쿠팡 메인 계정, 즉시 판매</td>
-            </tr>
-            <tr>
-              <td><strong>📝 상품명 규칙</strong></td>
-              <td>앞에 붙일 텍스트(접두사), 뒤에 붙일 텍스트(접미사)</td>
-              <td>접두사: "[당일발송]", 접미사: "/ 무료배송"</td>
-            </tr>
-            <tr>
-              <td><strong>📦 재고 설정</strong></td>
-              <td>기본 재고 수량</td>
-              <td>재고 999개 (품절 방지용)</td>
-            </tr>
-            <tr>
-              <td><strong>🖼️ 이미지 설정</strong></td>
-              <td>대표이미지 선택 방식, 이미지 개수 제한</td>
-              <td>첫 번째 이미지 자동 선택, 최대 5장</td>
-            </tr>
-          </table>
+        <div class="subsection-title">편집 섹션별 상세 설명</div>
+
+        <!-- ① 상품명 -->
+        <div class="card" style="margin-bottom:10px;">
+          <div class="card-title">① 상품명</div>
+          <p style="font-size:.88rem;color:var(--ink2);margin-bottom:10px;">소싱처 중문 상품명을 AI가 자동으로 한국어로 정제합니다. 고정단어(접두사·접미사)를 추가할 수도 있습니다.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th style="width:28%">항목</th><th style="width:38%">설명</th><th>입력 방법</th></tr>
+              <tr>
+                <td><strong>상품명 자동 수정</strong></td>
+                <td>AI가 상품명을 한국어로 번역·정제할지 여부</td>
+                <td><strong>자동 수정 실행</strong> / 수정 안함 중 선택</td>
+              </tr>
+              <tr>
+                <td><strong>상품명 수정 AI 모델</strong></td>
+                <td>번역에 사용할 AI 모델 선택 (자동 수정 선택 시 표시)</td>
+                <td>드롭다운에서 모델 선택</td>
+              </tr>
+              <tr>
+                <td><strong>상품명 수정 프롬프트</strong></td>
+                <td>AI에게 전달할 번역·정제 지시문 (자동 수정 선택 시 표시)</td>
+                <td>textarea 직접 입력 또는 [내 프롬프트] 피커에서 저장된 프롬프트 불러오기</td>
+              </tr>
+              <tr>
+                <td><strong>고정단어</strong></td>
+                <td>모든 상품명 앞 또는 뒤에 자동으로 붙는 텍스트 (최대 40자)</td>
+                <td>텍스트 입력 + <strong>맨 앞(접두사)</strong> / <strong>맨 뒤(접미사)</strong> 위치 선택<br><span style="font-size:.82rem;color:var(--ink2);">예: "[해외직구]" 맨 앞 → "[해외직구] 여성 린넨 블라우스"</span></td>
+              </tr>
+            </table>
+          </div>
+          <div class="callout tip" style="margin-top:8px;">
+            <div class="callout-title">언제 쓰나요?</div>
+            소싱처가 중문 상품인 경우 반드시 자동 수정 켜기. 고정단어는 "[구매대행]", "[해외직구]" 같은 표기를 전 상품에 자동 삽입할 때 사용.
+          </div>
         </div>
-        <p style="font-size:.85rem;color:var(--ink3);margin-top:8px;">※ 항목은 ALL8 버전에 따라 다를 수 있어요. 저장 화면에서 직접 확인하세요.</p>
+
+        <!-- ② 옵션 -->
+        <div class="card" style="margin-bottom:10px;">
+          <div class="card-title">② 옵션</div>
+          <p style="font-size:.88rem;color:var(--ink2);margin-bottom:10px;">옵션명 번역·정제, 옵션 이미지 넘버링, 신발 사이즈 변환, 대표옵션 지정 규칙을 설정합니다.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th style="width:28%">항목</th><th style="width:38%">설명</th><th>입력 방법</th></tr>
+              <tr>
+                <td><strong>옵션명 자동 수정</strong></td>
+                <td>AI가 옵션명(색상·사이즈 등)을 한국어로 번역·정제</td>
+                <td>자동 수정 실행 / 수정 안함 선택 → AI 모델·프롬프트 설정</td>
+              </tr>
+              <tr>
+                <td><strong>옵션 넘버링</strong></td>
+                <td>옵션 이미지가 있는 속성의 옵션명 앞에 번호 추가<br><span style="font-size:.82rem;color:var(--ink2);">예: "빨강" → "①빨강", "파랑" → "②파랑"</span></td>
+                <td>넘버링 추가 / 수정 안함 선택</td>
+              </tr>
+              <tr>
+                <td><strong>신발 사이즈 변환</strong></td>
+                <td>신발 카테고리 상품의 사이즈를 국내 mm 표기로 자동 변환</td>
+                <td>국내 표기방식(mm)으로 자동 변환 / 변환하지 않음 선택<br><span style="font-size:.82rem;color:var(--ink2);">신발 카테고리에서만 작동. 예: "260" → "260mm"</span></td>
+              </tr>
+              <tr>
+                <td><strong>대표옵션 지정 규칙</strong></td>
+                <td>썸네일·상세에 노출될 기준 옵션을 어떤 기준으로 고를지</td>
+                <td>최저가 / <strong>중간가격(기본)</strong> / 최대가 / 소싱처 순서 중 선택</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- ③ 업로드 마켓 -->
+        <div class="card" style="margin-bottom:10px;">
+          <div class="card-title">③ 업로드 마켓</div>
+          <p style="font-size:.88rem;color:var(--ink2);margin-bottom:10px;">이 프리셋을 적용할 때 상품이 올라갈 마켓 계정을 지정합니다. 마켓에 따라 추가 설정이 표시됩니다.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th style="width:28%">항목</th><th style="width:38%">설명</th><th>입력 방법</th></tr>
+              <tr>
+                <td><strong>마켓 계정 선택</strong></td>
+                <td>업로드 대상 마켓 계정 (복수 선택 가능)</td>
+                <td>연결된 마켓 계정 목록에서 체크박스로 선택</td>
+              </tr>
+              <tr>
+                <td><strong>G마켓·옥션 원산지 기본값</strong></td>
+                <td>G마켓 또는 옥션 계정 선택 시 추가 표시</td>
+                <td>원산지 유형 드롭다운에서 선택 (수입산 권장)</td>
+              </tr>
+              <tr>
+                <td><strong>옵션 구조 변경 기준</strong></td>
+                <td>토스쇼핑 또는 쿠팡 계정 선택 시 표시 — 다중옵션 구조를 해당 마켓 방식으로 변환</td>
+                <td>변환 안 함 / 토스쇼핑 / 쿠팡 중 선택</td>
+              </tr>
+              <tr>
+                <td><strong>스마트스토어 그룹상품</strong></td>
+                <td>스마트스토어 계정 선택 시 표시 — 옵션 여러 개를 그룹상품으로 묶어 업로드</td>
+                <td>그룹상품으로 업로드 / 사용 안함 선택</td>
+              </tr>
+            </table>
+          </div>
+          <div class="callout tip" style="margin-top:8px;">
+            <div class="callout-title">언제 쓰나요?</div>
+            프리셋에서 마켓을 고정해두면 업로드할 때 계정을 다시 고를 필요가 없습니다. 소싱처×마켓 조합마다 프리셋을 나눠두는 이유가 여기 있습니다.
+          </div>
+        </div>
+
+        <!-- ④ 계산식 -->
+        <div class="card" style="margin-bottom:10px;">
+          <div class="card-title">④ 계산식</div>
+          <p style="font-size:.88rem;color:var(--ink2);margin-bottom:10px;">판매가를 자동 계산하는 수식을 저장합니다. 상품 편집 화면의 계산식 빌더와 동일한 UI입니다.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th style="width:28%">항목</th><th style="width:38%">설명</th><th>입력 방법</th></tr>
+              <tr>
+                <td><strong>비용 변수</strong></td>
+                <td>매입가·매입배송비 등 원가 항목</td>
+                <td>변수 그리드에서 각 비용 항목 값 입력</td>
+              </tr>
+              <tr>
+                <td><strong>계산 수식</strong></td>
+                <td>변수를 조합해 판매가를 만드는 공식</td>
+                <td>수식 빌더로 작성하거나 직접 입력<br><span style="font-size:.82rem;color:var(--ink2);">예: (매입가 + 매입배송비) × 1.45</span></td>
+              </tr>
+              <tr>
+                <td><strong>통화·반올림</strong></td>
+                <td>원화 환산 기준 통화 + 원 단위 반올림 방식</td>
+                <td>통화 선택 + 반올림 옵션 설정</td>
+              </tr>
+            </table>
+          </div>
+          <div class="callout warn" style="margin-top:8px;">
+            <div class="callout-title">주의</div>
+            수식에 오류가 있으면 저장이 차단됩니다. 저장 전 수식 유효성 오류 메시지를 확인하세요. 마켓별 전용 계산식이 필요하면 마켓 계정 설정의 "가격 계산식" 항목에서 별도 세트로 운용하세요.
+          </div>
+        </div>
+
+        <!-- ⑤ 대표 이미지(썸네일) -->
+        <div class="card" style="margin-bottom:10px;">
+          <div class="card-title">⑤ 대표 이미지(썸네일)</div>
+          <p style="font-size:.88rem;color:var(--ink2);margin-bottom:10px;">마켓 목록에서 가장 먼저 보이는 메인 이미지입니다. 배경제거·번역·AI 변형 중 가공 방식을 선택합니다.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th style="width:28%">항목</th><th style="width:38%">설명</th><th>입력 방법</th></tr>
+              <tr>
+                <td><strong>이미지 수집 및 수정</strong></td>
+                <td>소싱처에서 가져온 이미지를 가공할지 여부</td>
+                <td><strong>자동 수정</strong> / 수정 없이 원본 유지 선택</td>
+              </tr>
+              <tr>
+                <td><strong>수정 범위</strong></td>
+                <td>자동 수정 선택 시 표시 — 어떤 방식으로 가공할지</td>
+                <td>선택 안함 / <strong>배경제거</strong> / 이미지 번역 / AI 이미지 변형 중 선택</td>
+              </tr>
+              <tr>
+                <td><strong>AI 이미지 변형</strong></td>
+                <td>AI 이미지 변형 선택 시 표시 — AI 모델과 프롬프트 설정</td>
+                <td>AI 모델 선택 + 변형 지시 프롬프트 입력</td>
+              </tr>
+              <tr>
+                <td><strong>수정된 이미지 표시</strong></td>
+                <td>가공된 이미지를 원본과 어떤 관계로 배치할지</td>
+                <td><strong>원본이 변경됨(replace)</strong> / 원본 옆에 추가(append) 선택</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- ⑥ 상품 이미지(보조 썸네일) -->
+        <div class="card" style="margin-bottom:10px;">
+          <div class="card-title">⑥ 상품 이미지(보조 썸네일)</div>
+          <p style="font-size:.88rem;color:var(--ink2);margin-bottom:10px;">대표 이미지 외 추가 이미지(2번째 이후)입니다. 수집 자체를 끌 수 있다는 점이 대표 이미지와 다릅니다.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th style="width:28%">항목</th><th style="width:38%">설명</th><th>입력 방법</th></tr>
+              <tr>
+                <td><strong>이미지 수집 및 수정</strong></td>
+                <td>보조 이미지를 가져올지 여부와 가공 방식</td>
+                <td><strong>자동 수정</strong> / 수정 없이 원본 유지 / <strong>수집 안함</strong> 중 선택<br><span style="font-size:.82rem;color:var(--ink2);">수집 안함 선택 시 보조 썸네일 자체를 가져오지 않음</span></td>
+              </tr>
+              <tr>
+                <td><strong>수정 범위·AI·표시 방식</strong></td>
+                <td>자동 수정 선택 시 표시 — 대표 이미지와 동일한 옵션</td>
+                <td>대표 이미지 섹션과 동일하게 설정</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- ⑦ 옵션 이미지 -->
+        <div class="card" style="margin-bottom:10px;">
+          <div class="card-title">⑦ 옵션 이미지</div>
+          <p style="font-size:.88rem;color:var(--ink2);margin-bottom:10px;">색상 선택 등 옵션별로 표시되는 이미지입니다. 배경제거 처리가 특히 효과적입니다.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th style="width:28%">항목</th><th style="width:38%">설명</th><th>입력 방법</th></tr>
+              <tr>
+                <td><strong>이미지 수집 및 수정</strong></td>
+                <td>옵션 이미지 가공 여부 (수집 안함 옵션은 없음)</td>
+                <td><strong>자동 수정</strong> / 수정 없이 원본 유지 선택</td>
+              </tr>
+              <tr>
+                <td><strong>수정 범위</strong></td>
+                <td>자동 수정 선택 시 가공 방식</td>
+                <td>선택 안함 / 배경제거 / 이미지 번역 / AI 이미지 변형<br><span style="font-size:.82rem;color:var(--ink2);">옵션 이미지는 "표시 방식" 설정 없음 — 원본을 교체하는 방식으로만 처리</span></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- ⑧ 상세설명 이미지 -->
+        <div class="card" style="margin-bottom:10px;">
+          <div class="card-title">⑧ 상세설명 이미지</div>
+          <p style="font-size:.88rem;color:var(--ink2);margin-bottom:10px;">상품 상세페이지 본문 이미지입니다. 상단·하단 고정 이미지(배너)를 삽입하는 기능이 여기에 있습니다.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th style="width:28%">항목</th><th style="width:38%">설명</th><th>입력 방법</th></tr>
+              <tr>
+                <td><strong>이미지 수집 및 수정</strong></td>
+                <td>상세 이미지를 가져올지 여부와 가공 방식</td>
+                <td>자동 수정 / 수정 없이 원본 유지 / <strong>수집 안함</strong> 선택</td>
+              </tr>
+              <tr>
+                <td><strong>수정 범위</strong></td>
+                <td>자동 수정 선택 시 가공 방식</td>
+                <td>배경만 제거 / 이미지 속 텍스트 번역(에디터로 수정 가능) / AI로 이미지 재생성</td>
+              </tr>
+              <tr>
+                <td><strong>썸네일 이미지 추가</strong></td>
+                <td>상세 이미지가 없을 때 보조 썸네일로 대체할지</td>
+                <td>썸네일 이미지를 상세설명 이미지로 사용 / 추가 안함 선택</td>
+              </tr>
+              <tr>
+                <td><strong>상단 이미지</strong></td>
+                <td>상세 본문 맨 위에 자동 삽입되는 고정 배너 이미지 URL</td>
+                <td>이미지 URL 입력 (여러 장 가능)<br><span style="font-size:.82rem;color:var(--ink2);">해외구매대행 고지 배너, 브랜드 배너 등을 고정 삽입할 때 활용</span></td>
+              </tr>
+              <tr>
+                <td><strong>하단 이미지</strong></td>
+                <td>상세 본문 맨 아래에 자동 삽입되는 고정 배너 이미지 URL</td>
+                <td>이미지 URL 입력 (여러 장 가능)<br><span style="font-size:.82rem;color:var(--ink2);">AS불가 안내, 교환반품 안내 배너 등</span></td>
+              </tr>
+            </table>
+          </div>
+          <div class="callout tip" style="margin-top:8px;">
+            <div class="callout-title">언제 쓰나요?</div>
+            롯데ON·토스쇼핑처럼 상단에 해외구매대행 고지 이미지를 의무적으로 넣어야 하는 마켓에서 상단 이미지를 등록해두면 매 상품마다 수동 삽입할 필요가 없습니다.
+          </div>
+        </div>
+
+        <!-- ⑨ 상세설명 추가요소 -->
+        <div class="card" style="margin-bottom:10px;">
+          <div class="card-title">⑨ 상세설명 추가요소</div>
+          <p style="font-size:.88rem;color:var(--ink2);margin-bottom:10px;">상세설명 이미지 외에 상세페이지 본문에 자동으로 추가되는 요소들을 설정합니다.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th style="width:28%">항목</th><th style="width:38%">설명</th><th>입력 방법</th></tr>
+              <tr>
+                <td><strong>상품명 추가</strong></td>
+                <td>상세설명 상단에 상품명 텍스트 자동 삽입</td>
+                <td>상세설명 상단에 상품명 삽입 / 상품명 삽입 안함 선택</td>
+              </tr>
+              <tr>
+                <td><strong>비디오 추가</strong></td>
+                <td>소싱처 상품 동영상을 상세에 삽입 + 음성 처리 방식 선택</td>
+                <td>추가 안함 / 비디오 추가(음성 포함) / 비디오 추가(음성 제거) 선택<br><span style="font-size:.82rem;color:var(--ink2);">중문 음성이 포함된 영상은 음성 제거 권장</span></td>
+              </tr>
+              <tr>
+                <td><strong>옵션 이미지 그리드 추가</strong></td>
+                <td>옵션 이미지를 그리드 레이아웃으로 상세에 삽입 (미리보기 제공)</td>
+                <td>그리드 활성화 + 레이아웃 설정<br><span style="font-size:.82rem;color:var(--ink2);">색상 옵션이 많은 패션 상품에서 유용</span></td>
+              </tr>
+              <tr>
+                <td><strong>스펙/고시정보 추가</strong></td>
+                <td>소싱처 스펙 테이블·법정 상품고시정보를 상세에 자동 삽입</td>
+                <td>스펙/고시정보 추가 / 추가 안함 선택</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- ⑩ 배송 설정 -->
+        <div class="card" style="margin-bottom:10px;">
+          <div class="card-title">⑩ 배송 설정</div>
+          <p style="font-size:.88rem;color:var(--ink2);margin-bottom:10px;">고객에게 부과되는 배송비와 반품비를 설정합니다. 마켓별 출고지·반품지는 "마켓 계정 설정"에서 별도 관리됩니다.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th style="width:28%">항목</th><th style="width:38%">설명</th><th>입력 방법</th></tr>
+              <tr>
+                <td><strong>판매배송비 유형</strong></td>
+                <td>배송비를 어떤 방식으로 받을지</td>
+                <td><strong>무료(FREE)</strong> / 고정(FIXED) / 조건부(CONDITIONAL) / 수량별(UNIT_QUANTITY) 선택<br><span style="font-size:.82rem;color:var(--ink2);">구매대행은 무료(0원) 후 판매가에 배송비 포함 방식 권장</span></td>
+              </tr>
+              <tr>
+                <td><strong>무료배송 기준금액</strong></td>
+                <td>조건부 선택 시 표시 — 이 금액 이상 구매 시 무료</td>
+                <td>기준 금액 입력 (예: 50,000)</td>
+              </tr>
+              <tr>
+                <td><strong>기준 수량</strong></td>
+                <td>수량별 선택 시 표시 — 이 수량 이상 구매 시 무료</td>
+                <td>최소 1 이상 입력</td>
+              </tr>
+              <tr>
+                <td><strong>판매배송비</strong></td>
+                <td>무료 외 유형 선택 시 표시 — 실제 배송비 금액</td>
+                <td>금액 입력 (예: 3,000)</td>
+              </tr>
+              <tr>
+                <td><strong>반품비</strong></td>
+                <td>고객 반품 시 부과되는 편도 배송비</td>
+                <td>금액 입력 (예: 3,000)</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- ⑪ 부가 정보 -->
+        <div class="card" style="margin-bottom:10px;">
+          <div class="card-title">⑪ 부가 정보</div>
+          <p style="font-size:.88rem;color:var(--ink2);margin-bottom:10px;">브랜드·출고일·과세 유형 등 마켓 등록에 필요한 기타 공통 정보를 설정합니다.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th style="width:28%">항목</th><th style="width:38%">설명</th><th>입력 방법</th></tr>
+              <tr>
+                <td><strong>브랜드</strong></td>
+                <td>상품 브랜드명 (최대 100자)</td>
+                <td>텍스트 입력. 브랜드 없으면 공란. 구매대행은 보통 공란.</td>
+              </tr>
+              <tr>
+                <td><strong>제조사</strong></td>
+                <td>제조사명 (최대 100자)</td>
+                <td>텍스트 입력. 모르면 공란.</td>
+              </tr>
+              <tr>
+                <td><strong>출고일(영업일)</strong></td>
+                <td>주문 후 발송까지 걸리는 영업일</td>
+                <td>1일~30일 선택. 구매대행은 7~14일 권장.</td>
+              </tr>
+              <tr>
+                <td><strong>성인용품 여부</strong></td>
+                <td>성인 인증이 필요한 상품인지</td>
+                <td>아니오 / 예 선택</td>
+              </tr>
+              <tr>
+                <td><strong>과세 유형</strong></td>
+                <td>부가세 과세·면세·영세 여부</td>
+                <td><strong>과세</strong> / 면세 / 영세 선택. 구매대행은 과세.</td>
+              </tr>
+              <tr>
+                <td><strong>관부가세</strong></td>
+                <td>해외 관부가세 처리 방식</td>
+                <td>부과대상 아님 / 판매가에 포함 / <strong>판매가에 미포함·구매자 부담</strong> 선택<br><span style="font-size:.82rem;color:var(--ink2);">구매대행은 "판매가에 미포함·구매자 부담" 권장</span></td>
+              </tr>
+              <tr>
+                <td><strong>1인 구매 제한</strong></td>
+                <td>1인당 구매 가능 최대 수량. 0 = 제한 없음</td>
+                <td>숫자 입력. 보통 0(제한 없음). 롯데ON은 미지원.</td>
+              </tr>
+              <tr>
+                <td><strong>상품 설명</strong></td>
+                <td>프리셋에서 일괄 적용할 상품 설명 텍스트</td>
+                <td>textarea 입력. 공통 안내문을 넣고 싶을 때 사용.</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <!-- ⑫ 메모 -->
+        <div class="card" style="margin-bottom:10px;">
+          <div class="card-title">⑫ 메모</div>
+          <p style="font-size:.88rem;color:var(--ink2);margin-bottom:10px;">프리셋 적용 시 상품에 자동으로 <strong>추가(append)</strong>되는 운영용 태그와 메모입니다. 기존 내용을 덮어쓰지 않고 붙여넣는 방식입니다.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th style="width:28%">항목</th><th style="width:38%">설명</th><th>입력 방법</th></tr>
+              <tr>
+                <td><strong>추가할 태그</strong></td>
+                <td>프리셋 적용 시 상품에 자동 추가되는 내부 분류 태그 (최대 30개, 각 40자)</td>
+                <td>텍스트 입력 후 Enter 또는 쉼표로 확정. 클릭으로 삭제.<br><span style="font-size:.82rem;color:var(--ink2);">예: "중국소싱", "패션", "쿠팡전용" 등 내부 분류용</span></td>
+              </tr>
+              <tr>
+                <td><strong>추가할 메모</strong></td>
+                <td>프리셋 적용 시 상품에 자동 추가되는 운영 메모</td>
+                <td>textarea 입력<br><span style="font-size:.82rem;color:var(--ink2);">예: "소싱처: 1688 / 환율 적용 기준: 매달 1일" 등</span></td>
+              </tr>
+            </table>
+          </div>
+          <div class="callout info" style="margin-top:8px;">
+            <div class="callout-title">Append 방식이란?</div>
+            이미 태그나 메모가 있는 상품에 프리셋을 적용하면 기존 내용이 사라지지 않고, 프리셋에 입력한 내용이 뒤에 추가됩니다.
+          </div>
+        </div>
+
+        <!-- ⑬ 대체어 -->
+        <div class="card" style="margin-bottom:10px;">
+          <div class="card-title">⑬ 대체어</div>
+          <p style="font-size:.88rem;color:var(--ink2);margin-bottom:10px;">"금지어·대체어" 메뉴에 등록한 치환 규칙을 이 프리셋에서 자동 적용할지 결정합니다.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th style="width:28%">항목</th><th style="width:38%">설명</th><th>입력 방법</th></tr>
+              <tr>
+                <td><strong>대체어 적용</strong></td>
+                <td>상품명·옵션명의 금지어를 대체어로 자동 치환할지 여부</td>
+                <td><strong>대체어로 자동 변경(기본 ON)</strong> / 적용 안함 선택<br><span style="font-size:.82rem;color:var(--ink2);">미설정 시 기본 ON으로 동작</span></td>
+              </tr>
+            </table>
+          </div>
+          <div class="callout tip" style="margin-top:8px;">
+            <div class="callout-title">언제 끄나요?</div>
+            특정 프리셋에서는 대체어 치환 없이 원문 그대로 올리고 싶을 때만 끕니다. 대체어 단어 목록 자체는 좌측 메뉴 "금지어·대체어" 화면에서 별도 관리합니다.
+          </div>
+        </div>
+
       </div>
 
-      <!-- 프리셋 만들기 상세 -->
+      <!-- 프리셋 전략 -->
       <div class="subsection">
-        <div class="subsection-title">프리셋 만들기 — 항목별 상세 설명</div>
-
-        <div class="card" style="margin-bottom:10px;">
-          <div class="card-title">📍 시작 방법</div>
-          <ol class="steps">
-            <li>
-              <strong>왼쪽 메뉴 → <span class="btn">프리셋 관리</span> 클릭</strong>
-              <span>현재 저장된 프리셋 목록이 보여요.</span>
-            </li>
-            <li>
-              <strong>오른쪽 위 <span class="btn">+ 새 프리셋</span> 클릭</strong>
-              <span>새 프리셋 설정 화면이 열려요.</span>
-            </li>
-            <li>
-              <strong>프리셋 이름 입력</strong>
-              <span>나중에 알아보기 쉽게 이름을 지어요. 예: "타오바오-패션-쿠팡", "알리-소형가전-스마트스토어"</span>
-            </li>
-          </ol>
-        </div>
-
-        <div class="card" style="margin-bottom:10px;">
-          <div class="card-title">📦 배송 설정 — 가장 중요한 부분</div>
-          <div class="tbl-wrap">
-            <table>
-              <tr><th>항목</th><th>설명</th><th>입력 방법</th></tr>
-              <tr>
-                <td><strong>배송 방법</strong></td>
-                <td>택배, 직접배송, 방문수령 중 선택</td>
-                <td>드롭다운에서 선택. 보통 "택배" 선택.</td>
-              </tr>
-              <tr>
-                <td><strong>배송비</strong></td>
-                <td>고객에게 받을 배송비</td>
-                <td>무료배송이면 0 입력. 유료면 금액 입력 (예: 3000)</td>
-              </tr>
-              <tr>
-                <td><strong>조건부 무료배송</strong></td>
-                <td>N원 이상 구매 시 무료</td>
-                <td>기준 금액 입력. 예: 50,000원 이상 무료</td>
-              </tr>
-              <tr>
-                <td><strong>출고지 주소</strong></td>
-                <td>상품이 출발하는 주소 (내 창고·자택 등)</td>
-                <td>주소 검색 버튼 클릭 → 주소 입력. 한 번 설정하면 계속 쓰임.</td>
-              </tr>
-              <tr>
-                <td><strong>반품지 주소</strong></td>
-                <td>반품 받을 주소. 보통 출고지와 동일.</td>
-                <td>"출고지와 동일" 체크하면 자동 입력.</td>
-              </tr>
-              <tr>
-                <td><strong>반품 배송비</strong></td>
-                <td>고객이 반품할 때 내야 하는 배송비</td>
-                <td>마켓 정책에 맞게 입력. 보통 편도 3,000원.</td>
-              </tr>
-              <tr>
-                <td><strong>교환 배송비</strong></td>
-                <td>교환 시 왕복 배송비</td>
-                <td>반품 배송비 × 2. 보통 6,000원.</td>
-              </tr>
-              <tr>
-                <td><strong>출고 가능일</strong></td>
-                <td>주문 후 며칠 안에 발송하는지</td>
-                <td>구매대행은 보통 3~7일. 너무 짧게 쓰면 페널티 받을 수 있어요.</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-
-        <div class="card" style="margin-bottom:10px;">
-          <div class="card-title">💰 가격 설정 — 마진 계산 자동화</div>
-          <div class="tbl-wrap">
-            <table>
-              <tr><th>항목</th><th>설명</th><th>입력 방법</th></tr>
-              <tr>
-                <td><strong>마진율 (%)</strong></td>
-                <td>원가에서 얼마나 붙여서 팔지</td>
-                <td>숫자 입력. 예: 30 입력 → 원가 10,000원이면 판매가 13,000원 자동 계산</td>
-              </tr>
-              <tr>
-                <td><strong>추가 비용</strong></td>
-                <td>마진 외에 고정으로 더 붙는 비용 (수수료, 포장비 등)</td>
-                <td>금액 입력. 예: 500원 → 판매가에 500원 추가</td>
-              </tr>
-              <tr>
-                <td><strong>최소 판매가</strong></td>
-                <td>아무리 계산해도 이 금액 이하로는 팔지 않는 하한선</td>
-                <td>예: 5,000원 → 계산된 판매가가 5,000원 미만이면 5,000원으로 고정</td>
-              </tr>
-              <tr>
-                <td><strong>가격 올림 단위</strong></td>
-                <td>판매가를 이 단위로 올림해줌</td>
-                <td>예: 100 입력 → 계산된 가격 12,340원 → 12,400원으로 올림</td>
-              </tr>
-            </table>
-          </div>
-          <div class="callout tip" style="margin-top:10px;">
-            <div class="callout-title">💡 마진 계산 예시</div>
-            원가 8,000원 / 마진율 35% / 추가비용 500원<br>
-            → 판매가 = (8,000 × 1.35) + 500 = <strong>11,300원</strong><br>
-            가격 올림 100원 단위 적용 → <strong>11,300원</strong>
-          </div>
-        </div>
-
-        <div class="card" style="margin-bottom:10px;">
-          <div class="card-title">🏪 마켓 설정 — 어디에 올릴지</div>
-          <div class="tbl-wrap">
-            <table>
-              <tr><th>항목</th><th>설명</th><th>입력 방법</th></tr>
-              <tr>
-                <td><strong>업로드 마켓</strong></td>
-                <td>이 프리셋을 적용하면 어느 마켓에 올릴지</td>
-                <td>연결된 마켓 계정 중 선택. 여러 개 동시 선택도 가능.</td>
-              </tr>
-              <tr>
-                <td><strong>판매 상태</strong></td>
-                <td>올리자마자 판매 시작할지, 임시저장 상태로 올릴지</td>
-                <td>"즉시 판매" 또는 "임시저장" 선택. 검토 후 올리고 싶으면 임시저장.</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-
-        <div class="card" style="margin-bottom:10px;">
-          <div class="card-title">📝 상품명 규칙 — 이름 앞뒤 자동 추가</div>
-          <div class="tbl-wrap">
-            <table>
-              <tr><th>항목</th><th>설명</th><th>예시</th></tr>
-              <tr>
-                <td><strong>접두사 (앞에 붙는 텍스트)</strong></td>
-                <td>모든 상품명 앞에 자동으로 붙는 단어</td>
-                <td>"[당일발송] " 입력 → "[당일발송] 남성 반팔 티셔츠"</td>
-              </tr>
-              <tr>
-                <td><strong>접미사 (뒤에 붙는 텍스트)</strong></td>
-                <td>모든 상품명 뒤에 자동으로 붙는 단어</td>
-                <td>" 무료배송" 입력 → "남성 반팔 티셔츠 무료배송"</td>
-              </tr>
-            </table>
-          </div>
-          <div class="callout tip">
-            <div class="callout-title">💡 이런 용도로 써요</div>
-            "[해외직구]", "[정품]", "[특가]" 같은 문구를 모든 상품명에 자동으로 넣을 수 있어요.<br>
-            단, 마켓에서 금지하는 표현이 있으니 금지어 설정과 함께 관리하세요.
-          </div>
-        </div>
-
-        <div class="card" style="margin-bottom:10px;">
-          <div class="card-title">📦 재고 설정</div>
-          <div class="tbl-wrap">
-            <table>
-              <tr><th>항목</th><th>설명</th><th>권장 설정</th></tr>
-              <tr>
-                <td><strong>기본 재고 수량</strong></td>
-                <td>마켓에 올릴 때 표시할 재고 수</td>
-                <td>구매대행은 보통 999 (무제한처럼 보이게). 재고 연동을 켜두면 실제 품절 시 자동 처리.</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-
+        <div class="subsection-title">프리셋 나누는 기준</div>
         <div class="card">
-          <div class="card-title">🖼️ 이미지 설정</div>
+          <p style="font-size:.88rem;color:var(--ink2);margin-bottom:12px;">소싱처 × 마켓 조합마다 프리셋 1개를 만드는 게 기본입니다.</p>
           <div class="tbl-wrap">
             <table>
-              <tr><th>항목</th><th>설명</th><th>입력 방법</th></tr>
-              <tr>
-                <td><strong>대표이미지 선택</strong></td>
-                <td>소싱처 이미지 중 대표로 쓸 이미지를 어떻게 고를지</td>
-                <td>"첫 번째 이미지 자동 선택" 또는 "직접 선택" 중 고르기</td>
-              </tr>
-              <tr>
-                <td><strong>최대 이미지 수</strong></td>
-                <td>이미지를 몇 장까지 가져올지</td>
-                <td>마켓 제한(보통 10장)에 맞게 설정. 너무 많으면 업로드 오류 날 수 있어요.</td>
-              </tr>
+              <tr><th>프리셋 이름 예시</th><th>핵심 설정</th></tr>
+              <tr><td><strong>1688-패션-쿠팡</strong></td><td>쿠팡 계정, 계산식(위안화×환율×1.45), 배경제거, 상단 고지 배너</td></tr>
+              <tr><td><strong>알리-소형가전-스마트스토어</strong></td><td>스마트스토어 계정, 달러×환율×1.40, 그룹상품 ON</td></tr>
+              <tr><td><strong>아마존-미국-롯데ON</strong></td><td>롯데ON 계정, 달러×환율×1.50, 상단 해외직구 고지 배너 URL 고정</td></tr>
             </table>
           </div>
-        </div>
-
-        <div class="card">
-          <div class="card-title">👟 옵션 설정</div>
-          <div class="tbl-wrap">
-            <table>
-              <tr><th>항목</th><th>설명</th></tr>
-              <tr>
-                <td><strong>신발 카테고리 사이즈 변환</strong></td>
-                <td>
-                  수집 후 카테고리가 <strong>신발</strong>로 분류된 상품의 사이즈 옵션을 국내 mm 표기로 자동 변환해줘요.<br>
-                  <span style="font-size:.82rem;color:var(--ink3);">예: "260" → "260mm", 이미 mm 표기면 단위 표기만 정리</span><br>
-                  <span class="badge yellow" style="margin-top:4px;">신발 카테고리에서만 표시됨 · 다른 카테고리에는 적용 안 됨</span><br>
-                  <ul style="margin-top:6px;padding-left:16px;font-size:.85rem;color:var(--ink2);">
-                    <li><code>국내 표기방식(mm)으로 자동 변환</code> — 1688에서 수집한 사이즈를 mm 단위로 변환</li>
-                    <li><code>변환하지 않음</code> — 소싱처 원본 사이즈 그대로 유지 (기본값)</li>
-                  </ul>
-                </td>
-              </tr>
-            </table>
+          <div class="callout good" style="margin-top:10px;">
+            <div class="callout-title">실전 팁</div>
+            3~5개 프리셋이면 대부분의 소싱 패턴 커버 가능. 섹션을 전부 채울 필요 없습니다. 마켓·계산식·배송 설정 3가지만 채워도 업로드 자동화의 90%는 해결됩니다.
           </div>
-        </div>
-      </div>
-
-      <!-- 프리셋 적용 방법 -->
-      <div class="subsection">
-        <div class="subsection-title">프리셋 적용하기 — 3가지 방법</div>
-
-        <div class="card" style="margin-bottom:10px;">
-          <div class="card-title">방법 1 — 상품 1개에 적용</div>
-          <ol class="steps">
-            <li>
-              <strong>상품 목록에서 상품 클릭 → 편집 화면 열기</strong>
-              <span></span>
-            </li>
-            <li>
-              <strong>편집 화면 상단 <span class="btn">프리셋 적용</span> 드롭다운 클릭</strong>
-              <span>저장된 프리셋 목록이 나와요.</span>
-            </li>
-            <li>
-              <strong>원하는 프리셋 선택</strong>
-              <span>배송, 가격, 마켓 등 설정이 한꺼번에 채워져요.</span>
-            </li>
-            <li>
-              <strong>필요한 부분만 수정 후 저장</strong>
-              <span>대부분 그대로 써도 되는데, 이 상품만 다르게 할 부분이 있으면 수정하세요.</span>
-            </li>
-          </ol>
-        </div>
-
-        <div class="card" style="margin-bottom:10px;">
-          <div class="card-title">방법 2 — 여러 상품에 한꺼번에 적용</div>
-          <ol class="steps">
-            <li>
-              <strong>상품 목록에서 체크박스로 여러 상품 선택</strong>
-              <span>맨 위 체크박스를 누르면 현재 페이지 전체 선택.</span>
-            </li>
-            <li>
-              <strong>상단 메뉴 <span class="btn">프리셋 적용</span> 클릭</strong>
-              <span></span>
-            </li>
-            <li>
-              <strong>프리셋 선택 → 확인</strong>
-              <span>선택한 상품 모두에 동시에 설정이 들어가요. 10개든 100개든 한 번에!</span>
-            </li>
-          </ol>
-        </div>
-
-        <div class="card">
-          <div class="card-title">방법 3 — 수집할 때 자동 적용 (자동화)</div>
-          <ul class="dots">
-            <li>프리셋 설정에서 <strong>"수집 시 자동 적용"</strong> 옵션을 켜두면, 상품을 담을 때부터 프리셋이 자동으로 들어가요.</li>
-            <li>수집 → 자동 프리셋 적용 → 바로 업로드까지 자동 흐름 구성 가능.</li>
-            <li>상품 종류마다 다른 프리셋을 쓰는 분들은 이 옵션보다 수동 적용이 더 안전해요.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- 프리셋 활용 전략 -->
-      <div class="subsection">
-        <div class="subsection-title">프리셋 잘 쓰는 법 — 어떻게 나눠야 해요?</div>
-        <div class="card">
-          <p style="font-size:.9rem;color:var(--ink2);margin-bottom:12px;">소싱처나 마켓에 따라 배송비·마진이 다른 경우, 프리셋을 나눠두면 편해요.</p>
-          <div class="tbl-wrap">
-            <table>
-              <tr><th>프리셋 이름</th><th>이럴 때 쓰기</th><th>핵심 설정</th></tr>
-              <tr>
-                <td><strong>타오바오 → 쿠팡</strong></td>
-                <td>타오바오에서 담은 상품을 쿠팡에 올릴 때</td>
-                <td>마진 35%, 배송비 0원(무료), 출고지 주소, 쿠팡 계정 선택</td>
-              </tr>
-              <tr>
-                <td><strong>알리 → 스마트스토어</strong></td>
-                <td>알리에서 담은 상품을 스마트스토어에 올릴 때</td>
-                <td>마진 30%, 배송비 3,000원, 스마트스토어 계정 선택</td>
-              </tr>
-              <tr>
-                <td><strong>아마존 → 쿠팡</strong></td>
-                <td>아마존 수입 상품 올릴 때</td>
-                <td>마진 40%, 접두사 "[미국정품]", 출고 가능일 7일</td>
-              </tr>
-              <tr>
-                <td><strong>패션 특가</strong></td>
-                <td>이벤트성 특가 상품</td>
-                <td>마진 20%, 접두사 "[특가]", 재고 50개</td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <div class="callout good">
-          <div class="callout-title">✅ 결론</div>
-          소싱처 × 마켓 조합마다 프리셋 1개씩 만들어두세요. 3~5개만 있어도 대부분의 상황이 커버돼요.
-          상품 올리는 속도가 몇 배로 빨라질 거예요.
         </div>
       </div>
     </div>
