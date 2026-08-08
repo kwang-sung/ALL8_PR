@@ -2681,12 +2681,11 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
       <!-- ④ 지마켓 -->
       <div id="mkt-gmarket" class="mkt-panel">
         <div class="subsection">
-          <div class="subsection-title">① API 연결</div>
+          <div class="subsection-title">① 인증 연결</div>
           <div class="card">
             <ol class="steps">
-              <li><strong>ESM+(<a href="https://www.esmplus.com" target="_blank" style="color:var(--green);">esmplus.com</a>) 로그인</strong><span>지마켓과 옥션은 ESM+ 통합 계정으로 관리해요.</span></li>
-              <li><strong>ESM+ 내 API 관리 메뉴 → API 키 발급</strong></li>
-              <li><strong>발급된 API 키를 ALL8 마켓 계정 설정에 붙여넣기 → 연결 확인</strong></li>
+              <li><strong>G마켓 판매자 아이디 입력</strong><span>ESM+ 계정의 G마켓 판매자 아이디를 ALL8 마켓 계정 설정 → 인증 정보에 입력</span></li>
+              <li><strong>연결 확인</strong></li>
             </ol>
           </div>
         </div>
@@ -2705,8 +2704,8 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
                 </tr>
                 <tr>
                   <td><strong>인증 정보</strong></td>
-                  <td>ESM+ API 키 입력란</td>
-                  <td>발급한 API 키 붙여넣기 → 연결 확인</td>
+                  <td>G마켓 판매자 아이디 입력란</td>
+                  <td>G마켓 판매자 아이디 입력 → 연결 확인</td>
                 </tr>
               </table>
             </div>
@@ -2717,18 +2716,47 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
                 <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
                 <tr>
                   <td><strong>배송·발송정책</strong></td>
-                  <td>발송 기한·배송 방법 등 기본 발송 조건 설정</td>
-                  <td>실제 운영 조건에 맞게 입력</td>
+                  <td colspan="2" style="padding:0;">
+                    <table style="margin:0;border:0;width:100%;">
+                      <tr style="background:var(--section-bg);">
+                        <td style="width:38%;font-size:.85rem;color:var(--ink2);padding:6px 12px;" colspan="2">ESM 셀러 어드민에 등록한 출고지·묶음배송비 정책·반품지·발송정책을 조회해서 선택하고 택배사를 골라주세요.</td>
+                      </tr>
+                      <tr>
+                        <td style="width:38%;padding:6px 12px;"><strong>출고지</strong><br><span style="font-size:.82rem;color:var(--ink2);">ESM 셀러 어드민에 등록한 출고지에서 선택 (G마켓·옥션 공통)</span></td>
+                        <td style="padding:6px 12px;">ESM 셀러 어드민에서 출고지 먼저 등록 후 선택</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:6px 12px;"><strong>묶음배송비 정책</strong><br><span style="font-size:.82rem;color:var(--ink2);">출고지 선택 후 ESM 셀러 어드민 묶음배송비 정책에서 선택</span></td>
+                        <td style="padding:6px 12px;"><strong>선택 안 됨</strong> 유지 (무재고 위탁은 묶음배송 불가)</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:6px 12px;"><strong>반품지</strong><br><span style="font-size:.82rem;color:var(--ink2);">ESM 셀러 어드민에 등록한 반품지에서 선택 (G마켓·옥션 공통)</span></td>
+                        <td style="padding:6px 12px;">ESM 셀러 어드민에서 반품지 먼저 등록 후 선택</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:6px 12px;"><strong>G마켓 발송정책</strong><br><span style="font-size:.82rem;color:var(--ink2);">G마켓 판매자 ID로 조회 — G마켓 발송정책번호</span></td>
+                        <td style="padding:6px 12px;">인증 정보 연결 후 조회하여 선택</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:6px 12px;"><strong>택배사</strong><br><span style="font-size:.82rem;color:var(--ink2);">배송 방법이 택배일 때 필수 — 판매자 계약 택배사 목록에서 선택</span></td>
+                        <td style="padding:6px 12px;">계약된 택배사 선택 (예: 우체국택배)</td>
+                      </tr>
+                    </table>
+                  </td>
                 </tr>
                 <tr>
                   <td><strong>원산지</strong></td>
-                  <td>상품 원산지 표시 설정 (G마켓 필수 표기 항목)</td>
-                  <td>실제 상품 원산지에 맞게 선택</td>
+                  <td>ESM 상품 등록에 전송할 원산지 유형<br><span style="font-size:.85rem;color:var(--ink2);">계정 기본값을 쓰거나 상품마다 직접 선택 가능</span></td>
+                  <td>
+                    · <strong>입력 방식</strong>: 마켓 설정 기본값 사용<br>
+                    · <strong>원산지 유형</strong>: <strong>3 기타</strong> 선택<br>
+                    <span style="font-size:.82rem;color:var(--ink2);">상품마다 다른 경우 → 입력 방식을 "상품마다 직접 선택"으로 변경</span>
+                  </td>
                 </tr>
                 <tr>
                   <td><strong>수수료</strong></td>
-                  <td>판매가 책정 시 필요</td>
-                  <td>실제 수수료율 입력</td>
+                  <td>카테고리별 수수료가 따로 없을 때 적용되는 마켓별 기본값</td>
+                  <td><strong>13%</strong> 입력 (카테고리별 수수료가 따로 없으면 이 값을 사용)</td>
                 </tr>
                 <tr>
                   <td><strong>가격 계산식</strong></td>
@@ -2740,7 +2768,7 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
                 </tr>
                 <tr>
                   <td><strong>배송 정책</strong></td>
-                  <td>배송비 정책·무료배송 조건 등</td>
+                  <td>배송비 정책·무료배송 조건·배송 방법 유형 등</td>
                   <td>실제 배송비 조건에 맞게 입력</td>
                 </tr>
               </table>
