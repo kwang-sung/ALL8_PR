@@ -3179,22 +3179,191 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
       <!-- ⑦ 토스쇼핑 -->
       <div id="mkt-toss" class="mkt-panel">
         <div class="subsection">
-          <div class="subsection-title">① API 연결</div>
+          <div class="subsection-title">⚠️ 사전 확인 사항</div>
+          <div class="card">
+            <div class="callout warn" style="margin-bottom:12px;">
+              <div class="callout-title">🚨 해외구매대행 판매 가능 여부 확인 필수</div>
+              토스쇼핑 공식 가이드의 판매 불가 상품 항목에 <strong>"해외 구매 대행 및 병행 수입 등 유통 경로가 확인되지 않는 제품"</strong>이 포함되어 있습니다.<br>
+              판매 불가 상품 2개 적발 = 10점 → 이용 정지. <strong>연동 전 반드시 토스쇼핑 파트너스 채널톡에서 허용 여부 확답을 받으세요.</strong><br>
+              <span style="font-size:.85rem;color:var(--ink2);">확답 전까지는 소량(20~30건) 테스트 등록 후 페널티 발생 여부 확인 권장</span>
+            </div>
+            <div class="callout warn" style="margin-bottom:12px;">
+              <div class="callout-title">① 토스페이 청약 완료 후 API 키 발급 가능</div>
+              신규 입점 시 토스페이 청약이 완료되기 전에는 API 키 발급 버튼이 비활성화됩니다. 청약 먼저 완료하세요.
+            </div>
+            <div class="callout info">
+              <div class="callout-title">② 주요 페널티 항목 (구매대행 직접 해당)</div>
+              <div style="font-size:.85rem;line-height:2;">
+                · <strong>발송 기한 미준수</strong> (송장 미입력): 1점 + 해당 옵션 미노출<br>
+                · <strong>장기 미발송</strong> (발송기한 +14일 경과): 10점 → 즉시 이용정지<br>
+                · <strong>가송장(선송장) 사용</strong>: 3점<br>
+                · <strong>판매자 임의 취소</strong> (품절 취소): 4점<br>
+                · <strong>중복 등록</strong> (옵션으로 묶을 수 있는 상품을 나눠 등록): 4점<br>
+                · <strong>원산지 미기재 또는 허위 기재</strong>: 5점<br>
+                <span style="color:var(--ink2);">발송예정일은 최대 14영업일로 설정하세요. 중국 소싱 위주로 운영 권장.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">① API 키 발급</div>
           <div class="card">
             <ol class="steps">
-              <li><strong>토스쇼핑 판매자센터 로그인</strong></li>
-              <li><strong>API 관리 메뉴 → API 키 발급</strong></li>
-              <li><strong>발급된 API 키를 ALL8 마켓 계정 설정에 붙여넣기 → 연결 확인</strong></li>
+              <li><strong>토스셀러 → 쇼핑 → 연동 관리 → "API 키 발급하기"</strong></li>
+              <li><strong>업체 선택: 직접 연동(Direct API) 선택</strong><span>올에잇은 토스쇼핑 파트너 솔루션 목록에 없으므로 반드시 Direct API로 발급</span></li>
+              <li><strong>업체명 + 서버 IP 주소 입력 후 발급</strong><span>올에잇 서버 IP는 ALL8 인증 정보 화면에서 확인</span></li>
+              <li><strong>Access Key / Secret Key 복사 → ALL8 인증 정보에 입력 → 연결 확인</strong></li>
             </ol>
           </div>
         </div>
+
         <div class="subsection">
           <div class="subsection-title">② 계정 편집기 설정</div>
           <div class="card">
-            <div class="callout info">
-              <div class="callout-title">📋 준비 중</div>
-              토스쇼핑 계정 편집기 상세 설정 가이드는 준비 중이에요.
+
+            <div class="tbl-wrap" style="margin-bottom:14px;">
+              <table>
+                <tr><th colspan="3" style="background:var(--ink1);color:#fff;">기본 정보 · 인증 정보</th></tr>
+                <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
+                <tr>
+                  <td><strong>기본 정보</strong></td>
+                  <td>
+                    · <strong>사업자</strong>: 토스쇼핑 입점 사업자와 동일<br>
+                    · <strong>닉네임</strong>: ALL8 내부 표시 이름<br>
+                    · <strong>메모</strong>: 해외구매대행 허용 확인 날짜 기록<br>
+                    · <strong>활성 상태</strong>: 체크 해제 시 업로드 비활성
+                  </td>
+                  <td>
+                    · 닉네임: <strong>사업자약칭_토스쇼핑</strong><br>
+                    · 메모 예시: <code style="background:var(--section-bg);padding:1px 5px;border-radius:4px;font-size:.82rem;">구대 허용확인 2026-08-09</code>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>인증 정보</strong></td>
+                  <td>
+                    · <strong>Access Key</strong> / <strong>Secret Key</strong><br>
+                    <span style="font-size:.85rem;color:var(--ink2);">Secret Key는 비밀번호와 같은 역할 — 외부 노출 금지</span>
+                  </td>
+                  <td>Direct API로 발급한 키 입력 → 연결 확인</td>
+                </tr>
+              </table>
             </div>
+
+            <div class="tbl-wrap" style="margin-bottom:14px;">
+              <table>
+                <tr><th colspan="3" style="background:var(--ink1);color:#fff;">마켓 설정</th></tr>
+                <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
+                <tr>
+                  <td><strong>배송·교환반품지</strong></td>
+                  <td colspan="2" style="padding:0;">
+                    <table style="margin:0;border:0;width:100%;">
+                      <tr style="background:var(--section-bg);">
+                        <td colspan="2" style="font-size:.85rem;color:var(--ink2);padding:6px 12px;">토스쇼핑 파트너스에 먼저 등록한 뒤 조회하여 선택하는 구조입니다.</td>
+                      </tr>
+                      <tr>
+                        <td style="width:42%;padding:6px 12px;"><strong>교환·반품지</strong></td>
+                        <td style="padding:6px 12px;">사업장 주소 (미등록 시 사업자등록증 소재지로 자동 등록됨)</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:6px 12px;"><strong>배송 그룹 (배송비 템플릿)</strong></td>
+                        <td style="padding:6px 12px;"><strong>일반배송 + 묶음배송 미설정 + 무료배송</strong><br><span style="font-size:.82rem;color:var(--ink2);">구매대행은 상품마다 배송 건이 달라 묶음 불가 — 묶음 켜면 최저 배송비 기준 적용으로 손실</span></td>
+                      </tr>
+                      <tr>
+                        <td style="padding:6px 12px;"><strong>택배사</strong></td>
+                        <td style="padding:6px 12px;">배대지 실사용 택배사와 반드시 일치<br><span style="font-size:.82rem;color:var(--ink2);">불일치 시 가송장(허위 송장) 사용 3점 리스크</span></td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>수수료</strong></td>
+                  <td>상품판매수수료 8% + VAT + 결제수수료(토스페이 등급별 상이) 합산 기준</td>
+                  <td><strong>12%</strong> 유지<br><span style="font-size:.85rem;color:var(--ink2);">토스페이 영세 등급이라면 11%로 낮춰 가격경쟁력 확보 가능 — 정산 내역에서 실제 결제수수료율 확인 후 조정</span></td>
+                </tr>
+                <tr>
+                  <td><strong>가격 계산식</strong></td>
+                  <td>이 마켓만 다른 판매가 계산식 적용. <strong>미설정 시 프리셋 가격식 적용됨.</strong><br><span style="font-size:.85rem;color:var(--ink2);">입력값 없으면 비활성 표시됨</span></td>
+                  <td>
+                    <strong>기본: 따로 설정하지 않고 공통 계산식 적용</strong><br>
+                    <span style="font-size:.85rem;color:var(--ink2);">originPrice(정상가) = salePrice × 1.15 취소선 연출 가능 (단 1.2 초과 시 과도한 할인 표시 2점 페널티)</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>배송 정책</strong></td>
+                  <td>배송비 조건·제주·도서산간 추가 요금</td>
+                  <td>
+                    · 기본 배송비: <strong>무료</strong><br>
+                    · 제주 추가: <strong>5,000원</strong><br>
+                    · 도서산간 추가: <strong>7,000원</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>교환/반품 정책</strong></td>
+                  <td>고객에게 노출되는 교환·반품 방법 및 신청기간 문구 (최대 500자)</td>
+                  <td colspan="1">
+                    <div style="font-size:.83rem;line-height:1.7;background:var(--section-bg);padding:8px 10px;border-radius:6px;">
+                      <strong>[교환/반품 방법]</strong><br>
+                      본 상품은 해외구매대행 상품입니다.<br>
+                      토스쇼핑 앱 → 주문내역 → 교환·반품 신청 또는 판매자 문의하기로 접수해 주세요. 접수 후 1영업일 이내 회수 안내드립니다.<br>
+                      · 단순 변심: 왕복 배송비 고객 부담<br>
+                      · 상품 불량/오배송: 판매자 전액 부담<br>
+                      · 교환 시 해외 재배송으로 10~15영업일 소요. 반품 후 재주문을 권장합니다.<br>
+                      · 포장 훼손·사용 상품 반품 불가<br><br>
+                      <strong>[신청기간]</strong><br>
+                      수령일로부터 7일 이내. 표시·광고 내용과 다른 경우 수령일로부터 3개월 이내(전자상거래법 제17조 기준)
+                    </div>
+                  </td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="tbl-wrap" style="margin-bottom:14px;">
+              <table>
+                <tr><th colspan="3" style="background:var(--ink1);color:#fff;">마켓별 상품 편집 설정</th></tr>
+                <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
+                <tr>
+                  <td><strong>기타</strong></td>
+                  <td>면세 여부 · 문화비 소득공제 설정<br><span style="font-size:.85rem;color:var(--ink2);">입력값 없으면 비활성 표시됨</span></td>
+                  <td>
+                    · <strong>면세 여부</strong>: 미사용<br>
+                    · <strong>문화비 소득공제</strong>: 미사용<br>
+                    <span style="font-size:.85rem;color:var(--ink2);">저장 한 번 눌러 '완료' 상태로 변경</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>전용 상품명</strong></td>
+                  <td>토스쇼핑만 별도 상품명을 만들고 싶을 때 설정<br><span style="font-size:.85rem;color:var(--ink2);">공란이면 프리셋 설정값으로 상품명 생성됨</span></td>
+                  <td>
+                    전용 상품명 필요 시만 설정, 나머지는 공란<br>
+                    <span style="font-size:.85rem;color:var(--ink2);">⚠️ 옵션으로 묶을 수 있는 상품을 나눠 등록하면 중복 등록 4점 페널티</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>금지어 업로드 제한</strong></td>
+                  <td>특정 단어 포함 시 자동 업로드 차단</td>
+                  <td>
+                    롯데ON과 동일 4개 군 + 추가:<br>
+                    · 명품 브랜드명 / 캐릭터 IP / 의료기기·건강기능 표현 / KC인증 관련<br>
+                    · <strong>원산지 표기 누락 위험 단어</strong> (원산지 미기재 5점)
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>상하단 이미지</strong></td>
+                  <td>토스쇼핑만 다른 상하단 이미지를 쓰고 싶을 때 등록<br><span style="font-size:.85rem;color:var(--ink2);">없으면 프리셋 설정값으로 상하단 이미지 생성됨</span></td>
+                  <td>
+                    해외직구 필수 고지 + 원산지 표기 포함:<br>
+                    ① 해외배송 소요기간 (최대 14영업일)<br>
+                    ② 관·부가세 별도 및 납부주체<br>
+                    ③ 반품 시 국제 왕복 배송비 실비 부담<br>
+                    ④ 사이즈·색상 오차 고지<br>
+                    ⑤ A/S 불가 안내<br>
+                    ⑥ <strong>원산지 표기</strong> (미기재 시 5점 페널티)
+                  </td>
+                </tr>
+              </table>
+            </div>
+
           </div>
         </div>
       </div>
