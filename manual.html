@@ -2435,6 +2435,11 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
                 <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
                 <tr><td><strong>기본 정보</strong></td><td>계정 이름·메모 등 내부 식별용</td><td>구분하기 쉬운 이름 (예: "쿠팡_본계정")</td></tr>
                 <tr><td><strong>인증 정보</strong></td><td>Access Key / Secret Key 입력란</td><td>발급한 키 붙여넣기 → 연결 확인</td></tr>
+                <tr>
+                  <td><strong>판매 유형</strong> <span style="background:var(--green);color:#fff;padding:1px 6px;border-radius:4px;font-size:.78rem;font-weight:700;">먼저 설정</span></td>
+                  <td>해외구매대행 여부 — 출고지 선택의 전제 조건</td>
+                  <td>해외구매대행이면 활성화, 국내위탁이면 <strong>국내일반 재판매</strong> 선택</td>
+                </tr>
               </table>
             </div>
 
@@ -2442,13 +2447,8 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
               <table>
                 <tr><th colspan="3" style="background:var(--ink1);color:#fff;">마켓 설정</th></tr>
                 <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
-                <tr>
-                  <td><strong>판매 유형</strong> <span style="background:var(--green);color:#fff;padding:1px 6px;border-radius:4px;font-size:.78rem;font-weight:700;">먼저 설정</span></td>
-                  <td>해외구매대행 여부 — 출고지 선택의 전제 조건</td>
-                  <td>해외구매대행이면 활성화, 국내 위탁이면 비활성화</td>
-                </tr>
-                <tr><td><strong>출고지 / 반품지</strong></td><td>반품 담당자, 연락처, 반품지 주소</td><td>실제 정보 입력</td></tr>
-                <tr><td><strong>수수료</strong></td><td>수수료율</td><td>실제 수수료율 입력</td></tr>
+                <tr><td><strong>출고지 / 반품지</strong></td><td>인증정보 연결되면 쿠팡 Wing에 등록된 배송정보 자동으로 불러옴</td><td>Wing에 배송정보 미등록 시 먼저 Wing에서 등록 후 불러오기</td></tr>
+                <tr><td><strong>수수료</strong></td><td>판매가 책정 시 필요함</td><td>실제 수수료율 입력</td></tr>
                 <tr>
                   <td><strong>배송 정책</strong></td>
                   <td>택배사·배송방법·도서산간·묶음배송·출고소요일·반품비 기준</td>
@@ -2477,7 +2477,7 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
             </div>
 
             <div class="callout warn" style="margin-bottom:14px;">
-              <div class="callout-title">⚠️ 판매 유형 먼저 선택하세요</div>
+              <div class="callout-title">⚠️ 인증정보 입력 직후 판매 유형부터 설정하세요</div>
               판매 유형에 따라 출고지 선택 목록이 달라져요. 반드시 먼저 설정 후 출고지를 선택하세요.
             </div>
 
