@@ -2268,6 +2268,104 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
       </div>
 
       <div class="subsection">
+        <div class="subsection-title">스마트스토어 계정 편집기 — 주요 설정 항목</div>
+        <div class="card">
+          <p style="font-size:.9rem;color:var(--ink2);margin-bottom:12px;">API 연결 후 계정 편집기를 열면 아래 항목들을 설정해요. 위에서 아래 순서대로 채워가면 돼요.</p>
+
+          <div class="tbl-wrap" style="margin-bottom:14px;">
+            <table>
+              <tr><th colspan="3" style="background:var(--ink1);color:#fff;">기본 정보 · 인증 정보</th></tr>
+              <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
+              <tr>
+                <td><strong>기본 정보</strong></td>
+                <td>계정 이름·메모 등 내부 식별용</td>
+                <td>구분하기 쉬운 이름으로 저장 (예: "스토어_본계정")</td>
+              </tr>
+              <tr>
+                <td><strong>스마트스토어 인증정보</strong></td>
+                <td>Client ID / Client Secret 입력란</td>
+                <td>위에서 발급한 API 키 붙여넣기 → 연결 확인</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="tbl-wrap" style="margin-bottom:14px;">
+            <table>
+              <tr><th colspan="3" style="background:var(--ink1);color:#fff;">마켓 설정</th></tr>
+              <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
+              <tr>
+                <td><strong>출고지 / 반품지</strong></td>
+                <td>상품 발송 주소 · 반품 수령 주소</td>
+                <td>실제 주소 정확히 입력. 반품지는 "출고지와 동일" 체크 가능</td>
+              </tr>
+              <tr>
+                <td><strong>수수료</strong></td>
+                <td>스마트스토어 수수료율 (카테고리별 2~6%)</td>
+                <td>가격 계산식에 반영되므로 실제 수수료율 확인 후 입력</td>
+              </tr>
+              <tr>
+                <td><strong>배송 설정</strong></td>
+                <td>택배사 · 배송비 · 출고소요일 · 반품배송비</td>
+                <td>무료배송(0원) + 출고소요일 1~2일 권장</td>
+              </tr>
+              <tr>
+                <td><strong>A/S</strong></td>
+                <td>A/S 담당자 · 연락처 · 안내 문구</td>
+                <td>실제 연락 가능한 번호 입력 (미입력 시 상품등록 오류 가능)</td>
+              </tr>
+              <tr>
+                <td><strong>원산지 및 수입</strong></td>
+                <td>해외구매대행 여부 · 원산지 국가</td>
+                <td>해외구매대행이면 반드시 체크. 출고지 선택의 전제 조건</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="tbl-wrap">
+            <table>
+              <tr><th colspan="3" style="background:var(--ink1);color:#fff;">마켓별 상품 편집 설정</th></tr>
+              <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
+              <tr>
+                <td><strong>가격 계산식</strong></td>
+                <td>소싱가 → 판매가 자동 계산 공식</td>
+                <td>마진율·수수료·배송비 포함해서 설정. 프리셋과 연동됨</td>
+              </tr>
+              <tr>
+                <td><strong>상품 속성</strong></td>
+                <td>마켓에 자동 채워지는 상품 속성값</td>
+                <td>구매대행 공통 속성 미리 입력해두면 등록 시 자동 적용</td>
+              </tr>
+              <tr>
+                <td><strong>채널 노출 설정</strong></td>
+                <td>스마트스토어 내 노출 채널 선택</td>
+                <td>네이버쇼핑 노출 반드시 체크</td>
+              </tr>
+              <tr>
+                <td><strong>상품명</strong></td>
+                <td>자동 생성 상품명 규칙 (접두사·접미사 등)</td>
+                <td>브랜드명 제거·키워드 추가 규칙 설정 가능</td>
+              </tr>
+              <tr>
+                <td><strong>금지어 업로드 제한</strong></td>
+                <td>특정 단어 포함 시 자동 업로드 차단</td>
+                <td>지재권 위험 브랜드명 등록해두면 실수 방지</td>
+              </tr>
+              <tr>
+                <td><strong>상하단 이미지</strong></td>
+                <td>상세페이지 상·하단에 자동 삽입되는 공통 이미지</td>
+                <td>구매대행 안내문 · 브랜드 배너 등록 권장</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="callout warn" style="margin-top:12px;">
+            <div class="callout-title">⚠️ 원산지 및 수입 먼저 설정하세요</div>
+            해외구매대행 여부를 먼저 선택해야 출고지 항목이 활성화돼요. 순서를 지키지 않으면 출고지 저장 후 다시 바꿔야 해요.
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
         <div class="subsection-title">배송 템플릿 — 반복 입력 없애기</div>
         <div class="card">
           <p style="font-size:.9rem;color:var(--ink2);margin-bottom:12px;">마켓마다 배송 정보(출고지, 반품지, 배송비 등)를 미리 "배송 템플릿"으로 등록해두면, 상품 올릴 때마다 선택만 하면 돼요.</p>
