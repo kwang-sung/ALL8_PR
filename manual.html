@@ -168,6 +168,15 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
   .hero h1{font-size:1.5rem;}
   .compare{grid-template-columns:1fr;}
 }
+
+/* ── 마켓 탭 ── */
+.mkt-tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;}
+.mkt-tab{padding:8px 16px;border-radius:20px;border:1.5px solid var(--border);background:#fff;font-size:.85rem;font-weight:700;color:var(--ink2);cursor:pointer;transition:.15s;font-family:inherit;}
+.mkt-tab:hover{border-color:var(--green);color:var(--green);}
+.mkt-tab.active{background:var(--green);border-color:var(--green);color:#fff;}
+.mkt-panel{display:none;}
+.mkt-panel.active{display:block;}
+@media(max-width:720px){.mkt-tab{font-size:.8rem;padding:7px 12px;}}
 </style>
 </head>
 <body>
@@ -2235,369 +2244,390 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
           <div class="section-title">마켓 계정 설정 — 판매 채널 연결하기</div>
         </div>
       </div>
-      <p class="section-desc">상품을 올리려면 먼저 마켓 계정을 ALL8에 연결해야 해요. 마켓마다 연결 방법이 조금 달라요. 처음 한 번만 설정해두면 이후엔 계속 자동으로 사용돼요.</p>
+      <p class="section-desc">상품을 올리려면 먼저 마켓 계정을 ALL8에 연결해야 해요. 마켓을 선택하면 해당 마켓 설정만 볼 수 있어요.</p>
 
-      <div class="card" style="margin-bottom:10px;">
-        <div class="card-title">시작하기 — 왼쪽 메뉴 → <span class="btn">마켓 계정 설정</span> → 연결할 마켓 선택</div>
-        <div class="tbl-wrap">
-          <table>
-            <tr><th>마켓</th><th>연결 방법</th><th>필요한 것</th></tr>
-            <tr>
-              <td><strong>쿠팡</strong></td>
-              <td>쿠팡 Wing API 연동</td>
-              <td>Access Key + Secret Key (아래 상세 절차 참고)</td>
-            </tr>
-            <tr>
-              <td><strong>스마트스토어</strong></td>
-              <td>네이버 커머스 API 연동</td>
-              <td>API 키 발급 후 입력 (아래 상세 절차 참고)</td>
-            </tr>
-            <tr>
-              <td><strong>11번가</strong></td>
-              <td>OpenAPI 연동</td>
-              <td>11번가 OpenAPI 신청 → API 키 입력</td>
-            </tr>
-            <tr>
-              <td><strong>11번가 글로벌</strong></td>
-              <td>OpenAPI 연동 (글로벌관 별도)</td>
-              <td>11번가 글로벌관 API 키 입력 — 국내 11번가와 별개 계정</td>
-            </tr>
-            <tr>
-              <td><strong>G마켓 / 옥션</strong></td>
-              <td>ESM+ 계정 연동</td>
-              <td>ESM+ 로그인 후 API 키 발급 → 입력</td>
-            </tr>
-            <tr>
-              <td><strong>토스쇼핑</strong></td>
-              <td>API 연동</td>
-              <td>토스쇼핑 판매자 센터에서 API 키 발급 → 입력</td>
-            </tr>
-            <tr>
-              <td><strong>롯데ON</strong></td>
-              <td>API 연동</td>
-              <td>롯데ON 판매자 센터에서 API 키 발급 → 입력</td>
-            </tr>
-          </table>
-        </div>
+      <!-- 마켓 탭 버튼 -->
+      <div class="mkt-tabs">
+        <button class="mkt-tab active" onclick="switchMkt(this,'ss')">스마트스토어</button>
+        <button class="mkt-tab" onclick="switchMkt(this,'cp')">쿠팡</button>
+        <button class="mkt-tab" onclick="switchMkt(this,'11st')">11번가</button>
+        <button class="mkt-tab" onclick="switchMkt(this,'gmarket')">지마켓</button>
+        <button class="mkt-tab" onclick="switchMkt(this,'auction')">옥션</button>
+        <button class="mkt-tab" onclick="switchMkt(this,'lotteon')">롯데ON</button>
+        <button class="mkt-tab" onclick="switchMkt(this,'toss')">토스쇼핑</button>
       </div>
 
-      <div class="subsection">
-        <div class="subsection-title">쿠팡 Wing API 발급 — 상세 절차</div>
-        <div class="card">
-          <ol class="steps">
-            <li>
-              <strong>쿠팡 Wing(<a href="https://wing.coupang.com" target="_blank" style="color:var(--green);">wing.coupang.com</a>)에 판매자 계정으로 로그인</strong>
-              <span>아직 판매자 계정이 없으면 쿠팡에서 판매자 신청을 먼저 해야 해요.</span>
-            </li>
-            <li>
-              <strong>우측 상단 아이디 클릭 → <span class="btn">개발자 옵션</span> 또는 <span class="btn">외부 API 관리</span> 메뉴로 이동</strong>
-              <span>메뉴 위치는 Wing 버전에 따라 다를 수 있어요. "API" 키워드로 검색하세요.</span>
-            </li>
-            <li>
-              <strong><span class="btn">API 키 발급</span> 클릭</strong>
-              <span>Access Key(공개 키)와 Secret Key(비밀 키) 두 가지가 발급돼요.</span>
-            </li>
-            <li>
-              <strong>발급된 키를 ALL8 마켓 계정 설정 화면에 붙여넣기</strong>
-              <span>Access Key → Access Key 입력란, Secret Key → Secret Key 입력란에 각각 입력.</span>
-            </li>
-            <li>
-              <strong><span class="btn">연결 테스트</span> 클릭해서 연결 확인</strong>
-              <span>"연결 성공" 메시지가 뜨면 완료!</span>
-            </li>
-          </ol>
-          <div class="callout tip" style="margin-top:10px;">
-            <div class="callout-title">💡 Secret Key는 발급 직후 한 번만 보여요</div>
-            Secret Key는 처음 발급할 때만 화면에 보여요. 반드시 복사해서 어딘가에 저장해두세요. 잃어버리면 재발급해야 해요.
+      <!-- ① 스마트스토어 -->
+      <div id="mkt-ss" class="mkt-panel active">
+        <div class="subsection">
+          <div class="subsection-title">① API 발급 — 처음 한 번만</div>
+          <div class="card">
+            <ol class="steps">
+              <li>
+                <strong>스마트스토어센터(<a href="https://sell.smartstore.naver.com" target="_blank" style="color:var(--green);">sell.smartstore.naver.com</a>)에 로그인</strong>
+                <span>네이버 사업자 계정이 필요해요.</span>
+              </li>
+              <li>
+                <strong>왼쪽 메뉴 → <span class="btn">스토어 설정</span> → <span class="btn">외부앱 관리</span></strong>
+              </li>
+              <li>
+                <strong><span class="btn">애플리케이션 등록</span> 클릭 → 필요한 권한 모두 선택</strong>
+              </li>
+              <li>
+                <strong>Client ID와 Client Secret 복사 → ALL8에 붙여넣기 후 연결 확인</strong>
+              </li>
+            </ol>
+            <div class="callout warn" style="margin-top:10px;">
+              <div class="callout-title">⚠️ 스마트스토어 API는 심사가 있어요</div>
+              신청 후 네이버 검토(1~3 영업일) 후 승인돼요. 미리 신청해두세요.
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="subsection">
-        <div class="subsection-title">쿠팡 계정 편집기 — 주요 설정 순서</div>
-        <div class="card">
-          <p style="font-size:.9rem;color:var(--ink2);margin-bottom:8px;">쿠팡 계정을 연결한 뒤 편집기를 열면 아래 순서로 설정 항목이 나와요.</p>
-          <p style="font-size:.9rem;margin-bottom:12px;">📖 <a href="https://cloud.mkt.coupang.com/Product-registration-landing-page-20200731" target="_blank" style="color:var(--green);font-weight:700;">쿠팡 공식 문서 참고하기 ↗</a></p>
-          <div class="tbl-wrap">
-            <table>
-              <tr><th>#</th><th>섹션</th><th>주요 항목</th></tr>
-              <tr>
-                <td>1</td>
-                <td><strong>상품 속성</strong></td>
-                <td>마켓 지정 시 속성 자동 설정</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td><strong>수수료</strong></td>
-                <td>수수료율</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td><span style="background:var(--green);color:#fff;padding:2px 6px;border-radius:4px;font-size:.8rem;font-weight:700;">먼저 설정</span> <strong>판매 유형</strong></td>
-                <td>해외구매대행 여부 (<code>overseasPurchased</code>). <strong>출고지 선택의 전제 조건</strong>이므로 반드시 먼저 설정해야 해요.</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td><strong>출고지 / 반품지</strong></td>
-                <td>반품 담당자, 연락처, 반품지 주소</td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td><strong>배송 정책</strong></td>
-                <td>택배사, 배송 방법, 도서산간 배송, 묶음배송, 출고소요일, 반품비 기준 ↓ 아래 상세 가이드 참조</td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td><strong>기본 정책 / 기타</strong></td>
-                <td>과세 유형, 수량 단위, 상품명 최적화, 금지어 설정</td>
-              </tr>
-            </table>
-          </div>
-          <div class="callout warn" style="margin-top:10px;">
-            <div class="callout-title">⚠️ 판매 유형 먼저 선택하세요</div>
-            판매 유형(해외구매대행 여부)에 따라 출고지 선택 가능한 목록이 달라져요. 판매 유형을 설정하지 않은 상태에서 출고지를 선택하면 나중에 다시 바꿔야 할 수 있어요.
-          </div>
+        <div class="subsection">
+          <div class="subsection-title">② 계정 편집기 설정</div>
+          <div class="card">
+            <p style="font-size:.9rem;margin-bottom:10px;">
+              📖 <a href="https://join.shopping.naver.com/misc/download/shopping_product_info_provide_guide.nhn" target="_blank" style="color:var(--green);font-weight:700;">네이버 쇼핑검색 SEO &amp; 상품정보 제공 가이드 ↗</a>
+              &nbsp;|&nbsp;
+              📄 <a href="https://drive.google.com/file/d/1zacA0xIBuZ5ZQxTqD3oiG52HUeMsTcgc/view?usp=sharing" target="_blank" style="color:var(--green);font-weight:700;">SEO 최신버전 ↗</a>
+              &nbsp;|&nbsp;
+              📋 <a href="https://drive.google.com/file/d/1xRlxpw9bbXO7gfbI6o4OzaHrXMqPtdw1/view?usp=sharing" target="_blank" style="color:var(--green);font-weight:700;">스마트스토어 상품등록 메뉴얼 ↗</a>
+            </p>
 
-          <div style="margin-top:20px;padding-top:16px;border-top:2px solid var(--border);">
-            <div style="font-size:.9rem;font-weight:900;color:var(--ink1);margin-bottom:12px;">🚚 쿠팡 배송 정책 — 항목별 입력 가이드</div>
-            <div class="tbl-wrap">
+            <div class="tbl-wrap" style="margin-bottom:14px;">
               <table>
-                <tr><th style="width:28%">항목</th><th>어떻게 설정하나</th></tr>
+                <tr><th colspan="3" style="background:var(--ink1);color:#fff;">기본 정보 · 인증 정보</th></tr>
+                <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
+                <tr><td><strong>기본 정보</strong></td><td>계정 이름·메모 등 내부 식별용</td><td>구분하기 쉬운 이름 (예: "스토어_본계정")</td></tr>
+                <tr><td><strong>인증 정보</strong></td><td>Client ID / Client Secret 입력란</td><td>발급한 API 키 붙여넣기 → 연결 확인</td></tr>
+              </table>
+            </div>
+
+            <div class="tbl-wrap" style="margin-bottom:14px;">
+              <table>
+                <tr><th colspan="3" style="background:var(--ink1);color:#fff;">마켓 설정</th></tr>
+                <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
                 <tr>
-                  <td><strong>택배사</strong></td>
-                  <td>
-                    <strong>Wing 출고지 주소 설정의 택배사와 반드시 일치</strong>시켜야 해요.<br>
-                    <span style="font-size:.85rem;color:var(--ink2);">Wing → 출고지 주소 수정에서 택배사별 제주(6,000원) / 제주 외 도서산간(8,000원) 금액을 먼저 등록하고, ALL8 배송 정책에서 동일한 택배사를 선택하세요. 불일치하면 도서산간 배송이 안 되고 업로드 에러가 발생해요.</span>
-                  </td>
+                  <td><strong>원산지 및 수입</strong></td>
+                  <td>공통 원산지 표시 방식 — <strong>먼저 설정해야 출고지 활성화</strong></td>
+                  <td>드롭다운 → <strong>기타 — 상세 설명에 표시 (03)</strong></td>
                 </tr>
                 <tr>
-                  <td><strong>배송 방법</strong></td>
-                  <td>
-                    <strong>국내 위탁 판매</strong> → <strong>일반배송(순차배송)</strong> 선택<br>
-                    <strong>해외 구매대행</strong> → <strong>기본값</strong> 그대로 유지
-                  </td>
+                  <td><strong>출고지 / 반품지</strong></td>
+                  <td>상품 발송·반품 수령 주소</td>
+                  <td>실제 주소 입력. 반품지는 "출고지와 동일" 체크 가능</td>
                 </tr>
                 <tr>
-                  <td><strong>도서산간 배송</strong></td>
-                  <td>
-                    <strong>"가능"</strong> 선택<br>
-                    <span style="font-size:.85rem;color:var(--ink2);">Wing 출고지 주소에서 택배사별 도서산간 금액을 등록했을 때만 "가능"으로 설정할 수 있어요. 금액 등록 없이 "가능"으로 설정하면 업로드 에러가 발생해요.</span>
-                  </td>
+                  <td><strong>수수료</strong></td>
+                  <td>카테고리별 2~6%</td>
+                  <td>실제 수수료율 확인 후 입력 (가격 계산식에 반영)</td>
                 </tr>
                 <tr>
-                  <td><strong>묶음배송</strong></td>
-                  <td>
-                    <strong>"불가"</strong> 선택<br>
-                    <span style="font-size:.85rem;color:var(--ink2);">무재고 위탁은 상품마다 공급사가 달라 실제 묶음 발송이 불가능해요.</span>
-                  </td>
+                  <td><strong>배송 설정</strong></td>
+                  <td>택배사·제주도서산간·묶음배송 그룹</td>
+                  <td>↓ 아래 배송 설정 상세 참조</td>
                 </tr>
                 <tr>
-                  <td><strong>출고소요일</strong></td>
-                  <td>
-                    <strong>해외 구매대행</strong>: <strong>5~6 영업일</strong> 설정<br>
-                    <span style="font-size:.85rem;color:var(--ink2);">쿠팡에서 구매대행 기본 배송기간을 6일로 잡기 때문에, 출고소요일 5~6일로 설정해야 배송기간이 14~15일로 표시돼요. 더 짧게 설정하면 페널티 받을 수 있어요.</span><br><br>
-                    <strong>국내 당일배송</strong>: <strong>1 영업일</strong><br>
-                    <strong>국내 위탁배송</strong>: <strong>2 영업일</strong>
-                  </td>
-                </tr>
-                <tr>
-                  <td><strong>반품비 기준</strong></td>
-                  <td>
-                    <strong>해외상품 기준</strong> 선택<br>
-                    <span style="font-size:.85rem;color:var(--ink2);">해외 구매대행 상품의 반품비 기준이에요. 국내 판매 상품이면 국내상품 기준으로 변경하세요.</span>
-                  </td>
+                  <td><strong>A/S</strong></td>
+                  <td>전화번호 + 안내 문구 <strong>(필수 — 미입력 시 등록 거부)</strong></td>
+                  <td>전화번호: 실제 연락처 &nbsp;|&nbsp; 안내: <span style="background:var(--green-bg);padding:2px 8px;border-radius:4px;font-weight:700;color:var(--green-dark);">문자나 톡톡 문의 주시기 바랍니다</span></td>
                 </tr>
               </table>
+            </div>
+
+            <div class="tbl-wrap" style="margin-bottom:14px;">
+              <table>
+                <tr><th colspan="3" style="background:var(--ink1);color:#fff;">마켓별 상품 편집 설정</th></tr>
+                <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
+                <tr>
+                  <td><strong>가격 계산식</strong> <span style="font-size:.78rem;color:var(--green-dark);font-weight:700;">신규</span></td>
+                  <td>이 마켓만 다른 판매가 계산식 적용. 미설정 시 공통 계산식 사용.</td>
+                  <td>가격 프리셋에서 불러오기 또는 시스템 기본식으로 시작 권장</td>
+                </tr>
+                <tr><td><strong>상품 속성</strong></td><td>카테고리 기준 속성 자동 입력</td><td>마켓 지정 시 속성 자동 설정 체크 권장</td></tr>
+                <tr>
+                  <td><strong>채널 노출 설정</strong></td>
+                  <td>네이버 쇼핑 노출 여부</td>
+                  <td>네이버 쇼핑 등록: <strong>사용</strong> / 채널 노출 상태: <strong>노출(기본)</strong></td>
+                </tr>
+                <tr><td><strong>전용 상품명</strong></td><td>이 마켓 전용 상품명 규칙 (접두사·접미사)</td><td>필요 시 설정</td></tr>
+                <tr><td><strong>금지어 업로드 제한</strong></td><td>특정 단어 포함 시 자동 업로드 차단</td><td>지재권 위험 브랜드명 등록 권장</td></tr>
+                <tr><td><strong>상하단 이미지</strong></td><td>상세페이지 상·하단 공통 이미지 자동 삽입</td><td>구매대행 안내문 · 브랜드 배너 등록 권장</td></tr>
+              </table>
+            </div>
+
+            <div style="padding-top:14px;border-top:1px solid var(--border);">
+              <div style="font-size:.88rem;font-weight:800;margin-bottom:8px;">📦 배송 설정 상세</div>
+              <div class="tbl-wrap">
+                <table>
+                  <tr><th style="width:28%">항목</th><th>설정 방법</th></tr>
+                  <tr>
+                    <td><strong>택배사 코드</strong></td>
+                    <td>드롭다운에서 사용 택배사 선택 (공급사 사용 택배사 기준)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>제주/도서산간 추가배송비</strong></td>
+                    <td>
+                      <strong>미사용</strong> → 제주·도서산간 주문 안 받음<br>
+                      <strong>분리/동일 설정</strong> → 배송하되 추가비 고객 부담<br>
+                      <a href="https://docs.google.com/spreadsheets/d/1GTfKRcBWhSJ9ZwZTy3TLP6f8cYnNfhd1/edit?usp=sharing" target="_blank" style="font-size:.85rem;font-weight:800;">📋 제주/도서산간 지역 우편번호 확인</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>묶음배송 사용</strong></td>
+                    <td><strong>무재고 위탁셀러는 체크 해제</strong> — 공급사마다 별도 발송이므로 묶음 불가</td>
+                  </tr>
+                  <tr>
+                    <td><strong>묶음배송 그룹</strong></td>
+                    <td>스마트스토어 판매자센터 → 상품 → 배송 정책에서 만든 <strong>배송 템플릿 적용</strong></td>
+                  </tr>
+                </table>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="subsection">
-        <div class="subsection-title">스마트스토어 API 발급 — 상세 절차</div>
-        <div class="card">
-          <ol class="steps">
-            <li>
-              <strong>스마트스토어센터(<a href="https://sell.smartstore.naver.com" target="_blank" style="color:var(--green);">sell.smartstore.naver.com</a>)에 로그인</strong>
-              <span>네이버 사업자 계정이 필요해요.</span>
-            </li>
-            <li>
-              <strong>왼쪽 메뉴 → <span class="btn">스토어 설정</span> → <span class="btn">외부앱 관리</span></strong>
-              <span>메뉴 위치: 설정 → 스토어 관리 → 외부앱 관리로 이동.</span>
-            </li>
-            <li>
-              <strong><span class="btn">애플리케이션 등록</span> 클릭 → 필요한 권한 선택</strong>
-              <span>상품 등록, 주문 관리 등 필요한 권한을 체크하세요. 모두 선택해도 됩니다.</span>
-            </li>
-            <li>
-              <strong>등록 완료 후 Client ID와 Client Secret 발급</strong>
-              <span>이게 API 키예요. 두 값 모두 복사해두세요.</span>
-            </li>
-            <li>
-              <strong>ALL8 마켓 계정 설정에 붙여넣기 후 연결 확인</strong>
-            </li>
-          </ol>
-          <div class="callout warn" style="margin-top:10px;">
-            <div class="callout-title">⚠️ 스마트스토어 API는 심사가 있어요</div>
-            신청 후 네이버 검토(1~3 영업일)가 필요해요. 승인 전까지는 API 연결이 안 돼요. 미리 신청해두세요.
+      <!-- ② 쿠팡 -->
+      <div id="mkt-cp" class="mkt-panel">
+        <div class="subsection">
+          <div class="subsection-title">① API 발급 — 처음 한 번만</div>
+          <div class="card">
+            <ol class="steps">
+              <li>
+                <strong>쿠팡 Wing(<a href="https://wing.coupang.com" target="_blank" style="color:var(--green);">wing.coupang.com</a>)에 판매자 계정으로 로그인</strong>
+              </li>
+              <li>
+                <strong>우측 상단 아이디 클릭 → <span class="btn">개발자 옵션</span> 또는 <span class="btn">외부 API 관리</span></strong>
+                <span>Wing 버전에 따라 메뉴 위치가 달라요. "API"로 검색하세요.</span>
+              </li>
+              <li>
+                <strong><span class="btn">API 키 발급</span> → Access Key · Secret Key 복사 → ALL8에 붙여넣기</strong>
+              </li>
+              <li>
+                <strong><span class="btn">연결 테스트</span> → "연결 성공" 확인</strong>
+              </li>
+            </ol>
+            <div class="callout tip" style="margin-top:10px;">
+              <div class="callout-title">💡 Secret Key는 발급 직후 한 번만 보여요</div>
+              반드시 복사해서 저장해두세요. 잃어버리면 재발급해야 해요.
+            </div>
+          </div>
+        </div>
+
+        <div class="subsection">
+          <div class="subsection-title">② 계정 편집기 설정</div>
+          <div class="card">
+            <p style="font-size:.9rem;margin-bottom:10px;">📖 <a href="https://cloud.mkt.coupang.com/Product-registration-landing-page-20200731" target="_blank" style="color:var(--green);font-weight:700;">쿠팡 공식 문서 참고하기 ↗</a></p>
+
+            <div class="tbl-wrap" style="margin-bottom:14px;">
+              <table>
+                <tr><th colspan="3" style="background:var(--ink1);color:#fff;">기본 정보 · 인증 정보</th></tr>
+                <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
+                <tr><td><strong>기본 정보</strong></td><td>계정 이름·메모 등 내부 식별용</td><td>구분하기 쉬운 이름 (예: "쿠팡_본계정")</td></tr>
+                <tr><td><strong>인증 정보</strong></td><td>Access Key / Secret Key 입력란</td><td>발급한 키 붙여넣기 → 연결 확인</td></tr>
+              </table>
+            </div>
+
+            <div class="tbl-wrap" style="margin-bottom:14px;">
+              <table>
+                <tr><th colspan="3" style="background:var(--ink1);color:#fff;">마켓 설정</th></tr>
+                <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
+                <tr>
+                  <td><strong>판매 유형</strong> <span style="background:var(--green);color:#fff;padding:1px 6px;border-radius:4px;font-size:.78rem;font-weight:700;">먼저 설정</span></td>
+                  <td>해외구매대행 여부 — 출고지 선택의 전제 조건</td>
+                  <td>해외구매대행이면 활성화, 국내 위탁이면 비활성화</td>
+                </tr>
+                <tr><td><strong>출고지 / 반품지</strong></td><td>반품 담당자, 연락처, 반품지 주소</td><td>실제 정보 입력</td></tr>
+                <tr><td><strong>수수료</strong></td><td>수수료율</td><td>실제 수수료율 입력</td></tr>
+                <tr>
+                  <td><strong>배송 정책</strong></td>
+                  <td>택배사·배송방법·도서산간·묶음배송·출고소요일·반품비 기준</td>
+                  <td>↓ 아래 배송 정책 상세 참조</td>
+                </tr>
+                <tr><td><strong>기본 정책</strong></td><td>과세 유형, 수량 단위, 상품명 최적화</td><td>해외구매대행 기준으로 설정</td></tr>
+              </table>
+            </div>
+
+            <div class="tbl-wrap" style="margin-bottom:14px;">
+              <table>
+                <tr><th colspan="3" style="background:var(--ink1);color:#fff;">마켓별 상품 편집 설정</th></tr>
+                <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
+                <tr>
+                  <td><strong>가격 계산식</strong> <span style="font-size:.78rem;color:var(--green-dark);font-weight:700;">신규</span></td>
+                  <td>이 마켓만 다른 판매가 계산식 적용</td>
+                  <td>가격 프리셋에서 불러오기 또는 시스템 기본식으로 시작</td>
+                </tr>
+                <tr><td><strong>상품 속성</strong></td><td>카테고리 기준 속성 자동 입력</td><td>마켓 지정 시 속성 자동 설정 체크 권장</td></tr>
+                <tr><td><strong>브랜드</strong></td><td>브랜드 정보 설정</td><td>필요 시 설정</td></tr>
+                <tr><td><strong>대표이미지(썸네일) 지정 방식</strong></td><td>썸네일 자동 설정 방식</td><td>기본값 유지</td></tr>
+                <tr><td><strong>전용 상품명</strong></td><td>이 마켓 전용 상품명 규칙</td><td>필요 시 설정</td></tr>
+                <tr><td><strong>금지어 업로드 제한</strong></td><td>특정 단어 포함 시 자동 업로드 차단</td><td>지재권 위험 브랜드명 등록 권장</td></tr>
+                <tr><td><strong>상하단 이미지</strong></td><td>상세페이지 상·하단 공통 이미지</td><td>구매대행 안내문 등록 권장</td></tr>
+              </table>
+            </div>
+
+            <div class="callout warn" style="margin-bottom:14px;">
+              <div class="callout-title">⚠️ 판매 유형 먼저 선택하세요</div>
+              판매 유형에 따라 출고지 선택 목록이 달라져요. 반드시 먼저 설정 후 출고지를 선택하세요.
+            </div>
+
+            <div style="padding-top:14px;border-top:1px solid var(--border);">
+              <div style="font-size:.88rem;font-weight:800;margin-bottom:8px;">🚚 배송 정책 상세</div>
+              <div class="tbl-wrap">
+                <table>
+                  <tr><th style="width:28%">항목</th><th>설정 방법</th></tr>
+                  <tr>
+                    <td><strong>택배사</strong></td>
+                    <td><strong>Wing 출고지 주소의 택배사와 반드시 일치</strong> — 불일치 시 도서산간 배송 불가 + 업로드 에러<br>
+                      <span style="font-size:.85rem;color:var(--ink2);">Wing → 출고지 수정에서 택배사별 제주(6,000원) / 도서산간(8,000원) 먼저 등록 후 동일 택배사 선택</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>배송 방법</strong></td>
+                    <td><strong>국내 위탁</strong> → 일반배송(순차배송) &nbsp;|&nbsp; <strong>해외 구매대행</strong> → 기본값 유지</td>
+                  </tr>
+                  <tr>
+                    <td><strong>도서산간 배송</strong></td>
+                    <td><strong>"가능"</strong> 선택 — Wing 출고지에 도서산간 금액 등록 후 설정 (미등록 상태로 "가능" 설정 시 업로드 에러)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>묶음배송</strong></td>
+                    <td><strong>"불가"</strong> 선택 — 무재고 위탁은 공급사별 별도 발송이므로 묶음 불가</td>
+                  </tr>
+                  <tr>
+                    <td><strong>출고소요일</strong></td>
+                    <td>
+                      <strong>해외 구매대행</strong>: 5~6 영업일 (쿠팡 기본값 6일 → 배송기간 14~15일 표시)<br>
+                      <strong>국내 당일배송</strong>: 1 영업일 &nbsp;|&nbsp; <strong>국내 위탁</strong>: 2 영업일
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>반품비 기준</strong></td>
+                    <td><strong>해외상품 기준</strong> 선택 (국내 상품이면 국내상품 기준)</td>
+                  </tr>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="subsection">
-        <div class="subsection-title">스마트스토어 계정 편집기 — 주요 설정 항목</div>
-        <div class="card">
-          <p style="font-size:.9rem;color:var(--ink2);margin-bottom:8px;">API 연결 후 계정 편집기를 열면 아래 항목들을 설정해요. 위에서 아래 순서대로 채워가면 돼요.</p>
-          <p style="font-size:.9rem;margin-bottom:12px;">
-            📖 <a href="https://join.shopping.naver.com/misc/download/shopping_product_info_provide_guide.nhn" target="_blank" style="color:var(--green);font-weight:700;">네이버 쇼핑검색 SEO &amp; 상품정보 제공 가이드 ↗</a>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            📄 <a href="https://drive.google.com/file/d/1zacA0xIBuZ5ZQxTqD3oiG52HUeMsTcgc/view?usp=sharing" target="_blank" style="color:var(--green);font-weight:700;">네이버 쇼핑 검색 SEO 최신버전 ↗</a>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-            📋 <a href="https://drive.google.com/file/d/1xRlxpw9bbXO7gfbI6o4OzaHrXMqPtdw1/view?usp=sharing" target="_blank" style="color:var(--green);font-weight:700;">스마트스토어 상품등록 메뉴얼 ↗</a>
-          </p>
-
-          <div class="tbl-wrap" style="margin-bottom:14px;">
-            <table>
-              <tr><th colspan="3" style="background:var(--ink1);color:#fff;">기본 정보 · 인증 정보</th></tr>
-              <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
-              <tr>
-                <td><strong>기본 정보</strong></td>
-                <td>계정 이름·메모 등 내부 식별용</td>
-                <td>구분하기 쉬운 이름으로 저장 (예: "스토어_본계정")</td>
-              </tr>
-              <tr>
-                <td><strong>스마트스토어 인증정보</strong></td>
-                <td>Client ID / Client Secret 입력란</td>
-                <td>위에서 발급한 API 키 붙여넣기 → 연결 확인</td>
-              </tr>
-            </table>
+      <!-- ③ 11번가 -->
+      <div id="mkt-11st" class="mkt-panel">
+        <div class="subsection">
+          <div class="subsection-title">① API 연결</div>
+          <div class="card">
+            <ol class="steps">
+              <li><strong>11번가 판매자 센터(<a href="https://seller.11st.co.kr" target="_blank" style="color:var(--green);">seller.11st.co.kr</a>) 로그인</strong></li>
+              <li><strong>마이페이지 → API 신청 → OpenAPI 키 발급</strong></li>
+              <li><strong>발급된 API 키를 ALL8 마켓 계정 설정에 붙여넣기 → 연결 확인</strong></li>
+            </ol>
+            <div class="callout info" style="margin-top:10px;">
+              <div class="callout-title">📌 11번가 글로벌은 별도 계정이에요</div>
+              국내 11번가와 글로벌관은 API 키가 다릅니다. 글로벌 판매를 원하면 글로벌관 계정으로 별도 연결하세요.
+            </div>
           </div>
-
-          <div class="tbl-wrap" style="margin-bottom:14px;">
-            <table>
-              <tr><th colspan="3" style="background:var(--ink1);color:#fff;">마켓 설정</th></tr>
-              <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
-              <tr>
-                <td><strong>출고지 / 반품지</strong></td>
-                <td>상품 발송 주소 · 반품 수령 주소</td>
-                <td>실제 주소 정확히 입력. 반품지는 "출고지와 동일" 체크 가능</td>
-              </tr>
-              <tr>
-                <td><strong>수수료</strong></td>
-                <td>스마트스토어 수수료율 (카테고리별 2~6%)</td>
-                <td>가격 계산식에 반영되므로 실제 수수료율 확인 후 입력</td>
-              </tr>
-              <tr>
-                <td><strong>배송 설정</strong></td>
-                <td>택배사 코드 · 제주/도서산간 추가배송비 · 묶음배송 그룹</td>
-                <td>↓ 아래 상세 입력 가이드 참조</td>
-              </tr>
-              <tr>
-                <td><strong>A/S</strong></td>
-                <td>A/S 전화번호 · A/S 안내 문구 (둘 다 필수 — 미입력 시 상품 등록 거부됨)</td>
-                <td>
-                  <strong>A/S 전화번호</strong>: 실제 연락 가능한 번호 입력 (예: 010-0000-0000)<br>
-                  <strong>A/S 안내</strong>: 아래 문구 그대로 복사해서 입력<br>
-                  <span style="display:inline-block;margin-top:4px;padding:6px 10px;background:var(--green-bg);border-radius:6px;font-size:.85rem;font-weight:700;color:var(--green-dark);">문자나 톡톡 문의 주시기 바랍니다</span>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>원산지 및 수입</strong></td>
-                <td>상품에 공통 적용할 원산지 표시 방식 선택</td>
-                <td>
-                  드롭다운에서 <strong>기타 — 상세 설명에 표시 (03)</strong> 선택<br>
-                  <span style="font-size:.85rem;color:var(--ink2);">상품마다 원산지가 달라 일일이 확인이 어려운 무재고 위탁셀러에게 맞는 설정이에요. 원산지를 상세 설명에 표기한다는 의미.</span><br>
-                  <span style="font-size:.85rem;color:var(--ink2);">⚠️ 이 항목을 먼저 설정해야 출고지/반품지 입력란이 활성화돼요.</span>
-                </td>
-              </tr>
-            </table>
+        </div>
+        <div class="subsection">
+          <div class="subsection-title">② 계정 편집기 설정</div>
+          <div class="card">
+            <div class="callout info">
+              <div class="callout-title">📋 준비 중</div>
+              11번가 계정 편집기 상세 설정 가이드는 준비 중이에요. 설정 중 궁금한 점은 단톡방에 문의해 주세요.
+            </div>
           </div>
+        </div>
+      </div>
 
-          <div class="tbl-wrap">
-            <table>
-              <tr><th colspan="3" style="background:var(--ink1);color:#fff;">마켓별 상품 편집 설정</th></tr>
-              <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
-              <tr>
-                <td><strong>가격 계산식</strong><br><span style="font-size:.8rem;color:var(--green-dark);font-weight:700;">신규 기능</span></td>
-                <td>
-                  이 마켓 계정에 올리는 상품만 다른 계산식으로 판매가를 정할 수 있어요.<br>
-                  설정하지 않으면 상품 공통 계산식을 그대로 써요.<br>
-                  <span style="font-size:.84rem;color:var(--ink2);">빈 식으로 시작하기보다 <strong>가격 프리셋에서 불러오기</strong> 또는 <strong>시스템 기본식으로 시작</strong>을 추천해요. 가져오는 건 식·계수·구간만이고 매입가·배송비·환율은 복사되지 않아요.</span>
-                </td>
-                <td>
-                  <strong>마켓마다 다른 판매가를 적용하고 싶을 때 사용</strong><br>
-                  <span style="font-size:.84rem;color:var(--ink2);">특히 특정 마켓에만 할인율을 다르게 주고 싶을 때 유용해요. 예: 스마트스토어는 마진 30%, 쿠팡은 마진 25%로 별도 적용.</span>
-                </td>
-              </tr>
-              <tr>
-                <td><strong>상품 속성</strong></td>
-                <td>수집 또는 상품 편집에서 이 마켓을 지정할 때 카테고리 기준 상품 속성을 자동으로 채워줘요.</td>
-                <td><strong>마켓 지정 시 속성 자동 설정 체크</strong> 권장 — 속성을 하나하나 손으로 채울 필요 없이 AI가 자동으로 선택해줘요.</td>
-              </tr>
-              <tr>
-                <td><strong>채널 노출 설정</strong></td>
-                <td>네이버 쇼핑 등록 여부와 채널 상품 노출 상태를 관리해요.</td>
-                <td>
-                  <strong>네이버 쇼핑 등록: 사용 체크</strong> — 체크 해제하면 네이버쇼핑에 노출 안 돼요.<br>
-                  <strong>채널 노출 상태: 노출(기본)</strong> 유지 — 미노출로 바꾸면 스토어에서 상품이 안 보여요.
-                </td>
-              </tr>
-              <tr>
-                <td><strong>상품명</strong></td>
-                <td>자동 생성 상품명 규칙 (접두사·접미사 등)</td>
-                <td>브랜드명 제거·키워드 추가 규칙 설정 가능</td>
-              </tr>
-              <tr>
-                <td><strong>금지어 업로드 제한</strong></td>
-                <td>특정 단어 포함 시 자동 업로드 차단</td>
-                <td>지재권 위험 브랜드명 등록해두면 실수 방지</td>
-              </tr>
-              <tr>
-                <td><strong>상하단 이미지</strong></td>
-                <td>상세페이지 상·하단에 자동 삽입되는 공통 이미지</td>
-                <td>구매대행 안내문 · 브랜드 배너 등록 권장</td>
-              </tr>
-            </table>
+      <!-- ④ 지마켓 -->
+      <div id="mkt-gmarket" class="mkt-panel">
+        <div class="subsection">
+          <div class="subsection-title">① API 연결</div>
+          <div class="card">
+            <ol class="steps">
+              <li><strong>ESM+(<a href="https://www.esmplus.com" target="_blank" style="color:var(--green);">esmplus.com</a>) 로그인</strong><span>지마켓과 옥션은 ESM+ 통합 계정으로 관리해요.</span></li>
+              <li><strong>ESM+ 내 API 관리 메뉴 → API 키 발급</strong></li>
+              <li><strong>발급된 API 키를 ALL8 마켓 계정 설정에 붙여넣기 → 연결 확인</strong></li>
+            </ol>
           </div>
-
-          <div class="callout warn" style="margin-top:12px;">
-            <div class="callout-title">⚠️ 원산지 및 수입 먼저 설정하세요</div>
-            해외구매대행 여부를 먼저 선택해야 출고지 항목이 활성화돼요. 순서를 지키지 않으면 출고지 저장 후 다시 바꿔야 해요.
+        </div>
+        <div class="subsection">
+          <div class="subsection-title">② 계정 편집기 설정</div>
+          <div class="card">
+            <div class="callout info">
+              <div class="callout-title">📋 준비 중</div>
+              지마켓 계정 편집기 상세 설정 가이드는 준비 중이에요.
+            </div>
           </div>
+        </div>
+      </div>
 
-          <div style="margin-top:20px;padding-top:16px;border-top:2px solid var(--border);">
-            <div style="font-size:.9rem;font-weight:900;color:var(--ink1);margin-bottom:12px;">📦 배송 설정 — 항목별 입력 가이드</div>
-            <div class="tbl-wrap">
-              <table>
-                <tr><th style="width:30%">항목</th><th>어떻게 입력하나</th></tr>
-                <tr>
-                  <td><strong>택배사 코드</strong></td>
-                  <td>드롭다운에서 내가 사용하는 택배사 선택<br>
-                    <span style="font-size:.85rem;color:var(--ink2);">공급사가 사용하는 택배사 기준으로 설정하면 돼요. 직접 발송한다면 계약 택배사 선택.</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td><strong>제주/도서산간<br>추가배송비</strong></td>
-                  <td>먼저 "거기에 배송할 것인지" 결정:<br>
-                    <strong>미사용</strong> → 제주·도서산간 주문 자체를 받지 않음<br>
-                    <strong>분리 / 동일 설정</strong> → 배송은 하되, 추가 배송비를 고객에게 받음<br>
-                    <span style="font-size:.85rem;color:var(--ink2);">공급사가 제주·도서산간 배송이 가능하면 금액을 설정하고, 불가능하면 미사용 선택. 금액은 실제로 발생하는 추가 택배비 기준으로 입력.</span><br>
-                    <a href="https://docs.google.com/spreadsheets/d/1GTfKRcBWhSJ9ZwZTy3TLP6f8cYnNfhd1/edit?usp=sharing" target="_blank" style="font-size:.85rem;font-weight:800;">📋 제주/도서산간 지역 우편번호 목록 확인</a>
-                  </td>
-                </tr>
-                <tr>
-                  <td><strong>묶음배송 사용</strong></td>
-                  <td><strong>무재고 위탁셀러는 사용 안 함(체크 해제)</strong><br>
-                    <span style="font-size:.85rem;color:var(--ink2);">내 스토어 상품은 각기 다른 공급사에서 발송되므로 묶음배송이 불가능해요. 체크하면 고객은 배송비 한 번만 내는데 실제로는 공급사마다 배송비가 따로 나가서 손해가 나요.</span>
-                  </td>
-                </tr>
-                <tr>
-                  <td><strong>묶음배송 그룹</strong></td>
-                  <td>스마트스토어 판매자 센터에서 만든 <strong>배송 템플릿을 적용</strong><br>
-                    <span style="font-size:.85rem;color:var(--ink2);">스마트스토어 판매자 센터 → 상품 → 배송 정책에서 배송 템플릿을 먼저 만들어야 해요. 만든 템플릿을 여기서 선택하면 상품 등록 시 자동 적용돼요.</span>
-                  </td>
-                </tr>
-              </table>
+      <!-- ⑤ 옥션 -->
+      <div id="mkt-auction" class="mkt-panel">
+        <div class="subsection">
+          <div class="subsection-title">① API 연결</div>
+          <div class="card">
+            <ol class="steps">
+              <li><strong>ESM+(<a href="https://www.esmplus.com" target="_blank" style="color:var(--green);">esmplus.com</a>) 로그인</strong><span>옥션과 지마켓은 ESM+ 통합 계정으로 관리해요.</span></li>
+              <li><strong>ESM+ 내 API 관리 메뉴 → API 키 발급</strong></li>
+              <li><strong>발급된 API 키를 ALL8 마켓 계정 설정에 붙여넣기 → 연결 확인</strong></li>
+            </ol>
+          </div>
+        </div>
+        <div class="subsection">
+          <div class="subsection-title">② 계정 편집기 설정</div>
+          <div class="card">
+            <div class="callout info">
+              <div class="callout-title">📋 준비 중</div>
+              옥션 계정 편집기 상세 설정 가이드는 준비 중이에요.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ⑥ 롯데ON -->
+      <div id="mkt-lotteon" class="mkt-panel">
+        <div class="subsection">
+          <div class="subsection-title">① API 연결</div>
+          <div class="card">
+            <ol class="steps">
+              <li><strong>롯데ON 판매자센터(<a href="https://www.lotteon.com/seller" target="_blank" style="color:var(--green);">lotteon.com/seller</a>) 로그인</strong></li>
+              <li><strong>API 관리 메뉴 → API 키 발급</strong></li>
+              <li><strong>발급된 API 키를 ALL8 마켓 계정 설정에 붙여넣기 → 연결 확인</strong></li>
+            </ol>
+          </div>
+        </div>
+        <div class="subsection">
+          <div class="subsection-title">② 계정 편집기 설정</div>
+          <div class="card">
+            <div class="callout info">
+              <div class="callout-title">📋 준비 중</div>
+              롯데ON 계정 편집기 상세 설정 가이드는 준비 중이에요.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ⑦ 토스쇼핑 -->
+      <div id="mkt-toss" class="mkt-panel">
+        <div class="subsection">
+          <div class="subsection-title">① API 연결</div>
+          <div class="card">
+            <ol class="steps">
+              <li><strong>토스쇼핑 판매자센터 로그인</strong></li>
+              <li><strong>API 관리 메뉴 → API 키 발급</strong></li>
+              <li><strong>발급된 API 키를 ALL8 마켓 계정 설정에 붙여넣기 → 연결 확인</strong></li>
+            </ol>
+          </div>
+        </div>
+        <div class="subsection">
+          <div class="subsection-title">② 계정 편집기 설정</div>
+          <div class="card">
+            <div class="callout info">
+              <div class="callout-title">📋 준비 중</div>
+              토스쇼핑 계정 편집기 상세 설정 가이드는 준비 중이에요.
             </div>
           </div>
         </div>
@@ -3450,6 +3480,14 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
 </div>
 
 <script>
+// ── 마켓 탭 전환 ──
+function switchMkt(btn, id) {
+  document.querySelectorAll('.mkt-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.mkt-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('mkt-' + id).classList.add('active');
+}
+
 // ── 검색 ──
 function handleSearch(q) {
   q = q.trim().toLowerCase();
