@@ -3262,11 +3262,13 @@ function handleSearch(q) {
     return;
   }
 
+  let firstMark = null;
   sections.forEach(s => {
     const text = (s.textContent + ' ' + (s.dataset.keywords || '')).toLowerCase();
     if (text.includes(q)) {
       s.style.display = '';
       highlightText(s, q);
+      if (!firstMark) firstMark = s.querySelector('mark');
       visible++;
     } else {
       s.style.display = 'none';
@@ -3278,6 +3280,7 @@ function handleSearch(q) {
     document.getElementById('noResultQuery').textContent = q;
   } else {
     noResult.classList.remove('show');
+    if (firstMark) setTimeout(() => firstMark.scrollIntoView({ behavior: 'smooth', block: 'center' }), 50);
   }
 }
 
