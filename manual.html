@@ -2305,8 +2305,8 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
               </tr>
               <tr>
                 <td><strong>배송 설정</strong></td>
-                <td>택배사 · 배송비 · 출고소요일 · 반품배송비</td>
-                <td>무료배송(0원) + 출고소요일 1~2일 권장</td>
+                <td>택배사 코드 · 제주/도서산간 추가배송비 · 묶음배송 그룹</td>
+                <td>↓ 아래 상세 입력 가이드 참조</td>
               </tr>
               <tr>
                 <td><strong>A/S</strong></td>
@@ -2361,6 +2361,41 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
           <div class="callout warn" style="margin-top:12px;">
             <div class="callout-title">⚠️ 원산지 및 수입 먼저 설정하세요</div>
             해외구매대행 여부를 먼저 선택해야 출고지 항목이 활성화돼요. 순서를 지키지 않으면 출고지 저장 후 다시 바꿔야 해요.
+          </div>
+
+          <div style="margin-top:20px;padding-top:16px;border-top:2px solid var(--border);">
+            <div style="font-size:.9rem;font-weight:900;color:var(--ink1);margin-bottom:12px;">📦 배송 설정 — 항목별 입력 가이드</div>
+            <div class="tbl-wrap">
+              <table>
+                <tr><th style="width:30%">항목</th><th>어떻게 입력하나</th></tr>
+                <tr>
+                  <td><strong>택배사 코드</strong></td>
+                  <td>드롭다운에서 <strong>CJ대한통운 (CJGLS)</strong> 선택<br>
+                    <span style="font-size:.85rem;color:var(--ink2);">전국 수거망이 가장 넓고 ALL8 기본 연동 택배사. 특별한 이유 없으면 CJ대한통운으로 고정.</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>제주/도서산간<br>추가배송비</strong></td>
+                  <td>라디오 버튼 → <strong>"제주 / 제주 외 도서산간 분리"</strong> 선택<br>
+                    제주 추가배송비: <strong>6,000원</strong><br>
+                    제주 외 도서산간 추가배송비: <strong>8,000원</strong><br>
+                    <span style="font-size:.85rem;color:var(--ink2);">"미사용"으로 두면 도서산간 주문 시 배송비 손해가 나요. 분리 설정해야 실제 택배비 차액을 고객에게 받을 수 있어요.</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>묶음배송 사용</strong></td>
+                  <td>반드시 <strong>체크(사용)</strong><br>
+                    <span style="font-size:.85rem;color:var(--ink2);">고객이 내 스토어에서 여러 상품을 담아도 배송비가 한 번만 부과돼요. 미체크 시 상품마다 배송비가 각각 붙어서 고객 불만으로 이어져요.</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>묶음배송 그룹</strong></td>
+                  <td><strong>기본 배송비 묶음그룹</strong> 유지<br>
+                    <span style="font-size:.85rem;color:var(--ink2);">처음 생성된 기본 그룹을 그대로 선택하면 돼요. 별도 그룹을 만들어야 할 상황이 아니면 변경 불필요.</span>
+                  </td>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
       </div>
