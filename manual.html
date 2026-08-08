@@ -3135,8 +3135,16 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
                 </tr>
                 <tr>
                   <td><strong>재고 관리</strong></td>
-                  <td>롯데ON 업로드 시 재고관리 여부 (항상 Y로 전송)<br><span style="font-size:.85rem;color:var(--ink2);">재고관리 안함으로 두면 품절 자동처리 불가</span></td>
-                  <td><strong>재고관리</strong> 선택 (기본) — 수량은 999 계열로 입력</td>
+                  <td>
+                    롯데ON이 재고 수량을 추적할지 여부 (<code>재고관리여부 = Y/N</code>)<br>
+                    <span style="font-size:.85rem;color:var(--ink2);">
+                      · <strong>재고관리(기본)</strong>: Y — 주문 발생 시 수량 차감, 0이면 자동 품절<br>
+                      · <strong>재고관리 안함</strong>: N — 무제한 판매, 차감·자동품절 없음<br>
+                      이전 버전(레거시)도 Y 고정이었음 — 기본값 그대로 두면 기존과 동일하게 동작<br>
+                      ⚠️ N으로 두면 올에잇 재고 자동 동기화 무력화 + 판매자 임의취소 누적 위험
+                    </span>
+                  </td>
+                  <td><strong>재고관리</strong> 선택 (기본)<br><span style="font-size:.85rem;color:var(--ink2);">구매대행은 반드시 Y — 재고관리 안함은 e쿠폰·디지털콘텐츠 전용</span></td>
                 </tr>
                 <tr>
                   <td><strong>전용 상품명</strong></td>
