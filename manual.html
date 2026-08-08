@@ -2955,22 +2955,171 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
       <!-- ⑥ 롯데ON -->
       <div id="mkt-lotteon" class="mkt-panel">
         <div class="subsection">
-          <div class="subsection-title">① API 연결</div>
+          <div class="subsection-title">① 인증 정보 입력</div>
           <div class="card">
             <ol class="steps">
-              <li><strong>롯데ON 판매자센터(<a href="https://www.lotteon.com/seller" target="_blank" style="color:var(--green);">lotteon.com/seller</a>) 로그인</strong></li>
-              <li><strong>API 관리 메뉴 → API 키 발급</strong></li>
-              <li><strong>발급된 API 키를 ALL8 마켓 계정 설정에 붙여넣기 → 연결 확인</strong></li>
+              <li><strong>롯데ON 판매자센터에서 API Key · 거래처 번호(trNo) 확인</strong></li>
+              <li><strong>ALL8 마켓 계정 설정 → 인증 정보에 입력 후 연결 테스트</strong></li>
             </ol>
           </div>
         </div>
+
         <div class="subsection">
           <div class="subsection-title">② 계정 편집기 설정</div>
           <div class="card">
-            <div class="callout info">
-              <div class="callout-title">📋 준비 중</div>
-              롯데ON 계정 편집기 상세 설정 가이드는 준비 중이에요.
+
+            <div class="tbl-wrap" style="margin-bottom:14px;">
+              <table>
+                <tr><th colspan="3" style="background:var(--ink1);color:#fff;">기본 정보 · 인증 정보</th></tr>
+                <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
+                <tr>
+                  <td><strong>기본 정보</strong></td>
+                  <td>
+                    · <strong>사업자</strong>: 연결할 사업자 선택<br>
+                    · <strong>닉네임</strong>: ALL8 내부 표시 이름<br>
+                    · <strong>활성 상태</strong>: 체크 해제 시 업로드 비활성
+                  </td>
+                  <td>사업자 선택 후 구분하기 쉬운 닉네임 입력 (예: "구크다스 롯데온")</td>
+                </tr>
+                <tr>
+                  <td><strong>인증 정보</strong></td>
+                  <td>
+                    · <strong>API Key</strong>: X-Lotteon-Api-Key 헤더값<br>
+                    · <strong>거래처 번호(trNo)</strong>: X-Lotteon-Tr-No 헤더값<br>
+                    <span style="font-size:.85rem;color:var(--ink2);">거래처 그룹 코드는 레거시와 동일하게 SR 기본값 사용</span>
+                  </td>
+                  <td>API Key · 거래처 번호 입력 후 <strong>연결 테스트</strong> → 저장</td>
+                </tr>
+              </table>
             </div>
+
+            <div class="tbl-wrap" style="margin-bottom:14px;">
+              <table>
+                <tr><th colspan="3" style="background:var(--ink1);color:#fff;">마켓 설정</th></tr>
+                <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
+                <tr>
+                  <td><strong>출고지 / 반품지 / 배송비 / 원산지</strong></td>
+                  <td colspan="2" style="padding:0;">
+                    <table style="margin:0;border:0;width:100%;">
+                      <tr style="background:var(--section-bg);">
+                        <td colspan="2" style="font-size:.85rem;color:var(--ink2);padding:6px 12px;">롯데ON 판매자센터에 등록한 출고지·반품지·배송비정책과 공통 원산지 코드를 조회해 선택하세요.</td>
+                      </tr>
+                      <tr>
+                        <td style="width:38%;padding:6px 12px;"><strong>출고지</strong><br><span style="font-size:.82rem;color:var(--ink2);">업로드 필수 — 롯데ON 판매자센터에 등록한 출고지에서 선택</span></td>
+                        <td style="padding:6px 12px;">판매자센터 출고지 먼저 등록 후 선택</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:6px 12px;"><strong>반품지</strong><br><span style="font-size:.82rem;color:var(--ink2);">업로드 필수 — 롯데ON 판매자센터에 등록한 반품지에서 선택</span></td>
+                        <td style="padding:6px 12px;">판매자센터 반품지 먼저 등록 후 선택</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:6px 12px;"><strong>기본배송비정책</strong><br><span style="font-size:.82rem;color:var(--ink2);">업로드 필수 — 롯데ON 판매자센터에 등록한 배송비 정책에서 선택</span></td>
+                        <td style="padding:6px 12px;">판매자센터 배송비 정책 등록 후 선택</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:6px 12px;"><strong>원산지 코드</strong><br><span style="font-size:.82rem;color:var(--ink2);">기본값 ETC — 롯데ON 공통코드 OPLC_CD 목록에서 선택</span></td>
+                        <td style="padding:6px 12px;"><strong>#AQ (ETC)</strong> 기본 사용</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:6px 12px;"><strong>배송가능지역 그룹</strong><br><span style="font-size:.82rem;color:var(--ink2);">상품을 배송할 지역 범위</span></td>
+                        <td style="padding:6px 12px;"><strong>전국(제주도 및 도서지역 제외)</strong> 선택</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>수수료</strong></td>
+                  <td>카테고리별 수수료가 따로 없을 때 적용되는 마켓별 기본값</td>
+                  <td><strong>13%</strong> 입력</td>
+                </tr>
+                <tr>
+                  <td><strong>가격 계산식</strong></td>
+                  <td>이 마켓만 다른 판매가 계산식 적용. <strong>미설정 시 프리셋 가격식 적용됨.</strong><br><span style="font-size:.85rem;color:var(--ink2);">입력값 없으면 비활성 표시됨</span></td>
+                  <td>
+                    <strong>기본: 따로 설정하지 않고 공통 계산식 적용</strong><br>
+                    <span style="font-size:.85rem;color:var(--ink2);">이 마켓만 가격을 다르게 하거나 할인율을 따로 줄 때만 → 기존 프리셋 불러오기 또는 시스템 기본식으로 새로 설정</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>배송 정책</strong></td>
+                  <td colspan="2" style="padding:0;">
+                    <table style="margin:0;border:0;width:100%;">
+                      <tr>
+                        <td style="width:38%;padding:6px 12px;"><strong>배송 처리 유형</strong></td>
+                        <td style="padding:6px 12px;"><strong>업체배송</strong> 선택</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:6px 12px;"><strong>배송 상품 유형</strong></td>
+                        <td style="padding:6px 12px;"><strong>일반</strong> 선택</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:6px 12px;"><strong>배송 수단</strong></td>
+                        <td style="padding:6px 12px;"><strong>택배</strong> 선택</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:6px 12px;"><strong>평일 발송 마감 시간</strong></td>
+                        <td style="padding:6px 12px;"><strong>1700</strong> 입력 (형식: HH24MI)</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:6px 12px;"><strong>묶음배송 가능 (기본)</strong></td>
+                        <td style="padding:6px 12px;"><strong>사용 안 함</strong> (무재고 위탁은 묶음배송 불가)</td>
+                      </tr>
+                      <tr>
+                        <td style="padding:6px 12px;"><strong>가격비교 노출 (기본)</strong></td>
+                        <td style="padding:6px 12px;"><strong>사용</strong> 체크</td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>기본 정책</strong></td>
+                  <td>과세 유형 기본값 설정</td>
+                  <td><strong>일반과세</strong> 선택</td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="tbl-wrap" style="margin-bottom:14px;">
+              <table>
+                <tr><th colspan="3" style="background:var(--ink1);color:#fff;">마켓별 상품 편집 설정</th></tr>
+                <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
+                <tr>
+                  <td><strong>카테고리</strong></td>
+                  <td>해외직구 상품은 롯데ON 해외직구 전용 표준카테고리에서만 자동 매칭</td>
+                  <td><strong>해외직구 전용 카테고리만 매칭</strong> 사용 체크</td>
+                </tr>
+                <tr>
+                  <td><strong>상품 분류</strong></td>
+                  <td>롯데ON 상품등록 분류 코드 (레거시 기본값: 일반판매/일반상품/신상품)</td>
+                  <td>
+                    · <strong>판매 유형</strong>: 일반판매<br>
+                    · <strong>상품 유형</strong>: 일반상품<br>
+                    · <strong>상품 상태</strong>: 신상품
+                  </td>
+                </tr>
+                <tr>
+                  <td><strong>재고 관리</strong></td>
+                  <td>롯데ON 업로드 시 재고관리 여부 설정<br><span style="font-size:.85rem;color:var(--ink2);">레거시 롯데ON 업로드는 재고관리여부를 항상 Y로 보냈습니다</span></td>
+                  <td><strong>재고관리</strong> 선택 (기본)</td>
+                </tr>
+                <tr>
+                  <td><strong>전용 상품명</strong></td>
+                  <td>롯데ON만 별도 상품명을 만들고 싶을 때 설정<br><span style="font-size:.85rem;color:var(--ink2);">공란이면 프리셋 설정값으로 상품명 생성됨</span></td>
+                  <td>전용 상품명 필요 시만 설정, 나머지는 공란</td>
+                </tr>
+                <tr>
+                  <td><strong>금지어 업로드 제한</strong></td>
+                  <td>특정 단어 포함 시 자동 업로드 차단</td>
+                  <td>지재권 위험 브랜드명 등록 권장</td>
+                </tr>
+                <tr>
+                  <td><strong>상하단 이미지</strong></td>
+                  <td>롯데ON만 다른 상하단 이미지를 쓰고 싶을 때 등록<br><span style="font-size:.85rem;color:var(--ink2);">없으면 프리셋 설정값으로 상하단 이미지 생성됨</span></td>
+                  <td>전용 이미지 필요 시만 등록, 나머지는 프리셋 따름</td>
+                </tr>
+              </table>
+            </div>
+
           </div>
         </div>
       </div>
