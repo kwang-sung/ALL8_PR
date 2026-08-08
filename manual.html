@@ -189,7 +189,7 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
     <input type="text" id="searchInput" placeholder="궁금한 기능 검색… (예: 프리셋, 재고연동, 가격)" oninput="handleSearch(this.value)">
   </div>
   <div class="top-links">
-    <a class="top-link" href="https://safety.shopping.naver.com/handling/cautions/prohibition" target="_blank">🚫 온라인 금지품목</a>
+    <a class="top-link" href="https://safety.shopping.naver.com/handling/cautions/prohibition" target="_blank" style="background:#EF4444;border-color:#EF4444;color:#fff;">🚫 온라인 금지품목</a>
     <a class="top-link" href="https://open.kakao.com/o/gKWnrBDg" target="_blank" style="background:#FACC15;border-color:#FACC15;color:#1a1a1a;font-weight:700;">💬 단톡 무료교육 입장</a>
     <a class="top-link cta" href="https://all8.io/" target="_blank">🚀 ALL8 시작</a>
   </div>
@@ -2026,6 +2026,110 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
           <div class="callout warn" style="margin-top:8px;">
             <div class="callout-title">주의</div>
             수식에 오류가 있으면 저장이 차단됩니다. 저장 전 수식 유효성 오류 메시지를 확인하세요. 마켓별 전용 계산식이 필요하면 마켓 계정 설정의 "가격 계산식" 항목에서 별도 세트로 운용하세요.
+          </div>
+        </div>
+
+        <!-- ④-1 구간별 계산식 샘플 -->
+        <div class="card" style="margin-bottom:10px;">
+          <div class="card-title">④ 계산식 — 구간별 샘플 3종</div>
+          <p style="font-size:.88rem;color:var(--ink2);margin-bottom:14px;">아래 샘플을 참고해 계산식을 구성하세요. 원가 구간이 올라갈수록 더하기마진이 증가해 저가 상품의 마진율을 보호하고 고가 상품의 경쟁력을 확보하는 구조입니다.</p>
+
+          <!-- 샘플 1 -->
+          <div style="margin-bottom:18px;">
+            <div style="font-size:.9rem;font-weight:800;color:var(--ink1);border-left:3px solid #3B82F6;padding-left:8px;margin-bottom:8px;">🏠 국내리셀용</div>
+            <p style="font-size:.83rem;color:var(--ink2);margin-bottom:8px;">국내 사입(위탁·사입) 상품. 관부가세·카드수수료 없음. 배대지비용은 5만원 이상 0원.</p>
+            <div style="background:var(--bg2,#f7f8f9);border-radius:8px;padding:10px 12px;margin-bottom:8px;font-size:.82rem;">
+              <strong style="font-size:.8rem;color:var(--ink3);">설정값</strong>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;margin-top:6px;color:var(--ink2);">
+                <span>배대지비용</span><span><strong>3,000원</strong> (5만원 이상은 0원)</span>
+                <span>더하기마진 시작</span><span><strong>3,000원</strong></span>
+                <span>더하기마진 증가액</span><span><strong>500원</strong> (5,000원 구간당)</span>
+                <span>스마트스토어 수수료</span><span><strong>6%</strong></span>
+                <span>오픈마켓 수수료</span><span><strong>13%</strong></span>
+              </div>
+            </div>
+            <div class="tbl-wrap">
+              <table style="font-size:.8rem;">
+                <tr style="background:var(--bg2,#f7f8f9);">
+                  <th>원가 구간</th><th>더하기마진</th><th>기준가</th><th>SS(6%) 판매가</th><th>SS 마진율</th><th>OM(13%) 판매가</th><th>OM 마진율</th>
+                </tr>
+                <tr><td>1 ~ 5,000</td><td>3,000</td><td>11,000</td><td>11,702</td><td>25.6%</td><td>12,644</td><td>23.7%</td></tr>
+                <tr><td>5,001 ~ 10,000</td><td>3,500</td><td>16,500</td><td>17,553</td><td>19.9%</td><td>18,966</td><td>18.5%</td></tr>
+                <tr><td>10,001 ~ 15,000</td><td>4,000</td><td>22,000</td><td>23,404</td><td>17.1%</td><td>25,287</td><td>15.8%</td></tr>
+                <tr><td>20,001 ~ 25,000</td><td>5,000</td><td>33,000</td><td>35,106</td><td>14.2%</td><td>37,931</td><td>13.2%</td></tr>
+                <tr><td>50,001 ~ 55,000</td><td>8,000</td><td>63,000</td><td>67,021</td><td>11.9%</td><td>72,414</td><td>11.0%</td></tr>
+                <tr><td>70,001 ~ 75,000</td><td>10,000</td><td>85,000</td><td>90,426</td><td>11.1%</td><td>97,701</td><td>10.2%</td></tr>
+              </table>
+            </div>
+          </div>
+
+          <!-- 샘플 2 -->
+          <div style="margin-bottom:18px;">
+            <div style="font-size:.9rem;font-weight:800;color:var(--ink1);border-left:3px solid #F59E0B;padding-left:8px;margin-bottom:8px;">🇨🇳 중국구매대행용</div>
+            <p style="font-size:.83rem;color:var(--ink2);margin-bottom:8px;">1688 등 중국 소싱. 배대지비용 7,000원 + 카드수수료 3% 포함. 저가 마진 cap 35% → 고가 floor 18%로 자동 수렴.</p>
+            <div style="background:var(--bg2,#f7f8f9);border-radius:8px;padding:10px 12px;margin-bottom:8px;font-size:.82rem;">
+              <strong style="font-size:.8rem;color:var(--ink3);">설정값</strong>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;margin-top:6px;color:var(--ink2);">
+                <span>배대지비용</span><span><strong>7,000원</strong> (고정)</span>
+                <span>카드수수료</span><span><strong>3%</strong></span>
+                <span>최대 마진율(저가 cap)</span><span><strong>35%</strong></span>
+                <span>최소 마진율(고가 floor)</span><span><strong>18%</strong></span>
+                <span>더하기마진 시작금액</span><span><strong>5,000원</strong></span>
+                <span>더하기마진 증가율(기울기)</span><span><strong>2.5%</strong></span>
+                <span>더하기마진 상한(최대)</span><span><strong>30,000원</strong></span>
+                <span>스마트스토어 수수료</span><span><strong>6%</strong></span>
+                <span>오픈마켓 수수료</span><span><strong>13%</strong></span>
+              </div>
+            </div>
+            <div class="tbl-wrap">
+              <table style="font-size:.8rem;">
+                <tr style="background:var(--bg2,#f7f8f9);">
+                  <th>원가 구간</th><th>더하기마진</th><th>기준가</th><th>SS(6%+카드)</th><th>SS 마진율</th><th>OM(13%+카드)</th><th>OM 마진율</th>
+                </tr>
+                <tr><td>1 ~ 10,000</td><td>8,500</td><td>25,500</td><td>28,022</td><td>30.3%</td><td>30,357</td><td>28.0%</td></tr>
+                <tr><td>10,001 ~ 20,000</td><td>12,250</td><td>39,250</td><td>43,132</td><td>28.4%</td><td>46,726</td><td>26.2%</td></tr>
+                <tr><td>50,001 ~ 60,000</td><td>27,250</td><td>94,250</td><td>103,571</td><td>26.3%</td><td>112,202</td><td>24.3%</td></tr>
+                <tr><td>90,001 ~ 100,000</td><td>38,250</td><td>145,250</td><td>159,615</td><td>24.0%</td><td>172,917</td><td>22.1%</td></tr>
+                <tr><td>140,001 ~ 150,000</td><td>48,500</td><td>205,500</td><td>225,824</td><td>21.5%</td><td>244,643</td><td>19.8%</td></tr>
+              </table>
+            </div>
+          </div>
+
+          <!-- 샘플 3 -->
+          <div>
+            <div style="font-size:.9rem;font-weight:800;color:var(--ink1);border-left:3px solid #10B981;padding-left:8px;margin-bottom:8px;">💊 건기식 2개 묶음판매용</div>
+            <p style="font-size:.83rem;color:var(--ink2);margin-bottom:8px;">건강기능식품 2개 묶음. 배대지비용 15,900원(2배). 저가 마진 cap 35% → 고가 floor 8%. 마진율이 낮아지는 구조이므로 묶음 단가 관리 필수.</p>
+            <div style="background:var(--bg2,#f7f8f9);border-radius:8px;padding:10px 12px;margin-bottom:8px;font-size:.82rem;">
+              <strong style="font-size:.8rem;color:var(--ink3);">설정값</strong>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 20px;margin-top:6px;color:var(--ink2);">
+                <span>배대지비용</span><span><strong>15,900원</strong> (2개 묶음)</span>
+                <span>카드수수료</span><span><strong>없음</strong></span>
+                <span>최대 마진율(저가 cap)</span><span><strong>35%</strong></span>
+                <span>최소 마진율(고가 floor)</span><span><strong>8%</strong></span>
+                <span>더하기마진 시작금액</span><span><strong>5,000원</strong></span>
+                <span>더하기마진 증가율(기울기)</span><span><strong>2.5%</strong></span>
+                <span>더하기마진 상한(최대)</span><span><strong>30,000원</strong></span>
+                <span>스마트스토어 수수료</span><span><strong>6%</strong></span>
+                <span>오픈마켓 수수료</span><span><strong>13%</strong></span>
+              </div>
+            </div>
+            <div class="tbl-wrap">
+              <table style="font-size:.8rem;">
+                <tr style="background:var(--bg2,#f7f8f9);">
+                  <th>원가 구간</th><th>더하기마진</th><th>기준가</th><th>SS(6%)</th><th>SS 마진율</th><th>OM(13%)</th><th>OM 마진율</th>
+                </tr>
+                <tr><td>1 ~ 10,000</td><td>8,500</td><td>34,400</td><td>36,596</td><td>23.2%</td><td>39,540</td><td>21.5%</td></tr>
+                <tr><td>10,001 ~ 20,000</td><td>12,250</td><td>48,150</td><td>51,223</td><td>23.9%</td><td>55,345</td><td>22.1%</td></tr>
+                <tr><td>50,001 ~ 60,000</td><td>24,050</td><td>99,950</td><td>106,330</td><td>22.6%</td><td>114,885</td><td>20.9%</td></tr>
+                <tr><td>90,001 ~ 100,000</td><td>28,250</td><td>144,150</td><td>153,351</td><td>18.4%</td><td>165,690</td><td>17.0%</td></tr>
+                <tr><td>140,001 ~ 150,000</td><td>33,500</td><td>199,400</td><td>212,128</td><td>15.8%</td><td>229,195</td><td>14.6%</td></tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="callout tip" style="margin-top:10px;">
+            <div class="callout-title">샘플 활용법</div>
+            설정값 테이블의 숫자를 ALL8 계산식 빌더에 그대로 입력하면 됩니다. 더하기마진 시작금액·증가율·상한은 빌더의 "구간 마진" 항목에 해당합니다. 전체 445구간 테이블은 구글 시트 원본에서 확인하세요.
           </div>
         </div>
 
