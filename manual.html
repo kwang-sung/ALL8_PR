@@ -3326,13 +3326,22 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
                 <tr><th colspan="3" style="background:var(--ink1);color:#fff;">마켓별 상품 편집 설정</th></tr>
                 <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
                 <tr>
-                  <td><strong>기타</strong></td>
-                  <td>면세 여부 · 문화비 소득공제 설정<br><span style="font-size:.85rem;color:var(--ink2);">입력값 없으면 비활성 표시됨</span></td>
+                  <td><strong>면세 여부</strong></td>
                   <td>
-                    · <strong>면세 여부</strong>: 미사용<br>
-                    · <strong>문화비 소득공제</strong>: 미사용<br>
-                    <span style="font-size:.85rem;color:var(--ink2);">저장 한 번 눌러 '완료' 상태로 변경</span>
+                    API 필수 필드(<code>isTaxFree</code>) — 값을 반드시 보내야 함<br>
+                    <span style="font-size:.85rem;color:var(--ink2);">해외구매대행은 부가세 과세 대상. false(체크 해제)가 정답.<br>
+                    true로 올리면 토스쇼핑이 면세로 집계 → 수수료 세금계산서 불일치 → 부가세 신고 오류. 검수 반려 리스크도 있음</span>
                   </td>
+                  <td><strong>체크 해제</strong> (false)<br><span style="font-size:.85rem;color:var(--ink2);">롯데ON 일반과세 선택과 동일한 판단</span></td>
+                </tr>
+                <tr>
+                  <td><strong>문화비 소득공제</strong></td>
+                  <td>
+                    API 선택 필드(<code>isCultureDeduction</code>) — 카테고리 정책이 결정<br>
+                    <span style="font-size:.85rem;color:var(--ink2);">도서·공연 티켓·박물관 입장권 등에만 해당. 셀러가 임의 설정하는 값이 아님.<br>
+                    구매대행 잡화에 true = 대상이 아닌 카테고리 등록 오류 또는 허위 표시 리스크</span>
+                  </td>
+                  <td><strong>체크 해제</strong> (false)</td>
                 </tr>
                 <tr>
                   <td><strong>전용 상품명</strong></td>
