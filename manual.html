@@ -3028,81 +3028,63 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
                 <tr><th colspan="3" style="background:var(--ink1);color:#fff;">마켓 설정</th></tr>
                 <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
                 <tr>
-                  <td><strong>출고지 / 반품지 / 배송비 / 원산지</strong></td>
-                  <td colspan="2" style="padding:0;">
-                    <table style="margin:0;border:0;width:100%;">
-                      <tr style="background:var(--section-bg);">
-                        <td colspan="2" style="font-size:.85rem;color:var(--ink2);padding:6px 12px;">롯데ON 스토어센터 → 판매자정보 → 배송정보관리에서 먼저 등록한 뒤 조회하여 선택하는 구조입니다.</td>
-                      </tr>
-                      <tr>
-                        <td style="width:42%;padding:6px 12px;"><strong>출고지</strong><br><span style="font-size:.82rem;color:var(--ink2);">업로드 필수 — 롯데ON 판매자센터에 등록한 출고지에서 선택</span></td>
-                        <td style="padding:6px 12px;">구매대행은 <strong>해외 배대지 주소</strong>로 등록</td>
-                      </tr>
-                      <tr>
-                        <td style="padding:6px 12px;"><strong>반품지</strong><br><span style="font-size:.82rem;color:var(--ink2);">업로드 필수 — 롯데ON 판매자센터에 등록한 반품지에서 선택</span></td>
-                        <td style="padding:6px 12px;"><strong>국내 주소</strong> (본인 사업장 또는 자택 주소)</td>
-                      </tr>
-                      <tr>
-                        <td style="padding:6px 12px;"><strong>기본배송비정책</strong><br><span style="font-size:.82rem;color:var(--ink2);">업로드 필수 — 유료배송비 설정 시 배송비의 3.3% 수수료 추가 부과됨</span></td>
-                        <td style="padding:6px 12px;"><strong>무료배송(0원) 단일 정책 권장</strong><br><span style="font-size:.82rem;color:var(--ink2);">배송비는 판매가에 녹이세요. 가격비교 총액 유리 + 3.3% 수수료 회피</span></td>
-                      </tr>
-                      <tr>
-                        <td style="padding:6px 12px;"><strong>원산지 코드</strong><br><span style="font-size:.82rem;color:var(--ink2);">롯데ON 공통코드 OPLC_CD 목록에서 선택</span></td>
-                        <td style="padding:6px 12px;"><strong>ETC (상세페이지 참조)</strong> 선택<br><span style="font-size:.82rem;color:var(--ink2);">롯데ON 공통코드 OPLC_CD 목록에서 ETC 해당 항목 선택</span></td>
-                      </tr>
-                      <tr>
-                        <td style="padding:6px 12px;"><strong>배송가능지역 그룹</strong><br><span style="font-size:.82rem;color:var(--ink2);">상품을 배송할 지역 범위</span></td>
-                        <td style="padding:6px 12px;"><strong>전국(제주도 및 도서지역 제외)</strong> 유지<br><span style="font-size:.82rem;color:var(--ink2);">구매대행은 제주·도서 추가배송비 정산이 사실상 불가 — 제외가 맞음</span></td>
-                      </tr>
-                    </table>
-                  </td>
+                  <td rowspan="6" style="vertical-align:top;"><strong>출고지 / 반품지 / 배송비 / 원산지</strong></td>
+                  <td colspan="2" style="font-size:.85rem;color:var(--ink2);background:var(--section-bg);padding:6px 12px;">롯데ON 스토어센터 → 판매자정보 → 배송정보관리에서 먼저 등록한 뒤 조회하여 선택하는 구조입니다.</td>
+                </tr>
+                <tr>
+                  <td><strong>출고지</strong><br><span style="font-size:.82rem;color:var(--ink2);">업로드 필수 — 롯데ON 판매자센터에 등록한 출고지에서 선택</span></td>
+                  <td>구매대행은 <strong>해외 배대지 주소</strong>로 등록</td>
+                </tr>
+                <tr>
+                  <td><strong>반품지</strong><br><span style="font-size:.82rem;color:var(--ink2);">업로드 필수 — 롯데ON 판매자센터에 등록한 반품지에서 선택</span></td>
+                  <td><strong>국내 주소</strong> (본인 사업장 또는 자택 주소)</td>
+                </tr>
+                <tr>
+                  <td><strong>기본배송비정책</strong><br><span style="font-size:.82rem;color:var(--ink2);">업로드 필수 — 유료배송비 설정 시 배송비의 3.3% 수수료 추가 부과됨</span></td>
+                  <td><strong>무료배송(0원) 단일 정책 권장</strong><br><span style="font-size:.82rem;color:var(--ink2);">배송비는 판매가에 녹이세요. 가격비교 총액 유리 + 3.3% 수수료 회피</span></td>
+                </tr>
+                <tr>
+                  <td><strong>원산지 코드</strong><br><span style="font-size:.82rem;color:var(--ink2);">롯데ON 공통코드 OPLC_CD 목록에서 선택</span></td>
+                  <td><strong>ETC (상세페이지 참조)</strong> 선택<br><span style="font-size:.82rem;color:var(--ink2);">롯데ON 공통코드 OPLC_CD 목록에서 ETC 해당 항목 선택</span></td>
+                </tr>
+                <tr>
+                  <td><strong>배송가능지역 그룹</strong><br><span style="font-size:.82rem;color:var(--ink2);">상품을 배송할 지역 범위</span></td>
+                  <td><strong>전국(제주도 및 도서지역 제외)</strong> 유지<br><span style="font-size:.82rem;color:var(--ink2);">구매대행은 제주·도서 추가배송비 정산이 사실상 불가 — 제외가 맞음</span></td>
                 </tr>
                 <tr>
                   <td><strong>수수료</strong></td>
                   <td>카테고리별 수수료가 따로 없을 때 적용되는 마켓별 기본값<br><span style="font-size:.85rem;color:var(--ink2);">가격비교 노출 사용 시 제휴수수료 2% 추가 → 실질 수수료 13%+2%=15%</span></td>
-                  <td>
-                    <strong>15% 권장</strong> (미등록 카테고리 안전판)<br>
-                    <span style="font-size:.85rem;color:var(--ink2);">주력 카테고리는 실제 요율로 카테고리별 수수료를 별도 등록하세요</span>
-                  </td>
+                  <td><strong>15% 권장</strong> (미등록 카테고리 안전판)<br><span style="font-size:.85rem;color:var(--ink2);">주력 카테고리는 실제 요율로 카테고리별 수수료를 별도 등록하세요</span></td>
                 </tr>
                 <tr>
                   <td><strong>가격 계산식</strong></td>
                   <td>이 마켓만 다른 판매가 계산식 적용. <strong>미설정 시 프리셋 가격식 적용됨.</strong><br><span style="font-size:.85rem;color:var(--ink2);">롯데ON은 쿠폰·엘포인트 프로모션이 잦아 별도 세트 운용 권장</span></td>
-                  <td>
-                    <strong>롯데ON 전용 세트 생성 권장</strong><br>
-                    <span style="font-size:.85rem;color:var(--ink2);">스마트스토어 대비 곱하기 마진 3~5%p 높게 (예: SS ×1.45 → 롯데ON ×1.50~1.52)<br>⚠️ 반드시 "시스템 기본식으로 시작" 눌러 편집 — 빈 식 시작 시 판매가 0</span>
-                  </td>
+                  <td><strong>롯데ON 전용 세트 생성 권장</strong><br><span style="font-size:.85rem;color:var(--ink2);">스마트스토어 대비 곱하기 마진 3~5%p 높게 (예: SS ×1.45 → 롯데ON ×1.50~1.52)<br>⚠️ 반드시 "시스템 기본식으로 시작" 눌러 편집 — 빈 식 시작 시 판매가 0</span></td>
                 </tr>
                 <tr>
-                  <td><strong>배송 정책</strong></td>
-                  <td colspan="2" style="padding:0;">
-                    <table style="margin:0;border:0;width:100%;">
-                      <tr>
-                        <td style="width:42%;padding:6px 12px;"><strong>배송 처리 유형</strong></td>
-                        <td style="padding:6px 12px;"><strong>업체배송</strong> (필수 — 센터배송은 롯데 물류센터 직매입/선재고 전용)</td>
-                      </tr>
-                      <tr>
-                        <td style="padding:6px 12px;"><strong>배송 상품 유형</strong></td>
-                        <td style="padding:6px 12px;"><strong>일반</strong> (필수 — 당일발송 선택 시 업로드 실패)</td>
-                      </tr>
-                      <tr>
-                        <td style="padding:6px 12px;"><strong>배송 수단</strong></td>
-                        <td style="padding:6px 12px;"><strong>택배</strong> (자체배송은 퀵/설치배송 전용)</td>
-                      </tr>
-                      <tr>
-                        <td style="padding:6px 12px;"><strong>평일 발송 마감 시간</strong></td>
-                        <td style="padding:6px 12px;"><strong>1700</strong> 유지 (구매대행은 출고소요일이 7~15일이라 실효 영향 작음)</td>
-                      </tr>
-                      <tr>
-                        <td style="padding:6px 12px;"><strong>묶음배송 가능 (기본)</strong></td>
-                        <td style="padding:6px 12px;"><strong>사용 안 함</strong> (상품마다 개별 국제배송 — 묶음배송 켜면 CS 무너짐)</td>
-                      </tr>
-                      <tr>
-                        <td style="padding:6px 12px;"><strong>가격비교 노출 (기본)</strong></td>
-                        <td style="padding:6px 12px;"><strong>사용</strong> — 네이버·다나와 유입이 실질 매출원. 대신 수수료를 15%로 잡아 제휴수수료 2% 회수</td>
-                      </tr>
-                    </table>
-                  </td>
+                  <td rowspan="6" style="vertical-align:top;"><strong>배송 정책</strong></td>
+                  <td><strong>배송 처리 유형</strong></td>
+                  <td><strong>업체배송</strong> (필수 — 센터배송은 롯데 물류센터 직매입/선재고 전용)</td>
+                </tr>
+                <tr>
+                  <td><strong>배송 상품 유형</strong></td>
+                  <td><strong>일반</strong> (필수 — 당일발송 선택 시 업로드 실패)</td>
+                </tr>
+                <tr>
+                  <td><strong>배송 수단</strong></td>
+                  <td><strong>택배</strong> (자체배송은 퀵/설치배송 전용)</td>
+                </tr>
+                <tr>
+                  <td><strong>평일 발송 마감 시간</strong></td>
+                  <td><strong>1700</strong> 유지 (구매대행은 출고소요일이 7~15일이라 실효 영향 작음)</td>
+                </tr>
+                <tr>
+                  <td><strong>묶음배송 가능 (기본)</strong></td>
+                  <td><strong>사용 안 함</strong> (상품마다 개별 국제배송 — 묶음배송 켜면 CS 무너짐)</td>
+                </tr>
+                <tr>
+                  <td><strong>가격비교 노출 (기본)</strong></td>
+                  <td><strong>사용</strong> — 네이버·다나와 유입이 실질 매출원. 대신 수수료를 15%로 잡아 제휴수수료 2% 회수</td>
                 </tr>
                 <tr>
                   <td><strong>기본 정책</strong></td>
