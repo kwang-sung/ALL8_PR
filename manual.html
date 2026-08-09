@@ -2623,7 +2623,7 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
               <li>
                 <strong><span class="btn">연동정보 수정</span> 클릭 → OPEN API 키 수정 팝업에서 아래 그림과 같이 입력</strong>
                 <div style="margin-top:10px;">
-                  <img src="img/coupang_openapi_setup.jpg" alt="쿠팡 OPEN API 키 수정 화면" style="max-width:100%;max-height:360px;border-radius:8px;border:1px solid var(--border);">
+                  <img src="img/coupang_openapi_setup.jpg" alt="쿠팡 OPEN API 키 수정 화면" onclick="openLightbox(this.src)" style="max-width:100%;border-radius:8px;border:1px solid var(--border);cursor:zoom-in;display:block;">
                 </div>
                 <div style="margin-top:8px;padding:10px 14px;background:var(--green-bg);border-radius:8px;font-size:.88rem;">
                   · <strong>업체 입력 방식</strong>: 자체개발(직접입력) 선택<br>
@@ -2657,7 +2657,7 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
                 <tr>
                   <td colspan="3" style="padding:12px 14px;background:var(--section-bg);">
                     <div style="font-size:.85rem;font-weight:700;margin-bottom:8px;">🔑 키 발급 시 Wing OPEN API 키 수정 팝업 입력 방법</div>
-                    <img src="img/coupang_openapi_setup.jpg" alt="쿠팡 OPEN API 키 수정 화면" style="max-width:480px;width:100%;border-radius:8px;border:1px solid var(--border);display:block;margin-bottom:8px;">
+                    <img src="img/coupang_openapi_setup.jpg" alt="쿠팡 OPEN API 키 수정 화면" onclick="openLightbox(this.src)" style="max-width:100%;border-radius:8px;border:1px solid var(--border);display:block;margin-bottom:8px;cursor:zoom-in;">
                     <div style="padding:8px 12px;background:var(--green-bg);border-radius:6px;font-size:.85rem;line-height:1.8;">
                       · <strong>업체 입력 방식</strong>: 자체개발(직접입력) 선택<br>
                       · <strong>업체명</strong>: 올에잇<br>
@@ -4550,6 +4550,24 @@ function updateActive() {
 
 window.addEventListener('scroll', updateActive, { passive: true });
 updateActive();
+</script>
+<!-- ── 이미지 라이트박스 ── -->
+<div id="lightbox" onclick="closeLightbox()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;align-items:center;justify-content:center;cursor:zoom-out;">
+  <img id="lightbox-img" src="" style="max-width:92vw;max-height:92vh;border-radius:10px;box-shadow:0 8px 40px rgba(0,0,0,.6);">
+  <div style="position:absolute;top:16px;right:20px;color:#fff;font-size:28px;font-weight:900;cursor:pointer;line-height:1;">✕</div>
+</div>
+<script>
+function openLightbox(src){
+  document.getElementById('lightbox-img').src=src;
+  const lb=document.getElementById('lightbox');
+  lb.style.display='flex';
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').style.display='none';
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbox();});
 </script>
 </body>
 </html>
