@@ -215,7 +215,7 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
     </div>
     <div class="nav-group">
       <div class="nav-group-title">소싱 발굴</div>
-      <a class="nav-item" href="#sourcing">🔍 1688 소싱기</a>
+      <a class="nav-item" href="#sourcing">🔍 소싱기 (1688·라쿠텐)</a>
     </div>
     <div class="nav-group">
       <div class="nav-group-title">설정 & 관리</div>
@@ -448,6 +448,14 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
       <div class="callout info" style="margin-top:14px;">
         <div class="callout-title">📌 크레딧이 뭐예요?</div>
         서버 수집이나 AI 기능을 쓸 때 소모되는 포인트예요. 기본 브라우저 수집은 크레딧이 들지 않아요. 크레딧이 다 떨어지면 서버 수집이 안 되니 대시보드에서 잔액을 가끔 확인하세요.
+      </div>
+
+      <div class="callout warn" style="margin-top:10px;">
+        <div class="callout-title">⚠️ 크레딧 부족 경고 알림</div>
+        크레딧이 일정 수준 이하로 떨어지면 대시보드 상단에 <strong>경고 배너</strong>가 자동으로 표시돼요.<br>
+        · <strong>부족 경고</strong> (주황) — 잔액이 낮아질 때<br>
+        · <strong>고갈 알림</strong> (빨강) — 크레딧이 소진돼 서버 기능이 중단될 때<br>
+        알림 벨에서도 확인할 수 있어요. 배너가 보이면 <a href="#billing" style="color:inherit;font-weight:700;">결제 내역</a>에서 바로 충전하세요.
       </div>
 
       <div class="subsection" style="margin-top:20px;">
@@ -728,6 +736,7 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
           <span class="badge green">쿠팡</span>
           <span class="badge green">스마트스토어</span>
           <span class="badge green">테무</span>
+          <span class="badge green">라쿠텐 이치바</span>
           <span class="badge gray">그 외 다수 지원</span>
         </div>
         <p style="font-size:.85rem;color:var(--ink3);margin-top:8px;">전체 지원 목록은 확장 프로그램 설정(⚙) → 지원 사이트에서 확인하세요.</p>
@@ -768,6 +777,11 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
                 <td><strong>테무</strong></td>
                 <td>가격 변동이 심해요. 수집 시점과 실제 구매 시점 가격 차이 주의.</td>
                 <td>업로드 직전에 원본 링크에서 최신 가격 다시 확인하는 습관 권장.</td>
+              </tr>
+              <tr>
+                <td><strong>라쿠텐 이치바</strong></td>
+                <td>일본 엔(¥) 가격. 일본 국내 상품이 대부분이며 해외 배송 여부 상품마다 다름.</td>
+                <td>엔화 환율 반영 필수. 소싱 전 해외 발송 가능 여부 확인. 소싱기 "소싱처" 선택 시 라쿠텐 이치바 선택 가능.</td>
               </tr>
             </table>
           </div>
@@ -819,7 +833,7 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
     </div>
 
     <!-- ────────── 상품 목록 ────────── -->
-    <div class="content-section" id="product-list" data-section data-keywords="상품목록 상태 필터 검색 삭제 선택 일괄 처리">
+    <div class="content-section" id="product-list" data-section data-keywords="상품목록 상태 필터 검색 삭제 선택 일괄 처리 엑셀 추출 업로드 배지 인라인편집">
       <div class="section-head">
         <div class="section-icon">📋</div>
         <div class="section-meta">
@@ -864,6 +878,57 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
             <li><strong>키워드 검색</strong>: 상품명으로 검색할 수 있어요.</li>
             <li><strong>마켓 필터</strong>: 특정 마켓에 올라간 상품만 골라볼 수 있어요.</li>
           </ul>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">업로드 진행 배지 — 목록에서 마켓별 현황 한눈에</div>
+        <div class="card">
+          <p style="font-size:.9rem;color:var(--ink2);margin-bottom:10px;">상품 목록 각 행에 <strong>마켓별 업로드 현황</strong>이 색상 배지로 표시돼요. 편집 화면을 열지 않고도 어느 마켓에 올라갔는지 바로 확인할 수 있어요.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>색상</th><th>의미</th></tr>
+              <tr><td><span class="badge green">■</span> 브랜드 컬러</td><td>업로드 완료 (판매 중)</td></tr>
+              <tr><td><span class="badge gray">■</span> 회색</td><td>업로드 안 됨 / 판매 중지 / 실패</td></tr>
+            </table>
+          </div>
+          <p style="font-size:.85rem;color:var(--ink3);margin-top:8px;">배지를 클릭하면 해당 마켓의 게시된 상품 상세로 바로 이동해요.</p>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">인라인 편집 — 목록에서 바로 수정</div>
+        <div class="card">
+          <p style="font-size:.9rem;color:var(--ink2);margin-bottom:10px;">상품 목록의 일부 항목은 편집 화면에 들어가지 않고 <strong>목록에서 직접 클릭해서 수정</strong>할 수 있어요. 상품명·가격 등 간단한 항목을 빠르게 바꿀 때 유용해요.</p>
+          <div class="callout tip">
+            <div class="callout-title">💡 빠른 수정이 필요할 때</div>
+            인라인 편집은 목록에서 셀을 클릭하면 편집 모드로 전환돼요. 수정 후 Enter 또는 포커스 이동으로 저장됩니다.
+          </div>
+        </div>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-title">엑셀 왕복 — 대량 편집 후 일괄 업로드</div>
+        <div class="card">
+          <p style="font-size:.9rem;color:var(--ink2);margin-bottom:12px;">상품 정보를 엑셀로 내보내서 수정하고, 다시 ALL8으로 올리는 <strong>엑셀 왕복</strong> 기능이에요. 상품이 많을 때 한꺼번에 편집하기 편해요.</p>
+          <ol class="steps">
+            <li>
+              <strong>상품 선택 후 <span class="btn">엑셀로 추출</span> 클릭</strong>
+              <span>선택한 상품들의 정보(상품명·가격·옵션 등)가 .xlsx 파일로 다운로드돼요.</span>
+            </li>
+            <li>
+              <strong>엑셀에서 원하는 항목 수정</strong>
+              <span>상품명·가격·옵션명 등을 일괄 편집. 셀 형식은 건드리지 마세요.</span>
+            </li>
+            <li>
+              <strong><span class="btn">엑셀 업로드</span> 클릭 → 수정된 파일 선택</strong>
+              <span>업로드하면 ALL8이 변경 사항을 자동으로 반영해요. 검토 후 저장.</span>
+            </li>
+          </ol>
+          <div class="callout warn" style="margin-top:10px;">
+            <div class="callout-title">⚠️ 엑셀 파일 형식 주의</div>
+            추출된 엑셀의 열 구조를 변경하면 업로드 오류가 나요. 값만 수정하고 열 순서·헤더는 그대로 두세요.
+          </div>
         </div>
       </div>
     </div>
@@ -1026,7 +1091,7 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
     </div>
 
     <!-- ────────── 상품 편집 ────────── -->
-    <div class="content-section" id="edit" data-section data-keywords="편집 소싱처 프리셋 마켓선택 상품명 카테고리 옵션 가격 마진 배송 반품 썸네일 이미지 상세설명 부가정보 원산지 메모 업로드플로우 AI수정 AI생성 이미지편집 AI이미지 배경교체">
+    <div class="content-section" id="edit" data-section data-keywords="편집 소싱처 프리셋 마켓선택 상품명 카테고리 옵션 가격 마진 배송 반품 썸네일 이미지 상세설명 부가정보 원산지 메모 업로드플로우 AI수정 AI생성 이미지편집 AI이미지 배경교체 태그 단축키 판매가수정 이미지라이브러리">
       <div class="section-head">
         <div class="section-icon">✏️</div>
         <div class="section-meta">
@@ -1035,6 +1100,11 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
         </div>
       </div>
       <p class="section-desc">수집된 상품을 클릭하면 편집 화면이 열려요. 화면 오른쪽에 <strong>업로드 플로우</strong>가 있는데, 위에서 아래로 체크하면서 내려가면 됩니다. 초록 체크 = 완료, 빨간 점 = 반드시 해야 함, 빈 원 = 선택 사항이에요.</p>
+
+      <div class="callout tip" style="margin-bottom:20px;">
+        <div class="callout-title">⌨️ 저장 단축키</div>
+        <strong>Ctrl+S</strong> (Mac: ⌘S) → 편집 중 임시 저장 &nbsp;|&nbsp; <strong>Ctrl+Shift+S</strong> (Mac: ⌘⇧S) → 수정완료 저장 (업로드 가능 상태로 전환)
+      </div>
 
       <!-- 플로우 시각화 -->
       <div class="card" style="margin-bottom:20px;">
@@ -1407,6 +1477,22 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
           </div>
         </div>
 
+        <div class="card" style="margin-bottom:10px;">
+          <div class="card-title">💱 마켓별 최종 판매가 수정</div>
+          <p style="font-size:.9rem;color:var(--ink2);margin-bottom:10px;">SKU 그리드 오른쪽에 <strong>마켓 뷰</strong>를 켜면 마켓별 최종 판매가 컬럼이 표시돼요. 특정 마켓에만 다른 가격을 적용하고 싶을 때 여기서 직접 수정할 수 있어요.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>항목</th><th>설명</th></tr>
+              <tr><td><strong>마켓 뷰 전환</strong></td><td>SKU 그리드 상단 탭 또는 아이콘으로 전환. 마켓별 최종 판매가 컬럼이 나타나요.</td></tr>
+              <tr><td><strong>최종 판매가 입력</strong></td><td>셀을 직접 클릭해서 이 마켓에만 다른 판매가 입력. 비워두면 공통 가격 계산식 그대로 적용.</td></tr>
+            </table>
+          </div>
+          <div class="callout tip" style="margin-top:8px;">
+            <div class="callout-title">💡 언제 쓰나요?</div>
+            쿠팡에는 19,900원, 스마트스토어에는 21,900원처럼 마켓별로 다른 가격을 쓸 때. 마켓별 수수료 차이가 클 때 활용하세요.
+          </div>
+        </div>
+
         <div class="card">
           <div class="card-title">✂️ 옵션이 너무 많을 때 정리하는 법</div>
           <p style="font-size:.9rem;color:var(--ink2);margin-bottom:12px;">소싱처 상품에 옵션이 20~30개 이상 있는 경우가 많아요. 전부 올리면 업로드 오류나 마켓 심사 거부 원인이 될 수 있어요.</p>
@@ -1555,6 +1641,10 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
                 <td><strong>마켓별 이미지 개수 제한</strong></td>
                 <td>쿠팡·스마트스토어·11번가 모두 최대 10장. 초과하면 자동으로 잘려나가요.</td>
               </tr>
+              <tr>
+                <td><strong>이미지 라이브러리 피커</strong></td>
+                <td>이전에 사용한 이미지를 라이브러리에서 골라 쓸 수 있어요. 이미지 추가 버튼 옆 "라이브러리" 탭에서 접근. 이미지의 처리 이력(원본→가공 단계)도 확인 가능.</td>
+              </tr>
             </table>
           </div>
           <div class="callout tip" style="margin-top:10px;">
@@ -1593,6 +1683,17 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
                 <li>완전히 새 분위기로 만들 때 사용</li>
               </ul>
             </div>
+          </div>
+        </div>
+        <div class="card" style="margin-bottom:10px;">
+          <div class="card-title">AI 이미지 적용 위치 선택</div>
+          <p style="font-size:.9rem;color:var(--ink2);margin-bottom:10px;">AI 이미지 편집 시 <strong>어떤 이미지 위치에 적용할지</strong> 선택할 수 있어요. 썸네일(대표이미지) / 상세설명 이미지 중 원하는 곳을 지정해 AI 편집을 실행하세요.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>배치 옵션</th><th>설명</th></tr>
+              <tr><td><strong>썸네일 배치</strong></td><td>대표이미지·보조이미지에 AI 편집 적용</td></tr>
+              <tr><td><strong>상세설명 배치</strong></td><td>상세설명 영역 이미지에 AI 편집 적용</td></tr>
+            </table>
           </div>
         </div>
         <div class="card" style="margin-bottom:10px;">
@@ -1729,6 +1830,39 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
         </div>
       </div>
 
+      <!-- 태그 관리 (편집 화면 내) -->
+      <div class="subsection">
+        <div class="subsection-title">상품 태그 설정 — 편집 화면에서 바로</div>
+        <div class="card">
+          <p style="font-size:.9rem;color:var(--ink2);margin-bottom:12px;">편집 화면 안에 <strong>마켓 태그 설정</strong> 영역이 있어요. 스마트스토어·쿠팡 태그를 여기서 바로 입력하거나 태그셋을 불러올 수 있어요.</p>
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>기능</th><th>설명</th></tr>
+              <tr>
+                <td><strong>최근 태그 자동완성</strong></td>
+                <td>태그 입력창에 글자를 치면 최근에 사용한 태그가 드롭다운으로 추천돼요. 클릭하면 바로 추가.</td>
+              </tr>
+              <tr>
+                <td><strong>태그셋 일괄 적용</strong></td>
+                <td>미리 만들어둔 태그셋 선택 → 태그 전체가 한 번에 입력돼요. 상품 유형별 태그셋을 준비해두면 빠르게 적용 가능.</td>
+              </tr>
+              <tr>
+                <td><strong>카테고리 기반 추천 태그</strong></td>
+                <td>카테고리를 설정했으면 네이버 기준 추천 태그를 AI가 제안해줘요. 추천 태그를 클릭하면 바로 추가.</td>
+              </tr>
+              <tr>
+                <td><strong>퀵 액션 (태그 교체)</strong></td>
+                <td>현재 태그를 전부 지우고 새 세트로 바꾸는 퀵 버튼이 있어요. 태그를 통째로 바꿔야 할 때 편리.</td>
+              </tr>
+            </table>
+          </div>
+          <div class="callout tip" style="margin-top:10px;">
+            <div class="callout-title">💡 태그셋 미리 만들어두기</div>
+            <a href="#tag-sets" style="color:inherit;font-weight:700;">상품 태그 관리</a> 섹션에서 카테고리별 태그셋을 만들어두면 편집 화면에서 클릭 한 번으로 적용돼요. 의류, 주방용품 등 유형별로 하나씩 만들어두는 걸 추천해요.
+          </div>
+        </div>
+      </div>
+
       <!-- 완료 -->
       <div class="callout good">
         <div class="callout-title">✅ 편집 완료 후 업로드</div>
@@ -1738,7 +1872,7 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
     </div>
 
     <!-- ────────── 게시된 상품 ────────── -->
-    <div class="content-section" id="published" data-section data-keywords="게시된상품 판매중 업로드완료 판매중지 재판매 가격수정 재고 작업큐 삭제">
+    <div class="content-section" id="published" data-section data-keywords="게시된상품 판매중 업로드완료 판매중지 재판매 가격수정 재고 작업큐 삭제 심사거절 리뷰거절 상품ID 복사">
       <div class="section-head">
         <div class="section-icon">🛒</div>
         <div class="section-meta">
@@ -1772,6 +1906,10 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
               </tr>
             </table>
           </div>
+          <div class="callout tip" style="margin-top:10px;">
+            <div class="callout-title">📋 심사 거절(리뷰 거절) 필터</div>
+            판매중 탭 또는 오류 탭에서 <strong>"심사 거절"</strong> 필터를 선택하면 마켓 심사에서 반려된 상품만 모아볼 수 있어요. 반려 사유를 확인하고 내용을 수정한 뒤 재업로드하세요.
+          </div>
         </div>
       </div>
 
@@ -1784,6 +1922,7 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
             <tr><td><strong>재판매</strong></td><td>판매 중지한 상품을 다시 올려요.</td></tr>
             <tr><td><strong>가격 수정</strong></td><td>마켓에 올라간 상태에서 바로 가격을 바꿀 수 있어요.</td></tr>
             <tr><td><strong>재고 수정</strong></td><td>마켓 재고 수량을 바꿔요.</td></tr>
+            <tr><td><strong>상품 ID 복사</strong></td><td>목록에서 마켓 상품 ID를 클릭 한 번으로 클립보드에 복사해요. 광고 등록이나 외부 작업 시 편리.</td></tr>
             <tr><td><strong>삭제</strong></td><td>마켓에서 상품을 완전히 내려요. 다시 올리려면 새로 편집해야 해요.</td></tr>
           </table>
         </div>
@@ -1903,29 +2042,6 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
       </div>
       <p class="section-desc">프리셋 = 상품 등록에 필요한 모든 설정을 묶어 저장해두는 템플릿. 한 번 만들어두면 이후 수백 개 상품에 클릭 한 번으로 적용됩니다.</p>
 
-      <!-- 프롬프트 샘플 프리셋 다운로드 -->
-      <div class="card" style="border:2px solid var(--teal,#03C75A);margin-bottom:20px;">
-        <div class="card-title">🎁 프롬프트 샘플 프리셋 — 바로 사용 가능</div>
-        <p style="font-size:.9rem;color:var(--ink2);margin-bottom:14px;">
-          <strong>상품명 생성 · 썸네일 이미지 생성 · 상세페이지 생성</strong> 프롬프트가 미리 세팅된 샘플 프리셋 파일이에요.<br>
-          다운로드 후 ALL8 프롬프트 관리에서 <strong>공유파일 업로드</strong>하면 바로 사용할 수 있어요.
-        </p>
-        <div class="steps">
-          <ol>
-            <li>아래 버튼으로 <strong>.a8p 파일</strong> 다운로드</li>
-            <li>ALL8 접속 → 좌측 메뉴 <strong>프롬프트 관리</strong> 클릭</li>
-            <li>우측 상단 <strong>공유파일 업로드</strong> 클릭 → 다운받은 파일 선택</li>
-            <li>업로드 완료 → 프롬프트 목록에 자동 추가됨</li>
-          </ol>
-        </div>
-        <a href="/downloads/all8-프롬프트-20260817.a8p" download style="display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:11px 24px;background:var(--teal,#03C75A);color:#fff;border-radius:10px;font-size:14px;font-weight:900;text-decoration:none;">
-          ⬇️ 프롬프트 샘플 프리셋 다운로드 (.a8p)
-        </a>
-        <div class="callout tip" style="margin-top:14px;">
-          <div class="callout-title">💡 업로드 후 바로 쓰는 법</div>
-          상품 편집 화면 → 상품명 / AI 이미지 / 상세설명 항목에서 프롬프트 선택 드롭다운을 클릭하면 업로드한 샘플 프롬프트가 목록에 보여요.
-        </div>
-      </div>
 
       <!-- 프리셋 개요 -->
       <div class="subsection">
@@ -1957,6 +2073,10 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
           <div class="callout info" style="margin-top:12px;">
             <div class="callout-title">📌 입력 원칙</div>
             프리셋은 "이 섹션 사용" 체크박스가 따로 없습니다. <strong>값이 채워진 섹션만 상품에 적용</strong>됩니다. 비워두면 그 섹션은 상품 기존 설정 그대로 유지됩니다.
+          </div>
+          <div class="callout tip" style="margin-top:10px;">
+            <div class="callout-title">💡 UI 안내 — 드롭다운 방식</div>
+            프리셋 편집기의 모든 선택 항목(자동 수정 여부·넘버링·변환 방식 등)은 <strong>레이블 드롭다운</strong>으로 표시돼요. 체크박스나 라디오 버튼이 아니라 드롭다운을 클릭해서 값을 선택하세요. 각 항목 옆 <strong>(?) 아이콘</strong>을 클릭하면 해당 설정의 상세 설명이 표시됩니다.
           </div>
         </div>
       </div>
@@ -2113,10 +2233,10 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
             <div style="display:flex;align-items:center;gap:14px;background:var(--bg2,#f7f8f9);border-radius:10px;padding:13px 16px;">
               <div style="font-size:1.5rem;flex-shrink:0;">🏠</div>
               <div style="flex:1;min-width:0;">
-                <div style="font-size:.9rem;font-weight:800;color:var(--ink1);">국내리셀용</div>
+                <div style="font-size:.9rem;font-weight:800;color:var(--ink1);">올에잇 국내리셀 구간별 판매가</div>
                 <div style="font-size:.8rem;color:var(--ink3);margin-top:2px;">배대지 3,000원 · 수수료 없음 · SS 6% / OM 13%</div>
               </div>
-              <a href="./downloads/calc_국내리셀용.xlsx" download style="flex-shrink:0;padding:8px 16px;background:#3B82F6;color:#fff;border-radius:8px;font-size:.83rem;font-weight:800;text-decoration:none;white-space:nowrap;">⬇ 다운로드</a>
+              <a href="./downloads/올에잇 국내리셀 구간별 판매가.xlsx" download="올에잇 국내리셀 구간별 판매가.xlsx" style="flex-shrink:0;padding:8px 16px;background:#3B82F6;color:#fff;border-radius:8px;font-size:.83rem;font-weight:800;text-decoration:none;white-space:nowrap;">⬇ 다운로드</a>
             </div>
 
             <div style="display:flex;align-items:center;gap:14px;background:var(--bg2,#f7f8f9);border-radius:10px;padding:13px 16px;">
@@ -2712,8 +2832,11 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
                 </tr>
                 <tr>
                   <td><strong>대표이미지(썸네일) 지정 방식</strong></td>
-                  <td>수집 상품 썸네일로 할지, 옵션 이미지로 할지 설정</td>
-                  <td><strong>수집 상품 썸네일</strong> 설정 권장</td>
+                  <td>쿠팡 업로드 시 대표이미지를 어떻게 결정할지 설정</td>
+                  <td>
+                    <strong>옵션이미지를 각 상품의 대표이미지(썸네일)로 사용</strong> — 옵션별 이미지를 개별 대표이미지로 설정<br>
+                    <strong>위에 지정된 이미지 모든 상품에 공통으로 사용</strong> — 썸네일 섹션에서 설정한 이미지를 공통 적용 (기본값, 권장)
+                  </td>
                 </tr>
                 <tr>
                   <td><strong>전용 상품명</strong></td>
@@ -4237,15 +4360,15 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
     </div>
 
     <!-- ────────── 1688 소싱기 ────────── -->
-    <div class="content-section" id="sourcing" data-section data-keywords="소싱기 1688 소싱그룹 키워드 발굴 네이버 매칭 구매건수 인기상품 페이지수 최대수집">
+    <div class="content-section" id="sourcing" data-section data-keywords="소싱기 1688 라쿠텐 이치바 소싱그룹 키워드 발굴 네이버 매칭 인기상품 페이지수 최대수집">
       <div class="section-head">
         <div class="section-icon">🔍</div>
         <div class="section-meta">
           <div class="section-label">SOURCING · BETA</div>
-          <div class="section-title">1688 소싱기 — 키워드로 팔리는 상품 발굴</div>
+          <div class="section-title">소싱기 — 1688 · 라쿠텐 이치바 팔리는 상품 발굴</div>
         </div>
       </div>
-      <p class="section-desc">네이버쇼핑에서 잘 팔리는 상품을 키워드로 찾고, 1688에서 소싱처를 자동 매칭해주는 도구예요. 내가 직접 뒤지는 게 아니라 <strong>팔리는 상품을 먼저 발견하고 역으로 소싱처를 찾는</strong> 방식이에요.</p>
+      <p class="section-desc">네이버쇼핑에서 잘 팔리는 상품을 키워드로 찾고, <strong>1688</strong> 또는 <strong>라쿠텐 이치바</strong>에서 소싱처를 자동 매칭해주는 도구예요. 내가 직접 뒤지는 게 아니라 <strong>팔리는 상품을 먼저 발견하고 역으로 소싱처를 찾는</strong> 방식이에요.</p>
 
       <div class="callout info">
         <div class="callout-title">📌 소싱기 사용 전 필수 확인</div>
@@ -4417,16 +4540,30 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
         </div>
       </div>
       <p class="section-desc">상품 업로드 시 자동으로 붙일 태그 세트를 미리 만들어두는 곳이에요. 스마트스토어·쿠팡 각각 따로 관리돼요.</p>
-      <div class="card">
+      <div class="card" style="margin-bottom:10px;">
+        <div class="card-title">태그셋 관리 (이 화면)</div>
         <ul class="dots">
           <li><strong>태그셋 생성</strong>: 이름을 정하고 태그 목록을 입력해 저장. 예: "여름의류 공통태그" → 반팔, 여름, 니트, 루즈핏</li>
           <li><strong>마켓별 독립 관리</strong>: 스마트스토어와 쿠팡의 태그 규칙이 달라서 각각 분리 관리돼요.</li>
-          <li><strong>프리셋에서 연결</strong>: 만들어둔 태그셋을 프리셋의 "상품 태그" 섹션에서 선택하면 해당 프리셋으로 올리는 모든 상품에 자동 적용돼요.</li>
+          <li><strong>태그셋 CRUD</strong>: 생성·수정·복제·삭제 전부 이 화면에서 관리해요.</li>
         </ul>
+      </div>
+      <div class="card" style="margin-bottom:10px;">
+        <div class="card-title">편집 화면에서 태그 적용하기</div>
+        <p style="font-size:.9rem;color:var(--ink2);margin-bottom:10px;">상품 편집 화면 내 <strong>마켓 태그 설정</strong> 영역에서 직접 태그를 입력하거나 태그셋을 불러올 수 있어요.</p>
+        <div class="tbl-wrap">
+          <table>
+            <tr><th>방법</th><th>설명</th></tr>
+            <tr><td><strong>태그셋 일괄 적용</strong></td><td>여기서 만든 태그셋 선택 → 클릭 한 번으로 태그 전체 입력</td></tr>
+            <tr><td><strong>최근 태그 자동완성</strong></td><td>태그 입력창에 글자 입력 → 최근 사용 태그 드롭다운 추천</td></tr>
+            <tr><td><strong>카테고리 추천 태그</strong></td><td>카테고리 설정 시 네이버 기준 추천 태그 자동 제안</td></tr>
+            <tr><td><strong>퀵 액션</strong></td><td>현재 태그를 새 세트로 통째로 교체하는 버튼</td></tr>
+          </table>
+        </div>
       </div>
       <div class="callout tip">
         <div class="callout-title">💡 태그 전략 팁</div>
-        카테고리별 태그셋을 하나씩 만들어두면 효율적이에요. 예: "주방용품 태그셋", "의류 공통 태그셋", "전자제품 태그셋". 프리셋과 연결해두면 업로드할 때마다 따로 입력할 필요 없어요.
+        카테고리별 태그셋을 하나씩 만들어두면 효율적이에요. 예: "주방용품 태그셋", "의류 공통 태그셋", "전자제품 태그셋". 편집 화면에서 태그셋을 선택하면 클릭 한 번으로 적용돼요.
       </div>
     </div>
 
