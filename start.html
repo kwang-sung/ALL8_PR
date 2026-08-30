@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALL8 시작 가이드 — 첫 주 7일 코스</title>
+<meta name="description" content="ALL8 완전 초보자용 시작 가이드. 가입 첫 주 7일 동안 순서대로 따라하면 첫 상품이 마켓에 올라갑니다.">
+<style>
+:root{
+  --green:#10b981; --green-dark:#059669; --green-bg:#ecfdf5; --green-border:#a7f3d0;
+  --ink:#111827; --ink2:#374151; --ink3:#6b7280;
+  --bg:#f9fafb; --card:#fff; --border:#e5e7eb;
+  --yellow-bg:#fffbeb; --yellow-border:#fde68a; --yellow-ink:#92400e;
+  --blue-bg:#eff6ff; --blue-border:#bfdbfe; --blue-ink:#1e40af;
+  --red-bg:#fef2f2; --red-border:#fecaca; --red-ink:#991b1b;
+  --sidebar:240px; --radius:10px; --shadow:0 1px 3px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:15px;line-height:1.75;}
+
+/* ── 상단 헤더 ── */
+.top-bar{background:#fff;border-bottom:1px solid var(--border);padding:10px 20px;display:flex;align-items:center;gap:12px;position:sticky;top:0;z-index:200;}
+.logo-mark{width:30px;height:30px;border-radius:9px;background:var(--green);color:#fff;font-weight:900;font-size:1.05rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;letter-spacing:-.02em;}
+.top-logo{font-weight:900;font-size:1.02rem;color:var(--ink);white-space:nowrap;}
+.top-logo span{color:var(--green);}
+.brand-tag{margin-left:auto;font-size:.8rem;font-weight:800;color:var(--ink3);white-space:nowrap;letter-spacing:-.01em;}
+.brand-tag b{color:var(--green);}
+.top-links{display:flex;gap:8px;flex-shrink:0;}
+.top-link{font-size:.8rem;color:var(--ink3);text-decoration:none;padding:6px 12px;border:1px solid var(--border);border-radius:100px;white-space:nowrap;}
+.top-link:hover{border-color:var(--green);color:var(--green);}
+.top-link.cta{background:var(--green);color:#fff;border-color:var(--green);font-weight:700;}
+@media(max-width:900px){.brand-tag{display:none;}.top-links{margin-left:auto;}}
+@media(max-width:640px){.top-link.hide-sm{display:none;}}
+
+/* ── 레이아웃 ── */
+.layout{display:flex;min-height:100vh;}
+.sidebar{width:var(--sidebar);flex-shrink:0;background:#fff;border-right:1px solid var(--border);position:sticky;top:51px;height:calc(100vh - 51px);overflow-y:auto;padding:16px 0;}
+.sidebar::-webkit-scrollbar{width:4px;}
+.sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
+.nav-group{margin-bottom:4px;}
+.nav-group-title{font-size:.72rem;font-weight:700;color:var(--ink3);letter-spacing:.08em;padding:8px 18px 4px;text-transform:uppercase;}
+.nav-item{display:flex;align-items:center;gap:7px;padding:7px 18px;font-size:.85rem;color:var(--ink2);text-decoration:none;border-left:3px solid transparent;transition:.12s;}
+.nav-item:hover{color:var(--green);background:var(--green-bg);}
+.nav-item.active{color:var(--green);border-left-color:var(--green);background:var(--green-bg);font-weight:600;}
+.nav-item .navdone{margin-left:auto;color:var(--green);font-weight:900;opacity:0;transition:.15s;}
+.nav-item.done .navdone{opacity:1;}
+.sidebar-cta{margin:12px 14px 0;padding:12px 14px;background:var(--green-bg);border:1px solid var(--green-border);border-radius:8px;font-size:.82rem;color:var(--green-dark);}
+.sidebar-cta a{color:var(--green-dark);font-weight:700;}
+.main{flex:1;min-width:0;padding:0 0 100px;}
+
+/* ── 히어로 + 진행률 ── */
+.hero{text-align:center;padding:46px 24px 32px;border-bottom:1px solid var(--border);background:#fff;}
+.hero h1{font-size:1.85rem;font-weight:900;letter-spacing:-.03em;line-height:1.32;margin-bottom:10px;}
+.hero h1 em{color:var(--green);font-style:normal;}
+.hero-sub{font-size:.95rem;color:var(--ink3);}
+.progress-wrap{max-width:560px;margin:22px auto 0;}
+.progress-top{display:flex;justify-content:space-between;align-items:baseline;font-size:.82rem;color:var(--ink3);margin-bottom:6px;}
+.progress-top b{color:var(--green-dark);font-size:.95rem;font-weight:800;}
+.progress-track{height:10px;border-radius:100px;background:var(--border);overflow:hidden;}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,#10b981,#059669);border-radius:100px;transition:width .35s ease;}
+.progress-reset{margin-top:8px;font-size:.75rem;color:var(--ink3);background:none;border:none;cursor:pointer;text-decoration:underline;font-family:inherit;}
+
+/* ── 5계명 ── */
+.rules{margin:26px 28px 0;background:#fff;border:1px solid var(--border);border-radius:14px;padding:24px 26px;box-shadow:var(--shadow);}
+.rules h2{font-size:1.02rem;font-weight:800;margin-bottom:4px;color:var(--ink);}
+.rules .rsub{font-size:.83rem;color:var(--ink3);margin-bottom:16px;}
+.rule-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:9px;}
+.rule{background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:13px 15px;}
+.rule .rn{font-size:.66rem;font-weight:800;color:var(--green);letter-spacing:.08em;margin-bottom:4px;}
+.rule .rt{font-weight:700;font-size:.9rem;margin-bottom:3px;line-height:1.4;color:var(--ink);}
+.rule .rd{font-size:.79rem;color:var(--ink3);line-height:1.55;}
+
+/* ── 섹션 ── */
+.content-section{padding:34px 28px;border-bottom:1px solid var(--border);}
+.section-head{display:flex;align-items:center;gap:11px;margin-bottom:14px;}
+.day-chip{width:50px;height:50px;border-radius:12px;background:#fff;border:1.5px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;line-height:1.1;}
+.day-chip .dl{font-size:.56rem;font-weight:800;color:var(--ink3);letter-spacing:.08em;}
+.day-chip .dn{font-size:1.24rem;font-weight:900;color:var(--ink);}
+.section-meta{min-width:0;}
+.section-title{font-size:1.18rem;font-weight:800;color:var(--ink);letter-spacing:-.02em;}
+.section-desc{font-size:.9rem;color:var(--ink3);margin-bottom:16px;line-height:1.65;}
+
+/* ── 메타바(소요시간·난이도·선행조건) ── */
+.metabar{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 14px;}
+.meta-pill{display:inline-flex;align-items:center;gap:5px;font-size:.75rem;font-weight:600;border-radius:6px;padding:3px 10px;border:1px solid var(--border);background:#fff;color:var(--ink3);}
+.meta-pill.g,.meta-pill.y,.meta-pill.r{background:#fff;border-color:var(--border);color:var(--ink3);}
+
+/* ── 3줄 요약 ── */
+.tldr{background:#fff;border:1px solid var(--border);border-left:3px solid var(--green);border-radius:var(--radius);padding:14px 18px;margin-bottom:16px;}
+.tldr .tl{font-size:.7rem;font-weight:800;color:var(--ink3);letter-spacing:.08em;margin-bottom:6px;}
+.tldr ul{list-style:none;}
+.tldr li{padding:3px 0 3px 18px;position:relative;font-size:.9rem;color:var(--ink2);}
+.tldr li::before{content:"→";position:absolute;left:0;color:var(--green);font-weight:800;}
+
+/* ── 카드 / 스텝 ── */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin-bottom:12px;box-shadow:var(--shadow);}
+.card-title{font-weight:700;font-size:.93rem;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
+ol.steps{list-style:none;padding:0;counter-reset:s;}
+ol.steps li{counter-increment:s;padding:12px 0 12px 44px;position:relative;border-bottom:1px solid var(--border);}
+ol.steps li:last-child{border-bottom:none;padding-bottom:0;}
+ol.steps li::before{content:counter(s);position:absolute;left:0;top:12px;width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center;}
+ol.steps li strong{display:block;font-weight:700;margin-bottom:2px;font-size:.93rem;}
+ol.steps li span{color:var(--ink3);font-size:.88rem;}
+ul.dots{list-style:none;padding:0;}
+ul.dots li{padding:6px 0 6px 20px;position:relative;font-size:.9rem;color:var(--ink2);}
+ul.dots li::before{content:"•";position:absolute;left:6px;color:var(--green);font-weight:700;}
+ul.dots li strong{font-weight:600;color:var(--ink);}
+
+/* ── 표 ── */
+.tbl-wrap{overflow-x:auto;}
+table{width:100%;border-collapse:collapse;font-size:.87rem;}
+th{background:var(--bg);border:1px solid var(--border);padding:9px 12px;text-align:left;font-weight:700;color:var(--ink2);}
+td{border:1px solid var(--border);padding:9px 12px;color:var(--ink2);}
+tr:hover td{background:#fafafa;}
+
+/* ── 콜아웃 ── */
+.callout{border-radius:9px;padding:12px 16px;margin:12px 0;font-size:.88rem;line-height:1.65;}
+.callout.tip{background:var(--yellow-bg);border:1px solid var(--yellow-border);color:var(--yellow-ink);}
+.callout.info{background:var(--blue-bg);border:1px solid var(--blue-border);color:var(--blue-ink);}
+.callout.good{background:var(--green-bg);border:1px solid var(--green-border);color:var(--green-dark);}
+.callout.warn{background:var(--red-bg);border:1px solid var(--red-border);color:var(--red-ink);}
+.callout-title{font-weight:700;margin-bottom:3px;font-size:.8rem;letter-spacing:.02em;}
+.btn{display:inline-block;background:#f3f4f6;border:1px solid #d1d5db;border-radius:5px;padding:1px 8px;font-size:.82rem;font-weight:600;color:var(--ink2);white-space:nowrap;}
+mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
+
+/* ── 체크리스트 ── */
+.check-list{list-style:none;padding:0;}
+.check-list li{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--border);}
+.check-list li:last-child{border-bottom:none;}
+.check-list input[type=checkbox]{width:19px;height:19px;margin-top:2px;accent-color:var(--green);cursor:pointer;flex-shrink:0;}
+.check-list .ctxt{font-size:.9rem;color:var(--ink2);}
+.check-list .ctxt b{display:block;color:var(--ink);font-weight:700;margin-bottom:1px;}
+.check-list .ctime{margin-left:auto;font-size:.75rem;color:var(--ink3);white-space:nowrap;padding-left:8px;}
+.check-list input:checked + .ctxt{opacity:.5;text-decoration:line-through;}
+
+/* ── 완료 확인 박스 ── */
+.done-box{background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;margin-top:16px;display:flex;align-items:flex-start;gap:11px;}
+.done-box input[type=checkbox]{width:21px;height:21px;margin-top:2px;accent-color:var(--green);cursor:pointer;flex-shrink:0;}
+.done-box .dtxt{font-size:.88rem;color:var(--ink3);}
+.done-box .dtxt b{display:block;font-weight:800;font-size:.92rem;margin-bottom:2px;color:var(--ink);}
+.done-box:has(input:checked){background:var(--green-bg);border-color:var(--green-border);}
+
+/* ── 스크린샷 자리 ── */
+.shot{border:2px dashed var(--border);border-radius:var(--radius);background:#fff;padding:26px 18px;text-align:center;margin:12px 0;color:var(--ink3);}
+.shot .sico{font-size:1.5rem;display:block;margin-bottom:6px;}
+.shot .scap{font-size:.85rem;font-weight:700;color:var(--ink2);}
+.shot .sfile{font-size:.75rem;font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--ink3);margin-top:4px;}
+.shot img{max-width:100%;border-radius:8px;display:block;}
+.shot.filled{border:1px solid var(--border);padding:8px;cursor:zoom-in;}
+
+/* ── 영상 클립 ── */
+.clip{border:2px dashed var(--border);border-radius:var(--radius);background:#fff;padding:26px 18px;text-align:center;margin:12px 0;color:var(--ink3);}
+.clip .cico{width:44px;height:44px;border-radius:50%;background:var(--green-bg);border:1px solid var(--green-border);color:var(--green-dark);display:flex;align-items:center;justify-content:center;font-size:1rem;margin:0 auto 8px;}
+.clip .ccap{font-size:.88rem;font-weight:700;color:var(--ink2);}
+.clip .cmeta{font-size:.75rem;font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--ink3);margin-top:4px;}
+.clip.filled{border:1px solid var(--border);padding:0;overflow:hidden;background:#000;}
+.clip .cframe{position:relative;width:100%;padding-top:56.25%;}
+.clip .cframe iframe,.clip .cframe video{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;}
+
+/* ── 다운로드 카드 ── */
+.dl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:9px;}
+.dl-item{display:flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--border);border-radius:10px;padding:11px 14px;text-decoration:none;transition:.14s;}
+.dl-item:hover{border-color:var(--green);box-shadow:0 2px 10px rgba(16,185,129,.13);transform:translateY(-1px);}
+.dl-item.hot{border-color:var(--green-border);background:var(--green-bg);}
+.dl-ico{flex-shrink:0;width:42px;height:34px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:.63rem;font-weight:900;color:#fff;background:#9aa2ad;}
+.dl-ico.xls{background:#1f7a4d;}
+.dl-ico.a8s,.dl-ico.a8p{background:var(--green);}
+.dl-txt{min-width:0;line-height:1.35;}
+.dl-txt b{display:block;font-size:.87rem;font-weight:700;color:var(--ink);}
+.dl-txt em{display:block;font-size:.75rem;font-style:normal;color:var(--ink3);margin-top:2px;}
+.dl-item::after{content:"↓";margin-left:auto;padding-left:8px;color:var(--ink3);font-weight:900;font-size:.85rem;}
+.dl-item:hover::after{color:var(--green);}
+
+/* ── 접히는 상세 ── */
+details.more{border:1px solid var(--border);border-radius:var(--radius);background:#fff;margin:12px 0;overflow:hidden;}
+details.more>summary{cursor:pointer;padding:12px 18px;font-size:.88rem;font-weight:700;color:var(--ink2);list-style:none;display:flex;align-items:center;gap:8px;}
+details.more>summary::-webkit-details-marker{display:none;}
+details.more>summary::before{content:"＋";color:var(--green);font-weight:900;font-size:1rem;}
+details.more[open]>summary::before{content:"－";}
+details.more>summary:hover{background:var(--green-bg);color:var(--green-dark);}
+details.more .mbody{padding:2px 18px 18px;border-top:1px solid var(--border);}
+
+/* ── 흐름 ── */
+.flow{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin:12px 0;}
+.flow-item{background:#fff;border:1px solid var(--border);border-radius:7px;padding:6px 13px;font-size:.83rem;font-weight:600;}
+.flow-item.hl{background:var(--green);border-color:var(--green);color:#fff;}
+.flow-arrow{color:var(--ink3);font-size:.85rem;}
+
+/* ── 용어사전 ── */
+.term-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;}
+.term{background:#fff;border:1px solid var(--border);border-radius:9px;padding:13px 16px;}
+.term dt{font-weight:800;font-size:.9rem;color:var(--green-dark);margin-bottom:3px;}
+.term dd{font-size:.85rem;color:var(--ink2);line-height:1.6;}
+
+/* ── CTA ── */
+.cta-banner{margin:28px 28px 0;background:linear-gradient(135deg,#10b981,#059669);border-radius:14px;padding:28px;text-align:center;color:#fff;}
+.cta-banner h3{font-size:1.1rem;font-weight:800;margin-bottom:6px;}
+.cta-banner p{font-size:.88rem;opacity:.9;margin-bottom:16px;}
+.cta-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+.cta-btn{display:inline-flex;align-items:center;gap:5px;padding:10px 20px;border-radius:100px;font-size:.88rem;font-weight:800;text-decoration:none;}
+.cta-btn.white{background:#fff;color:var(--green-dark);}
+.cta-btn.outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.5);}
+
+/* ── 푸터 ── */
+.footer{margin:36px 28px 0;padding-top:22px;border-top:1px solid var(--border);text-align:center;color:var(--ink3);font-size:.8rem;line-height:1.9;}
+.footer .fbrand{font-weight:900;font-size:.95rem;color:var(--ink2);}
+.footer .fbrand b{color:var(--green);}
+
+/* ── 플로팅 문의 ── */
+.float-contact{position:fixed;bottom:24px;right:24px;z-index:999;}
+.float-contact-btn{display:flex;align-items:center;gap:7px;background:var(--green-dark);color:#fff;font-size:.82rem;font-weight:700;padding:10px 16px;border-radius:100px;box-shadow:0 3px 12px rgba(0,0,0,.16);text-decoration:none;white-space:nowrap;}
+.float-contact-btn:hover{background:var(--green);}
+
+@media(max-width:720px){
+  .sidebar{display:none;}
+  .content-section{padding:26px 18px;}
+  .rules,.cta-banner{margin:20px 18px 0;}
+  .footer{margin:30px 18px 0;}
+  .hero{padding:34px 18px 26px;}
+  .hero h1{font-size:1.42rem;}
+  .float-contact{bottom:16px;right:16px;}
+}
+</style>
+</head>
+<body>
+
+<!-- ── 상단 헤더 ── -->
+<div class="top-bar">
+  <div class="logo-mark">A</div>
+  <div class="top-logo">ALL<span>8</span> 시작 가이드</div>
+  <div class="brand-tag">쿠대<b>•</b>ALL8</div>
+  <div class="top-links">
+    <a class="top-link hide-sm" href="./manual.html">전체 매뉴얼</a>
+    <a class="top-link hide-sm" href="https://open.kakao.com/o/gKWnrBDg" target="_blank">무료교육 단톡</a>
+    <a class="top-link cta" href="https://all8.io/" target="_blank">ALL8 열기</a>
+  </div>
+</div>
+
+<div class="layout">
+
+  <!-- ── 사이드바 ── -->
+  <aside class="sidebar">
+    <div class="nav-group">
+      <div class="nav-group-title">시작 전</div>
+      <a class="nav-item" href="#rules">이것만은 꼭 · 5계명</a>
+      <a class="nav-item" href="#day0" data-day="0">Day 0 · 준비물<span class="navdone">✓</span></a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-title">첫 주 7일 코스</div>
+      <a class="nav-item" href="#day1" data-day="1">Day 1 · 확장 설치<span class="navdone">✓</span></a>
+      <a class="nav-item" href="#day2" data-day="2">Day 2 · 마켓 연결<span class="navdone">✓</span></a>
+      <a class="nav-item" href="#day3" data-day="3">Day 3 · 프리셋<span class="navdone">✓</span></a>
+      <a class="nav-item" href="#day4" data-day="4">Day 4 · 첫 상품<span class="navdone">✓</span></a>
+      <a class="nav-item" href="#day5" data-day="5">Day 5 · 여러 개<span class="navdone">✓</span></a>
+      <a class="nav-item" href="#day6" data-day="6">Day 6 · 주문 처리<span class="navdone">✓</span></a>
+      <a class="nav-item" href="#day7" data-day="7">Day 7 · 재고·소싱기<span class="navdone">✓</span></a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-title">참고</div>
+      <a class="nav-item" href="#terms">처음 보는 단어 15개</a>
+      <a class="nav-item" href="#trouble">증상별 문제 해결</a>
+      <a class="nav-item" href="#next">다음 단계</a>
+    </div>
+    <div class="sidebar-cta">
+      매주 수·일 저녁 9시<br>무료 라이브 강의<br>
+      <a href="https://open.kakao.com/o/gKWnrBDg" target="_blank">→ 단톡 입장하기</a>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <!-- ── 히어로 ── -->
+    <div class="hero">
+      <h1>가입 첫 주,<br><em>이 순서대로만</em> 하세요</h1>
+      <p class="hero-sub">하루 한 단계, 7일이면 내 상품이 마켓에 올라가 있습니다.<br>기능을 다 외울 필요 없습니다. 오늘 것만 하세요.</p>
+      <div class="progress-wrap">
+        <div class="progress-top"><span>진행률</span><span><b id="pgCount">0</b> / 8 단계</span></div>
+        <div class="progress-track"><div class="progress-fill" id="pgFill"></div></div>
+        <button class="progress-reset" onclick="resetProgress()">진행률 초기화</button>
+      </div>
+    </div>
+
+    <!-- ── 5계명 ── -->
+    <div class="rules" id="rules">
+      <h2>이것만은 꼭 — 초보자 5계명</h2>
+      <div class="rsub">이 5가지는 모르고 시작하면 반드시 사고가 납니다. 30초만 읽고 가세요.</div>
+      <div class="rule-grid">
+        <div class="rule">
+          <div class="rn">RULE 01</div>
+          <div class="rt">크롬 브라우저 전용입니다</div>
+          <div class="rd">엣지·웨일·파이어폭스에서는 작동하지 않습니다. 크롬으로 시작하세요.</div>
+        </div>
+        <div class="rule">
+          <div class="rn">RULE 02</div>
+          <div class="rt">크롬이 꺼지면 멈춥니다</div>
+          <div class="rd">브라우저 수집과 재고 연동은 내 PC의 크롬이 켜져 있을 때만 돕니다. 절전모드도 주의하세요.</div>
+        </div>
+        <div class="rule">
+          <div class="rn">RULE 03</div>
+          <div class="rt">프리셋이 먼저, 수집은 나중</div>
+          <div class="rd">ALL8은 프리셋을 걸고 수집하면 편집까지 자동으로 끝납니다. 프리셋 없이 수집하면 전부 손으로 고쳐야 합니다.</div>
+        </div>
+        <div class="rule">
+          <div class="rn">RULE 04</div>
+          <div class="rt">일괄 수정은 되돌릴 수 없습니다</div>
+          <div class="rd">가격·재고 일괄 수정 전에 어떤 상품이 선택됐는지 반드시 확인하세요.</div>
+        </div>
+        <div class="rule">
+          <div class="rn">RULE 05</div>
+          <div class="rt">13세 미만 어린이 제품은 담지 마세요</div>
+          <div class="rd">해외구매대행은 구매자 개인 사용 목적이라 KC 인증 대상이 아닙니다. 다만 13세 미만 어린이 제품은 예외라 초보자는 아예 피하세요.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ────────── DAY 0 ────────── -->
+    <div class="content-section" id="day0">
+      <div class="section-head">
+        <div class="day-chip"><div class="dl">DAY</div><div class="dn">0</div></div>
+        <div class="section-meta"><div class="section-title">시작 전 준비물 — 이게 없으면 진도가 안 나갑니다</div></div>
+      </div>
+      <div class="metabar">
+        <span class="meta-pill r">🔴 승인 대기가 있어 1~3주 소요</span>
+        <span class="meta-pill">난이도 · 서류 작업</span>
+        <span class="meta-pill">선행조건 · 없음</span>
+      </div>
+      <p class="section-desc">ALL8은 "상품을 올려주는 도구"이지, 판매 자격을 만들어주지는 못합니다. 아래가 갖춰져야 Day 1로 넘어갈 수 있어요. 승인에 며칠씩 걸리는 항목이 있으니 <strong>오늘 전부 신청부터 걸어두세요.</strong></p>
+
+      <div class="tldr">
+        <div class="tl">3줄 요약</div>
+        <ul>
+          <li>사업자등록 + 통신판매업 신고가 모든 것의 출발점입니다.</li>
+          <li>마켓 입점과 API 승인은 신청 후 며칠 걸리니 제일 먼저 넣으세요.</li>
+          <li>구매대행이면 배대지 계약과 개인통관고유부호도 미리 준비합니다.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">✅ 준비물 체크리스트</div>
+        <ul class="check-list">
+          <li><input type="checkbox" class="chk" id="d0a"><span class="ctxt"><b>사업자등록증</b>온라인 판매용 사업자등록. 홈택스에서 신청 가능합니다.</span><span class="ctime">1~3일</span></li>
+          <li><input type="checkbox" class="chk" id="d0b"><span class="ctxt"><b>통신판매업 신고증</b>정부24 신청. 은행 구매안전서비스(에스크로) 확인증이 필요합니다.</span><span class="ctime">3~5일</span></li>
+          <li><input type="checkbox" class="chk" id="d0c"><span class="ctxt"><b>마켓 입점 승인 (최소 1곳)</b>스마트스토어 또는 쿠팡. 처음이라면 스마트스토어 하나만 하세요.</span><span class="ctime">1~5일</span></li>
+          <li><input type="checkbox" class="chk" id="d0d"><span class="ctxt"><b>마켓 API 키 발급</b>스마트스토어는 네이버 검토가 1~3영업일 걸립니다. 미리 신청해두세요.</span><span class="ctime">1~3일</span></li>
+          <li><input type="checkbox" class="chk" id="d0e"><span class="ctxt"><b>구글 크롬 설치</b>ALL8 확장프로그램은 크롬에서만 작동합니다.</span><span class="ctime">5분</span></li>
+          <li><input type="checkbox" class="chk" id="d0f"><span class="ctxt"><b>소싱 사이트 계정</b>브라우저 수집은 내 크롬의 로그인 세션을 쓰기 때문에 타오바오·티몰·1688은 로그인이 필요합니다. 서버 수집을 쓰면 소싱처 로그인 없이도 가져옵니다.</span><span class="ctime">30분</span></li>
+          <li><input type="checkbox" class="chk" id="d0g"><span class="ctxt"><b>배대지(배송대행지) 계약</b>해외 구매대행이라면 필수. 원가 계산에 배대지 비용이 들어갑니다.</span><span class="ctime">1일</span></li>
+          <li><input type="checkbox" class="chk" id="d0h"><span class="ctxt"><b>해외결제 가능한 카드</b>소싱처 결제용. 카드 수수료도 원가에 포함해서 계산하세요.</span><span class="ctime">즉시</span></li>
+          <li><input type="checkbox" class="chk" id="d0i"><span class="ctxt"><b>ALL8 가입</b>all8.io에서 카카오 계정으로 바로 가입할 수 있습니다.</span><span class="ctime">2분</span></li>
+        </ul>
+      </div>
+
+      <div class="callout tip">
+        <div class="callout-title">💡 승인 기다리는 동안 할 일</div>
+        마켓 승인을 기다리는 며칠 동안 Day 1(확장 설치)과 Day 3(프리셋)까지는 먼저 해둘 수 있습니다. 상품 수집도 미리 해두면 승인 나자마자 바로 업로드하면 됩니다.
+      </div>
+
+      <div class="callout warn">
+        <div class="callout-title">⚠️ 시작 전에 꼭 확인 — 팔면 안 되는 상품</div>
+        온라인에서 판매가 금지된 품목이 생각보다 많습니다. 소싱하기 전에 한 번 훑어보세요.<br>
+        <a href="https://safety.shopping.naver.com/handling/cautions/prohibition" target="_blank" style="color:inherit;font-weight:800;">→ 온라인 금지품목 확인하기</a>
+      </div>
+
+      <div class="done-box">
+        <input type="checkbox" class="chk daychk" id="done0" data-day="0">
+        <span class="dtxt"><b>Day 0 완료</b>위 준비물이 전부 갖춰졌거나, 최소한 신청은 다 걸어두었습니다.</span>
+      </div>
+    </div>
+
+    <!-- ────────── DAY 1 ────────── -->
+    <div class="content-section" id="day1">
+      <div class="section-head">
+        <div class="day-chip"><div class="dl">DAY</div><div class="dn">1</div></div>
+        <div class="section-meta"><div class="section-title">크롬 확장프로그램 설치 — 딱 한 번만 하면 됩니다</div></div>
+      </div>
+      <div class="metabar">
+        <span class="meta-pill g">🟢 첫날 필수</span>
+        <span class="meta-pill">소요 · 10분</span>
+        <span class="meta-pill">선행 · ALL8 가입, 크롬 설치</span>
+      </div>
+      <p class="section-desc">확장프로그램은 소싱 사이트에서 상품을 담아오는 손 역할을 합니다. 이게 없으면 ALL8은 아무것도 수집하지 못해요.</p>
+
+      <div class="tldr">
+        <div class="tl">3줄 요약</div>
+        <ul>
+          <li>all8.io 로그인 → 왼쪽 메뉴 <span class="btn">확장프로그램 다운로드</span> → 크롬에 추가.</li>
+          <li>설치 후 🧩 아이콘 → ALL8 옆 📌 을 눌러 주소창 옆에 고정하세요.</li>
+          <li>아이콘을 클릭해 <b>카카오 로그인까지</b> 마쳐야 실제로 작동합니다.</li>
+        </ul>
+      </div>
+
+      <div class="clip" data-clip="day1-install">
+        <div class="cico">▶</div>
+        <div class="ccap">영상 — 설치부터 핀 고정, 로그인까지</div>
+        <div class="cmeta">약 90초 · CLIP-01 · day1-install</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🔌 따라하기</div>
+        <ol class="steps">
+          <li><strong>크롬으로 all8.io 접속 후 로그인</strong><span>카카오 계정으로 바로 가입·로그인됩니다. 반드시 크롬으로 여세요.</span></li>
+          <li><strong>왼쪽 메뉴 → 확장프로그램 다운로드 클릭</strong><span>크롬 웹스토어 페이지가 새로 열립니다.</span></li>
+          <li><strong>Chrome에 추가 → 확장 프로그램 추가</strong><span>"ALL8을(를) 추가하시겠습니까?" 팝업이 뜨면 추가를 누르세요.</span></li>
+          <li><strong>🧩 아이콘 클릭 → ALL8 옆 📌 핀 고정</strong><span>고정해두면 주소창 바로 옆에 ALL8 아이콘이 항상 보입니다. 이 과정을 건너뛰면 나중에 아이콘을 못 찾아서 헤맵니다.</span></li>
+          <li><strong>ALL8 아이콘 클릭 → 사이드패널에서 카카오 로그인</strong><span>화면 오른쪽에 ALL8 패널이 열리면 준비 완료입니다.</span></li>
+        </ol>
+      </div>
+
+      <div class="shot" data-shot="ext-pin">
+        <span class="sico">📸</span>
+        <div class="scap">캡처 자리 — 🧩 메뉴에서 ALL8을 핀 고정하는 화면</div>
+        <div class="sfile">img/start/ext-pin.png</div>
+      </div>
+
+      <div class="callout warn">
+        <div class="callout-title">⚠️ 설치 시 뜨는 권한 팝업은 정상입니다</div>
+        "이 확장 프로그램이 모든 웹사이트의 데이터를 읽고 변경할 수 있습니다"는 크롬의 기본 안내 문구입니다. ALL8은 소싱 사이트의 상품 정보만 읽습니다. <b>모든 사이트 데이터 읽기/쓰기</b>와 <b>사이드 패널 표시</b>는 허용해야 정상 작동합니다.
+      </div>
+
+      <details class="more">
+        <summary>안 될 때 — 자주 나오는 3가지</summary>
+        <div class="mbody">
+          <div class="tbl-wrap">
+            <table>
+              <tr><th>증상</th><th>해결</th></tr>
+              <tr><td>사이드패널이 안 열려요</td><td>크롬 오른쪽 위 ALL8 아이콘 클릭 → "사이드 패널 열기" 선택</td></tr>
+              <tr><td>설치했는데 아이콘이 안 보여요</td><td>🧩 아이콘 클릭 → ALL8 옆 📌 핀 클릭</td></tr>
+              <tr><td>"이 상품 수집" 버튼이 안 나와요</td><td>사이드패널에서 로그인 상태 확인. 주소창에 <span class="btn">chrome://extensions/</span> 입력 → ALL8 토글 ON 확인</td></tr>
+            </table>
+          </div>
+          <div class="callout info" style="margin-bottom:0;">
+            <div class="callout-title">🔄 업데이트는 자동입니다</div>
+            크롬이 알아서 최신 버전으로 올려줍니다. 따로 하실 일 없습니다.
+          </div>
+        </div>
+      </details>
+
+      <div class="done-box">
+        <input type="checkbox" class="chk daychk" id="done1" data-day="1">
+        <span class="dtxt"><b>Day 1 완료</b>주소창 옆에 ALL8 아이콘이 보이고, 클릭하면 로그인된 사이드패널이 열립니다.</span>
+      </div>
+    </div>
+
+    <!-- ────────── DAY 2 ────────── -->
+    <div class="content-section" id="day2">
+      <div class="section-head">
+        <div class="day-chip"><div class="dl">DAY</div><div class="dn">2</div></div>
+        <div class="section-meta"><div class="section-title">마켓 딱 1개만 연결하세요 — 스마트스토어</div></div>
+      </div>
+      <div class="metabar">
+        <span class="meta-pill g">🟢 첫날 필수</span>
+        <span class="meta-pill">소요 · 30분 (API 승인 대기 별도)</span>
+        <span class="meta-pill">선행 · 마켓 입점 승인</span>
+      </div>
+      <p class="section-desc">ALL8은 마켓 8곳을 지원하지만, <strong>처음에는 한 곳만 연결하세요.</strong> 여러 곳을 동시에 붙이면 어디서 문제가 났는지 알 수 없습니다. 하나로 전체 흐름을 익힌 뒤에 늘리는 게 훨씬 빠릅니다.</p>
+
+      <div class="tldr">
+        <div class="tl">3줄 요약</div>
+        <ul>
+          <li>첫 마켓은 <b>스마트스토어</b>를 권합니다. 수수료가 낮고 페널티가 덜 가혹합니다.</li>
+          <li>스마트스토어센터에서 API 키(Client ID·Secret)를 발급받아 ALL8에 붙여넣습니다.</li>
+          <li>연결 후 <b>원산지 → 출고지 → 반품지 → A/S 전화번호</b> 순서로 채우세요. 순서가 중요합니다.</li>
+        </ul>
+      </div>
+
+      <div class="callout info">
+        <div class="callout-title">🤔 왜 쿠팡이 아니라 스마트스토어부터인가요?</div>
+        쿠팡은 출고 기한을 어기면 셀러 점수가 바로 깎입니다. 아직 소싱·발주 리듬이 안 잡힌 첫 주에 쿠팡부터 시작하면 첫 주문에서 사고가 나기 쉽습니다. 스마트스토어로 흐름을 익히고, 익숙해진 뒤 쿠팡을 붙이세요. 쿠팡·11번가·G마켓·옥션·롯데ON·토스쇼핑 설정은 <a href="./manual.html#market-account" style="color:inherit;font-weight:800;">전체 매뉴얼</a>에 마켓별로 정리돼 있습니다.
+      </div>
+
+      <div class="clip" data-clip="day2-market">
+        <div class="cico">▶</div>
+        <div class="ccap">영상 — 스마트스토어 API 발급부터 연결 확인, 권장 설정까지</div>
+        <div class="cmeta">약 2분 · CLIP-02 · day2-market</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">① API 키 발급 — 처음 한 번만</div>
+        <ol class="steps">
+          <li><strong>스마트스토어센터 로그인</strong><span><a href="https://sell.smartstore.naver.com" target="_blank">sell.smartstore.naver.com</a> · 네이버 사업자 계정이 필요합니다.</span></li>
+          <li><strong>왼쪽 메뉴 → 스토어 설정 → 외부앱 관리</strong><span></span></li>
+          <li><strong>애플리케이션 등록 → 필요한 권한 모두 선택</strong><span>권한을 빼놓으면 나중에 업로드가 실패합니다. 전부 체크하세요.</span></li>
+          <li><strong>Client ID · Client Secret 복사</strong><span>네이버 검토에 1~3영업일이 걸립니다. 승인되면 사용할 수 있어요.</span></li>
+          <li><strong>ALL8 → 마켓 계정 설정 → 인증 정보에 붙여넣고 연결 확인</strong><span>"연결 확인"이 통과하면 성공입니다.</span></li>
+        </ol>
+      </div>
+
+      <div class="shot" data-shot="ss-api">
+        <span class="sico">📸</span>
+        <div class="scap">캡처 자리 — ALL8 마켓 계정 설정에서 "연결 확인" 성공한 화면</div>
+        <div class="sfile">img/start/ss-api-connected.png</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">② 초보자 권장 설정값 — 이대로만 넣으세요</div>
+        <div class="tbl-wrap">
+          <table>
+            <tr><th style="width:26%">항목</th><th>이렇게 설정</th></tr>
+            <tr><td><b>원산지 및 수입</b></td><td>가장 먼저 설정 → <b>기타 — 상세 설명에 표시 (03)</b>. 이걸 먼저 해야 출고지 입력이 활성화됩니다.</td></tr>
+            <tr><td><b>출고지 / 반품지</b></td><td>실제 주소를 정확히 입력. 반품지는 "출고지와 동일" 체크로 끝내면 됩니다. 허위 입력은 마켓 제재 대상입니다.</td></tr>
+            <tr><td><b>A/S 정보</b></td><td><b>필수 — 비우면 등록이 거부됩니다.</b> 전화번호는 실제 연락처, 안내 문구는 "문자나 톡톡 문의 주시기 바랍니다".</td></tr>
+            <tr><td><b>수수료</b></td><td>카테고리별 2~6%. 정확한 값은 셀러오피스에서 확인하고 넣으세요.</td></tr>
+            <tr><td><b>묶음배송 사용</b></td><td><b>체크 해제.</b> 구매대행·무재고 위탁은 상품마다 따로 배송돼서 묶음이 불가능합니다.</td></tr>
+            <tr><td><b>제주/도서산간</b></td><td>처음엔 <b>미사용</b>으로 두는 게 편합니다. 추가배송비 정산이 까다롭습니다.</td></tr>
+            <tr><td><b>채널 노출</b></td><td>네이버 쇼핑 등록 <b>사용</b> / 채널 노출 <b>노출</b>. 이게 꺼져 있으면 검색에 안 잡힙니다.</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="callout tip">
+        <div class="callout-title">💡 가격 계산식은 지금 건드리지 마세요</div>
+        마켓 계정 설정 안에도 "가격 계산식"이 있지만, 비워두면 Day 3에서 만들 프리셋의 계산식이 그대로 적용됩니다. 마켓마다 다른 가격을 쓰고 싶어질 때 그때 설정하면 됩니다.
+      </div>
+
+      <div class="done-box">
+        <input type="checkbox" class="chk daychk" id="done2" data-day="2">
+        <span class="dtxt"><b>Day 2 완료</b>마켓 1곳이 "연결됨" 상태이고, 원산지·출고지·반품지·A/S 정보가 채워졌습니다.</span>
+      </div>
+    </div>
+
+    <!-- ────────── DAY 3 ────────── -->
+    <div class="content-section" id="day3">
+      <div class="section-head">
+        <div class="day-chip"><div class="dl">DAY</div><div class="dn">3</div></div>
+        <div class="section-meta"><div class="section-title">프리셋 — ALL8의 심장. 여기서 승부가 납니다</div></div>
+      </div>
+      <div class="metabar">
+        <span class="meta-pill g">🟢 첫날 필수</span>
+        <span class="meta-pill">소요 · 20분</span>
+        <span class="meta-pill">선행 · 마켓 1곳 연결 완료</span>
+      </div>
+      <p class="section-desc">프리셋을 이해하면 ALL8을 이해한 겁니다. 대충 넘어가면 상품 하나하나를 손으로 고치게 됩니다.</p>
+
+      <div class="card">
+        <div class="card-title">🧠 딱 하나만 기억하세요</div>
+        <div class="flow">
+          <div class="flow-item hl">프리셋 먼저 만들기</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item">수집할 때 프리셋 선택</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item">수집 끝 = 편집 끝</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-item">업로드</div>
+        </div>
+        <p style="font-size:.9rem;color:var(--ink2);margin-top:8px;">프리셋은 <b>"상품이 들어올 때 자동으로 이렇게 다듬어라"는 규칙 묶음</b>입니다. 상품명 번역, 옵션명 한글화, 이미지 배경제거, 마진 계산, 배송비, 어느 마켓에 올릴지까지 전부 담깁니다. 프리셋을 걸고 수집하면 <mark>수집이 끝나는 순간 편집도 끝나 있습니다.</mark></p>
+      </div>
+
+      <div class="callout warn">
+        <div class="callout-title">⚠️ 초보자가 가장 많이 하는 실수</div>
+        프리셋 없이 먼저 상품을 100개 수집한 뒤, 편집 화면에서 하나씩 고치기 시작합니다. 그러다 "이 프로그램 왜 이렇게 손이 많이 가지?" 하고 포기합니다. <b>순서만 바꾸면 됩니다. 프리셋 먼저입니다.</b>
+      </div>
+
+      <div class="clip" data-clip="day3-preset">
+        <div class="cico">▶</div>
+        <div class="ccap">영상 — 프리셋 샘플 올리고 마진율·마켓·배송비만 수정하기</div>
+        <div class="cmeta">약 2분 · CLIP-03 · day3-preset · ★핵심</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">① 가장 빠른 방법 — 샘플 파일 올려서 시작</div>
+        <p style="font-size:.9rem;color:var(--ink2);margin-bottom:10px;">처음부터 직접 만들 필요 없습니다. 실전에서 쓰는 프리셋·프롬프트 샘플이 준비돼 있습니다. 올리고 숫자 몇 개만 바꾸세요.</p>
+        <ol class="steps">
+          <li><strong>샘플 파일 다운로드</strong><span>아래 두 개를 먼저 받으세요.</span>
+            <div class="dl-grid" style="margin-top:10px;">
+              <a class="dl-item hot" href="./downloads/all8-프리셋-20260817.a8s" download>
+                <span class="dl-ico a8s">A8S</span>
+                <span class="dl-txt"><b>ALL8 프리셋 샘플</b><em>마켓·계산식·배송 설정이 들어 있음 · 249KB</em></span>
+              </a>
+              <a class="dl-item hot" href="./downloads/all8-프롬프트-20260817.a8p" download>
+                <span class="dl-ico a8p">A8P</span>
+                <span class="dl-txt"><b>ALL8 프롬프트 샘플</b><em>상품명·상세설명·AI 이미지 프롬프트 · 21KB</em></span>
+              </a>
+            </div>
+          </li>
+          <li><strong>ALL8 → 왼쪽 메뉴 프리셋 관리 → 우측 상단 공유파일 업로드</strong><span>.a8s 파일을 선택하면 프리셋 목록에 자동으로 추가됩니다.</span></li>
+          <li><strong>프롬프트도 같은 방식으로</strong><span>왼쪽 메뉴 프롬프트 관리 → 공유파일 업로드 → .a8p 선택.</span></li>
+          <li><strong>업로드한 프리셋을 열어 3가지만 확인·수정</strong><span>① 업로드 마켓이 내 계정인지 ② 계산식의 마진율 ③ 배송비. 나머지는 그대로 두세요.</span></li>
+        </ol>
+      </div>
+
+      <div class="shot" data-shot="preset-upload">
+        <span class="sico">📸</span>
+        <div class="scap">캡처 자리 — 프리셋 관리 화면 + 공유파일 업로드 버튼 위치</div>
+        <div class="sfile">img/start/preset-upload.png</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">② 직접 만든다면 — 이 4개만 채우면 90% 끝납니다</div>
+        <p style="font-size:.9rem;color:var(--ink2);margin-bottom:10px;">프리셋에는 13개 섹션이 있지만 전부 채울 필요가 없습니다. <b>값이 들어간 섹션만 상품에 적용</b>되고, 비워둔 섹션은 무시됩니다.</p>
+        <div class="tbl-wrap">
+          <table>
+            <tr><th style="width:22%">섹션</th><th>초보자 설정</th></tr>
+            <tr><td><b>① 상품명</b></td><td>상품명 자동 수정 <b>실행</b>. 중국·일본 소싱이면 필수입니다. 고정단어에 <span class="btn">[해외직구]</span> 같은 접두사를 넣어도 좋습니다.</td></tr>
+            <tr><td><b>③ 업로드 마켓</b></td><td>Day 2에서 연결한 마켓 계정 <b>1개만</b> 체크.</td></tr>
+            <tr><td><b>④ 계산식</b></td><td>가장 중요합니다. 아래 표 참고. 처음엔 단순하게 시작하세요.</td></tr>
+            <tr><td><b>⑩ 배송 설정</b></td><td>판매배송비 유형 <b>무료(FREE)</b>. 배송비는 판매가에 녹이는 게 클릭률에 유리합니다. 반품비는 3,000원.</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">③ 계산식 — 수수료를 빼먹으면 남는 게 없습니다</div>
+        <p style="font-size:.9rem;color:var(--ink2);margin-bottom:10px;">초보자가 가장 많이 하는 실수가 <b>마켓 수수료를 마진에 안 넣는 것</b>입니다. 목표 마진이 20%인데 수수료가 12%면, 실제로는 8%밖에 안 남습니다.</p>
+        <div class="callout good">
+          <div class="callout-title">🧮 계산 예시</div>
+          원가 8,000원 · 마진율 35% · 추가비용 500원<br>
+          → 판매가 = (8,000 × 1.35) + 500 = <b>11,300원</b><br>
+          여기서 마켓 수수료가 빠져나가므로, <b>목표 마진 + 마켓 수수료</b>를 합쳐서 마진율을 잡아야 합니다.
+        </div>
+        <details class="more">
+          <summary>구간별 계산식 샘플 엑셀 3종 — 대량 등록할 때 필수</summary>
+          <div class="mbody">
+            <p style="font-size:.88rem;color:var(--ink2);margin-bottom:10px;">저가 상품은 마진율을 높이고 고가 상품은 가격 경쟁력을 유지하는 구조입니다. 노란 배경 셀(설정값)만 바꾸면 전 구간이 자동 재계산됩니다.</p>
+            <ul class="dots">
+              <li><a href="./downloads/calc_국내리셀용.xlsx" style="color:var(--green-dark);font-weight:700;">🏠 국내리셀 구간별 판매가</a> — 배대지 3,000원 · 수수료 없음 · SS 6% / OM 13%</li>
+              <li><a href="./downloads/calc_중국구매대행용.xlsx" style="color:var(--green-dark);font-weight:700;">🇨🇳 중국구매대행용</a> — 배대지 7,000원 · 카드수수료 3% · 마진 35%→18%</li>
+              <li><a href="./downloads/calc_건기식2개묶음판매용.xlsx" style="color:var(--green-dark);font-weight:700;">💊 건기식 2개 묶음판매용</a> — 배대지 15,900원 · 마진 35%→8%</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="callout tip">
+        <div class="callout-title">🔓 프리셋 18종 · 프롬프트 50종 — 유료 구독 1개월 이상</div>
+        위 샘플은 맛보기입니다. <b>나라별 · 카테고리별 · 판매전략별</b>로 세팅이 끝난 <b>프리셋 18종</b>과, 상품명·상세설명·AI 이미지까지 아우르는 <b>프롬프트 50종</b> 전체를 ALL8 유료 구독 1개월 이상 사용자에게 드립니다. 갱신본도 계속 제공됩니다.<br>
+        <a href="./manual.html#downloads" style="color:inherit;font-weight:800;">→ 자세히 보기</a>
+      </div>
+
+      <div class="callout tip">
+        <div class="callout-title">💡 프리셋은 몇 개나 만들어야 하나요?</div>
+        <b>소싱처 × 마켓 조합마다 1개</b>가 기본입니다. 예: "1688-패션-쿠팡", "알리-소형가전-스마트스토어". 3~5개면 대부분의 패턴을 커버합니다. <b>첫 주에는 1개면 충분합니다.</b>
+      </div>
+
+      <div class="done-box">
+        <input type="checkbox" class="chk daychk" id="done3" data-day="3">
+        <span class="dtxt"><b>Day 3 완료</b>프리셋 목록에 내 프리셋이 1개 있고, 마켓·계산식·배송 설정이 채워져 있습니다.</span>
+      </div>
+    </div>
+
+    <!-- ────────── DAY 4 ────────── -->
+    <div class="content-section" id="day4">
+      <div class="section-head">
+        <div class="day-chip" style="border-color:var(--green);"><div class="dl" style="color:var(--green-dark);">DAY</div><div class="dn" style="color:var(--green-dark);">4</div></div>
+        <div class="section-meta"><div class="section-title">오늘이 가장 중요한 날 — 첫 상품을 올립니다</div></div>
+      </div>
+      <div class="metabar">
+        <span class="meta-pill g">🟢 첫날 필수</span>
+        <span class="meta-pill">소요 · 30분</span>
+        <span class="meta-pill">선행 · 프리셋 1개, 마켓 1곳</span>
+      </div>
+      <p class="section-desc">딱 <strong>한 개만</strong> 올립니다. 여러 개를 한꺼번에 시도하지 마세요. 오늘의 목표는 <strong>내 상품이 실제 마켓에 떠 있는 걸 내 눈으로 보는 것</strong>입니다. 이걸 확인하고 나면 나머지는 반복일 뿐입니다.</p>
+
+      <div class="tldr">
+        <div class="tl">오늘의 흐름</div>
+        <ul>
+          <li>서버 수집이 되는 곳(타오바오·1688·아마존·도매매)에서 쉬운 상품 하나를 고릅니다.</li>
+          <li>사이드패널에서 프리셋을 선택하고 <span class="btn">이 상품 수집</span>.</li>
+          <li>편집 화면에서 빨간 점만 해결하고 업로드 → 마켓에서 눈으로 확인.</li>
+        </ul>
+      </div>
+
+      <div class="clip" data-clip="day4-firstproduct">
+        <div class="cico">▶</div>
+        <div class="ccap">영상 — 수집부터 업로드까지, 실제 마켓에 뜨는 것까지 한 번에</div>
+        <div class="cmeta">약 3분 · CLIP-04 · day4-firstproduct · ★★가장 중요</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">① 첫 상품 고르는 기준</div>
+        <ul class="dots">
+          <li><strong>서버 수집이 되는 곳에서 고르세요</strong> — <b>타오바오 · 1688 · 아마존 · 도매매</b>는 ALL8 서버가 대신 가져오기 때문에 소싱처 로그인 없이 바로 수집됩니다. 브라우저 수집은 내 크롬 로그인 세션을 쓰므로 타오바오·티몰·1688에 미리 로그인돼 있어야 합니다.</li>
+          <li><strong>옵션이 적은 상품</strong> — 색상 3~5개, 사이즈 없는 것이 이상적입니다. 옵션 30개짜리를 첫 상품으로 고르면 고생합니다.</li>
+          <li><strong>13세 미만 어린이 제품은 피하세요</strong> — 해외구매대행은 구매자 개인 사용 목적이라 KC 인증 대상이 아니지만, 13세 미만 어린이 제품은 예외입니다. 화장품·식품은 식약처 통관 절차가 따로 있어 첫 상품으로는 부적합합니다.</li>
+          <li><strong>브랜드 로고가 없는 상품</strong> — 지식재산권 문제가 없는 무브랜드 상품으로 시작하세요.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">② 수집하기</div>
+        <ol class="steps">
+          <li><strong>크롬으로 소싱처 상품 페이지를 엽니다</strong><span>오른쪽에 ALL8 사이드패널이 자동으로 뜹니다. 안 뜨면 ALL8 아이콘을 클릭하세요.</span></li>
+          <li><strong>사이드패널에서 Day 3에 만든 프리셋을 선택</strong><span>⭐ 이 단계를 빠뜨리면 편집이 자동으로 안 됩니다. 가장 중요한 클릭입니다.</span></li>
+          <li><strong>이 상품 수집 클릭</strong><span>10~30초 정도 기다리면 상품 정보를 가져옵니다.</span></li>
+          <li><strong>all8.io → 상품 목록에서 확인</strong><span>수집됨 → 처리중 → 수정완료 순으로 상태가 바뀝니다. 프리셋이 걸려 있으면 여기까지 자동입니다.</span></li>
+        </ol>
+      </div>
+
+      <div class="shot" data-shot="collect-preset">
+        <span class="sico">📸</span>
+        <div class="scap">캡처 자리 — 사이드패널에서 프리셋 선택 + "이 상품 수집" 버튼 (화살표 표시)</div>
+        <div class="sfile">img/start/collect-with-preset.png</div>
+      </div>
+
+      <div class="shot" data-shot="product-status">
+        <span class="sico">📸</span>
+        <div class="scap">캡처 자리 — 상품 목록의 상태 배지 (수집됨 · 처리중 · 수정완료 · 판매중이 함께 보이게)</div>
+        <div class="sfile">img/start/product-status.png</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">③ 편집 — 빨간 점만 해결하면 됩니다</div>
+        <p style="font-size:.9rem;color:var(--ink2);margin-bottom:10px;">상품을 클릭하면 편집 화면이 열리고, 오른쪽에 <b>업로드 플로우</b>가 있습니다. 11단계가 있지만 겁먹지 마세요. 표시만 보면 됩니다.</p>
+        <div class="tbl-wrap">
+          <table>
+            <tr><th style="width:20%">표시</th><th>의미</th><th>할 일</th></tr>
+            <tr><td>🔴 빨간 점</td><td>반드시 해야 하는 항목</td><td><b>여기만 처리하세요.</b> 안 채우면 업로드 버튼이 아예 안 눌립니다.</td></tr>
+            <tr><td>✅ 초록 체크</td><td>완료됨 (프리셋이 채워준 것)</td><td>넘어가세요.</td></tr>
+            <tr><td>⚪ 빈 원</td><td>선택 사항</td><td>첫 상품에서는 건너뛰어도 됩니다.</td></tr>
+          </table>
+        </div>
+        <div class="callout warn">
+          <div class="callout-title">⚠️ 첫 상품에서 반드시 확인할 4가지</div>
+          ① <b>마켓 선택</b> — 안 하면 업로드 버튼이 회색입니다<br>
+          ② <b>카테고리</b> — AI가 추천해주지만 한 번 눈으로 확인하세요. 틀리면 등록이 거부됩니다<br>
+          ③ <b>원가</b> — 환율이 반영됐는지, 배대지 비용이 들어갔는지<br>
+          ④ <b>상품명에 중국어가 남아있지 않은지</b>
+        </div>
+      </div>
+
+      <div class="shot" data-shot="upload-flow">
+        <span class="sico">📸</span>
+        <div class="scap">캡처 자리 — 편집 화면 오른쪽 업로드 플로우 (빨간 점·초록 체크가 섞인 상태)</div>
+        <div class="sfile">img/start/upload-flow.png</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">④ 업로드하고 눈으로 확인</div>
+        <ol class="steps">
+          <li><strong>하단 저장 → 상태가 "수정완료"로 바뀜</strong><span>단축키 <span class="btn">Ctrl+Shift+S</span> 로도 됩니다.</span></li>
+          <li><strong>마켓 업로드 클릭</strong><span>작업 큐에 들어가고 대기 중 → 처리 중 → 완료 순으로 진행됩니다.</span></li>
+          <li><strong>게시된 상품 → 판매중 탭에서 🟢 확인</strong><span>여기에 상품이 보이면 성공입니다.</span></li>
+          <li><strong>실제 마켓에 가서 내 상품을 찾아보세요</strong><span>⭐ 이 단계를 꼭 하세요. 스마트스토어 앱이나 웹에서 내 스토어를 열고 상품이 떠 있는 걸 직접 확인하는 순간, 전체 흐름이 머리에 박힙니다.</span></li>
+        </ol>
+      </div>
+
+      <div class="shot" data-shot="published-green">
+        <span class="sico">📸</span>
+        <div class="scap">캡처 자리 — 게시된 상품 · 판매중 탭에 🟢 상품이 올라간 화면</div>
+        <div class="sfile">img/start/published-green.png</div>
+      </div>
+
+      <div class="shot" data-shot="market-live">
+        <span class="sico">📸</span>
+        <div class="scap">캡처 자리 — 실제 스마트스토어에 노출된 내 상품 (이 장면이 Day 4의 마무리)</div>
+        <div class="sfile">img/start/market-live.png</div>
+      </div>
+
+      <div class="callout good">
+        <div class="callout-title">🎉 여기까지 오셨다면</div>
+        ALL8의 전체 흐름을 한 바퀴 다 돈 겁니다. <b>수집 → 편집 → 업로드.</b> 앞으로 하는 모든 일은 이 사이클의 반복이거나 확장입니다. 나머지 3일은 이걸 빠르고 안전하게 만드는 과정입니다.
+      </div>
+
+      <div class="done-box">
+        <input type="checkbox" class="chk daychk" id="done4" data-day="4">
+        <span class="dtxt"><b>Day 4 완료</b>내 상품이 실제 마켓에 올라가 있는 것을 직접 확인했습니다.</span>
+      </div>
+    </div>
+
+    <!-- ────────── DAY 5 ────────── -->
+    <div class="content-section" id="day5">
+      <div class="section-head">
+        <div class="day-chip"><div class="dl">DAY</div><div class="dn">5</div></div>
+        <div class="section-meta"><div class="section-title">한 번에 여러 개 — 이제 속도를 냅니다</div></div>
+      </div>
+      <div class="metabar">
+        <span class="meta-pill g">🟢 첫 주 권장</span>
+        <span class="meta-pill">소요 · 1시간</span>
+        <span class="meta-pill">선행 · Day 4 완료</span>
+      </div>
+      <p class="section-desc">한 개를 성공했다면 열 개도 같은 방법입니다. 오늘은 <strong>10개</strong>만 해보세요. 100개는 나중입니다.</p>
+
+      <div class="clip" data-clip="day5-bulk">
+        <div class="cico">▶</div>
+        <div class="ccap">영상 — 여러 개 한 번에 담고 옵션 정리하기</div>
+        <div class="cmeta">약 2분 · CLIP-05 · day5-bulk</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📥 여러 개 담는 3가지 방법</div>
+        <div class="tbl-wrap">
+          <table>
+            <tr><th style="width:24%">방법</th><th>사용법</th><th style="width:26%">언제</th></tr>
+            <tr><td><b>체크박스 수집</b></td><td>카테고리·검색 결과 페이지로 이동 → 상품마다 체크박스가 뜸 → 원하는 것 체크 → 사이드패널 <span class="btn">수집 시작</span></td><td>눈으로 고르면서 담을 때</td></tr>
+            <tr><td><b>URL 직접 입력</b></td><td>상품 목록 또는 사이드패널 → <span class="btn">+ URL로 추가</span> → 링크 붙여넣기</td><td>링크를 미리 모아둔 경우</td></tr>
+            <tr><td><b>엑셀 대량 추가</b></td><td><span class="btn">+ 엑셀로 추가</span> → A열에 URL만 넣은 파일 업로드. 헤더는 있어도 없어도 됩니다.</td><td>수백 개를 한 번에</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">💻 브라우저 수집 vs ☁️ 서버 수집</div>
+        <div class="tbl-wrap">
+          <table>
+            <tr><th style="width:22%"></th><th>브라우저 수집</th><th>서버 수집</th></tr>
+            <tr><td><b>비용</b></td><td>무료 (크레딧 0)</td><td>크레딧 차감</td></tr>
+            <tr><td><b>PC 상태</b></td><td>크롬이 켜져 있어야 함</td><td>컴퓨터를 꺼도 진행됨</td></tr>
+            <tr><td><b>소싱처 로그인</b></td><td>내 크롬 세션을 사용 → 타오바오·티몰·1688은 <b>로그인 필요</b></td><td>서버가 대신 가져옴 → <b>로그인 불필요</b></td></tr>
+            <tr><td><b>지원 소싱처</b></td><td>대부분의 지원 사이트</td><td>타오바오 · 1688 · 아마존 · 도매매</td></tr>
+            <tr><td><b>속도</b></td><td>보통</td><td>더 빠르고 안정적</td></tr>
+            <tr><td><b>이럴 때</b></td><td>크레딧 아끼며 평소 대량 수집할 때</td><td>소싱처 로그인 없이 바로 시작하거나, PC를 끄고 돌릴 때</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="callout warn">
+        <div class="callout-title">⚠️ 대량 수집 중 절전모드를 조심하세요</div>
+        브라우저 수집은 내 PC의 크롬이 직접 돌아가는 방식입니다. 수집 중에 <b>컴퓨터가 절전모드로 들어가면 수집이 그 자리에서 멈춥니다.</b> 대량 수집 전에 절전모드 진입 시간을 길게 바꿔두세요.
+      </div>
+
+      <div class="card">
+        <div class="card-title">✂️ 옵션이 너무 많을 때 — 반드시 정리하세요</div>
+        <p style="font-size:.9rem;color:var(--ink2);margin-bottom:10px;">해외 소싱 상품은 옵션이 20~30개씩 붙어 있는 경우가 흔합니다. 그대로 올리면 업로드 오류나 심사 거부의 원인이 됩니다.</p>
+        <ul class="dots">
+          <li>비슷한 색상이 여러 개면 <strong>주요 색상 5~10개만</strong> 남기고 삭제</li>
+          <li>국내 수요가 없는 극단적 사이즈(XXXXL 등)는 삭제</li>
+          <li><strong>쿠팡은 옵션 조합 최대 100개</strong> — 초과하면 업로드 오류가 납니다</li>
+          <li>옵션명에 중국어가 남아있으면 클릭해서 한국어로 수정 (예: 红色 → 빨강)</li>
+        </ul>
+        <div class="callout tip" style="margin-bottom:0;">
+          <div class="callout-title">💡 색상 3~5개, 사이즈 4~5개가 딱 좋습니다</div>
+          옵션이 너무 많으면 고객이 고르다가 이탈합니다. 잘 팔릴 것만 남기세요.
+        </div>
+      </div>
+
+      <details class="more">
+        <summary>상품이 쌓이면 편해지는 기능 2가지</summary>
+        <div class="mbody">
+          <ul class="dots">
+            <li><strong>인라인 편집</strong> — 상품 목록에서 셀을 바로 클릭해 상품명·가격을 수정. Enter로 저장됩니다. 편집 화면에 안 들어가도 됩니다.</li>
+            <li><strong>엑셀 왕복</strong> — 상품 선택 → 엑셀로 추출 → 엑셀에서 일괄 수정 → 다시 업로드. <b>열 순서와 헤더는 절대 건드리지 마세요.</b> 값만 고쳐야 합니다.</li>
+          </ul>
+        </div>
+      </details>
+
+      <div class="done-box">
+        <input type="checkbox" class="chk daychk" id="done5" data-day="5">
+        <span class="dtxt"><b>Day 5 완료</b>여러 상품을 한 번에 수집해서 업로드까지 마쳤습니다.</span>
+      </div>
+    </div>
+
+    <!-- ────────── DAY 6 ────────── -->
+    <div class="content-section" id="day6">
+      <div class="section-head">
+        <div class="day-chip"><div class="dl">DAY</div><div class="dn">6</div></div>
+        <div class="section-meta"><div class="section-title">주문이 들어왔습니다 — 무엇을 해야 하나요</div></div>
+      </div>
+      <div class="metabar">
+        <span class="meta-pill g">🟢 첫 주 권장</span>
+        <span class="meta-pill">소요 · 20분 (읽기)</span>
+        <span class="meta-pill">선행 · Day 4 완료</span>
+      </div>
+      <p class="section-desc">주문은 예고 없이 들어옵니다. 그때 당황하지 않도록 <strong>미리 흐름만 읽어두세요.</strong> 실제 주문이 들어오기 전에 이걸 알고 있는 것과 모르는 것은 차이가 큽니다.</p>
+
+      <div class="flow">
+        <div class="flow-item hl">신규 주문</div><div class="flow-arrow">→</div>
+        <div class="flow-item">소싱처에서 구매</div><div class="flow-arrow">→</div>
+        <div class="flow-item">배대지 도착</div><div class="flow-arrow">→</div>
+        <div class="flow-item">운송장 입력</div><div class="flow-arrow">→</div>
+        <div class="flow-item">배송 완료</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">📦 주문 상태별 할 일</div>
+        <div class="tbl-wrap">
+          <table>
+            <tr><th style="width:20%">상태</th><th>의미</th><th>내가 할 일</th></tr>
+            <tr><td><b>신규 주문</b></td><td>방금 들어온 주문</td><td>소싱처에서 즉시 구매 → 운송장 번호 입력</td></tr>
+            <tr><td><b>배송 중</b></td><td>운송장 입력 완료</td><td>고객 수령까지 대기</td></tr>
+            <tr><td><b>배송 완료</b></td><td>고객이 수령</td><td>환불 요청 없으면 자동 구매확정</td></tr>
+            <tr><td><b>취소 / 반품</b></td><td>고객이 취소·반품</td><td>마켓 정책에 따라 처리</td></tr>
+          </table>
+        </div>
+      </div>
+
+      <div class="callout warn">
+        <div class="callout-title">⚠️ 발송이 늦으면 페널티를 받습니다</div>
+        주문이 들어오면 <b>가능한 빨리</b> 소싱처에서 구매하고 운송장을 입력하세요. 마켓별로 출고 기한이 있고, 어기면 셀러 점수가 깎이거나 판매가 제한됩니다. 특히 쿠팡이 엄격합니다.
+      </div>
+
+      <div class="callout tip">
+        <div class="callout-title">💡 출고 소요일은 여유 있게 잡으세요</div>
+        구매대행은 소싱처 → 배대지 → 국내 재발송을 거치므로 시간이 걸립니다. 처음에는 <b>7영업일</b> 정도로 잡고, 실제 배송 속도를 본 뒤 조정하세요. 짧게 잡아놓고 못 지키는 것이 가장 위험합니다.
+      </div>
+
+      <div class="done-box">
+        <input type="checkbox" class="chk daychk" id="done6" data-day="6">
+        <span class="dtxt"><b>Day 6 완료</b>주문이 들어왔을 때의 처리 흐름을 이해했습니다.</span>
+      </div>
+    </div>
+
+    <!-- ────────── DAY 7 ────────── -->
+    <div class="content-section" id="day7">
+      <div class="section-head">
+        <div class="day-chip"><div class="dl">DAY</div><div class="dn">7</div></div>
+        <div class="section-meta"><div class="section-title">재고 연동 켜기 + 소싱기 맛보기</div></div>
+      </div>
+      <div class="metabar">
+        <span class="meta-pill y">🟡 익숙해지면</span>
+        <span class="meta-pill">소요 · 30분</span>
+        <span class="meta-pill">선행 · 판매 중인 상품 있음</span>
+      </div>
+      <p class="section-desc">여기까지 오셨다면 기본기는 끝났습니다. 마지막 날은 <strong>사고를 막아주는 장치</strong> 하나와, 앞으로 쓰게 될 <strong>소싱 도구</strong>를 구경합니다.</p>
+
+      <div class="clip" data-clip="day7-stock">
+        <div class="cico">▶</div>
+        <div class="ccap">영상 — 재고 연동 켜기 + 소싱기 발굴 맛보기</div>
+        <div class="cmeta">약 2분 · CLIP-06 · day7-stock</div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🔄 재고 연동 — 품절 사고를 막아줍니다</div>
+        <p style="font-size:.9rem;color:var(--ink2);margin-bottom:10px;">주문을 받았는데 소싱처가 품절이면 취소해야 하고, 취소는 곧 마켓 페널티입니다. 재고 연동은 소싱처의 품절·가격 변동을 주기적으로 확인해줍니다.</p>
+        <ol class="steps">
+          <li><strong>왼쪽 메뉴 → 게시된 상품 → 상품 선택</strong><span></span></li>
+          <li><strong>가격/재고 연동 켜기</strong><span>확인 주기(예: 6시간마다)와 총 확인 횟수(최대 99회)를 설정합니다.</span></li>
+          <li><strong>기타 설정 → 재고연동 품절 정책 확인</strong><span>초보자는 <b>"하나라도 품절 시 판매 중지"</b>를 권합니다. 안전이 우선입니다.</span></li>
+        </ol>
+        <div class="callout warn" style="margin-bottom:0;">
+          <div class="callout-title">⚠️ "6시간마다"는 정확한 예약이 아닙니다</div>
+          재확인을 실제로 실행시키는 건 서버가 아니라 <b>내 PC의 크롬 확장프로그램</b>입니다. "서버" 방식을 골라도 "지금 하라"는 신호는 크롬에서 나갑니다. 그래서 <b>크롬이 꺼져 있으면 어떤 방식을 골랐든 재수집이 멈추고, 다음에 크롬을 켤 때까지 밀립니다.</b> 재고 연동을 제대로 쓰려면 크롬을 계속 켜두는 게 가장 중요합니다.
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">🔍 소싱기 — 팔리는 상품을 먼저 찾고, 소싱처를 역으로 찾는 도구</div>
+        <p style="font-size:.9rem;color:var(--ink2);margin-bottom:10px;">내가 직접 1688을 뒤지는 게 아니라, <b>네이버쇼핑에서 이미 팔리고 있는 상품</b>을 찾은 뒤 1688이나 라쿠텐에서 소싱처를 자동으로 매칭해주는 방식입니다.</p>
+        <div class="flow">
+          <div class="flow-item">소싱 그룹 만들기</div><div class="flow-arrow">→</div>
+          <div class="flow-item">발굴 시작</div><div class="flow-arrow">→</div>
+          <div class="flow-item">아이템 검토</div><div class="flow-arrow">→</div>
+          <div class="flow-item">1688 매칭</div><div class="flow-arrow">→</div>
+          <div class="flow-item hl">수집 보내기</div>
+        </div>
+        <div class="callout good">
+          <div class="callout-title">✅ 처음 쓸 때 추천 설정</div>
+          키워드 2~3개 · 페이지 수 1 · 최대 수집 수 50 · 최소 리뷰수 20 이하 · 나머지 기본값<br>
+          결과를 보고 마음에 들면 다음 그룹에서 범위를 넓혀가세요.
+        </div>
+        <div class="callout warn" style="margin-bottom:0;">
+          <div class="callout-title">⚠️ 매칭 결과는 반드시 눈으로 확인하세요</div>
+          자동 매칭이 항상 정확하진 않습니다. 실제로 올릴 상품이니 <b>이미지·가격·MOQ를 직접 확인</b>하고, 맞지 않으면 후보를 바꾸세요. 후보 교체는 추가 크레딧 없이 무제한입니다.<br>
+          소싱기는 <b>크롬 확장프로그램이 실행 중</b>이어야 작동하고, 검토 테이블은 데스크톱 전용입니다.
+        </div>
+      </div>
+
+      <div class="done-box">
+        <input type="checkbox" class="chk daychk" id="done7" data-day="7">
+        <span class="dtxt"><b>Day 7 완료</b>재고 연동을 켰고, 소싱기가 무엇인지 알게 되었습니다.</span>
+      </div>
+    </div>
+
+    <!-- ────────── 용어사전 ────────── -->
+    <div class="content-section" id="terms">
+      <div class="section-head">
+        <div class="day-chip"><div class="dn" style="font-size:1.25rem;">📕</div></div>
+        <div class="section-meta"><div class="section-title">처음 보는 단어 15개</div></div>
+      </div>
+      <p class="section-desc">매뉴얼과 화면에 계속 나오는 단어들입니다. 뜻만 알아도 훨씬 수월해집니다.</p>
+      <div class="term-grid">
+        <dl class="term"><dt>프리셋</dt><dd>수집할 때 자동으로 적용되는 편집 규칙 묶음. 상품명·가격·배송·마켓 설정이 담깁니다.</dd></dl>
+        <dl class="term"><dt>SKU</dt><dd>옵션 조합 하나하나를 가리키는 단위. "빨강-M"이 하나의 SKU입니다.</dd></dl>
+        <dl class="term"><dt>크레딧</dt><dd>서버 수집과 AI 기능을 쓸 때 차감되는 포인트. 브라우저 수집은 크레딧이 들지 않습니다.</dd></dl>
+        <dl class="term"><dt>배대지 (배송대행지)</dt><dd>해외 물건을 대신 받아 국내로 보내주는 현지 창고. 이용료가 원가에 포함됩니다.</dd></dl>
+        <dl class="term"><dt>MOQ</dt><dd>최소 주문 수량. 1688 같은 도매처는 "10개 이상 구매" 같은 조건이 붙어 있습니다.</dd></dl>
+        <dl class="term"><dt>관부가세</dt><dd>해외 물품에 붙는 관세와 부가세. 구매대행은 보통 구매자 부담으로 설정합니다.</dd></dl>
+        <dl class="term"><dt>썸네일 (대표이미지)</dt><dd>검색 결과에 뜨는 첫 번째 이미지. 클릭률을 결정합니다.</dd></dl>
+        <dl class="term"><dt>옵션 이미지</dt><dd>색상·사이즈를 고를 때 바뀌는 이미지. 설정하면 구매 전환율이 올라갑니다.</dd></dl>
+        <dl class="term"><dt>마진율</dt><dd>원가 대비 남기는 비율. 마켓 수수료를 포함해서 잡아야 실제로 남습니다.</dd></dl>
+        <dl class="term"><dt>계산식</dt><dd>원가에서 판매가를 자동으로 만들어내는 수식. 프리셋 안에 저장됩니다.</dd></dl>
+        <dl class="term"><dt>KC 인증</dt><dd>국내 안전 인증. 해외구매대행은 구매자 개인 사용 목적이라 대상이 아니지만, 13세 미만 어린이 제품은 예외입니다.</dd></dl>
+        <dl class="term"><dt>작업 큐</dt><dd>업로드 요청이 순서대로 처리되는 대기줄. 진행 상태와 에러 원인을 볼 수 있습니다.</dd></dl>
+        <dl class="term"><dt>재고 연동</dt><dd>소싱처의 품절·가격 변동을 주기적으로 확인하는 기능. 크롬이 켜져 있어야 돕니다.</dd></dl>
+        <dl class="term"><dt>그룹상품</dt><dd>여러 상품을 하나로 묶어 올리는 스마트스토어 전용 형태.</dd></dl>
+        <dl class="term"><dt>금지어 · 대체어</dt><dd>상품명에서 자동으로 지우거나 바꿔줄 단어 목록. 마켓 등록 거부를 줄여줍니다.</dd></dl>
+      </div>
+    </div>
+
+    <!-- ────────── 증상별 문제해결 ────────── -->
+    <div class="content-section" id="trouble">
+      <div class="section-head">
+        <div class="day-chip"><div class="dn" style="font-size:1.25rem;">🆘</div></div>
+        <div class="section-meta"><div class="section-title">증상별 문제 해결 — 내 말로 찾기</div></div>
+      </div>
+      <p class="section-desc">기능 이름을 몰라도 됩니다. <strong>지금 내 화면에서 벌어진 일</strong>을 왼쪽에서 찾으세요.</p>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th style="width:32%">이런 상황인가요?</th><th style="width:26%">원인</th><th>해결</th></tr>
+          <tr><td>수집 버튼을 눌러도 아무 반응이 없어요</td><td>로그인 안 됨 / 확장 비활성</td><td>사이드패널 로그인 확인 → <span class="btn">chrome://extensions/</span> 에서 ALL8 토글 ON</td></tr>
+          <tr><td>업로드 버튼이 회색이라 안 눌려요</td><td>마켓 미선택</td><td>편집 화면 → 업로드 플로우 → <b>마켓 선택</b>(빨간 점) 먼저 처리</td></tr>
+          <tr><td>상품명이 전부 중국어로 나와요</td><td>프리셋 미적용 또는 크레딧 부족</td><td>프리셋을 걸고 다시 수집하거나, 크레딧 충전 후 AI 번역 재시도</td></tr>
+          <tr><td>수집은 됐는데 이미지가 없거나 가격이 0원이에요</td><td>소싱 사이트 구조 변경</td><td>ALL8 말풍선에 해당 소싱 사이트 주소를 알려주면 지원팀이 업데이트합니다</td></tr>
+          <tr><td>수집했는데 상품 목록에 안 보여요</td><td>처리 중이거나 필터 적용됨</td><td>상품 목록 → <b>전체</b> 탭 선택 후 잠시 대기</td></tr>
+          <tr><td>대시보드에 빨간 에러 숫자가 떴어요</td><td>업로드·수집·연동 오류</td><td>숫자를 클릭 → 원인 메시지 확인. 영어로 나오면 그대로 복사해 문의</td></tr>
+          <tr><td>마켓에서 등록을 거부했어요</td><td>카테고리 오류 / 필수 항목 누락</td><td>편집 화면에서 빨간 항목 확인 → 카테고리·원산지·KC 인증 점검 후 재업로드</td></tr>
+          <tr><td>재고 연동이 안 돌아가는 것 같아요</td><td>크롬이 꺼져 있었음</td><td>크롬을 켜두세요. 확장프로그램이 신호를 보내야 재수집이 돕니다</td></tr>
+          <tr><td>대량 수집이 중간에 멈췄어요</td><td>PC 절전모드 진입</td><td>절전모드 시간을 늘리거나 서버 수집으로 전환</td></tr>
+          <tr><td>갑자기 업로드가 전부 실패해요</td><td>마켓 API 키 만료·변경</td><td>마켓 계정 설정에서 API 키 재발급 후 다시 입력</td></tr>
+          <tr><td>크레딧이 다 떨어졌어요</td><td>서버 수집·AI 기능 사용</td><td>결제 내역에서 충전. <b>브라우저 수집은 크레딧 0으로 계속 쓸 수 있습니다</b></td></tr>
+        </table>
+      </div>
+      <div class="callout info">
+        <div class="callout-title">💬 여기서 안 풀리면</div>
+        ALL8 화면 오른쪽 아래 말풍선으로 문의하세요. 에러 메시지를 그대로 복사해서 보내면 가장 빠릅니다. 매주 수·일 저녁 9시 무료 라이브 강의에서 직접 질문할 수도 있습니다.
+      </div>
+    </div>
+
+    <!-- ────────── 다음 단계 ────────── -->
+    <div class="content-section" id="next" style="border-bottom:none;">
+      <div class="section-head">
+        <div class="day-chip"><div class="dn" style="font-size:1.25rem;">🎓</div></div>
+        <div class="section-meta"><div class="section-title">7일을 마쳤다면 — 다음은 여기입니다</div></div>
+      </div>
+      <p class="section-desc">기본 사이클을 익혔으니 이제 넓힐 차례입니다. 아래는 전부 <a href="./manual.html" style="color:var(--green-dark);font-weight:700;">전체 매뉴얼</a>에 자세히 나와 있습니다.</p>
+      <div class="tbl-wrap">
+        <table>
+          <tr><th style="width:12%">난이도</th><th style="width:28%">다음 단계</th><th>내용</th></tr>
+          <tr><td>🟡</td><td><a href="./manual.html#market-account" style="color:var(--green-dark);font-weight:700;">마켓 늘리기</a></td><td>쿠팡 → 11번가 → G마켓·옥션 순으로 확장. 마켓별 API 발급과 권장 설정값</td></tr>
+          <tr><td>🟡</td><td><a href="./manual.html#preset" style="color:var(--green-dark);font-weight:700;">프리셋 세분화</a></td><td>소싱처 × 마켓 조합별로 3~5개. 이미지 가공·상하단 배너·태그 자동화</td></tr>
+          <tr><td>🟡</td><td><a href="./manual.html#prompt" style="color:var(--green-dark);font-weight:700;">AI 프롬프트 손보기</a></td><td>상품명·상세설명 스타일 커스터마이즈. AI 이미지 프롬프트 16종 제공</td></tr>
+          <tr><td>🔴</td><td><a href="./manual.html#sourcing" style="color:var(--green-dark);font-weight:700;">소싱기 본격 활용</a></td><td>키워드 확장(네이버 광고 API 등록), 벌크 매칭, 배수·마진 필터링</td></tr>
+          <tr><td>🔴</td><td><a href="./manual.html#mixed-bundle" style="color:var(--green-dark);font-weight:700;">혼합·그룹상품</a></td><td>여러 상품을 묶어 세트로 판매. 스마트스토어 그룹상품 업로드</td></tr>
+          <tr><td>🔴</td><td><a href="./manual.html#staff" style="color:var(--green-dark);font-weight:700;">직원 관리</a></td><td>팀원 계정 초대와 권한 분리. 결제·마켓 API는 마스터만</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── CTA ── -->
+    <div class="cta-banner">
+      <h3>막히면 바로 물어보세요</h3>
+      <p>매주 수요일 · 일요일 저녁 9시 무료 라이브 강의 진행 중 (30분 전 단톡방 링크)</p>
+      <div class="cta-row">
+        <a class="cta-btn white" href="https://open.kakao.com/o/gKWnrBDg" target="_blank">💬 단톡 무료교육 듣기</a>
+        <a class="cta-btn outline" href="./manual.html">📖 전체 매뉴얼 보기</a>
+        <a class="cta-btn outline" href="https://all8.io/" target="_blank">🚀 ALL8 바로가기</a>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="fbrand">쿠대<b>•</b>ALL8</div>
+      ALL8 시작 가이드 · 완전 초보자용 7일 코스<br>
+      더 자세한 기능 설명은 <a href="./manual.html" style="color:var(--green-dark);font-weight:700;">전체 매뉴얼</a>에서 확인하세요.
+    </div>
+
+  </main>
+</div>
+
+<div class="float-contact">
+  <a class="float-contact-btn" href="https://all8.io/" target="_blank">🆘 ALL8 문의하기</a>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════════
+   ▶ 영상 넣는 곳 — 여기 값만 채우면 자동으로 표시됩니다
+   ──────────────────────────────────────────────────────────
+   · 유튜브(미등록/일부공개) → 영상 ID만 : 'dQw4w9WgXcQ'
+   · 로컬 mp4 파일         → 경로       : 'video/day1.mp4'
+   · 아직 없으면           → 빈 문자열   : ''  (자리 표시가 그대로 보임)
+   ══════════════════════════════════════════════════════════ */
+var CLIPS = {
+  'day1-install'     : '',   // CLIP-01 · 확장프로그램 설치 (90초)
+  'day2-market'      : '',   // CLIP-02 · 스마트스토어 연결 (2분)
+  'day3-preset'      : '',   // CLIP-03 · 프리셋 샘플 업로드 (2분) ★
+  'day4-firstproduct': '',   // CLIP-04 · 첫 상품 올리기 전 과정 (3분) ★★
+  'day5-bulk'        : '',   // CLIP-05 · 여러 개 수집·옵션 정리 (2분)
+  'day7-stock'       : ''    // CLIP-06 · 재고연동 + 소싱기 (2분)
+};
+
+document.querySelectorAll('.clip[data-clip]').forEach(function(box){
+  var key = box.getAttribute('data-clip');
+  var val = (CLIPS[key] || '').trim();
+  if(!val) return;
+  var frame = document.createElement('div');
+  frame.className = 'cframe';
+  if(/\.(mp4|webm|mov)$/i.test(val)){
+    frame.innerHTML = '<video controls preload="metadata" playsinline src="' + val + '"></video>';
+  } else {
+    frame.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + val +
+      '?rel=0" title="ALL8 가이드 영상" allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
+  }
+  box.classList.add('filled');
+  box.innerHTML = '';
+  box.appendChild(frame);
+});
+
+// ── 진행률 저장 (브라우저에만 저장됩니다) ──
+var KEY = 'all8start_';
+var boxes = document.querySelectorAll('input.chk');
+var dayBoxes = document.querySelectorAll('input.daychk');
+
+boxes.forEach(function(c){
+  try { c.checked = localStorage.getItem(KEY + c.id) === '1'; } catch(e){}
+  c.addEventListener('change', function(){
+    try { localStorage.setItem(KEY + c.id, c.checked ? '1' : '0'); } catch(e){}
+    updateProgress();
+  });
+});
+
+function updateProgress(){
+  var done = 0;
+  dayBoxes.forEach(function(c){ if(c.checked) done++; });
+  var total = dayBoxes.length;
+  document.getElementById('pgCount').textContent = done;
+  document.getElementById('pgFill').style.width = (total ? (done/total*100) : 0) + '%';
+  dayBoxes.forEach(function(c){
+    var d = c.getAttribute('data-day');
+    var nav = document.querySelector('.nav-item[data-day="' + d + '"]');
+    if(nav) nav.classList.toggle('done', c.checked);
+  });
+}
+
+function resetProgress(){
+  if(!confirm('진행률을 모두 초기화할까요?')) return;
+  boxes.forEach(function(c){
+    c.checked = false;
+    try { localStorage.removeItem(KEY + c.id); } catch(e){}
+  });
+  updateProgress();
+}
+
+updateProgress();
+
+// ── 사이드바 활성 표시 ──
+var navItems = document.querySelectorAll('.nav-item');
+var sectionEls = document.querySelectorAll('.content-section[id], .rules[id]');
+function updateActive(){
+  var current = '';
+  sectionEls.forEach(function(s){
+    if(s.getBoundingClientRect().top <= 90) current = s.id;
+  });
+  navItems.forEach(function(a){
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+}
+window.addEventListener('scroll', updateActive, { passive:true });
+updateActive();
+
+// ── 스크린샷 자리: 이미지가 실제로 있으면 자동 교체 ──
+document.querySelectorAll('.shot[data-shot]').forEach(function(box){
+  var fileEl = box.querySelector('.sfile');
+  if(!fileEl) return;
+  var src = fileEl.textContent.trim();
+  var probe = new Image();
+  probe.onload = function(){
+    box.classList.add('filled');
+    box.innerHTML = '';
+    var im = document.createElement('img');
+    im.src = src;
+    im.alt = '';
+    box.appendChild(im);
+    box.onclick = function(){ openLightbox(src); };
+  };
+  probe.src = src;
+});
+
+// ── 라이트박스 ──
+function openLightbox(src){
+  document.getElementById('lightbox-img').src = src;
+  var lb = document.getElementById('lightbox');
+  lb.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox(){
+  document.getElementById('lightbox').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLightbox(); });
+</script>
+
+<div id="lightbox" onclick="closeLightbox()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;align-items:center;justify-content:center;cursor:zoom-out;">
+  <img id="lightbox-img" src="" alt="" style="max-width:92vw;max-height:92vh;border-radius:10px;box-shadow:0 8px 40px rgba(0,0,0,.6);">
+  <div style="position:absolute;top:16px;right:20px;color:#fff;font-size:28px;font-weight:900;cursor:pointer;line-height:1;">✕</div>
+</div>
+
+</body>
+</html>
