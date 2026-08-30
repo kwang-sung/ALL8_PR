@@ -1,1 +1,38 @@
+# ── Vercel / 환경변수 ──
 .vercel
+.env
+.env.*
+
+# ── 작업용 · 비공개 폴더 (배포 대상 아님) ──
+_tmp_slidework/
+downloads_bak/
+lastone/_archive/
+lastone/_docs/
+법인/
+전자책/
+정보/
+홈페이지/
+수강생 제공자료/
+구간별 마진식/
+
+# ── 루트에 흩어진 개인·작업 파일 (하위 폴더는 영향 없음) ──
+/*.xlsx
+/*.xls
+/*.xlsm
+/*.csv
+/*.pptx
+/*.docx
+/*.pdf
+/*.txt
+/*.md
+/*.png
+/*.jpg
+/*.jpeg
+/*.zip
+/*.a8s
+/*.a8p
+
+# ── 배포에 필요한 예외 ──
+!/robots.txt
+!/sitemap.xml
+!/README.md
