@@ -4918,7 +4918,7 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbo
 .sec-toolbar button:hover{border-color:var(--green);color:var(--green-dark);}
 .sec-legend{font-size:.74rem;color:var(--ink3);}
 
-.content-section[data-collapsible] .section-head{cursor:pointer;user-select:none;position:relative;padding-right:34px;}
+.content-section[data-collapsible] .section-head{cursor:pointer;user-select:none;position:relative;padding-right:150px;}
 .content-section[data-collapsible] .section-head:hover .section-title{color:var(--green-dark);}
 .sec-chevron{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:50%;
   border:1px solid var(--border);color:var(--ink3);display:flex;align-items:center;justify-content:center;
@@ -4932,6 +4932,12 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbo
 .sec-badge.day{border-color:var(--green-border);color:var(--green-dark);background:var(--green-bg);text-decoration:none;}
 .sec-badge.day:hover{background:var(--green);color:#fff;border-color:var(--green);}
 .sec-hint{font-size:.73rem;color:var(--ink3);}
+.sec-shotmark{position:absolute;right:38px;top:50%;transform:translateY(-50%);
+  font-size:.74rem;font-weight:700;color:var(--ink3);white-space:nowrap;
+  border:1px solid var(--border);border-radius:100px;padding:3px 10px;background:#fff;}
+.sec-shotmark b{color:var(--green-dark);font-weight:800;}
+.content-section[data-collapsible] .section-head{padding-right:34px;}
+
 
 .nav-item .nav-lv{display:inline-block;margin-left:7px;vertical-align:middle;}
 .lvdot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px;vertical-align:middle;}
@@ -5224,6 +5230,7 @@ var SECMETA = {
     bar.className = 'sec-meta';
     var lvKey = meta.lv === '🔴' ? 'c' : (meta.lv === '🟡' ? 'b' : 'a');
     var lvText = lvKey === 'c' ? '나중에 봐도 됨' : (lvKey === 'b' ? '익숙해지면' : '처음부터 필요');
+    var nShots = MEDIA.filter(function(m){ return m.k === 'shot' && m.sec === sec.id; }).length;
     bar.innerHTML = '<span class="sec-badge"><i class="lvdot lv-' + lvKey + '"></i>' + lvText + '</span>' +
       (meta.day ? '<a class="sec-badge day" href="./start.html#' + meta.day + '">기초편 ' + meta.dn + ' →</a>' : '') +
       '<span class="sec-hint">제목을 누르면 펼쳐집니다</span>';
@@ -5240,6 +5247,13 @@ var SECMETA = {
     }
     sec.appendChild(body);
 
+    if(nShots){
+      var sm = document.createElement('div');
+      sm.className = 'sec-shotmark';
+      sm.innerHTML = '📸 이미지 <b>' + nShots + '장</b>';
+      sm.title = '캡처 ' + nShots + '장이 들어 있어요';
+      head.appendChild(sm);
+    }
     var chev = document.createElement('div');
     chev.className = 'sec-chevron';
     chev.textContent = '▼';
