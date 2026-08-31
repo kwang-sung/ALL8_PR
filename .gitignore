@@ -32,6 +32,10 @@ lastone/_docs/
 /*.a8s
 /*.a8p
 
+# ── 내부 작업용 (배포 금지) ──
+_shotlist.html
+_촬영목록_영상스크린샷.md
+
 # ── 배포에 필요한 예외 ──
 !/robots.txt
 !/sitemap.xml

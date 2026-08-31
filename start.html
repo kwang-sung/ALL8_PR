@@ -97,11 +97,11 @@ body{background:var(--bg);color:var(--ink);font-family:-apple-system,"Apple SD G
 .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin-bottom:12px;box-shadow:var(--shadow);}
 .card-title{font-weight:700;font-size:.93rem;margin-bottom:10px;display:flex;align-items:center;gap:6px;}
 ol.steps{list-style:none;padding:0;counter-reset:s;}
-ol.steps li{counter-increment:s;padding:12px 0 12px 44px;position:relative;border-bottom:1px solid var(--border);}
-ol.steps li:last-child{border-bottom:none;padding-bottom:0;}
-ol.steps li::before{content:counter(s);position:absolute;left:0;top:12px;width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center;}
-ol.steps li strong{display:block;font-weight:700;margin-bottom:2px;font-size:.93rem;}
-ol.steps li span{color:var(--ink3);font-size:.88rem;}
+ol.steps > li{counter-increment:s;padding:12px 0 12px 44px;position:relative;border-bottom:1px solid var(--border);}
+ol.steps > li:last-child{border-bottom:none;padding-bottom:0;}
+ol.steps > li::before{content:counter(s);position:absolute;left:0;top:12px;width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center;}
+ol.steps > li strong{display:block;font-weight:700;margin-bottom:2px;font-size:.93rem;}
+ol.steps > li span{color:var(--ink3);font-size:.88rem;}
 ul.dots{list-style:none;padding:0;}
 ul.dots li{padding:6px 0 6px 20px;position:relative;font-size:.9rem;color:var(--ink2);}
 ul.dots li::before{content:"•";position:absolute;left:6px;color:var(--green);font-weight:700;}
@@ -147,7 +147,39 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
 .shot .scap{font-size:.85rem;font-weight:700;color:var(--ink2);}
 .shot .sfile{font-size:.75rem;font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--ink3);margin-top:4px;}
 .shot img{max-width:100%;border-radius:8px;display:block;}
-.shot.filled{border:1px solid var(--border);padding:8px;cursor:zoom-in;}
+.shot.filled{border:1px solid var(--border);padding:8px;cursor:default;text-align:left;}
+.shot.filled img{cursor:zoom-in;}
+.snum{font-size:.76rem;color:var(--ink3);margin-top:8px;line-height:1.9;}
+.shot-steps{list-style:none;padding:10px 6px 4px;margin:0;counter-reset:none;border-top:1px solid var(--border);}
+.shot-steps > .ss-cap{font-size:.85rem;font-weight:800;color:var(--ink);margin-bottom:6px;}
+.shot-steps > li{position:relative;border-bottom:none;counter-increment:none;font-size:.85rem;color:var(--ink2);padding:3px 0 3px 26px;line-height:1.55;}
+.shot-steps > li b{position:absolute;left:0;top:3px;color:var(--green-dark);font-weight:900;font-size:.9rem;}
+
+ol.steps > li .shot{margin:10px 0 4px;padding:18px 14px;}
+ol.steps > li .shot.filled{padding:6px;}
+ol.steps > li .shot .scap{font-size:.82rem;}
+
+/* ── 영상 지점 버튼 ── */
+.vjump{display:inline-flex;align-items:center;gap:5px;font-size:.74rem;font-weight:800;color:var(--ink2);
+  background:#fff;border:1px solid var(--border);border-radius:100px;padding:3px 10px 3px 5px;
+  text-decoration:none;margin-left:10px;vertical-align:middle;font-variant-numeric:tabular-nums;white-space:nowrap;transition:.14s;}
+.vjump:hover{color:#c00;border-color:#c00;transform:translateY(-1px);}
+.yt{display:inline-block;width:18px;height:13px;border-radius:3px;background:#FF0000;position:relative;flex-shrink:0;}
+.yt::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-45%,-50%);
+  border-left:5px solid #fff;border-top:3.5px solid transparent;border-bottom:3.5px solid transparent;}
+.daybar-v{display:block;margin:0 0 14px;}
+.daybar-v .vjump{margin-left:0;font-size:.82rem;font-weight:800;padding:6px 15px 6px 9px;gap:7px;
+  color:#fff;background:#111827;border-color:#111827;box-shadow:0 2px 6px rgba(0,0,0,.16);}
+.daybar-v .vjump:hover{background:#c00;border-color:#c00;color:#fff;}
+.daybar-v .yt{width:22px;height:16px;border-radius:4px;}
+.daybar-v .yt::after{border-left-width:6px;border-top-width:4px;border-bottom-width:4px;}
+/* ── 영상 구간 링크 ── */
+.vlink{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--green-border);border-radius:10px;padding:13px 16px;text-decoration:none;margin:12px 0;transition:.14s;}
+.vlink:hover{background:var(--green-bg);border-color:var(--green);}
+.vico{flex-shrink:0;width:34px;height:34px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem;}
+.vtxt b{display:block;font-size:.9rem;font-weight:700;color:var(--ink);}
+.vtxt em{display:block;font-size:.78rem;font-style:normal;color:var(--ink3);margin-top:2px;}
+.vlink::after{content:"↗";margin-left:auto;color:var(--ink3);font-weight:900;font-size:.85rem;}
 
 /* ── 영상 클립 ── */
 .clip{border:2px dashed var(--border);border-radius:var(--radius);background:#fff;padding:26px 18px;text-align:center;margin:12px 0;color:var(--ink3);}
@@ -384,33 +416,27 @@ details.more .mbody{padding:2px 18px 18px;border-top:1px solid var(--border);}
       <div class="tldr">
         <div class="tl">3줄 요약</div>
         <ul>
-          <li>all8.io 로그인 → 왼쪽 메뉴 <span class="btn">확장프로그램 다운로드</span> → 크롬에 추가.</li>
+          <li>all8.io 로그인 → 왼쪽 메뉴 <span class="btn">상품 수집기 다운로드</span> → 크롬 웹스토어에서 추가.</li>
           <li>설치 후 🧩 아이콘 → ALL8 옆 📌 을 눌러 주소창 옆에 고정하세요.</li>
           <li>아이콘을 클릭해 <b>카카오 로그인까지</b> 마쳐야 실제로 작동합니다.</li>
         </ul>
-      </div>
-
-      <div class="clip" data-clip="day1-install">
-        <div class="cico">▶</div>
-        <div class="ccap">영상 — 설치부터 핀 고정, 로그인까지</div>
-        <div class="cmeta">약 90초 · CLIP-01 · day1-install</div>
       </div>
 
       <div class="card">
         <div class="card-title">🔌 따라하기</div>
         <ol class="steps">
           <li><strong>크롬으로 all8.io 접속 후 로그인</strong><span>카카오 계정으로 바로 가입·로그인됩니다. 반드시 크롬으로 여세요.</span></li>
-          <li><strong>왼쪽 메뉴 → 확장프로그램 다운로드 클릭</strong><span>크롬 웹스토어 페이지가 새로 열립니다.</span></li>
+          <li><strong>왼쪽 메뉴 → 상품 수집기 다운로드 클릭</strong><span>이 페이지 안에 크롬 웹스토어 다운로드 링크가 있습니다.</span></li>
           <li><strong>Chrome에 추가 → 확장 프로그램 추가</strong><span>"ALL8을(를) 추가하시겠습니까?" 팝업이 뜨면 추가를 누르세요.</span></li>
-          <li><strong>🧩 아이콘 클릭 → ALL8 옆 📌 핀 고정</strong><span>고정해두면 주소창 바로 옆에 ALL8 아이콘이 항상 보입니다. 이 과정을 건너뛰면 나중에 아이콘을 못 찾아서 헤맵니다.</span></li>
+          <li><strong>🧩 아이콘 클릭 → ALL8 옆 📌 핀 고정</strong><span>고정해두면 주소창 바로 옆에 ALL8 아이콘이 항상 보입니다. 이 과정을 건너뛰면 나중에 아이콘을 못 찾아서 헤맵니다.</span>
+            <div class="shot" data-shot="ext-pin">
+              <span class="sico">📸</span>
+              <div class="scap">캡처 자리 — 🧩 메뉴에서 ALL8을 핀 고정하는 화면</div>
+              <div class="sfile">img/ext-pin.png</div>
+            </div>
+          </li>
           <li><strong>ALL8 아이콘 클릭 → 사이드패널에서 카카오 로그인</strong><span>화면 오른쪽에 ALL8 패널이 열리면 준비 완료입니다.</span></li>
         </ol>
-      </div>
-
-      <div class="shot" data-shot="ext-pin">
-        <span class="sico">📸</span>
-        <div class="scap">캡처 자리 — 🧩 메뉴에서 ALL8을 핀 고정하는 화면</div>
-        <div class="sfile">img/start/ext-pin.png</div>
       </div>
 
       <div class="callout warn">
@@ -459,8 +485,8 @@ details.more .mbody{padding:2px 18px 18px;border-top:1px solid var(--border);}
         <div class="tl">3줄 요약</div>
         <ul>
           <li>첫 마켓은 <b>스마트스토어</b>를 권합니다. 수수료가 낮고 페널티가 덜 가혹합니다.</li>
-          <li>스마트스토어센터에서 API 키(Client ID·Secret)를 발급받아 ALL8에 붙여넣습니다.</li>
-          <li>연결 후 <b>원산지 → 출고지 → 반품지 → A/S 전화번호</b> 순서로 채우세요. 순서가 중요합니다.</li>
+          <li>스마트스토어센터에서 <b>API 연동용 판매자 아이디</b>를 확인해 ALL8에 입력합니다. 시크릿 키는 없어요.</li>
+          <li>연결되면 화면에 나오는 순서대로 <b>출고지·반품지 → 수수료 → 배송 → A/S → 원산지</b>를 채웁니다.</li>
         </ul>
       </div>
 
@@ -469,19 +495,13 @@ details.more .mbody{padding:2px 18px 18px;border-top:1px solid var(--border);}
         쿠팡은 출고 기한을 어기면 셀러 점수가 바로 깎입니다. 아직 소싱·발주 리듬이 안 잡힌 첫 주에 쿠팡부터 시작하면 첫 주문에서 사고가 나기 쉽습니다. 스마트스토어로 흐름을 익히고, 익숙해진 뒤 쿠팡을 붙이세요. 쿠팡·11번가·G마켓·옥션·롯데ON·토스쇼핑 설정은 <a href="./manual.html#market-account" style="color:inherit;font-weight:800;">전체 매뉴얼</a>에 마켓별로 정리돼 있습니다.
       </div>
 
-      <div class="clip" data-clip="day2-market">
-        <div class="cico">▶</div>
-        <div class="ccap">영상 — 스마트스토어 API 발급부터 연결 확인, 권장 설정까지</div>
-        <div class="cmeta">약 2분 · CLIP-02 · day2-market</div>
-      </div>
-
       <div class="card">
         <div class="card-title">① API 키 발급 — 처음 한 번만</div>
         <ol class="steps">
           <li><strong>스마트스토어센터 로그인</strong><span><a href="https://sell.smartstore.naver.com" target="_blank">sell.smartstore.naver.com</a> · 네이버 사업자 계정이 필요합니다.</span></li>
           <li><strong>왼쪽 메뉴 → 스토어 설정 → 외부앱 관리</strong><span></span></li>
           <li><strong>애플리케이션 등록 → 필요한 권한 모두 선택</strong><span>권한을 빼놓으면 나중에 업로드가 실패합니다. 전부 체크하세요.</span></li>
-          <li><strong>Client ID · Client Secret 복사</strong><span>네이버 검토에 1~3영업일이 걸립니다. 승인되면 사용할 수 있어요.</span></li>
+          <li><strong>API 연동용 판매자 아이디 확인</strong><span>스마트스토어는 이 아이디 하나만 입력하면 됩니다. 별도의 시크릿 키는 없어요. 네이버 검토에 1~3영업일이 걸립니다.</span></li>
           <li><strong>ALL8 → 마켓 계정 설정 → 인증 정보에 붙여넣고 연결 확인</strong><span>"연결 확인"이 통과하면 성공입니다.</span></li>
         </ol>
       </div>
@@ -489,7 +509,7 @@ details.more .mbody{padding:2px 18px 18px;border-top:1px solid var(--border);}
       <div class="shot" data-shot="ss-api">
         <span class="sico">📸</span>
         <div class="scap">캡처 자리 — ALL8 마켓 계정 설정에서 "연결 확인" 성공한 화면</div>
-        <div class="sfile">img/start/ss-api-connected.png</div>
+        <div class="sfile">img/ss-api-connected.png</div>
       </div>
 
       <div class="card">
@@ -497,17 +517,23 @@ details.more .mbody{padding:2px 18px 18px;border-top:1px solid var(--border);}
         <div class="tbl-wrap">
           <table>
             <tr><th style="width:26%">항목</th><th>이렇게 설정</th></tr>
-            <tr><td><b>원산지 및 수입</b></td><td>가장 먼저 설정 → <b>기타 — 상세 설명에 표시 (03)</b>. 이걸 먼저 해야 출고지 입력이 활성화됩니다.</td></tr>
+            <tr><td><b>원산지 및 수입</b></td><td><b>기타 — 상세 설명에 표시 (03)</b> 선택. 국내리셀·해외구매대행 모두 이 값이 가장 무난합니다.</td></tr>
             <tr><td><b>출고지 / 반품지</b></td><td>실제 주소를 정확히 입력. 반품지는 "출고지와 동일" 체크로 끝내면 됩니다. 허위 입력은 마켓 제재 대상입니다.</td></tr>
             <tr><td><b>A/S 정보</b></td><td><b>필수 — 비우면 등록이 거부됩니다.</b> 전화번호는 실제 연락처, 안내 문구는 "문자나 톡톡 문의 주시기 바랍니다".</td></tr>
-            <tr><td><b>수수료</b></td><td>카테고리별 2~6%. 정확한 값은 셀러오피스에서 확인하고 넣으세요.</td></tr>
-            <tr><td><b>묶음배송 사용</b></td><td><b>체크 해제.</b> 구매대행·무재고 위탁은 상품마다 따로 배송돼서 묶음이 불가능합니다.</td></tr>
-            <tr><td><b>제주/도서산간</b></td><td>처음엔 <b>미사용</b>으로 두는 게 편합니다. 추가배송비 정산이 까다롭습니다.</td></tr>
+            <tr><td><b>수수료</b></td><td>스마트스토어는 <b>6%</b>. 안전 마진을 두려면 7%. 이 값만큼 판매가에 자동으로 더해져 올라갑니다.</td></tr>
+            <tr><td><b>택배사 코드</b></td><td><b>필수값.</b> 계약된 택배사가 없으면 아무거나 하나 선택하세요. 비우면 상품 등록이 거부됩니다.</td></tr><tr><td><b>묶음배송 사용</b></td><td><b>체크 해제.</b> 무재고라 상품마다 배송처가 달라 묶음이 불가능합니다. 단, 한 소싱처에서만 수집했다면 사용해도 됩니다.</td></tr>
+            <tr><td><b>제주/도서산간 추가배송비</b></td><td><b>제주 / 제주 외 도서산간 분리</b> 선택 후 <b>제주 6,000원 · 도서산간 8,000원</b>. 도서산간은 배송편이 적어 실비가 더 듭니다.</td></tr>
             <tr><td><b>채널 노출</b></td><td>네이버 쇼핑 등록 <b>사용</b> / 채널 노출 <b>노출</b>. 이게 꺼져 있으면 검색에 안 잡힙니다.</td></tr>
           </table>
         </div>
       </div>
 
+
+      <div class="shot" data-shot="market-settings">
+        <span class="sico">📸</span>
+        <div class="scap">캡처 자리 — 마켓 설정 화면 전체 (출고지 → 수수료 → 배송 → A/S → 원산지 → 상품속성 → 채널노출)</div>
+        <div class="sfile">img/market-settings.png</div>
+      </div>
       <div class="callout tip">
         <div class="callout-title">💡 가격 계산식은 지금 건드리지 마세요</div>
         마켓 계정 설정 안에도 "가격 계산식"이 있지만, 비워두면 Day 3에서 만들 프리셋의 계산식이 그대로 적용됩니다. 마켓마다 다른 가격을 쓰고 싶어질 때 그때 설정하면 됩니다.
@@ -551,11 +577,10 @@ details.more .mbody{padding:2px 18px 18px;border-top:1px solid var(--border);}
         프리셋 없이 먼저 상품을 100개 수집한 뒤, 편집 화면에서 하나씩 고치기 시작합니다. 그러다 "이 프로그램 왜 이렇게 손이 많이 가지?" 하고 포기합니다. <b>순서만 바꾸면 됩니다. 프리셋 먼저입니다.</b>
       </div>
 
-      <div class="clip" data-clip="day3-preset">
-        <div class="cico">▶</div>
-        <div class="ccap">영상 — 프리셋 샘플 올리고 마진율·마켓·배송비만 수정하기</div>
-        <div class="cmeta">약 2분 · CLIP-03 · day3-preset · ★핵심</div>
-      </div>
+      <a class="vlink" href="https://www.youtube.com/watch?v=bzbCRfhHxNc&t=2984s" target="_blank">
+        <span class="vico">&#9654;</span>
+        <span class="vtxt"><b>영상으로 보기 — 프리셋 상세 설정 총정리</b><em>전체 강의 49:44 지점부터 재생됩니다</em></span>
+      </a>
 
       <div class="card">
         <div class="card-title">① 가장 빠른 방법 — 샘플 파일 올려서 시작</div>
@@ -573,21 +598,21 @@ details.more .mbody{padding:2px 18px 18px;border-top:1px solid var(--border);}
               </a>
             </div>
           </li>
-          <li><strong>ALL8 → 왼쪽 메뉴 프리셋 관리 → 우측 상단 공유파일 업로드</strong><span>.a8s 파일을 선택하면 프리셋 목록에 자동으로 추가됩니다.</span></li>
+          <li><strong>ALL8 → 왼쪽 메뉴 프리셋 관리 → 우측 상단 공유파일 업로드</strong><span>.a8s 파일을 선택하면 프리셋 목록에 자동으로 추가됩니다.</span>
+            <div class="shot" data-shot="preset-upload">
+              <span class="sico">📸</span>
+              <div class="scap">캡처 자리 — 프리셋 관리 → 공유파일 업로드 → 파일 선택</div>
+              <div class="sfile">img/preset-upload.png</div>
+            </div>
+          </li>
           <li><strong>프롬프트도 같은 방식으로</strong><span>왼쪽 메뉴 프롬프트 관리 → 공유파일 업로드 → .a8p 선택.</span></li>
           <li><strong>업로드한 프리셋을 열어 3가지만 확인·수정</strong><span>① 업로드 마켓이 내 계정인지 ② 계산식의 마진율 ③ 배송비. 나머지는 그대로 두세요.</span></li>
         </ol>
       </div>
 
-      <div class="shot" data-shot="preset-upload">
-        <span class="sico">📸</span>
-        <div class="scap">캡처 자리 — 프리셋 관리 화면 + 공유파일 업로드 버튼 위치</div>
-        <div class="sfile">img/start/preset-upload.png</div>
-      </div>
-
       <div class="card">
         <div class="card-title">② 직접 만든다면 — 이 4개만 채우면 90% 끝납니다</div>
-        <p style="font-size:.9rem;color:var(--ink2);margin-bottom:10px;">프리셋에는 13개 섹션이 있지만 전부 채울 필요가 없습니다. <b>값이 들어간 섹션만 상품에 적용</b>되고, 비워둔 섹션은 무시됩니다.</p>
+        <p style="font-size:.9rem;color:var(--ink2);margin-bottom:10px;">프리셋에는 편집 섹션이 15개 있지만 전부 채울 필요가 없습니다. <b>값이 들어간 섹션만 상품에 적용</b>되고, 비워둔 섹션은 무시됩니다. 화면 왼쪽 목록에서 <b>초록 체크가 값이 채워진 섹션</b>, 회색이 비어 있는 섹션입니다.</p>
         <div class="tbl-wrap">
           <table>
             <tr><th style="width:22%">섹션</th><th>초보자 설정</th></tr>
@@ -600,13 +625,19 @@ details.more .mbody{padding:2px 18px 18px;border-top:1px solid var(--border);}
       </div>
 
       <div class="card">
-        <div class="card-title">③ 계산식 — 수수료를 빼먹으면 남는 게 없습니다</div>
-        <p style="font-size:.9rem;color:var(--ink2);margin-bottom:10px;">초보자가 가장 많이 하는 실수가 <b>마켓 수수료를 마진에 안 넣는 것</b>입니다. 목표 마진이 20%인데 수수료가 12%면, 실제로는 8%밖에 안 남습니다.</p>
+        <div class="card-title">③ 계산식 — 마켓 수수료는 자동으로 더해집니다</div>
+        <p style="font-size:.9rem;color:var(--ink2);margin-bottom:10px;">여기서 정한 마진은 <b>순수하게 내가 남길 몫</b>입니다. 마켓 수수료는 여기에 포함하지 않아도 됩니다.</p>
         <div class="callout good">
-          <div class="callout-title">🧮 계산 예시</div>
+          <div class="callout-title">🧮 이렇게 계산됩니다</div>
           원가 8,000원 · 마진율 35% · 추가비용 500원<br>
-          → 판매가 = (8,000 × 1.35) + 500 = <b>11,300원</b><br>
-          여기서 마켓 수수료가 빠져나가므로, <b>목표 마진 + 마켓 수수료</b>를 합쳐서 마진율을 잡아야 합니다.
+          → <b>기준 판매가 = 11,300원</b> (프리셋 계산식 결과)<br><br>
+          여기에 <b>마켓 설정에 입력한 수수료만큼 자동으로 더해져서</b> 업로드됩니다.<br>
+          · 스마트스토어 6% &nbsp;·&nbsp; 쿠팡 13% &nbsp;·&nbsp; 지마켓 15%<br>
+          마켓마다 수수료가 다르니 <b>올라가는 가격도 마켓마다 달라집니다.</b>
+        </div>
+        <div class="callout tip">
+          <div class="callout-title">💡 가격이 마켓마다 달라지는 게 싫다면</div>
+          편집 화면에서 <b>실제 판매가 모드</b>로 바꾸면 모든 마켓이 같은 가격으로 올라갑니다. 대신 수수료가 더해지지 않으니, <b>마진율을 정할 때 마켓 수수료를 미리 포함</b>해서 잡으셔야 합니다. 그러지 않으면 수수료를 떼고 남는 게 없어요.
         </div>
         <details class="more">
           <summary>구간별 계산식 샘플 엑셀 3종 — 대량 등록할 때 필수</summary>
@@ -625,6 +656,16 @@ details.more .mbody{padding:2px 18px 18px;border-top:1px solid var(--border);}
         <div class="callout-title">🔓 프리셋 18종 · 프롬프트 50종 — 유료 구독 1개월 이상</div>
         위 샘플은 맛보기입니다. <b>나라별 · 카테고리별 · 판매전략별</b>로 세팅이 끝난 <b>프리셋 18종</b>과, 상품명·상세설명·AI 이미지까지 아우르는 <b>프롬프트 50종</b> 전체를 ALL8 유료 구독 1개월 이상 사용자에게 드립니다. 갱신본도 계속 제공됩니다.<br>
         <a href="./manual.html#downloads" style="color:inherit;font-weight:800;">→ 자세히 보기</a>
+      </div>
+
+      <div class="card" style="border-color:var(--green-border);">
+        <div class="card-title">✅ 예시대로 세팅하기 — 국내리셀 프리셋 전체 입력값</div>
+        <p style="font-size:.9rem;color:var(--ink2);margin-bottom:4px;">국내리셀 프리셋의 <b>15개 섹션 전체 입력값</b>입니다. 이대로 따라 넣고 저장하시면 됩니다. 업로드 마켓만 내 계정으로 바꾸세요.</p>
+        <div class="shot" data-shot="preset-editor">
+          <span class="sico">📸</span>
+          <div class="scap">캡처 자리 — 프리셋 15개 섹션 전체 입력값 (국내리셀)</div>
+          <div class="sfile">img/preset-editor.png</div>
+        </div>
       </div>
 
       <div class="callout tip">
@@ -660,11 +701,10 @@ details.more .mbody{padding:2px 18px 18px;border-top:1px solid var(--border);}
         </ul>
       </div>
 
-      <div class="clip" data-clip="day4-firstproduct">
-        <div class="cico">▶</div>
-        <div class="ccap">영상 — 수집부터 업로드까지, 실제 마켓에 뜨는 것까지 한 번에</div>
-        <div class="cmeta">약 3분 · CLIP-04 · day4-firstproduct · ★★가장 중요</div>
-      </div>
+      <a class="vlink" href="https://www.youtube.com/watch?v=bzbCRfhHxNc&t=4706s" target="_blank">
+        <span class="vico">&#9654;</span>
+        <span class="vtxt"><b>영상으로 보기 — 수집 상품 관리 &amp; 워크스페이스 활용</b><em>전체 강의 1:18:26 지점부터 재생됩니다</em></span>
+      </a>
 
       <div class="card">
         <div class="card-title">① 첫 상품 고르는 기준</div>
@@ -689,13 +729,13 @@ details.more .mbody{padding:2px 18px 18px;border-top:1px solid var(--border);}
       <div class="shot" data-shot="collect-preset">
         <span class="sico">📸</span>
         <div class="scap">캡처 자리 — 사이드패널에서 프리셋 선택 + "이 상품 수집" 버튼 (화살표 표시)</div>
-        <div class="sfile">img/start/collect-with-preset.png</div>
+        <div class="sfile">img/collect-with-preset.png</div>
       </div>
 
       <div class="shot" data-shot="product-status">
         <span class="sico">📸</span>
         <div class="scap">캡처 자리 — 상품 목록의 상태 배지 (수집됨 · 처리중 · 수정완료 · 판매중이 함께 보이게)</div>
-        <div class="sfile">img/start/product-status.png</div>
+        <div class="sfile">img/product-status.png</div>
       </div>
 
       <div class="card">
@@ -721,7 +761,7 @@ details.more .mbody{padding:2px 18px 18px;border-top:1px solid var(--border);}
       <div class="shot" data-shot="upload-flow">
         <span class="sico">📸</span>
         <div class="scap">캡처 자리 — 편집 화면 오른쪽 업로드 플로우 (빨간 점·초록 체크가 섞인 상태)</div>
-        <div class="sfile">img/start/upload-flow.png</div>
+        <div class="sfile">img/upload-flow.png</div>
       </div>
 
       <div class="card">
@@ -737,13 +777,13 @@ details.more .mbody{padding:2px 18px 18px;border-top:1px solid var(--border);}
       <div class="shot" data-shot="published-green">
         <span class="sico">📸</span>
         <div class="scap">캡처 자리 — 게시된 상품 · 판매중 탭에 🟢 상품이 올라간 화면</div>
-        <div class="sfile">img/start/published-green.png</div>
+        <div class="sfile">img/published-green.png</div>
       </div>
 
       <div class="shot" data-shot="market-live">
         <span class="sico">📸</span>
         <div class="scap">캡처 자리 — 실제 스마트스토어에 노출된 내 상품 (이 장면이 Day 4의 마무리)</div>
-        <div class="sfile">img/start/market-live.png</div>
+        <div class="sfile">img/market-live.png</div>
       </div>
 
       <div class="callout good">
@@ -770,12 +810,6 @@ details.more .mbody{padding:2px 18px 18px;border-top:1px solid var(--border);}
       </div>
       <p class="section-desc">한 개를 성공했다면 열 개도 같은 방법입니다. 오늘은 <strong>10개</strong>만 해보세요. 100개는 나중입니다.</p>
 
-      <div class="clip" data-clip="day5-bulk">
-        <div class="cico">▶</div>
-        <div class="ccap">영상 — 여러 개 한 번에 담고 옵션 정리하기</div>
-        <div class="cmeta">약 2분 · CLIP-05 · day5-bulk</div>
-      </div>
-
       <div class="card">
         <div class="card-title">📥 여러 개 담는 3가지 방법</div>
         <div class="tbl-wrap">
@@ -788,6 +822,12 @@ details.more .mbody{padding:2px 18px 18px;border-top:1px solid var(--border);}
         </div>
       </div>
 
+
+      <div class="shot" data-shot="bulk-collect">
+        <span class="sico">📸</span>
+        <div class="scap">캡처 자리 — 검색 결과에서 체크박스로 여러 개 담기</div>
+        <div class="sfile">img/bulk-collect.png</div>
+      </div>
       <div class="card">
         <div class="card-title">💻 브라우저 수집 vs ☁️ 서버 수집</div>
         <div class="tbl-wrap">
@@ -823,6 +863,12 @@ details.more .mbody{padding:2px 18px 18px;border-top:1px solid var(--border);}
         </div>
       </div>
 
+
+      <div class="shot" data-shot="option-edit">
+        <span class="sico">📸</span>
+        <div class="scap">캡처 자리 — 옵션 삭제와 중국어 옵션명 한글화</div>
+        <div class="sfile">img/option-edit.png</div>
+      </div>
       <details class="more">
         <summary>상품이 쌓이면 편해지는 기능 2가지</summary>
         <div class="mbody">
@@ -902,12 +948,6 @@ details.more .mbody{padding:2px 18px 18px;border-top:1px solid var(--border);}
       </div>
       <p class="section-desc">여기까지 오셨다면 기본기는 끝났습니다. 마지막 날은 <strong>사고를 막아주는 장치</strong> 하나와, 앞으로 쓰게 될 <strong>소싱 도구</strong>를 구경합니다.</p>
 
-      <div class="clip" data-clip="day7-stock">
-        <div class="cico">▶</div>
-        <div class="ccap">영상 — 재고 연동 켜기 + 소싱기 발굴 맛보기</div>
-        <div class="cmeta">약 2분 · CLIP-06 · day7-stock</div>
-      </div>
-
       <div class="card">
         <div class="card-title">🔄 재고 연동 — 품절 사고를 막아줍니다</div>
         <p style="font-size:.9rem;color:var(--ink2);margin-bottom:10px;">주문을 받았는데 소싱처가 품절이면 취소해야 하고, 취소는 곧 마켓 페널티입니다. 재고 연동은 소싱처의 품절·가격 변동을 주기적으로 확인해줍니다.</p>
@@ -922,6 +962,12 @@ details.more .mbody{padding:2px 18px 18px;border-top:1px solid var(--border);}
         </div>
       </div>
 
+
+      <div class="shot" data-shot="stock-sync">
+        <span class="sico">📸</span>
+        <div class="scap">캡처 자리 — 재고 연동 설정 화면</div>
+        <div class="sfile">img/stock-sync.png</div>
+      </div>
       <div class="card">
         <div class="card-title">🔍 소싱기 — 팔리는 상품을 먼저 찾고, 소싱처를 역으로 찾는 도구</div>
         <p style="font-size:.9rem;color:var(--ink2);margin-bottom:10px;">내가 직접 1688을 뒤지는 게 아니라, <b>네이버쇼핑에서 이미 팔리고 있는 상품</b>을 찾은 뒤 1688이나 라쿠텐에서 소싱처를 자동으로 매칭해주는 방식입니다.</p>
@@ -1058,12 +1104,26 @@ details.more .mbody{padding:2px 18px 18px;border-top:1px solid var(--border);}
    · 아직 없으면           → 빈 문자열   : ''  (자리 표시가 그대로 보임)
    ══════════════════════════════════════════════════════════ */
 var CLIPS = {
-  'day1-install'     : '',   // CLIP-01 · 확장프로그램 설치 (90초)
-  'day2-market'      : '',   // CLIP-02 · 스마트스토어 연결 (2분)
   'day3-preset'      : '',   // CLIP-03 · 프리셋 샘플 업로드 (2분) ★
-  'day4-firstproduct': '',   // CLIP-04 · 첫 상품 올리기 전 과정 (3분) ★★
-  'day5-bulk'        : '',   // CLIP-05 · 여러 개 수집·옵션 정리 (2분)
-  'day7-stock'       : ''    // CLIP-06 · 재고연동 + 소싱기 (2분)
+  'day4-firstproduct': ''    // CLIP-04 · 첫 상품 올리기 전 과정 (3분) ★★
+};
+
+/* ══════════════════════════════════════════════════════════
+   📸 캡처별 번호 설명 — 캡처에 ①②③ 을 얹고, 여기에 설명을 씁니다
+   ══════════════════════════════════════════════════════════ */
+var SHOTSTEPS = {
+  'ext-pin':        ['크롬 오른쪽 위 🧩 아이콘 클릭','목록에서 올에잇 찾기','📌 를 눌러 주소창 옆에 고정'],
+  'ss-api':         ['API 연동용 판매자 아이디 입력','연결 확인 클릭','불러온 값 선택 후 저장'],
+  'market-settings':['출고지 / 반품·교환지 — 셀러센터 주소록에서 선택','수수료 — 스마트스토어 6%','배송 설정 — 택배사 코드 필수, 묶음배송 해제','A/S — 전화번호·안내 비우면 등록 거부','원산지 — 기타(상세 설명에 표시, 03)','상품 속성 — 사용 (AI가 자동으로 채움)','채널 노출 — 네이버 쇼핑 등록 사용 · 노출'],
+  'preset-upload':  ['왼쪽 메뉴 → 프리셋','우측 상단 공유파일 업로드','파일 선택 → .a8s 열기'],
+  'collect-preset': ['프리셋 드롭다운 열기','Day 3에서 만든 프리셋 선택','이 상품 수집 클릭'],
+  'bulk-collect':   ['소싱처 검색 결과 페이지 열기','상품마다 뜨는 체크박스 선택','선택한 개수 확인','수집 시작'],
+  'option-edit':    ['옵션 목록 펼치기','안 팔릴 옵션 체크 후 삭제','중국어 옵션명을 한국어로 수정'],
+  'product-status': ['수집됨 — 가져오는 중','처리중 — 프리셋 적용 중','수정완료 — 업로드 준비됨','판매중 — 마켓에 올라감'],
+  'upload-flow':    ['🔴 빨간 점 — 반드시 해야 함','✅ 초록 체크 — 프리셋이 채워줌','⚪ 빈 원 — 건너뛰어도 됨','마켓 업로드 버튼'],
+  'published-green':['판매중 탭 선택','🟢 판매중 상태','상품 ID 확인','마켓 바로가기'],
+  'market-live':    ['상품명이 한국어로 나왔는지','판매가가 계산식대로인지','대표이미지가 제대로 걸렸는지'],
+  'stock-sync':     ['가격/재고 연동 켜기','확인 주기 설정','총 확인 횟수 (최대 99)','품절 정책 — 하나라도 품절 시 판매중지']
 };
 
 document.querySelectorAll('.clip[data-clip]').forEach(function(box){
@@ -1140,18 +1200,53 @@ document.querySelectorAll('.shot[data-shot]').forEach(function(box){
   var fileEl = box.querySelector('.sfile');
   if(!fileEl) return;
   var src = fileEl.textContent.trim();
+  var key = box.getAttribute('data-shot');
+  var steps = SHOTSTEPS[key];
+  var nums = '①②③④⑤⑥⑦⑧⑨⑩';
+  var capEl = box.querySelector('.scap');
+  var capText = capEl ? capEl.textContent.replace('캡처 자리 — ', '') : '';
+
+  if(steps && steps.length){
+    var pre = document.createElement('div');
+    pre.className = 'snum';
+    pre.textContent = steps.map(function(s, i){ return (nums[i] || (i+1)) + ' ' + s; }).join('　');
+    box.appendChild(pre);
+    fileEl.textContent = src + ' · 번호 ' + steps.length + '개';
+  }
+
   var probe = new Image();
   probe.onload = function(){
     box.classList.add('filled');
     box.innerHTML = '';
     var im = document.createElement('img');
     im.src = src;
-    im.alt = '';
+    im.alt = capText;
+    im.onclick = function(){ openLightbox(src); };
     box.appendChild(im);
-    box.onclick = function(){ openLightbox(src); };
+    if(steps && steps.length){
+      var ol = document.createElement('ol');
+      ol.className = 'shot-steps';
+      ol.innerHTML = '<li class="ss-cap">' + capText + '</li>' +
+        steps.map(function(s, i){ return '<li><b>' + (nums[i] || (i+1)) + '</b>' + s + '</li>'; }).join('');
+      box.appendChild(ol);
+    }
   };
   probe.src = src;
 });
+
+// ── ?jump=키 로 들어오면 해당 자리로 이동 + 표시 ──
+(function(){
+  var q = new URLSearchParams(location.search).get('jump');
+  if(!q) return;
+  var el = document.querySelector('[data-shot="' + q + '"], [data-clip="' + q + '"]');
+  if(!el) return;
+  setTimeout(function(){
+    el.scrollIntoView({ behavior:'smooth', block:'center' });
+    el.style.outline = '3px solid var(--green)';
+    el.style.outlineOffset = '4px';
+    setTimeout(function(){ el.style.outline = ''; el.style.outlineOffset = ''; }, 2600);
+  }, 200);
+})();
 
 // ── 라이트박스 ──
 function openLightbox(src){
@@ -1172,5 +1267,69 @@ document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeLi
   <div style="position:absolute;top:16px;right:20px;color:#fff;font-size:28px;font-weight:900;cursor:pointer;line-height:1;">✕</div>
 </div>
 
+<script>
+/* ══════════ 전체 강의 영상 지점 링크 ══════════ */
+var YT = 'https://www.youtube.com/watch?v=bzbCRfhHxNc&t=';
+function fmtT(s){
+  var h=Math.floor(s/3600), m=Math.floor(s%3600/60), x=s%60;
+  return (h? h+':':'') + (h?String(m).padStart(2,'0'):String(m)) + ':' + String(x).padStart(2,'0');
+}
+/* Day별 대표 지점 */
+var DAYVIDEO = {
+  'day1': [1111, '수집기 설치 · 핀 고정'],
+  'day2': [1363, '마켓 설정 — 스마트스토어'],
+  'day3': [2984, '프리셋 상세 설정'],
+  'day4': [4706, '수집 → 편집 → 업로드'],
+  'day5': [4722, '워크스페이스 · 필터로 관리'],
+  'day6': [5954, '주문관리 자동화'],
+  'day7': [5505, '재고 연동 · 소싱기']
+};
+/* 카드 제목별 세부 지점 */
+var CARDVIDEO = {
+  '🔌 따라하기':                 1111,
+  '① API 키 발급 — 처음 한 번만': 1421,
+  '② 초보자 권장 설정값':         1501,
+  '① 가장 빠른 방법':             1046,
+  '② 직접 만든다면':              2984,
+  '③ 계산식':                     3550,
+  '① 첫 상품 고르는 기준':        4740,
+  '② 수집하기':                   4740,
+  '③ 편집':                       4956,
+  '④ 업로드하고 눈으로 확인':     5114,
+  '📥 여러 개 담는 3가지 방법':   1243,
+  '💻 브라우저 수집':             5546,
+  '✂️ 옵션이 너무 많을 때':       5031,
+  '📦 주문 상태별 할 일':         5990,
+  '🔄 재고 연동':                 5505,
+  '🔍 소싱기':                    5742
+};
+(function(){
+  function mk(t, label, big){
+    var a = document.createElement('a');
+    a.className = 'vjump';
+    a.href = YT + t + 's';
+    a.target = '_blank';
+    a.innerHTML = big ? ('<span class="yt"></span> 영상으로 보기 — ' + label + ' <b>' + fmtT(t) + '</b>') : ('<span class="yt"></span>' + fmtT(t));
+    a.title = '전체 강의 ' + fmtT(t) + ' 지점에서 재생';
+    return a;
+  }
+  Object.keys(DAYVIDEO).forEach(function(id){
+    var sec = document.getElementById(id);
+    if(!sec) return;
+    var bar = sec.querySelector('.metabar');
+    if(!bar) return;
+    var w = document.createElement('div');
+    w.className = 'daybar-v';
+    w.appendChild(mk(DAYVIDEO[id][0], DAYVIDEO[id][1], true));
+    bar.parentNode.insertBefore(w, bar.nextSibling);
+  });
+  document.querySelectorAll('.card-title').forEach(function(el){
+    var txt = el.textContent.trim();
+    for(var k in CARDVIDEO){
+      if(txt.indexOf(k) === 0){ el.appendChild(mk(CARDVIDEO[k], '', false)); break; }
+    }
+  });
+})();
+</script>
 </body>
 </html>

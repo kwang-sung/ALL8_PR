@@ -89,11 +89,11 @@ body{background:var(--bg);color:var(--ink);font-family:-apple-system,"Apple SD G
 
 /* ── 스텝 리스트 ── */
 ol.steps{list-style:none;padding:0;counter-reset:s;}
-ol.steps li{counter-increment:s;padding:12px 0 12px 44px;position:relative;border-bottom:1px solid var(--border);}
-ol.steps li:last-child{border-bottom:none;padding-bottom:0;}
-ol.steps li::before{content:counter(s);position:absolute;left:0;top:12px;width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center;}
-ol.steps li strong{display:block;font-weight:700;margin-bottom:2px;font-size:.93rem;}
-ol.steps li span{color:var(--ink3);font-size:.88rem;}
+ol.steps > li{counter-increment:s;padding:12px 0 12px 44px;position:relative;border-bottom:1px solid var(--border);}
+ol.steps > li:last-child{border-bottom:none;padding-bottom:0;}
+ol.steps > li::before{content:counter(s);position:absolute;left:0;top:12px;width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;font-size:.72rem;font-weight:800;display:flex;align-items:center;justify-content:center;}
+ol.steps > li strong{display:block;font-weight:700;margin-bottom:2px;font-size:.93rem;}
+ol.steps > li span{color:var(--ink3);font-size:.88rem;}
 
 /* ── 불릿 리스트 ── */
 ul.dots{list-style:none;padding:0;}
@@ -255,6 +255,26 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
       <a href="./start.html" style="display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:11px 22px;border-radius:100px;background:var(--green);color:#fff;font-size:.9rem;font-weight:800;text-decoration:none;box-shadow:0 3px 12px rgba(16,185,129,.28);">처음이신가요? → 초보자 7일 시작 가이드</a>
     </div>
 
+    <!-- ────────── 전체 강의 영상 ────────── -->
+    <div class="vid-wrap" id="fullvideo">
+      <div class="vid-head">
+        <div>
+          <h2>영상으로 한 번에 보기 — 올에잇 사용법 전체 강의</h2>
+          <p>수집기 · 마켓 설정 · 프리셋을 실제 화면으로 처음부터 끝까지. 아래 목차를 누르면 그 지점부터 재생됩니다.</p>
+        </div>
+        <button type="button" id="vidToggle">영상 접기</button>
+      </div>
+      <div class="vid-body" id="vidBody">
+        <div class="vid-frame">
+          <iframe id="ytPlayer" src="" title="올에잇 사용법 전체 강의" frameborder="0"
+            allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+        </div>
+        <div class="vid-toc" id="vidToc"></div>
+      </div>
+    </div>
+
+
     <!-- 검색 결과 없음 -->
     <div class="no-result" id="noResult">
       🔍 <strong id="noResultQuery"></strong> 에 대한 결과가 없어요.<br>
@@ -269,12 +289,12 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
           <div class="qs-step">
             <div class="snum">STEP 1</div>
             <div class="stitle">확장 프로그램 설치</div>
-            <div class="sdesc">all8.io 로그인 → 확장프로그램 다운로드 → 크롬에 추가 → 🧩 에서 📌 핀 고정</div>
+            <div class="sdesc">all8.io 로그인 → 상품 수집기 다운로드 → 크롬 웹스토어에서 추가 → 🧩 에서 📌 핀 고정</div>
           </div>
           <div class="qs-step">
             <div class="snum">STEP 2</div>
             <div class="stitle">마켓 1곳 연결</div>
-            <div class="sdesc">마켓 계정 설정 → API 키 입력 → 원산지 · 출고지 · 반품지 · A/S 순서로 입력</div>
+            <div class="sdesc">마켓 계정 설정 → 인증 정보 입력 → 연결 확인 → 출고지 · 수수료 · 배송 · A/S · 원산지 순서로 입력</div>
           </div>
           <div class="qs-step">
             <div class="snum">STEP 3</div>
@@ -301,7 +321,7 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
             <span>카카오 계정으로 바로 가입·로그인할 수 있어요.</span>
           </li>
           <li>
-            <strong>왼쪽 메뉴 → <span class="btn">확장프로그램 다운로드</span> 클릭 → 크롬에 추가</strong>
+            <strong>왼쪽 메뉴 → <span class="btn">상품 수집기 다운로드</span> → 크롬 웹스토어에서 추가</strong>
             <span>크롬 웹스토어 페이지가 열리면 "Chrome에 추가" 버튼을 누르세요.</span>
           </li>
           <li>
@@ -447,7 +467,7 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
               <span>카카오 계정으로 바로 가입·로그인할 수 있어요.</span>
             </li>
             <li>
-              <strong>왼쪽 메뉴에서 <span class="btn">확장프로그램 다운로드</span> 클릭</strong>
+              <strong>왼쪽 메뉴에서 <span class="btn">상품 수집기 다운로드</span> 클릭</strong>
               <span>크롬 웹스토어로 이동해요.</span>
             </li>
             <li>
@@ -530,7 +550,7 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
               <tr>
                 <td>크롬 웹스토어 링크가 없어요</td>
                 <td>배포 심사 중일 수 있음</td>
-                <td>all8.io → 확장프로그램 다운로드 페이지에서 최신 링크 확인. 또는 ALL8 말풍선에 문의.</td>
+                <td>all8.io → 상품 수집기 다운로드 페이지에서 최신 링크 확인. 또는 ALL8 말풍선에 문의.</td>
               </tr>
             </table>
           </div>
@@ -674,7 +694,7 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
                 <strong><span class="btn">애플리케이션 등록</span> 클릭 → 필요한 권한 모두 선택</strong>
               </li>
               <li>
-                <strong>Client ID와 Client Secret 복사 → ALL8에 붙여넣기 후 연결 확인</strong>
+                <strong>API 연동용 판매자 아이디를 ALL8에 입력 후 연결 확인</strong>
               </li>
             </ol>
             <div class="callout warn" style="margin-top:10px;">
@@ -703,7 +723,7 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
                 <tr><th colspan="3" style="background:var(--ink1);color:#fff;">기본 정보 · 인증 정보</th></tr>
                 <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
                 <tr><td><strong>기본 정보</strong></td><td>계정 이름·메모 등 내부 식별용</td><td>구분하기 쉬운 이름 (예: "스토어_본계정")</td></tr>
-                <tr><td><strong>인증 정보</strong></td><td>Client ID / Client Secret 입력란</td><td>발급한 API 키 붙여넣기 → 연결 확인</td></tr>
+                <tr><td><strong>인증 정보</strong></td><td>스마트스토어 — API 연동용 판매자 아이디<br>쿠팡·11번가·롯데ON·토스 — 마켓에서 발급받은 키 값</td><td>마켓마다 입력값이 달라요. 스마트스토어는 아이디만 넣으면 되고 시크릿 키는 없어요</td></tr>
               </table>
             </div>
 
@@ -713,7 +733,7 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
                 <tr><th style="width:22%">항목</th><th style="width:38%">설명</th><th>권장 설정</th></tr>
                 <tr>
                   <td><strong>원산지 및 수입</strong></td>
-                  <td>공통 원산지 표시 방식 — <strong>먼저 설정해야 출고지 활성화</strong></td>
+                  <td>상품에 공통 적용할 원산지 표시 방식</td>
                   <td>드롭다운 → <strong>기타 — 상세 설명에 표시 (03)</strong></td>
                 </tr>
                 <tr>
@@ -2563,113 +2583,78 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
         </div>
       </div>
 
-      <!-- ── AI 이미지 프롬프트 ── -->
+      <!-- ── AI 이미지 프롬프트 안내 ── -->
       <div class="subsection" style="margin-top:24px;">
-        <div class="subsection-title">🎨 AI 이미지 프롬프트 — 범용 16종 (복붙해서 바로 사용)</div>
+        <div class="subsection-title">🎨 AI 이미지 프롬프트 — 어떻게 쓰나요</div>
 
         <div class="callout tip" style="margin-bottom:16px;">
-          <div class="callout-title">💡 사용법</div>
-          상품 편집 화면 → 이미지 클릭 → <strong>AI 수정</strong> 또는 <strong>AI 생성</strong> 선택 → 아래 프롬프트를 복붙. 영문이 결과가 훨씬 좋아요. 끝에 한국어로 추가 요구사항을 덧붙여도 됩니다.
+          <div class="callout-title">💡 사용 위치</div>
+          상품 편집 화면 → 이미지 클릭 → <strong>AI 수정</strong> 또는 <strong>AI 생성</strong> 선택 → 프롬프트 입력. 프리셋의 <b>⑤ 대표 이미지</b> 항목에 넣어두면 수집할 때 자동으로 적용돼요.
         </div>
 
-        <!-- AI 수정 -->
-        <div class="card" style="margin-bottom:14px;">
-          <div class="card-title">✏️ AI 수정 — 7종 (상품 그대로 · 배경만 교체)</div>
-          <p style="font-size:.85rem;color:var(--ink2);margin-bottom:14px;">상품은 절대 변경되지 않고 배경만 새로 만들어줘요. 어떤 상품에도 범용으로 쓸 수 있어요.</p>
-          <div class="tbl-wrap">
-            <table>
-              <tr><th style="width:120px">이름</th><th>프롬프트 (복붙용)</th></tr>
-              <tr>
-                <td><strong>화이트 스튜디오</strong></td>
-                <td><code style="font-size:.8rem;background:var(--bg2);padding:4px 6px;border-radius:5px;display:block;white-space:pre-wrap;word-break:break-all;">Clean white studio backdrop. Soft even lighting from front-left. No shadows, no props, pure product focus.</code></td>
-              </tr>
-              <tr>
-                <td><strong>그레이 그라데이션</strong></td>
-                <td><code style="font-size:.8rem;background:var(--bg2);padding:4px 6px;border-radius:5px;display:block;white-space:pre-wrap;word-break:break-all;">Smooth light-to-dark gray gradient background. Subtle drop shadow below product. Minimal, professional feel.</code></td>
-              </tr>
-              <tr>
-                <td><strong>프리미엄 다크</strong></td>
-                <td><code style="font-size:.8rem;background:var(--bg2);padding:4px 6px;border-radius:5px;display:block;white-space:pre-wrap;word-break:break-all;">Deep charcoal black background. Single dramatic spotlight from upper-right casting soft shadow left. Luxury mood.</code></td>
-              </tr>
-              <tr>
-                <td><strong>북유럽 인테리어</strong></td>
-                <td><code style="font-size:.8rem;background:var(--bg2);padding:4px 6px;border-radius:5px;display:block;white-space:pre-wrap;word-break:break-all;">Bright Scandinavian interior: white wooden table, soft natural side-lighting, small green plant slightly out of focus in background. Cozy minimal aesthetic.</code></td>
-              </tr>
-              <tr>
-                <td><strong>카페 우드 테이블</strong></td>
-                <td><code style="font-size:.8rem;background:var(--bg2);padding:4px 6px;border-radius:5px;display:block;white-space:pre-wrap;word-break:break-all;">Warm café setting: rough wooden surface, out-of-focus bokeh cafe background in warm amber tones. Cozy lifestyle feel.</code></td>
-              </tr>
-              <tr>
-                <td><strong>야외 자연</strong></td>
-                <td><code style="font-size:.8rem;background:var(--bg2);padding:4px 6px;border-radius:5px;display:block;white-space:pre-wrap;word-break:break-all;">Outdoor daylight scene on natural grass or stone surface. Bright sky visible in soft-focus background. Fresh and airy feel.</code></td>
-              </tr>
-              <tr>
-                <td><strong>골든아워</strong></td>
-                <td><code style="font-size:.8rem;background:var(--bg2);padding:4px 6px;border-radius:5px;display:block;white-space:pre-wrap;word-break:break-all;">Golden hour outdoor light: warm orange-yellow sunlight from the side casting a long soft shadow. Warm premium feel.</code></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-
-        <!-- AI 생성 — 제품만 -->
-        <div class="card" style="margin-bottom:14px;">
-          <div class="card-title">🎨 AI 생성 — 제품만 5종 (사람 없음)</div>
-          <p style="font-size:.85rem;color:var(--ink2);margin-bottom:14px;">원본 이미지를 참고해 완전히 새 장면을 만들어요. 사람 없이 상품만 나와요.</p>
-          <div class="tbl-wrap">
-            <table>
-              <tr><th style="width:120px">이름</th><th>프롬프트 (복붙용)</th></tr>
-              <tr>
-                <td><strong>히어로샷</strong></td>
-                <td><code style="font-size:.8rem;background:var(--bg2);padding:4px 6px;border-radius:5px;display:block;white-space:pre-wrap;word-break:break-all;">Product photography hero shot. Product placed on clean white or light gray studio background. Soft directional lighting from upper-left. NO people. Product-only.</code></td>
-              </tr>
-              <tr>
-                <td><strong>프리미엄</strong></td>
-                <td><code style="font-size:.8rem;background:var(--bg2);padding:4px 6px;border-radius:5px;display:block;white-space:pre-wrap;word-break:break-all;">High-end product photography. Dark premium background with single rim light creating an elegant glow. Minimal props. NO people. Product-only.</code></td>
-              </tr>
-              <tr>
-                <td><strong>라이프스타일</strong></td>
-                <td><code style="font-size:.8rem;background:var(--bg2);padding:4px 6px;border-radius:5px;display:block;white-space:pre-wrap;word-break:break-all;">Lifestyle product placement. Bright cozy home interior, wooden surface, warm natural light. NO people, product-only.</code></td>
-              </tr>
-              <tr>
-                <td><strong>아웃도어</strong></td>
-                <td><code style="font-size:.8rem;background:var(--bg2);padding:4px 6px;border-radius:5px;display:block;white-space:pre-wrap;word-break:break-all;">Outdoor adventure setting. Product on rocky surface or grass, natural daylight, mountain or forest in soft focus background. NO people, product-only.</code></td>
-              </tr>
-              <tr>
-                <td><strong>SNS 인스타</strong></td>
-                <td><code style="font-size:.8rem;background:var(--bg2);padding:4px 6px;border-radius:5px;display:block;white-space:pre-wrap;word-break:break-all;">Flat lay product photography. Top-down view, minimal pastel backdrop, small decorative props around product (small flowers, ribbons). Instagram aesthetic. NO people, product-only.</code></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-
-        <!-- AI 생성 — 모델 포함 -->
         <div class="card">
-          <div class="card-title">👤 AI 생성 — 모델 포함 4종 (사람 등장)</div>
-          <p style="font-size:.85rem;color:var(--ink2);margin-bottom:8px;">의류·악세서리·핸드폰케이스 등 착용/사용 이미지가 효과적인 상품에 사용하세요.</p>
-          <div class="callout warn" style="margin-bottom:12px;">
-            <div class="callout-title">⚠️ 주의</div>
-            사람 포함 이미지는 마켓 심사 통과율이 낮을 수 있어요. 쿠팡·스마트스토어 가이드라인 확인 후 사용하세요.
-          </div>
+          <div class="card-title">AI 수정 vs AI 생성 — 무엇이 다른가</div>
           <div class="tbl-wrap">
             <table>
-              <tr><th style="width:140px">이름</th><th>프롬프트 (복붙용)</th></tr>
+              <tr><th style="width:22%">구분</th><th>결과</th><th>언제 쓰나</th></tr>
               <tr>
-                <td><strong>히어로샷 — 여성</strong></td>
-                <td><code style="font-size:.8rem;background:var(--bg2);padding:4px 6px;border-radius:5px;display:block;white-space:pre-wrap;word-break:break-all;">E-commerce product photo featuring an attractive Korean woman in her 20s to 30s holding or wearing the product. Clean studio background, neutral expression, front-facing pose. Bright, natural lighting.</code></td>
+                <td><strong>✏️ AI 수정</strong></td>
+                <td>상품은 그대로 두고 <b>배경만 교체</b>. 원본 형태가 유지돼요.</td>
+                <td>대부분의 경우. 상품이 변형되면 안 되는 리셀·구매대행에 적합합니다.</td>
               </tr>
               <tr>
-                <td><strong>히어로샷 — 남성</strong></td>
-                <td><code style="font-size:.8rem;background:var(--bg2);padding:4px 6px;border-radius:5px;display:block;white-space:pre-wrap;word-break:break-all;">E-commerce product photo featuring an attractive Korean man in his 20s to 30s holding or wearing the product. Clean studio background, neutral expression, front-facing pose. Bright, natural lighting.</code></td>
+                <td><strong>🎨 AI 생성 — 제품만</strong></td>
+                <td>기존 이미지를 참고해 <b>새로 만듭니다</b>. 사람은 등장하지 않아요.</td>
+                <td>연출 컷이 필요한 전략 상품.</td>
               </tr>
               <tr>
-                <td><strong>아웃도어 — 여성</strong></td>
-                <td><code style="font-size:.8rem;background:var(--bg2);padding:4px 6px;border-radius:5px;display:block;white-space:pre-wrap;word-break:break-all;">Outdoor lifestyle photo featuring an attractive Korean woman in her 20s to 30s using or wearing the product in a natural outdoor setting. Casual friendly expression, natural daylight, slightly blurred background.</code></td>
-              </tr>
-              <tr>
-                <td><strong>아웃도어 — 남성</strong></td>
-                <td><code style="font-size:.8rem;background:var(--bg2);padding:4px 6px;border-radius:5px;display:block;white-space:pre-wrap;word-break:break-all;">Outdoor lifestyle photo featuring an attractive Korean man in his 20s to 30s using or wearing the product in a natural outdoor setting. Casual friendly expression, natural daylight, slightly blurred background.</code></td>
+                <td><strong>👤 AI 생성 — 모델 포함</strong></td>
+                <td>사람이 등장하는 착용·사용 컷을 만듭니다.</td>
+                <td>패션·잡화처럼 착용 이미지가 구매 전환에 큰 영향을 주는 카테고리.</td>
               </tr>
             </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">직접 만들 때 — 프롬프트 마법사</div>
+          <ul class="dots">
+            <li>프리셋 → 대표 이미지 항목에 <strong>마법사</strong>가 있어요. 질문에 답하면 프롬프트를 만들어 줍니다.</li>
+            <li>영문으로 작성하면 결과가 더 좋아요. 끝에 한국어로 요구사항을 덧붙여도 됩니다.</li>
+            <li>한글 텍스트를 이미지에 넣으려면 <strong>나노바나나 2</strong>를 쓰세요. 기본 모델은 한글이 깨집니다.</li>
+            <li>처음엔 기본값 그대로 쓰시고, 10~20개 올려본 뒤 원하는 스타일과 다를 때 수정하세요.</li>
+          </ul>
+        </div>
+
+        <div class="unlock" style="margin-top:16px;">
+          <div class="unlock-head">
+            <h3>🔓 바로 쓰는 프롬프트 29종 — 유료 구독 1개월 이상</h3>
+            <p>직접 만들지 않아도 됩니다. 실전에서 검증된 프롬프트를 그대로 복사해 쓰실 수 있어요.</p>
+          </div>
+          <div class="unlock-body">
+            <div class="unlock-col">
+              <span class="unlock-tag">구독 혜택</span>
+              <h4>상품명 · SEO · 옵션 · 이미지 전 영역</h4>
+              <ul>
+                <li><b>상품명 10종</b> — 화장품 · 식품 · 유아동 · 전자제품 · 반려동물, 해외 브랜드/비브랜드, 국내 리셀</li>
+                <li><b>마켓별 SEO 8종</b> — 쿠팡 · 스마트스토어 · G마켓 · 옥션 · 11번가 · 롯데ON · 토스쇼핑 각 마켓 랭킹 로직에 맞춘 전용 프롬프트</li>
+                <li><b>옵션 번역 4종</b> — 중국 · 일본 · 영어권 · 유럽 소싱용</li>
+                <li><b>이미지 재생성 7종</b> — 썸네일, 상세페이지 4·6·8섹션 × 텍스트 유무</li>
+              </ul>
+              <a class="unlock-btn" href="https://all8.io/" target="_blank">ALL8 구독하고 받기 →</a>
+              <div class="unlock-note">구독 1개월이 지나면 자동으로 안내드립니다.</div>
+            </div>
+            <div class="unlock-col">
+              <span class="unlock-tag alt">지금 받을 수 있는 것</span>
+              <h4>프롬프트 샘플 (.a8p)</h4>
+              <ul>
+                <li>상품명 · 상세설명 · AI 이미지 기본 프롬프트가 들어 있어요</li>
+                <li>ALL8에 업로드하면 바로 적용됩니다</li>
+                <li>먼저 써보고 필요할 때 전체를 받으시면 됩니다</li>
+              </ul>
+              <a class="unlock-btn ghost" href="#downloads">📂 자료 다운로드로 이동 →</a>
+              <div class="unlock-note">프롬프트 관리 → 공유파일 업로드에서 적용합니다.</div>
+            </div>
           </div>
         </div>
       </div>
@@ -4955,6 +4940,44 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbo
 .lvdot.lv-c{background:#b3b8c0;}
 .sec-legend .lvdot{margin-left:8px;}
 
+/* ── 전체 강의 영상 ── */
+.vid-wrap{margin:26px 28px 0;background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08);}
+.vid-head{display:flex;align-items:flex-start;gap:14px;padding:18px 22px;border-bottom:1px solid var(--border);}
+.vid-head h2{font-size:1.02rem;font-weight:800;color:var(--ink);margin:0 0 3px;}
+.vid-head p{font-size:.84rem;color:var(--ink3);margin:0;line-height:1.6;}
+.vid-head button{margin-left:auto;flex-shrink:0;font-size:.78rem;font-weight:700;color:var(--ink3);background:#fff;border:1px solid var(--border);border-radius:100px;padding:6px 14px;cursor:pointer;font-family:inherit;white-space:nowrap;}
+.vid-head button:hover{border-color:var(--green);color:var(--green-dark);}
+.vid-body{display:grid;grid-template-columns:1.55fr 1fr;gap:0;}
+.vid-body.hidden{display:none;}
+.vid-frame{position:relative;width:100%;padding-top:56.25%;background:#000;}
+.vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
+.vid-toc{max-height:420px;overflow-y:auto;border-left:1px solid var(--border);padding:8px 0;}
+.vid-toc::-webkit-scrollbar{width:5px;}
+.vid-toc::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
+.toc-item{display:flex;gap:10px;align-items:baseline;width:100%;text-align:left;background:none;border:0;border-left:3px solid transparent;padding:7px 16px;cursor:pointer;font-family:inherit;}
+.toc-item:hover{background:var(--green-bg);border-left-color:var(--green);}
+.toc-item.on{background:var(--green-bg);border-left-color:var(--green);}
+.toc-t{font-size:.76rem;font-weight:800;color:var(--green-dark);font-variant-numeric:tabular-nums;flex-shrink:0;min-width:44px;}
+.toc-x{font-size:.82rem;color:var(--ink2);line-height:1.45;}
+.toc-item.on .toc-x{font-weight:700;color:var(--ink);}
+@media(max-width:900px){.vid-body{grid-template-columns:1fr;}.vid-toc{border-left:none;border-top:1px solid var(--border);max-height:260px;}}
+@media(max-width:720px){.vid-wrap{margin:20px 18px 0;}}
+
+/* ── 본문 구간 링크 ── */
+.vjump{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;font-weight:800;color:#fff;
+  background:#111827;border:1px solid #111827;border-radius:100px;padding:6px 15px 6px 9px;
+  cursor:pointer;font-family:inherit;margin:2px 0 10px;box-shadow:0 2px 6px rgba(0,0,0,.16);transition:.14s;}
+.vjump:hover{background:#c00;border-color:#c00;transform:translateY(-1px);}
+.vjump b{font-variant-numeric:tabular-nums;font-weight:800;}
+.yt{display:inline-block;width:22px;height:16px;border-radius:4px;background:#FF0000;position:relative;flex-shrink:0;}
+.yt::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-45%,-50%);
+  border-left:6px solid #fff;border-top:4px solid transparent;border-bottom:4px solid transparent;}
+.vjump.vjump-sm{font-size:.73rem;font-weight:800;padding:3px 10px 3px 5px;margin:0 0 0 10px;gap:5px;vertical-align:middle;
+  background:#fff;color:var(--ink2);border-color:var(--border);box-shadow:none;}
+.vjump.vjump-sm .yt{width:18px;height:13px;border-radius:3px;}
+.vjump.vjump-sm .yt::after{border-left-width:5px;border-top-width:3.5px;border-bottom-width:3.5px;}
+.vjump.vjump-sm:hover{background:#fff;color:#c00;border-color:#c00;transform:translateY(-1px);}
+.subsection-title .vjump.vjump-sm,.card-title .vjump.vjump-sm{font-variant-numeric:tabular-nums;}
 /* ── 자료 다운로드 ── */
 .dl-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:9px;}
 .dl-item{display:flex;align-items:center;gap:11px;background:#fff;border:1px solid var(--border);border-radius:10px;
@@ -5000,7 +5023,13 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbo
 .m-slot .mscap{font-size:.85rem;font-weight:700;color:var(--ink2);}
 .m-slot .msfile{font-size:.73rem;font-family:ui-monospace,Menlo,Consolas,monospace;color:var(--ink3);margin-top:4px;}
 .m-slot img{max-width:100%;border-radius:8px;display:block;}
-.m-slot.filled-shot{border:1px solid var(--border);padding:8px;cursor:zoom-in;}
+.m-slot.filled-shot{border:1px solid var(--border);padding:8px;cursor:default;text-align:left;}
+.m-slot.filled-shot img{cursor:zoom-in;}
+.msnum{font-size:.76rem;color:var(--ink3);margin-top:8px;line-height:1.9;max-width:640px;margin-left:auto;margin-right:auto;}
+.shot-steps{list-style:none;padding:10px 6px 4px;margin:0;counter-reset:none;border-top:1px solid var(--border);}
+.shot-steps > .ss-cap{font-size:.85rem;font-weight:800;color:var(--ink);margin-bottom:6px;padding-left:0;}
+.shot-steps > li{position:relative;border-bottom:none;counter-increment:none;font-size:.85rem;color:var(--ink2);padding:3px 0 3px 26px;line-height:1.55;}
+.shot-steps > li b{position:absolute;left:0;top:3px;color:var(--green-dark);font-weight:900;font-size:.9rem;}
 .m-slot.filled-clip{border:1px solid var(--border);padding:0;overflow:hidden;background:#000;}
 .m-frame{position:relative;width:100%;padding-top:56.25%;}
 .m-frame iframe,.m-frame video{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;}
@@ -5015,35 +5044,73 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbo
    ▶ 상세편 영상·스크린샷 목록 — 값만 채우면 자동 표시됩니다
    ──────────────────────────────────────────────────────────
    clip : 유튜브 ID('abc123') 또는 mp4 경로('video/x.mp4')
-   shot : img/manual/ 폴더에 같은 파일명으로 저장하면 자동 표시
+   shot : img/ 폴더에 같은 파일명으로 저장하면 자동 표시
    ══════════════════════════════════════════════════════════ */
 var MEDIA = [
-  // ── 영상 10개 ──
-  {k:'clip', sec:'extension',      key:'m-install',    cap:'설치부터 핀 고정, 사이드패널 로그인까지',        len:'90초', src:''},
-  {k:'clip', sec:'collect',        key:'m-collect',    cap:'수집 4가지 방법 · 브라우저 vs 서버 수집',        len:'4분',  src:''},
-  {k:'clip', sec:'edit',           key:'m-edit-flow',  cap:'편집 화면 11단계 플로우를 위에서 아래로',        len:'4분',  src:''},
-  {k:'clip', sec:'preset',         key:'m-preset-tour',cap:'프리셋 13개 섹션 투어 — 채운 섹션만 적용되는 원리', len:'5분', src:''},
-  {k:'clip', sec:'preset', sub:'계산식', key:'m-calc', cap:'계산식 빌더 + 구간별 엑셀 다운로드·수정·업로드',  len:'4분',  src:''},
-  {k:'clip', sec:'market-account',  key:'m-market',    cap:'스마트스토어·쿠팡 API 발급과 권장 설정값 입력',   len:'5분',  src:''},
-  {k:'clip', sec:'mixed-bundle',    key:'m-bundle',    cap:'혼합구성·그룹상품 만들기 전 과정',              len:'4분',  src:''},
-  {k:'clip', sec:'order',           key:'m-order',     cap:'주문 처리 흐름 + 재고연동 설정 + 품절 정책',      len:'3분',  src:''},
-  {k:'clip', sec:'prompt',          key:'m-aiimage',   cap:'AI 수정 vs AI 생성 차이 · 프롬프트 결과 비교',    len:'3분',  src:''},
-  {k:'clip', sec:'sourcing',        key:'m-sourcing',  cap:'발굴 → 검토 테이블 → 1688 매칭 → 수집 보내기',   len:'5분',  src:''},
+  // ── 번호 캡처 (영상은 상단 전체 강의로 대체) ──
+  {k:'shot', sec:'extension', file:'ext-pin.png', cap:'확장프로그램 설치 후 핀 고정',
+   steps:['크롬 오른쪽 위 🧩 아이콘 클릭','목록에서 올에잇 찾기','📌 를 눌러 주소창 옆에 고정']},
 
-  // ── 스크린샷 13장 ──
-  {k:'shot', sec:'extension',    file:'ext-install.png',      cap:'확장프로그램 설치 완료 + 🧩 핀 고정 화면'},
-  {k:'shot', sec:'dashboard',    file:'sidebar-menu.png',     cap:'ALL8 왼쪽 메뉴 전체 — 어디에 뭐가 있는지 지도'},
-  {k:'shot', sec:'dashboard',    file:'dashboard.png',        cap:'대시보드 — 수집수·크레딧·에러 숫자가 보이는 상태'},
-  {k:'shot', sec:'dashboard',    file:'dashboard-error.png',  cap:'에러 숫자 클릭 시 원인 화면'},
-  {k:'shot', sec:'collect',      file:'sidepanel-tabs.png',   cap:'사이드패널 상단 탭 3개 (수집 · 가격/재고연동 · 수동수집)'},
-  {k:'shot', sec:'collect',      file:'sidepanel-settings.png',cap:'확장 설정(⚙) — 중복수집 · 소싱검색 권한'},
-  {k:'shot', sec:'product-list', file:'product-list.png',     cap:'상품 목록 — 상태 배지와 마켓별 업로드 배지'},
-  {k:'shot', sec:'edit',         file:'edit-flow-full.png',   cap:'편집 화면 전체 — 왼쪽 본문 + 오른쪽 11단계 플로우'},
-  {k:'shot', sec:'preset',       file:'preset-editor.png',    cap:'프리셋 편집기 — 13개 섹션 목록'},
-  {k:'shot', sec:'preset', sub:'계산식', file:'calc-builder.png', cap:'계산식 빌더 화면'},
-  {k:'shot', sec:'mixed-bundle', file:'bundle-dialog.png',    cap:'혼합구성 만들기 다이얼로그'},
-  {k:'shot', sec:'sourcing',     file:'sourcing-table.png',   cap:'소싱기 아이템 검토 테이블 — 원본·매칭 썸네일'},
-  {k:'shot', sec:'sourcing',     file:'sourcing-modal.png',   cap:'1688 매칭 3분할 후보 모달'}
+  {k:'shot', sec:'dashboard', file:'sidebar-menu.png', cap:'ALL8 왼쪽 메뉴 전체 — 어디에 뭐가 있는지',
+   steps:['대시보드 — 전체 현황','상품 수집 · 상품 목록','프리셋 · 프롬프트 관리','마켓 계정 설정','소싱기']},
+  {k:'shot', sec:'dashboard', file:'dashboard.png', cap:'대시보드에서 확인할 4가지',
+   steps:['수집완료 — 가져오기가 끝난 상품','판매중 — 마켓에 올라간 상품','오류 — 클릭하면 원인이 보임','편집 중 — 아직 손봐야 하는 상품']},
+  {k:'shot', sec:'dashboard', file:'dashboard-error.png', cap:'에러가 났을 때 원인 찾기',
+   steps:['빨간 에러 숫자 클릭','원인 메시지 확인','재시도 또는 문의']},
+
+  {k:'shot', sec:'market-account', file:'ss-api-connected.png', cap:'마켓 계정 연결하기',
+   steps:['API 연동용 판매자 아이디 입력','연결 확인 클릭','불러온 값 선택 후 저장']},
+  {k:'shot', sec:'market-account', file:'market-settings.png', cap:'마켓 권장 설정값 — 순서대로 입력',
+   steps:['출고지 / 반품·교환지 — 셀러센터 주소록에서 선택','수수료 — 스마트스토어 6%','배송 설정 — 택배사 코드 필수, 묶음배송 해제','A/S — 전화번호·안내 비우면 등록 거부','원산지 — 기타(상세 설명에 표시, 03)','상품 속성 — 사용 (AI가 자동으로 채움)','채널 노출 — 네이버 쇼핑 등록 사용 · 노출']},
+
+  {k:'shot', sec:'preset', file:'preset-upload.png', cap:'프리셋 샘플 올리기',
+   steps:['왼쪽 메뉴 → 프리셋 관리','우측 상단 공유파일 업로드','.a8s 파일 선택','목록에 추가된 것 확인']},
+  {k:'shot', sec:'preset', file:'preset-editor.png', cap:'프리셋 편집 화면 — 국내리셀 입력 예시',
+   steps:['편집 섹션 15개 — 값을 채운 섹션만 초록 체크, 회색은 적용 안 됨','상품명 · 옵션 — 자동 수정 실행 여부','계산식 — 구간별 마진 적용','이미지 3종 — 썸네일 수정 · 상세설명 수집 여부','배송 설정 — 무료배송','금지어/대체어 — 경고 표시 사용']},
+  {k:'shot', sec:'preset', sub:'계산식', file:'calc-builder.png', cap:'계산식 만들기',
+   steps:['원가 항목 확인','마진율 입력 (마켓 수수료 포함)','추가비용 입력','결과 미리보기로 검산']},
+
+  {k:'shot', sec:'collect', file:'sidepanel-tabs.png', cap:'사이드패널 구성',
+   steps:['수집 탭','가격/재고연동 탭','수동수집 탭','프리셋 선택 — 가장 중요','이 상품 수집']},
+  {k:'shot', sec:'collect', file:'collect-methods.png', cap:'여러 개를 한 번에 담는 방법',
+   steps:['+ URL로 추가','+ 엑셀로 추가 (A열에 URL만)','수집 방식 선택 — 브라우저 / 서버']},
+  {k:'shot', sec:'collect', file:'sidepanel-settings.png', cap:'확장 설정에서 확인할 것',
+   steps:['톱니(⚙) 아이콘 클릭','중복수집 허용 여부','소싱검색 권한']},
+  {k:'shot', sec:'collect', file:'bulk-collect.png', cap:'검색 결과에서 체크박스로 담기',
+   steps:['소싱처 검색 결과 페이지 열기','상품마다 뜨는 체크박스 선택','선택한 개수 확인','수집 시작']},
+
+  {k:'shot', sec:'product-list', file:'product-status.png', cap:'상태 배지 읽는 법',
+   steps:['수집됨 — 가져오는 중','처리중 — 프리셋 적용 중','수정완료 — 업로드 준비됨','판매중 — 마켓에 올라감']},
+  {k:'shot', sec:'product-list', file:'product-list.png', cap:'상품 목록 화면',
+   steps:['상태 필터 탭','마켓별 업로드 배지','일괄 작업 버튼','엑셀 추출 / 업로드']},
+  {k:'shot', sec:'product-list', file:'option-edit.png', cap:'옵션이 너무 많을 때 정리하기',
+   steps:['옵션 목록 펼치기','안 팔릴 옵션 체크 후 삭제','중국어 옵션명을 한국어로 수정']},
+
+  {k:'shot', sec:'edit', file:'edit-flow-full.png', cap:'편집 화면 전체 구조',
+   steps:['왼쪽 — 상품 내용 편집','오른쪽 — 11단계 업로드 플로우','하단 — 저장 (Ctrl+Shift+S)']},
+  {k:'shot', sec:'edit', file:'upload-flow.png', cap:'업로드 플로우 — 빨간 점만 처리하면 됩니다',
+   steps:['🔴 빨간 점 — 반드시 해야 함','✅ 초록 체크 — 프리셋이 채워줌','⚪ 빈 원 — 건너뛰어도 됨','마켓 업로드 버튼']},
+
+  {k:'shot', sec:'published', file:'published-green.png', cap:'업로드 결과 확인',
+   steps:['판매중 탭 선택','🟢 판매중 상태','상품 ID 확인','마켓 바로가기']},
+  {k:'shot', sec:'published', file:'market-live.png', cap:'실제 마켓에 노출된 내 상품',
+   steps:['상품명이 한국어로 나왔는지','판매가가 계산식대로인지','대표이미지가 제대로 걸렸는지']},
+  {k:'shot', sec:'published', file:'stock-sync.png', cap:'재고 연동 켜기',
+   steps:['가격/재고 연동 켜기','확인 주기 설정','총 확인 횟수 (최대 99)','품절 정책 — 하나라도 품절 시 판매중지']},
+
+  {k:'shot', sec:'order', file:'order-list.png', cap:'주문 관리 화면',
+   steps:['신규 주문 — 즉시 소싱처에서 구매','배송중 — 운송장 입력 완료','운송장 번호 입력란','상태별 필터']},
+
+  {k:'shot', sec:'mixed-bundle', file:'bundle-dialog.png', cap:'혼합구성 만들기',
+   steps:['상품 2개 이상 선택','혼합구성 만들기 클릭','옵션 구성 확인','대표·상품·상세 이미지 선택']},
+
+  {k:'shot', sec:'prompt', file:'ai-image-compare.png', cap:'AI 수정 vs AI 생성 — 결과 비교',
+   steps:['원본 이미지','AI 수정 결과 — 원본이 남음','AI 생성 결과 — 새로 만듦','사용한 프롬프트']},
+
+  {k:'shot', sec:'sourcing', file:'sourcing-table.png', cap:'소싱기 아이템 검토 테이블',
+   steps:['원본(네이버) 썸네일','매칭된 1688 썸네일','가격 · 배수 · 리뷰수','수집 보내기']},
+  {k:'shot', sec:'sourcing', file:'sourcing-modal.png', cap:'1688 매칭 후보 고르기',
+   steps:['왼쪽 — 원본 상품','가운데 — 후보 목록','오른쪽 — 선택한 후보 상세']}
 ];
 
 /* 섹션별 난이도 · 기초편 연결 */
@@ -5078,6 +5145,7 @@ var SECMETA = {
   function buildSlot(m){
     var box = document.createElement('div');
     box.className = 'm-slot';
+    box.setAttribute('data-slot', m.k === 'clip' ? m.key : m.file.replace(/\.[^.]+$/, ''));
     if(m.k === 'clip'){
       var src = (m.src || '').trim();
       if(src){
@@ -5092,16 +5160,30 @@ var SECMETA = {
           '</div><div class="msfile">약 ' + m.len + ' · ' + m.key + '</div>';
       }
     } else {
-      var path = 'img/manual/' + m.file;
+      var path = 'img/' + m.file;
+      var nums = '①②③④⑤⑥⑦⑧⑨⑩';
+      function stepHtml(){
+        if(!m.steps || !m.steps.length) return '';
+        var li = m.steps.map(function(s, i){
+          return '<li><b>' + (nums[i] || (i+1)) + '</b>' + s + '</li>';
+        }).join('');
+        return '<ol class="shot-steps"><li class="ss-cap">' + m.cap + '</li>' + li + '</ol>';
+      }
       box.innerHTML = '<div class="msk">📸 캡처 자리</div><div class="mscap">' + m.cap +
-        '</div><div class="msfile">' + path + '</div>';
+        '</div><div class="msfile">img/' + m.file + (m.steps ? ' · 번호 ' + m.steps.length + '개' : '') + '</div>' +
+        (m.steps ? '<div class="msnum">' + m.steps.map(function(s,i){ return (nums[i]||(i+1)) + ' ' + s; }).join('　') + '</div>' : '');
       var probe = new Image();
       probe.onload = function(){
         box.className = 'm-slot filled-shot';
         box.innerHTML = '';
         var im = document.createElement('img'); im.src = path; im.alt = m.cap;
+        im.onclick = function(){ if(window.openLightbox) openLightbox(path); };
         box.appendChild(im);
-        box.onclick = function(){ if(window.openLightbox) openLightbox(path); };
+        if(m.steps && m.steps.length){
+          var d = document.createElement('div');
+          d.innerHTML = stepHtml();
+          box.appendChild(d.firstChild);
+        }
       };
       probe.src = path;
     }
@@ -5210,6 +5292,22 @@ var SECMETA = {
   window.addEventListener('hashchange', openFromHash);
   openFromHash();
 
+  // ── 4-1. ?jump=키 로 들어오면 해당 자리로 이동 + 표시 ──
+  (function(){
+    var q = new URLSearchParams(location.search).get('jump');
+    if(!q) return;
+    var el = document.querySelector('[data-slot="' + q + '"]');
+    if(!el) return;
+    var sec = el.closest('.content-section');
+    if(sec) sec.classList.add('sec-open');
+    setTimeout(function(){
+      el.scrollIntoView({ behavior:'smooth', block:'center' });
+      el.style.outline = '3px solid var(--green)';
+      el.style.outlineOffset = '4px';
+      setTimeout(function(){ el.style.outline = ''; el.style.outlineOffset = ''; }, 2600);
+    }, 260);
+  })();
+
   // ── 5. 검색 결과는 자동으로 펼치기 ──
   document.addEventListener('input', function(e){
     if(!e.target || e.target.tagName !== 'INPUT') return;
@@ -5230,6 +5328,353 @@ var SECMETA = {
       t.appendChild(s);
     }
   });
+})();
+</script>
+<script>
+/* ══════════ 전체 강의 영상 · 타임테이블 ══════════ */
+var VIDEO_ID = 'bzbCRfhHxNc';
+var TOC = [
+  [0,    '오프닝 — 수집기 · 마켓설정 · 프리셋 · 업로드 순서'],
+  [41,   '프리셋이란? 수집하면서 편집이 끝나는 원리'],
+  [142,  '마켓 설정이란? 다중사업자 · 마켓ID 무제한'],
+  [176,  '마켓 어드민에서 먼저 등록할 것 (출고지 · 반품지 · 택배사)'],
+  [233,  '쿠팡은 자체 개발 키 + IP 등록 (43.200.207.8)'],
+  [300,  '⭐ 중복값 우선순위 — 마켓 설정이 프리셋을 이깁니다'],
+  [399,  '판매가 마진 설정 기본 (30% = 1.3배)'],
+  [420,  '구간별 마진 전략 — 왜 필요한가'],
+  [499,  '국내 / 해외 가격계산식 차이'],
+  [551,  'AI 모델별 비용 — 상품명 1만 개에 1,000~3,000원'],
+  [613,  '썸네일 AI 가공이 필요한 이유 (국내 리셀)'],
+  [723,  '썸네일 — 수정 vs 신규 생성 차이'],
+  [768,  '나노바나나 모델 비교 · 한글 텍스트 주의'],
+  [900,  '⚠️ 개인 API 키는 결제카드 연동 필수'],
+  [1000, '후가공 전략 — 전략 상품만 고도화'],
+  [1046, '📂 프리셋 · 프롬프트 · 계산식 샘플 다운로드'],
+  [1111, '수집기 설치 — 크롬 웹스토어 · 핀 고정'],
+  [1165, '수집기 수동 설치 (깃허브 · 개발자 모드)'],
+  [1243, '사이드패널 — 지원 사이트 · 중복수집 · 실패 재시도'],
+  [1288, '수동 수집 — 전 세계 모든 사이트'],
+  [1336, '가격 · 재고 연동 탭'],
+  [1363, '마켓 설정 — 스마트스토어 기본정보'],
+  [1421, 'API 연동용 판매자 아이디 (마켓별 입력값 차이)'],
+  [1460, '연결 테스트 · 수수료 6~7%'],
+  [1501, '택배사 코드 · 제주 6,000 / 도서산간 8,000'],
+  [1546, '묶음배송 · 배송 속성 (오늘출발 후킹)'],
+  [1696, 'A/S 필수값 · 원산지 기타(상세설명에 표시)'],
+  [1781, '전용 계산식 · 할인율 활용 팁'],
+  [1823, '상품 속성 자동 설정 — AI 추천의 핵심'],
+  [1869, '채널 노출 · 마켓별 상품명 프롬프트'],
+  [1919, '고정 단어 · 금지어 업로드 제한'],
+  [1966, '⭐ 상세페이지 상단 = 후킹 (구매전환 전략)'],
+  [2097, '마켓 설정 — 지마켓 (수수료 15% · 가중치)'],
+  [2189, '지마켓 노옵션 → 옵션 허용 카테고리 우회'],
+  [2335, '마켓 설정 — 11번가'],
+  [2429, '마켓 설정 — 롯데온 (재고관리 기본 필수)'],
+  [2596, '롯데온 상품명 33자 · 토스 28자 주의'],
+  [2655, '마켓 설정 — 쿠팡 (택배사 일치 · 수수료 13%)'],
+  [2729, '⚠️ 쿠팡 배송방법 — 계정정지 사유'],
+  [2768, '쿠팡 출고소요일 (구매대행 5~7일 + 자체 6일)'],
+  [2903, '마켓 설정 — 토스쇼핑 (수수료 8%)'],
+  [2984, '프리셋 — 이름 짓기가 절반'],
+  [3116, '프리셋 — 수집 유형 (자동 / 국내 / 해외)'],
+  [3161, '프리셋 — 상품명 (마켓 우선 규칙 재확인)'],
+  [3206, '프리셋 복사로 무한 생성하기'],
+  [3247, '고정 단어 — 관부가세 포함가 같은 후킹'],
+  [3286, '프리셋 — 옵션 자동 수정 · 넘버링'],
+  [3365, '옵션 가격 중간가 vs 최대가 (상하 50% 규정)'],
+  [3451, '업로드 마켓 · 카테고리 수동 지정'],
+  [3550, '계산식 — 매입가 · 배대지 · 카드 · 관부가세'],
+  [3651, '마진 변수 설정 (30% = 1.3배)'],
+  [3690, '구간별 마진 — 엑셀 업로드 실습'],
+  [3772, '구간 예시 — 5,000원 단위로 남길 금액 정하기'],
+  [3884, '계산식 커스터마이징 · 할인율 · 단수처리'],
+  [3958, '썸네일 프롬프트 마법사'],
+  [4035, '보조 썸네일 수집 여부 판단'],
+  [4121, '옵션 이미지 · 상세설명 이미지'],
+  [4163, '상세페이지 AI 생성 (10장 참조 · 4/6/8 섹션)'],
+  [4292, '상세페이지 상하단 · 썸네일을 상세로 보내기'],
+  [4376, '배송비 무료 · 반품비 3,500원'],
+  [4415, '부가 정보 · 프리셋 메모 / 태그'],
+  [4499, '금지어 · 대체어 (프리셋 = 경고 표시)'],
+  [4559, '금지어 그룹 관리 화면'],
+  [4637, '💡 대체어 공란 = 단어만 빼고 업로드'],
+  [4706, '수집 상품 관리 — 필터'],
+  [4722, '워크스페이스(방) 나누기'],
+  [4758, '수집 그룹명 = 메모 태그'],
+  [4802, '다른 워크스페이스로 복사'],
+  [4842, '프리셋 재적용 · 엑셀 추출'],
+  [4880, '마켓 업로드 · 금지어 검수'],
+  [4918, '혼합구성 상품 만들기'],
+  [4956, '소싱처 열기 · 카테고리 매칭 수정'],
+  [4994, '마켓별 적용 범위 (스스만 / 전 마켓)'],
+  [5031, '옵션 구성 — 쿠팡 기준으로 생성'],
+  [5114, '⭐ 기준 판매가 vs 실제 판매가 모드'],
+  [5194, '수수료 가중치 원리'],
+  [5233, '대표 이미지 수정 · 이미지 편집기'],
+  [5308, '상세페이지 생성 결과 확인'],
+  [5349, '태그 · 태그셋 불러오기'],
+  [5390, '상품 속성 자동 채움'],
+  [5419, '게시된 상품 — 업데이트 필요 표시'],
+  [5468, '편집 이동 · 마켓 동기화'],
+  [5505, '가격 · 재고 연동 설정 (주기 · 99회)'],
+  [5588, '알림 받기 vs 자동 반영'],
+  [5627, '태그 추가/제거 · 그룹으로 상품 관리'],
+  [5742, '소싱기 — 쿠대 키워드로 아이템 찾기'],
+  [5788, '소싱 그룹 만들기 · 조건 설정'],
+  [5833, '기타 설정 — 네이버 API (내년 6월 종료 주의)'],
+  [5916, '1688 매칭 → 바로 수집하기'],
+  [5954, '주문관리(beta) — 30분마다 자동 수집'],
+  [5990, '주문 상태별 관리 · 소싱처 바로 열기'],
+  [6034, '상품 태그 관리'],
+  [6040, '직원관리 — 초대 링크 · 권한 설정'],
+  [6083, '메인 워크스페이스만 직원과 공유'],
+  [6110, '계정 설정 · 구글 로그인 연결'],
+  [6125, '구독 관리 · 크레딧 사용내역 · 결제'],
+  [6171, '쿠대 계정 연동 · 제휴']
+];
+/* 섹션별로 영상의 어느 지점을 가리킬지 */
+var SECVIDEO = {
+  'quickstart':     0,      // 0:00    전체 흐름 (수집기→마켓설정→프리셋→업로드)
+  'dashboard':      0,      // 0:00    전체 흐름
+  'downloads':      1046,   // 17:26   샘플 파일 다운로드 안내
+  'extension':      1111,   // 18:31   수집기 설치 (웹스토어 · 수동설치)
+  'collect':        1243,   // 20:43   사이드패널 · 지원 사이트 · 수동수집
+  'market-account': 1363,   // 22:43   마켓 설정 — 스마트스토어부터
+  'preset':         2984,   // 49:44   프리셋 편집 시작
+  'bulkpreset':     1046,   // 17:26   프리셋 · 프롬프트 샘플
+  'prompt':         3958,   // 1:05:58 썸네일 프롬프트 마법사
+  'keyword-filter': 4559,   // 1:15:59 금지어 · 대체어 그룹 관리 화면
+  'product-list':   4706,   // 1:18:26 수집 상품 관리 · 필터 · 워크스페이스
+  'mixed-bundle':   4918,   // 1:21:58 혼합구성 상품 만들기
+  'edit':           4956,   // 1:22:36 편집 화면 (카테고리 · 옵션 · 가격)
+  'published':      5419,   // 1:30:19 게시된 상품 · 재고연동
+  'sourcing':       5742,   // 1:35:42 소싱기 — 키워드 발굴부터
+  'other-settings': 5833,   // 1:37:13 기타 설정 (네이버 API · 도매매 키)
+  'order':          5954,   // 1:39:14 주문관리(beta)
+  'tag-sets':       6034,   // 1:40:34 상품 태그 관리
+  'staff':          6040,   // 1:40:40 직원관리 · 권한
+  'billing':        6125    // 1:42:05 구독 · 크레딧 · 결제
+};
+
+function fmtT(s){
+  var h=Math.floor(s/3600), m=Math.floor(s%3600/60), x=s%60;
+  var mm=(h?String(m).padStart(2,'0'):String(m)), xx=String(x).padStart(2,'0');
+  return (h? h+':':'') + mm + ':' + xx;
+}
+
+(function(){
+  var toc = document.getElementById('vidToc');
+  var body = document.getElementById('vidBody');
+  var wrap = document.getElementById('fullvideo');
+  if(!toc) return;
+
+  TOC.forEach(function(item){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'toc-item';
+    b.setAttribute('data-t', item[0]);
+    b.innerHTML = '<span class="toc-t">' + fmtT(item[0]) + '</span><span class="toc-x">' + item[1] + '</span>';
+    b.onclick = function(){ seekTo(item[0]); };
+    toc.appendChild(b);
+  });
+
+  // ── 재생 환경 판별 ──
+  // 로컬(file://)에서는 유튜브가 도메인을 확인할 수 없어 JS API 가 막힙니다(오류 153).
+  // 이 경우 API 없이 일반 임베드로 띄우고, 챕터 클릭은 start 파라미터로 처리합니다.
+  var isWeb = (location.protocol === 'http:' || location.protocol === 'https:');
+  var frame = document.getElementById('ytPlayer');
+
+  function embedUrl(sec, auto){
+    var u = 'https://www.youtube.com/embed/' + VIDEO_ID + '?rel=0';
+    if(isWeb) u += '&enablejsapi=1&origin=' + encodeURIComponent(location.origin);
+    if(sec)  u += '&start=' + sec;
+    if(auto) u += '&autoplay=1';
+    return u;
+  }
+  frame.src = embedUrl(0, false);
+
+  var player = null, apiReady = false, pending = null;
+  if(isWeb){
+    var tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    document.head.appendChild(tag);
+    window.onYouTubeIframeAPIReady = function(){
+      player = new YT.Player('ytPlayer', { events:{ onReady: function(){
+        apiReady = true;
+        if(pending !== null){ var t = pending; pending = null; seekTo(t); }
+      }}});
+    };
+  }
+
+  window.seekTo = function(sec){
+    body.classList.remove('hidden');
+    document.getElementById('vidToggle').textContent = '영상 접기';
+    wrap.scrollIntoView({ behavior:'smooth', block:'start' });
+    document.querySelectorAll('.toc-item').forEach(function(x){
+      x.classList.toggle('on', +x.getAttribute('data-t') === sec);
+    });
+    if(apiReady && player && player.seekTo){
+      player.seekTo(sec, true);
+      player.playVideo();
+    } else {
+      if(isWeb) pending = sec;
+      frame.src = embedUrl(sec, true);
+    }
+  };
+
+  document.getElementById('vidToggle').onclick = function(){
+    var hid = body.classList.toggle('hidden');
+    this.textContent = hid ? '영상 펼치기' : '영상 접기';
+  };
+
+  // 섹션마다 "영상에서 보기" 버튼
+  Object.keys(SECVIDEO).forEach(function(id){
+    var sec = document.getElementById(id);
+    if(!sec) return;
+    var bar = sec.querySelector('.sec-meta');
+    if(!bar || bar.querySelector('.vjump')) return;
+    var t = SECVIDEO[id];
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'vjump';
+    b.innerHTML = '<span class="yt"></span> 영상 보고 따라하기 <b>' + fmtT(t) + '</b>';
+    b.onclick = function(e){ e.stopPropagation(); seekTo(t); };
+    bar.insertBefore(b, bar.querySelector('.sec-hint'));
+  });
+})();
+
+/* ══════════ 세부 항목별 영상 지점 ══════════ */
+/* 소제목 텍스트에 아래 키워드가 포함되면 그 자리에 시간 버튼을 답니다. */
+var SUBVIDEO = [
+  // ── 마켓 탭 ──
+  {tab:'스마트스토어',  t:1363},
+  {tab:'지마켓',        t:2097},
+  {tab:'옥션',          t:2097},
+  {tab:'11번가',        t:2335},
+  {tab:'롯데ON',        t:2429},
+  {tab:'쿠팡',          t:2655},
+  {tab:'토스쇼핑',      t:2903},
+
+  // ── 프리셋 편집 섹션 ──
+  {sec:'preset', k:'① 상품명',            t:3161},
+  {sec:'preset', k:'② 옵션',              t:3286},
+  {sec:'preset', k:'③ 업로드 마켓',       t:3451},
+  {sec:'preset', k:'④ 계산식',            t:3550},
+  {sec:'preset', k:'④-1 계산식',          t:3690},
+  {sec:'preset', k:'⑤ 대표 이미지',       t:3958},
+  {sec:'preset', k:'⑥ 상품 이미지',       t:4035},
+  {sec:'preset', k:'⑦ 옵션 이미지',       t:4121},
+  {sec:'preset', k:'⑧ 상세설명 이미지',   t:4163},
+  {sec:'preset', k:'⑨ 상세설명 추가요소', t:4292},
+  {sec:'preset', k:'⑩ 배송 설정',         t:4376},
+  {sec:'preset', k:'⑪ 부가 정보',         t:4415},
+  {sec:'preset', k:'⑫ 메모',              t:4415},
+  {sec:'preset', k:'⑬ 대체어',            t:4499},
+  {sec:'preset', k:'프리셋 나누는 기준',  t:3206},
+
+  // ── 상품 수집 ──
+  {sec:'collect', k:'① 상품 1개 담기',    t:1243},
+  {sec:'collect', k:'② 여러 개',          t:1243},
+  {sec:'collect', k:'③ URL·엑셀',         t:1243},
+  {sec:'collect', k:'④ 브라우저 수집',    t:5546},
+  {sec:'collect', k:'⑤ 가격·재고 연동',   t:1336},
+  {sec:'collect', k:'⑥ 수동수집',         t:1288},
+  {sec:'collect', k:'⑦ 확장프로그램 설정',t:1243},
+
+  // ── 상품 편집 ──
+  {sec:'edit', k:'① 소싱처',              t:4956},
+  {sec:'edit', k:'② 프리셋',              t:4842},
+  {sec:'edit', k:'③ 마켓 선택',           t:4994},
+  {sec:'edit', k:'⑤ 카테고리',            t:4956},
+  {sec:'edit', k:'⑥ 옵션 및 가격',        t:5031},
+  {sec:'edit', k:'가격 설정 방법',        t:5114},
+  {sec:'edit', k:'마켓 수수료 반영',      t:5194},
+  {sec:'edit', k:'마켓별 최종 판매가',    t:5194},
+  {sec:'edit', k:'옵션이 너무 많을 때',   t:5031},
+  {sec:'edit', k:'⑦ 배송 및 반품',        t:5233},
+  {sec:'edit', k:'⑧ 썸네일/옵션 이미지',  t:5233},
+  {sec:'edit', k:'AI 이미지 편집',        t:5233},
+  {sec:'edit', k:'⑨ 상세 설명',           t:5308},
+  {sec:'edit', k:'⑩ 부가 정보',           t:5390},
+  {sec:'edit', k:'상품 태그 설정',        t:5349},
+
+  // ── 확장프로그램 ──
+  {sec:'extension', k:'① 설치 방법',      t:1111},
+  {sec:'extension', k:'② 사이드패널',     t:1243},
+  {sec:'extension', k:'⑤ 자주 묻는 문제', t:1165},
+
+  // ── 혼합구성 · 게시된 상품 · 소싱기 · 설정 ──
+  {sec:'mixed-bundle', k:'① 혼합구성 만들기', t:4918},
+  {sec:'mixed-bundle', k:'② 혼합구성 다이얼로그', t:4918},
+  {sec:'published', k:'가격·재고 일괄 수정', t:5505},
+  {sec:'published', k:'재고 연동 상태',   t:5505},
+  {sec:'published', k:'작업 큐',          t:5468},
+  {sec:'sourcing', k:'② 소싱 그룹 만들기',t:5788},
+  {sec:'sourcing', k:'③ 아이템 검토',     t:5916},
+  {sec:'sourcing', k:'④ 1688 매칭',       t:5916},
+  {sec:'other-settings', k:'네이버 API',  t:5833},
+  {sec:'other-settings', k:'재고연동 품절 정책', t:5588},
+  {sec:'staff', k:'직원 계정 추가',       t:6040},
+  {sec:'staff', k:'권한 종류',            t:6083},
+  {sec:'billing', k:'계정 정보',          t:6110},
+  {sec:'keyword-filter', k:'금지어 —',    t:4559},
+  {sec:'keyword-filter', k:'대체어 —',    t:4637},
+  {sec:'tag-sets', k:'태그셋 관리',       t:6034},
+  {sec:'downloads', k:'① 바로 적용',      t:1046},
+  {sec:'downloads', k:'② 가격 계산식',    t:3690}
+];
+
+(function(){
+  function mkBtn(t){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'vjump vjump-sm';
+    b.innerHTML = '<span class="yt"></span>' + fmtT(t);
+    b.title = '영상 ' + fmtT(t) + ' 지점부터 보기';
+    b.onclick = function(e){ e.stopPropagation(); seekTo(t); };
+    return b;
+  }
+  SUBVIDEO.forEach(function(v){
+    if(v.tab){
+      document.querySelectorAll('.mkt-tab').forEach(function(el){
+        if(el.textContent.trim().indexOf(v.tab) === 0 && !el.querySelector('.vjump')) {
+          el.setAttribute('data-vt', v.t);
+        }
+      });
+      return;
+    }
+    var sec = document.getElementById(v.sec);
+    if(!sec) return;
+    var titles = sec.querySelectorAll('.subsection-title, .card-title');
+    for(var i=0;i<titles.length;i++){
+      if(titles[i].textContent.indexOf(v.k) !== -1 && !titles[i].querySelector('.vjump')){
+        titles[i].appendChild(mkBtn(v.t));
+        break;
+      }
+    }
+  });
+  // 마켓 탭은 클릭 시 해당 패널 상단에 버튼 표시
+  var mp = document.getElementById('market-account');
+  if(mp){
+    var bar = document.createElement('div');
+    bar.id = 'mktVid';
+    bar.style.cssText = 'margin:-8px 0 14px;';
+    var tabs = mp.querySelector('.mkt-tabs');
+    if(tabs && tabs.parentNode) tabs.parentNode.insertBefore(bar, tabs.nextSibling);
+    function syncMkt(){
+      var a = mp.querySelector('.mkt-tab.active');
+      bar.innerHTML = '';
+      if(!a) return;
+      var t = a.getAttribute('data-vt');
+      if(!t) return;
+      var b = mkBtn(+t);
+      b.classList.remove('vjump-sm');
+      b.innerHTML = '<span class="yt"></span>' + a.textContent.replace('초보 권장','').trim() + ' 설정 영상 보기 <b>' + fmtT(+t) + '</b>';
+      bar.appendChild(b);
+    }
+    mp.querySelectorAll('.mkt-tab').forEach(function(t){ t.addEventListener('click', function(){ setTimeout(syncMkt, 30); }); });
+    syncMkt();
+  }
 })();
 </script>
 </body>
