@@ -159,6 +159,13 @@ ol.steps > li .shot{margin:10px 0 4px;padding:18px 14px;}
 ol.steps > li .shot.filled{padding:6px;}
 ol.steps > li .shot .scap{font-size:.82rem;}
 
+.notice-bar{display:flex;justify-content:flex-end;padding:4px 20px 6px;
+  position:sticky;top:52px;z-index:190;background:#fff;border-bottom:1px solid var(--border);}
+.notice-bar > span{font-size:.7rem;line-height:1.4;color:var(--ink3);white-space:nowrap;}
+.notice-bar a{color:var(--green-dark);font-weight:700;text-decoration:none;border-bottom:1px solid var(--green-border);}
+.notice-bar a:hover{border-bottom-color:var(--green-dark);}
+.notice-bar b{font-weight:700;color:var(--ink2);}
+@media(max-width:720px){.notice-bar{position:static;padding:0 12px 5px;justify-content:center;}.notice-bar > span{font-size:.66rem;white-space:normal;text-align:center;}}
 /* ── 영상 지점 버튼 ── */
 .vjump{display:inline-flex;align-items:center;gap:5px;font-size:.74rem;font-weight:800;color:var(--ink2);
   background:#fff;border:1px solid var(--border);border-radius:100px;padding:3px 10px 3px 5px;
@@ -267,6 +274,10 @@ details.more .mbody{padding:2px 18px 18px;border-top:1px solid var(--border);}
     <a class="top-link hide-sm" href="https://open.kakao.com/o/gKWnrBDg" target="_blank">무료교육 단톡</a>
     <a class="top-link cta" href="https://all8.io/" target="_blank">ALL8 열기</a>
   </div>
+</div>
+
+<div class="notice-bar">
+  <span>📣 <a href="https://open.kakao.com/o/gKWnrBDg" target="_blank">단톡방</a>에 입장하시면 매주 <b>수요일 · 일요일</b>, 15년 온라인 전문가의 <b>구매대행 무료교육</b>을 들으실 수 있습니다.</span>
 </div>
 
 <div class="layout">
