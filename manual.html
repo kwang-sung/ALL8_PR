@@ -24,8 +24,15 @@ body{background:var(--bg);color:var(--ink);font-family:-apple-system,"Apple SD G
 .top-logo{font-weight:900;font-size:1.05rem;color:var(--ink);white-space:nowrap;}
 .top-logo span{color:var(--green);}
 .search-box{flex:1;max-width:420px;position:relative;}
-.search-box input{width:100%;border:1px solid var(--border);border-radius:100px;padding:7px 14px 7px 36px;font-size:.88rem;color:var(--ink);background:var(--bg);outline:none;transition:.15s;}
+.search-box input{width:100%;border:1.5px solid var(--green-border);border-radius:100px;padding:7px 14px 7px 36px;font-size:.88rem;color:var(--ink);background:var(--bg);outline:none;transition:.15s;}
 .search-box input:focus{border-color:var(--green);background:#fff;box-shadow:0 0 0 3px rgba(16,185,129,.12);}
+.notice-bar{background:var(--green-bg);border-bottom:1px solid var(--green-border);
+  padding:7px 20px;text-align:center;font-size:.82rem;color:var(--green-dark);
+  position:sticky;top:51px;z-index:190;}
+.notice-bar a{color:var(--green-dark);font-weight:800;text-decoration:none;border-bottom:1px solid var(--green-border);}
+.notice-bar a:hover{border-bottom-color:var(--green-dark);}
+.notice-bar b{font-weight:800;}
+@media(max-width:720px){.notice-bar{font-size:.75rem;padding:6px 12px;line-height:1.5;position:static;}}
 .search-box .ico{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--ink3);font-size:.9rem;pointer-events:none;}
 .top-links{display:flex;gap:8px;margin-left:auto;flex-shrink:0;}
 .top-link{font-size:.8rem;color:var(--ink3);text-decoration:none;padding:6px 12px;border:1px solid var(--border);border-radius:100px;white-space:nowrap;}
@@ -194,6 +201,10 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
     <a class="top-link" href="https://open.kakao.com/o/gKWnrBDg" target="_blank">무료교육 단톡</a>
     <a class="top-link cta" href="https://all8.io/" target="_blank">ALL8 시작</a>
   </div>
+</div>
+
+<div class="notice-bar">
+  📣 <a href="https://open.kakao.com/o/gKWnrBDg" target="_blank">단톡방</a>에 입장하시면 매주 <b>수요일 · 일요일</b>, 20년 경력 온라인 전문가의 <b>구매대행 무료교육</b>을 들으실 수 있습니다.
 </div>
 
 <div class="layout">
@@ -4779,7 +4790,7 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
     <!-- CTA -->
     <div class="cta-banner" style="margin:28px 28px 0;">
       <h3>모르는 거 있으면 바로 물어보세요!</h3>
-      <p>매주 수요일 · 일요일 저녁 9시 무료 라이브 강의 진행 중 (30분 전 단톡방 링크)</p>
+      <p>단톡방에 입장하시면 매주 <b>수요일 · 일요일 저녁 9시</b>,<br>20년 경력 온라인 전문가의 <b>구매대행 무료교육</b>을 들으실 수 있습니다.<br><span style="opacity:.8;font-size:.84rem;">강의 시작 30분 전에 단톡방으로 링크가 올라와요.</span></p>
       <div class="cta-row">
         <a class="cta-btn white" href="https://open.kakao.com/o/gKWnrBDg" target="_blank">💬 단톡 무료교육 듣기</a>
         <a class="cta-btn outline" href="https://all8.io/" target="_blank">🚀 ALL8 바로가기</a>
