@@ -26,13 +26,13 @@ body{background:var(--bg);color:var(--ink);font-family:-apple-system,"Apple SD G
 .search-box{flex:1;max-width:420px;position:relative;}
 .search-box input{width:100%;border:1.5px solid var(--green-border);border-radius:100px;padding:7px 14px 7px 36px;font-size:.88rem;color:var(--ink);background:var(--bg);outline:none;transition:.15s;}
 .search-box input:focus{border-color:var(--green);background:#fff;box-shadow:0 0 0 3px rgba(16,185,129,.12);}
-.notice-bar{background:var(--green-bg);border-bottom:1px solid var(--green-border);
-  padding:7px 20px;text-align:center;font-size:.82rem;color:var(--green-dark);
-  position:sticky;top:51px;z-index:190;}
-.notice-bar a{color:var(--green-dark);font-weight:800;text-decoration:none;border-bottom:1px solid var(--green-border);}
+.notice-bar{display:flex;justify-content:flex-end;padding:4px 20px 6px;
+  position:sticky;top:51px;z-index:190;background:#fff;border-bottom:1px solid var(--border);}
+.notice-bar > span{font-size:.7rem;line-height:1.4;color:var(--ink3);white-space:nowrap;}
+.notice-bar a{color:var(--green-dark);font-weight:700;text-decoration:none;border-bottom:1px solid var(--green-border);}
 .notice-bar a:hover{border-bottom-color:var(--green-dark);}
-.notice-bar b{font-weight:800;}
-@media(max-width:720px){.notice-bar{font-size:.75rem;padding:6px 12px;line-height:1.5;position:static;}}
+.notice-bar b{font-weight:700;color:var(--ink2);}
+@media(max-width:720px){.notice-bar{position:static;padding:0 12px;justify-content:center;}.notice-bar > span{font-size:.68rem;padding:5px 10px;}}
 .search-box .ico{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--ink3);font-size:.9rem;pointer-events:none;}
 .top-links{display:flex;gap:8px;margin-left:auto;flex-shrink:0;}
 .top-link{font-size:.8rem;color:var(--ink3);text-decoration:none;padding:6px 12px;border:1px solid var(--border);border-radius:100px;white-space:nowrap;}
@@ -40,8 +40,29 @@ body{background:var(--bg);color:var(--ink);font-family:-apple-system,"Apple SD G
 .top-link.cta{background:var(--green);color:#fff;border-color:var(--green);font-weight:700;}
 
 /* ── 검색 결과 없음 ── */
-.no-result{display:none;text-align:center;padding:60px 20px;color:var(--ink3);}
-.no-result.show{display:block;}
+/* ── 검색 결과 패널 ── */
+.sr-panel{display:none;margin:0 28px 24px;background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.sr-panel.show{display:block;}
+.sr-head{display:flex;align-items:center;gap:12px;padding:13px 20px;border-bottom:1px solid var(--border);background:var(--bg);}
+.sr-head span{font-size:.87rem;font-weight:700;color:var(--ink2);}
+.sr-head span b{color:var(--green-dark);}
+.sr-head button{margin-left:auto;font-size:.76rem;font-weight:700;color:var(--ink3);background:#fff;border:1px solid var(--border);border-radius:100px;padding:5px 12px;cursor:pointer;font-family:inherit;white-space:nowrap;}
+.sr-head button:hover{border-color:var(--green);color:var(--green-dark);}
+.sr-group{padding:6px 0 10px;}
+.sr-group + .sr-group{border-top:1px solid var(--border);}
+.sr-gtitle{font-size:.75rem;font-weight:800;color:var(--ink3);letter-spacing:.04em;padding:10px 20px 6px;}
+.sr-gtitle b{color:var(--green-dark);}
+.sr-item{display:flex;align-items:center;gap:11px;width:100%;text-align:left;background:none;border:0;
+  border-left:3px solid transparent;padding:8px 20px;cursor:pointer;font-family:inherit;}
+.sr-item:hover{background:var(--green-bg);border-left-color:var(--green);}
+.sr-t{flex-shrink:0;font-size:.76rem;font-weight:800;color:var(--green-dark);font-variant-numeric:tabular-nums;min-width:52px;}
+.sr-x{font-size:.88rem;color:var(--ink);line-height:1.45;}
+.sr-x em{font-style:normal;background:#fef08a;border-radius:3px;padding:0 2px;}
+.sr-sub{font-size:.76rem;color:var(--ink3);margin-left:6px;}
+.sr-none{padding:34px 20px;text-align:center;color:var(--ink3);font-size:.9rem;}
+.sr-none b{color:var(--ink2);}
+@media(max-width:720px){.sr-panel{margin:0 18px 20px;}}
+
 
 /* ── 레이아웃 ── */
 .layout{display:flex;min-height:100vh;}
@@ -62,10 +83,26 @@ body{background:var(--bg);color:var(--ink);font-family:-apple-system,"Apple SD G
 .main{flex:1;min-width:0;padding:0 0 100px;}
 
 /* ── 히어로 ── */
-.hero{text-align:center;padding:52px 24px 40px;border-bottom:1px solid var(--border);}
-.hero h1{font-size:1.9rem;font-weight:900;letter-spacing:-.03em;line-height:1.3;margin-bottom:10px;}
-.hero h1 em{color:var(--green);font-style:normal;}
-.hero-sub{font-size:.97rem;color:var(--ink3);}
+.hero{text-align:center;padding:40px 24px 34px;border-bottom:1px solid var(--border);background:#fff;}
+.hero-search{position:relative;max-width:620px;margin:0 auto 14px;}
+.hero-search input{width:100%;border:2px solid var(--green);border-radius:100px;
+  padding:15px 22px 15px 52px;font-size:1rem;color:var(--ink);background:#fff;outline:none;
+  transition:.15s;box-shadow:0 2px 10px rgba(16,185,129,.10);font-family:inherit;}
+.hero-search input::placeholder{color:var(--ink3);}
+.hero-search input:focus{border-color:var(--green-dark);box-shadow:0 0 0 5px rgba(16,185,129,.14);}
+.hero-search .ico{position:absolute;left:20px;top:50%;transform:translateY(-50%);
+  font-size:1.05rem;color:var(--ink3);pointer-events:none;}
+.hero-start{display:inline-block;font-size:.86rem;font-weight:700;color:var(--green-dark);
+  text-decoration:none;border-bottom:1px solid var(--green-border);padding-bottom:2px;}
+.hero-start:hover{border-bottom-color:var(--green-dark);}
+@media(max-width:720px){
+  .hero{padding:26px 18px 22px;}
+  .hero-search input{font-size:.9rem;padding:13px 18px 13px 46px;}
+  .hero-search .ico{left:17px;}
+}
+
+
+
 
 /* ── 빠른 시작 박스 ── */
 .quickstart{margin:28px 28px 0;background:#fff;border:1px solid var(--border);border-radius:14px;padding:26px 28px;box-shadow:0 1px 3px rgba(0,0,0,.08);}
@@ -191,10 +228,6 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
 <!-- 상단 헤더 -->
 <div class="top-bar">
   <div class="top-logo">ALL<span>8</span> 가이드</div>
-  <div class="search-box">
-    <span class="ico">🔍</span>
-    <input type="text" id="searchInput" placeholder="궁금한 기능 검색… (예: 프리셋, 재고연동, 가격)" oninput="handleSearch(this.value)">
-  </div>
   <div class="top-links">
     <a class="top-link" href="https://safety.shopping.naver.com/handling/cautions/prohibition" target="_blank">온라인 금지품목</a>
     <a class="top-link" href="#downloads">자료 다운로드</a>
@@ -204,7 +237,7 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
 </div>
 
 <div class="notice-bar">
-  📣 <a href="https://open.kakao.com/o/gKWnrBDg" target="_blank">단톡방</a>에 입장하시면 매주 <b>수요일 · 일요일</b>, 20년 경력 온라인 전문가의 <b>구매대행 무료교육</b>을 들으실 수 있습니다.
+  <span>📣 <a href="https://open.kakao.com/o/gKWnrBDg" target="_blank">단톡방</a>에 입장하시면 매주 <b>수요일 · 일요일</b>, 20년 경력 온라인 전문가의 <b>구매대행 무료교육</b>을 들으실 수 있습니다.</span>
 </div>
 
 <div class="layout">
@@ -260,19 +293,26 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
   <main class="main">
 
     <!-- 히어로 -->
-    <div class="hero" data-section>
-      <h1>딱 <em>4단계</em>만 따라 하면<br>오늘 상품이 올라갑니다</h1>
-      <p class="hero-sub">순서대로만 하면 됩니다.</p>
-      <a href="./start.html" style="display:inline-flex;align-items:center;gap:8px;margin-top:18px;padding:11px 22px;border-radius:100px;background:var(--green);color:#fff;font-size:.9rem;font-weight:800;text-decoration:none;box-shadow:0 3px 12px rgba(16,185,129,.28);">처음이신가요? → 초보자 7일 시작 가이드</a>
+    <div class="hero">
+      <div class="hero-search">
+        <span class="ico">🔍</span>
+        <input type="text" id="searchInput" placeholder="궁금한 기능을 검색하세요 (예: 프리셋, 재고연동, 쿠팡 배송)" oninput="handleSearch(this.value)" onkeydown="if(event.key==='Enter'){event.preventDefault();var b=document.querySelector('#srBody .sr-item');if(b)b.click();}">
+      </div>
+      <a class="hero-start" href="./start.html">처음이신가요? → 초보자 7일 시작 가이드</a>
     </div>
+    <!-- 검색 결과 -->
+    <div class="sr-panel" id="srPanel">
+      <div class="sr-head">
+        <span id="srSummary"></span>
+        <button type="button" id="srClose">✕ 검색 닫기</button>
+      </div>
+      <div id="srBody"></div>
+    </div>
+
 
     <!-- ────────── 전체 강의 영상 ────────── -->
     <div class="vid-wrap" id="fullvideo">
       <div class="vid-head">
-        <div>
-          <h2>영상으로 한 번에 보기 — 올에잇 사용법 전체 강의</h2>
-          <p>수집기 · 마켓 설정 · 프리셋을 실제 화면으로 처음부터 끝까지. 아래 목차를 누르면 그 지점부터 재생됩니다.</p>
-        </div>
         <button type="button" id="vidToggle">영상 접기</button>
       </div>
       <div class="vid-body" id="vidBody">
@@ -281,16 +321,16 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
             allow="accelerometer; clipboard-write; encrypted-media; picture-in-picture; web-share"
             allowfullscreen></iframe>
         </div>
-        <div class="vid-toc" id="vidToc"></div>
+        <div class="vid-side">
+          <div class="vid-side-inner">
+            <div class="toc-hint">📌 목차를 누르면 <b>그 지점으로 이동</b>합니다<br>이동 후 <b>▶ 재생</b> 버튼을 눌러주세요.</div>
+            <div class="vid-toc" id="vidToc"></div>
+          </div>
+        </div>
       </div>
     </div>
 
 
-    <!-- 검색 결과 없음 -->
-    <div class="no-result" id="noResult">
-      🔍 <strong id="noResultQuery"></strong> 에 대한 결과가 없어요.<br>
-      단어를 바꿔서 다시 검색해보세요.
-    </div>
 
     <!-- ────────── 빠른 시작 ────────── -->
     <div class="content-section" id="quickstart" data-section data-keywords="빠른시작 첫상품 시작 설치 처음">
@@ -4818,71 +4858,161 @@ function switchMkt(btn, id) {
 }
 
 // ── 검색 ──
-function handleSearch(q) {
-  q = q.trim().toLowerCase();
-  const sections = document.querySelectorAll('[data-section]');
-  const noResult = document.getElementById('noResult');
-  let visible = 0;
+/* ══════════ 통합 검색 — 문서 · 영상 챕터 · 캡처 ══════════ */
+var SYN = {
+  '세팅':['프리셋','설정'], '설정':['프리셋','마켓'], '셋팅':['프리셋','설정'],
+  '가격':['계산식','판매가','마진'], '마진':['계산식','판매가'], '수수료':['계산식','마켓'],
+  '단가':['계산식','매입가'], '원가':['매입가','계산식'],
+  '사진':['썸네일','이미지'], '이미지':['썸네일'], '그림':['썸네일','이미지'],
+  '올리기':['업로드','게시'], '등록':['업로드','게시'], '올려':['업로드'],
+  '담기':['수집'], '가져오기':['수집'], '긁기':['수집'], '크롤':['수집'],
+  '번역':['상품명','옵션'], '이름':['상품명'], '제목':['상품명'],
+  '품절':['재고','연동'], '재고':['연동','품절'],
+  '주문':['발주','운송장'], '배송':['출고','택배','운송장'],
+  '금지어':['대체어','필터'], '필터':['금지어','대체어'],
+  '묶음':['혼합구성','그룹상품'], '세트':['혼합구성'],
+  '소싱':['소싱기','발굴','매칭'], '발굴':['소싱기'],
+  '직원':['권한','팀'], '결제':['크레딧','구독'], '크레딧':['결제','구독'],
+  '오류':['에러','실패'], '에러':['오류','실패'],
+  '쿠팡':['마켓'], '스마트스토어':['마켓'], '지마켓':['마켓'], '옥션':['마켓'],
+  '11번가':['마켓'], '롯데':['마켓'], '토스':['마켓']
+};
 
-  if (!q) {
-    sections.forEach(s => {
-      s.style.display = '';
-      clearHighlight(s);
+function expandTerms(q){
+  var raw = q.toLowerCase().split(/[\s,]+/).filter(function(t){ return t.length > 0; });
+  var out = [];
+  raw.forEach(function(t){
+    out.push(t);
+    Object.keys(SYN).forEach(function(k){
+      if(t.indexOf(k) !== -1){ SYN[k].forEach(function(v){ if(out.indexOf(v) === -1) out.push(v); }); }
     });
-    noResult.classList.remove('show');
+  });
+  return { raw: raw, all: out };
+}
+
+function scoreText(text, terms){
+  var t = (text || '').toLowerCase(), n = 0;
+  terms.raw.forEach(function(x){ if(t.indexOf(x) !== -1) n += 3; });
+  terms.all.forEach(function(x){ if(t.indexOf(x) !== -1) n += 1; });
+  return n;
+}
+
+function srMark(text, terms){
+  var out = text;
+  terms.raw.concat(terms.all).forEach(function(x){
+    if(!x) return;
+    try{
+      out = out.replace(new RegExp('(' + x.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')','gi'), '<em>$1</em>');
+    }catch(e){}
+  });
+  return out;
+}
+
+function handleSearch(q){
+  q = q.trim();
+  var panel = document.getElementById('srPanel');
+  var body  = document.getElementById('srBody');
+  var summ  = document.getElementById('srSummary');
+  var sections = document.querySelectorAll('[data-section]');
+
+  if(!q){
+    panel.classList.remove('show');
+    sections.forEach(function(s){ s.style.display = ''; });
     return;
   }
 
-  let firstMark = null;
-  sections.forEach(s => {
-    const text = (s.textContent + ' ' + (s.dataset.keywords || '')).toLowerCase();
-    if (text.includes(q)) {
-      s.style.display = '';
-      highlightText(s, q);
-      if (!firstMark) firstMark = s.querySelector('mark');
-      visible++;
-    } else {
-      s.style.display = 'none';
+  var terms = expandTerms(q);
+  sections.forEach(function(s){ s.style.display = ''; });
+
+  var vids = [];
+  if(typeof TOC !== 'undefined'){
+    TOC.forEach(function(it){
+      var sc = scoreText(it[1], terms);
+      if(sc > 0) vids.push({ t: it[0], x: it[1], sc: sc });
+    });
+    vids.sort(function(a,b){ return b.sc - a.sc || a.t - b.t; });
+  }
+
+  var docs = [];
+  sections.forEach(function(s){
+    var te = s.querySelector('.section-title');
+    var de = s.querySelector('.section-desc');
+    var title = te ? te.textContent : '';
+    var desc  = de ? de.textContent : '';
+    var kw    = s.dataset.keywords || '';
+    var subs  = Array.prototype.map.call(s.querySelectorAll('.subsection-title, .card-title'), function(e){ return e.textContent; }).join(' ');
+    var sc = scoreText(title, terms) * 3 + scoreText(kw, terms) * 2 + scoreText(subs, terms) + scoreText(desc, terms);
+    if(sc > 0 && title){
+      var ns = (typeof MEDIA !== 'undefined') ? MEDIA.filter(function(m){ return m.k === 'shot' && m.sec === s.id; }).length : 0;
+      docs.push({ id: s.id, x: title, sc: sc, shots: ns });
     }
   });
+  docs.sort(function(a,b){ return b.sc - a.sc; });
 
-  if (visible === 0) {
-    noResult.classList.add('show');
-    document.getElementById('noResultQuery').textContent = q;
-  } else {
-    noResult.classList.remove('show');
-    if (firstMark) setTimeout(() => firstMark.scrollIntoView({ behavior: 'smooth', block: 'center' }), 50);
+  var shots = [];
+  if(typeof MEDIA !== 'undefined'){
+    MEDIA.forEach(function(m){
+      if(m.k !== 'shot') return;
+      var txt = (m.cap || '') + ' ' + ((m.steps || []).join(' '));
+      var sc = scoreText(m.cap || '', terms) * 2 + scoreText(txt, terms);
+      if(sc > 0) shots.push({ sec: m.sec, x: m.cap, sc: sc });
+    });
+    shots.sort(function(a,b){ return b.sc - a.sc; });
   }
+
+  var total = vids.length + docs.length + shots.length;
+  summ.innerHTML = '&#128269; <b>' + q + '</b> — 결과 ' + total + '건';
+  panel.classList.add('show');
+
+  if(total === 0){
+    body.innerHTML = '<div class="sr-none"><b>일치하는 내용이 없어요.</b><br>단어를 줄이거나 다르게 입력해보세요. (예: 프리셋, 마진, 썸네일, 재고)</div>';
+    return;
+  }
+
+  var h = '';
+  if(vids.length){
+    h += '<div class="sr-group"><div class="sr-gtitle">▶ 영상에서 <b>' + vids.length + '</b></div>';
+    vids.slice(0, 8).forEach(function(v){
+      h += '<button type="button" class="sr-item" onclick="seekTo(' + v.t + ')">' +
+           '<span class="sr-t">' + fmtT(v.t) + '</span><span class="sr-x">' + srMark(v.x, terms) + '</span></button>';
+    });
+    h += '</div>';
+  }
+  if(docs.length){
+    h += '<div class="sr-group"><div class="sr-gtitle">📄 문서에서 <b>' + docs.length + '</b></div>';
+    docs.slice(0, 8).forEach(function(d){
+      h += '<button type="button" class="sr-item" onclick="goSec(\'' + d.id + '\')">' +
+           '<span class="sr-t">문서</span><span class="sr-x">' + srMark(d.x, terms) +
+           (d.shots ? '<span class="sr-sub">📸 ' + d.shots + '장</span>' : '') + '</span></button>';
+    });
+    h += '</div>';
+  }
+  if(shots.length){
+    h += '<div class="sr-group"><div class="sr-gtitle">📸 이미지에서 <b>' + shots.length + '</b></div>';
+    shots.slice(0, 8).forEach(function(s){
+      h += '<button type="button" class="sr-item" onclick="goSec(\'' + s.sec + '\')">' +
+           '<span class="sr-t">이미지</span><span class="sr-x">' + srMark(s.x, terms) + '</span></button>';
+    });
+    h += '</div>';
+  }
+  body.innerHTML = h;
 }
 
-function highlightText(el, q) {
-  clearHighlight(el);
-  if (!q) return;
-  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
-  const nodes = [];
-  while (walker.nextNode()) nodes.push(walker.currentNode);
-  nodes.forEach(node => {
-    if (!node.parentNode || node.parentNode.tagName === 'SCRIPT' || node.parentNode.tagName === 'STYLE') return;
-    const idx = node.textContent.toLowerCase().indexOf(q);
-    if (idx === -1) return;
-    const before = document.createTextNode(node.textContent.slice(0, idx));
-    const mark = document.createElement('mark');
-    mark.textContent = node.textContent.slice(idx, idx + q.length);
-    const after = document.createTextNode(node.textContent.slice(idx + q.length));
-    node.parentNode.insertBefore(before, node);
-    node.parentNode.insertBefore(mark, node);
-    node.parentNode.insertBefore(after, node);
-    node.parentNode.removeChild(node);
-  });
+function goSec(id){
+  var sec = document.getElementById(id);
+  if(!sec) return;
+  sec.classList.add('sec-open');
+  setTimeout(function(){ sec.scrollIntoView({ behavior:'smooth', block:'start' }); }, 60);
 }
 
-function clearHighlight(el) {
-  el.querySelectorAll('mark').forEach(m => {
-    const parent = m.parentNode;
-    parent.replaceChild(document.createTextNode(m.textContent), m);
-    parent.normalize();
-  });
-}
+document.addEventListener('DOMContentLoaded', function(){
+  var btn = document.getElementById('srClose');
+  if(btn) btn.onclick = function(){
+    document.getElementById('searchInput').value = '';
+    handleSearch('');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+});
 
 // ── 사이드바 활성 ──
 const navItems = document.querySelectorAll('.nav-item');
@@ -4959,16 +5089,20 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLightbo
 
 /* ── 전체 강의 영상 ── */
 .vid-wrap{margin:26px 28px 0;background:#fff;border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,.08);}
-.vid-head{display:flex;align-items:flex-start;gap:14px;padding:18px 22px;border-bottom:1px solid var(--border);}
+.vid-head{display:flex;justify-content:flex-end;padding:10px 16px;}
 .vid-head h2{font-size:1.02rem;font-weight:800;color:var(--ink);margin:0 0 3px;}
 .vid-head p{font-size:.84rem;color:var(--ink3);margin:0;line-height:1.6;}
 .vid-head button{margin-left:auto;flex-shrink:0;font-size:.78rem;font-weight:700;color:var(--ink3);background:#fff;border:1px solid var(--border);border-radius:100px;padding:6px 14px;cursor:pointer;font-family:inherit;white-space:nowrap;}
 .vid-head button:hover{border-color:var(--green);color:var(--green-dark);}
-.vid-body{display:grid;grid-template-columns:1.55fr 1fr;gap:0;}
+.vid-body{display:grid;grid-template-columns:1.55fr 1fr;gap:0;align-items:stretch;}
 .vid-body.hidden{display:none;}
 .vid-frame{position:relative;width:100%;padding-top:56.25%;background:#000;}
 .vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0;}
-.vid-toc{max-height:420px;overflow-y:auto;border-left:1px solid var(--border);padding:8px 0;}
+.toc-hint{padding:8px 14px;font-size:.75rem;line-height:1.45;color:var(--green-dark);background:var(--green-bg);border-bottom:1px solid var(--green-border);}
+.toc-hint b{font-weight:800;}
+.vid-side{position:relative;border-left:1px solid var(--border);}
+.vid-side-inner{position:absolute;inset:0;display:flex;flex-direction:column;}
+.vid-toc{flex:1 1 0;overflow-y:auto;padding:4px 0;min-height:0;}
 .vid-toc::-webkit-scrollbar{width:5px;}
 .vid-toc::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px;}
 .toc-item{display:flex;gap:10px;align-items:baseline;width:100%;text-align:left;background:none;border:0;border-left:3px solid transparent;padding:7px 16px;cursor:pointer;font-family:inherit;}
