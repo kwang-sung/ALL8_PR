@@ -323,7 +323,7 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
         </div>
         <div class="vid-side">
           <div class="vid-side-inner">
-            <div class="toc-hint">📌 목차를 누르면 <b>그 지점으로 이동</b>합니다<br>이동 후 <b>▶ 재생</b> 버튼을 눌러주세요.</div>
+            <div class="toc-hint">📌 영상을 <b>한 번 재생</b>하면, 그 뒤로는 목차를 누를 때 바로 이어서 재생됩니다.<br>매뉴얼 안의 <b>영상 보고 따라하기</b> 버튼도 마찬가지입니다.</div>
             <div class="vid-toc" id="vidToc"></div>
           </div>
         </div>
@@ -5464,15 +5464,6 @@ var SECMETA = {
     }, 260);
   })();
 
-  // ── 5. 검색 결과는 자동으로 펼치기 ──
-  document.addEventListener('input', function(e){
-    if(!e.target || e.target.tagName !== 'INPUT') return;
-    setTimeout(function(){
-      sections.forEach(function(s){
-        if(s.querySelector('mark')) s.classList.add('sec-open');
-      });
-    }, 40);
-  }, true);
 
   // ── 6. 마켓 탭에 초보 권장 표시 ──
   document.querySelectorAll('.mkt-tab').forEach(function(t){
