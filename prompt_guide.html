@@ -284,7 +284,7 @@
   }
   var partAEl = document.getElementById('prompt-part-a');
   var partCEl = document.getElementById('prompt-part-c');
-  document.querySelectorAll('.copy-btn').forEach(function(btn){
+  document.querySelectorAll('button.copy-btn').forEach(function(btn){
     btn.addEventListener('click', function(){
       var body = btn.closest('.card').querySelector('.prompt-body');
       var text = body.textContent;
