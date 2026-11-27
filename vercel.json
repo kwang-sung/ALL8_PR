@@ -1,4 +1,12 @@
 {
+  "redirects": [
+    {
+      "source": "/((?!downloads/).*)",
+      "has": [{ "type": "host", "value": "all8-pr.vercel.app" }],
+      "destination": "https://guide.goldensurfer.kr/$1",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/downloads/(.*)",
