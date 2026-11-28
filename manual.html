@@ -2682,9 +2682,11 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
 
       <div class="upd-detail" id="upd-preset-new">
         <h4>🆕 프리셋에 새로 생긴 것 네 가지</h4>
-        <div class="upd-sub">2026년 11월 기준</div>
+        <div class="upd-sub">2026년 11월 실제 화면 기준</div>
         <p>프리셋을 한 번 만들면 수백 개 상품에 똑같이 들어가죠? 그래서 바뀐 곳만 알면 돼요.</p>
-        <ol class="upd-steps">
+        <figure class="upd-fig"><img src="img/upd-preset-position.png" alt="프리셋의 글 위치 칸" loading="lazy" onclick="openLightbox(this.src)"><figcaption>1 상세설명 텍스트, 2 글 위치, 3 고를 수 있는 네 곳 (누르면 크게 보여요)</figcaption></figure>
+<figure class="upd-fig"><img src="img/upd-preset-tier.png" alt="프리셋 계산식의 예시 판매가" loading="lazy" onclick="openLightbox(this.src)"><figcaption>1 예시 판매가, 2 계산된 판매가, 3 몇 번째 구간이 쓰였는지 (누르면 크게 보여요)</figcaption></figure>
+<ol class="upd-steps">
           <li><b class="n">1</b><span><strong>글 위치</strong>. 상세설명 텍스트 설정에 새로 생긴 칸이에요. 상세 설명의 글을 모아서 어디에 둘지 골라요. 고를 수 있는 곳은 <strong>원래 위치</strong>, <strong>본문 맨 위</strong>, <strong>첫 상세 이미지 바로 아래</strong>, <strong>스펙/고시정보 표 바로 위</strong> 네 가지예요. 원래 위치를 고르면 글을 옮기지 않아요. 고른 이미지나 표가 상품에 없으면 글은 지금 자리에 그대로 있어요. 상세설명 텍스트를 '수집 안함'으로 두면 이 칸은 나오지 않아요.</span></li>
           <li><b class="n">2</b><span><strong>예시 판매가</strong>. 계산식 아래에 매입가와 매입배송비를 적어 보면 판매가가 계산돼요. 이때 <strong>구간 1 적용</strong>처럼 몇 번째 구간이 쓰였는지 보여 줘요. 구간이 없으면 <strong>기본 변수값 적용</strong>이라고 나와요. 마켓 수수료를 붙이기 전 금액이고, 적어 본 예시 숫자는 저장되지 않아요. 상품 편집 화면의 가격 단계에서도 같은 예시가 보여요.</span></li>
           <li><b class="n">3</b><span><strong>상품명·옵션명 AI 모델</strong>. 고를 수 있는 모델에 <strong>GPT-6 Luna</strong>와 <strong>GPT-6.1 Terra</strong>가 늘었어요. 기존 Gemini 모델 3개도 그대로 있어요. 상세설명 글을 고치는 AI 모델은 Gemini만 고를 수 있어요.</span></li>
@@ -3520,9 +3522,11 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
       </div>
       <div class="upd-detail" id="upd-bulk-upload">
         <h4>🆕 마켓 업로드 창, 요약과 마켓 고르기가 나뉘었어요</h4>
-        <div class="upd-sub">2026년 11월 기준</div>
+        <div class="upd-sub">2026년 11월 실제 화면 기준</div>
         <p>상품을 여러 개 고른 뒤 <span class="btn">마켓 업로드</span>를 누르면, 이제 창이 두 단계로 나눠 있어요. 매번 마켓을 다시 고르지 않아도 돼요.</p>
-        <ol class="upd-steps">
+        <figure class="upd-fig"><img src="img/upd-bulk-upload-summary.png" alt="마켓 업로드 요약 화면" loading="lazy" onclick="openLightbox(this.src)"><figcaption>요약 화면. 1 안내 글, 2 업로드 마켓 수정, 3 계정마다 올라갈 상품 수, 4 일괄 업로드 (누르면 크게 보여요)</figcaption></figure>
+<figure class="upd-fig"><img src="img/upd-bulk-upload-pick.png" alt="업로드 마켓 수정 화면" loading="lazy" onclick="openLightbox(this.src)"><figcaption>마켓 고르는 화면. 1 사업자 묶음, 2 올릴 계정 체크, 3 저장된 마켓으로 돌아가기 (누르면 크게 보여요)</figcaption></figure>
+<ol class="upd-steps">
           <li><b class="n">1</b><span><strong>요약 화면</strong>. 처음에는 "저장된 마켓별 업로드 대상입니다."라는 글과 함께 어느 마켓 계정에 상품이 몇 개 올라갈지 한 줄씩 보여 줘요. 상품마다 이미 정해 둔 마켓이 그대로 기억돼 있어요. 맞으면 그냥 <span class="btn">일괄 업로드</span>를 누르세요.</span></li>
           <li><b class="n">2</b><span><strong>마켓 바꾸기</strong>. 올리는 마켓을 바꾸고 싶으면 <span class="btn">업로드 마켓 수정</span>을 누르세요. 사업자별로 묶인 계정 체크 목록이 나와요. 올리고 싶은 계정만 체크하세요.</span></li>
           <li><b class="n">3</b><span><strong>새 마켓 지정</strong>. 아직 정해 둔 적 없는 계정을 체크하면 <span class="btn">마켓 지정 후 업로드</span> 버튼이 생겨요. 이 버튼으로 마켓을 지정한 다음 올려요.</span></li>
@@ -3532,9 +3536,11 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
       </div>
       <div class="upd-detail" id="upd-group-delete">
         <h4>🆕 수집 그룹을 카드에서 지울 수 있어요</h4>
-        <div class="upd-sub">2026년 11월 기준 · 상품 화면의 그룹뷰</div>
+        <div class="upd-sub">2026년 11월 실제 화면 기준 · 상품 화면의 그룹뷰</div>
         <p>다 쓴 수집 그룹이 계속 남아 있으면 목록이 지저분해져요. 그룹 카드에서 바로 지울 수 있어요.</p>
-        <ol class="upd-steps">
+        <figure class="upd-fig"><img src="img/upd-group-menu.png" alt="그룹 카드의 그룹 삭제 메뉴" loading="lazy" onclick="openLightbox(this.src)"><figcaption>1 그룹뷰, 2 카드의 ⋯ 버튼, 3 그룹 삭제 (누르면 크게 보여요)</figcaption></figure>
+<figure class="upd-fig"><img src="img/upd-group-delete.png" alt="그룹 삭제 확인 창" loading="lazy" onclick="openLightbox(this.src)"><figcaption>그룹 삭제 확인 창. 1 안내 글을 읽고, 2 삭제를 누르면 지워져요 (누르면 크게 보여요)</figcaption></figure>
+<ol class="upd-steps">
           <li><b class="n">1</b><span>상품 화면 오른쪽 위에서 <strong>그룹뷰</strong>를 고르세요.</span></li>
           <li><b class="n">2</b><span>지울 그룹 카드의 <strong>⋯</strong> 버튼을 누르고 <strong>그룹 삭제</strong>를 고르세요. 편집 권한이 있어야 보여요. "그룹 없음" 카드는 지울 수 없어요.</span></li>
           <li><b class="n">3</b><span>"그룹을 삭제할까요?" 창이 뜨면 내용을 확인하세요. 그룹만 삭제하면 소속 상품은 <strong>그룹 없음</strong>으로 옮겨지고 상품은 그대로 남아요.</span></li>
@@ -5192,9 +5198,10 @@ mark{background:#fef08a;color:var(--ink);border-radius:3px;padding:0 2px;}
       <p style="font-size:.9rem;line-height:1.75;margin:10px 0;">가져오는 법은 쉬워요. 상품 사진 왼쪽 위의 네모 칸을 누르면 아래에 <span class="btn">내 상품으로 가져오기</span> 버튼이 생겨요. 누르면 상품 관리에 들어오고, 그다음은 다른 상품과 똑같이 마켓에 올리면 됩니다.</p>
       <div class="upd-detail" id="upd-parajo-collect">
         <h4>🆕 가져올 때 프리셋과 수집 그룹까지 한 번에 고르기</h4>
-        <div class="upd-sub">2026년 11월 기준</div>
+        <div class="upd-sub">2026년 11월 실제 화면 기준</div>
         <p>가져온 뒤에 하나씩 프리셋을 다시 적용하고 그룹을 옮기면 번거롭죠? 가져오기 창에서 미리 고르면 돼요. 상품을 여러 개 골라도 같은 설정으로 한 번에 가져와요.</p>
-        <ol class="upd-steps">
+        <figure class="upd-fig"><img src="img/upd-parajo-collect.png" alt="팔아줄게 가져오기 창" loading="lazy" onclick="openLightbox(this.src)"><figcaption>가져오기 창. 1 적용할 프리셋, 2 수집 그룹, 3 가져오면 이렇게 돼요 (누르면 크게 보여요)</figcaption></figure>
+<ol class="upd-steps">
           <li><b class="n">1</b><span>카탈로그에서 상품을 고른 뒤 <span class="btn">내 상품으로 가져오기</span>를 누르세요.</span></li>
           <li><b class="n">2</b><span><strong>적용할 프리셋</strong>. 내 프리셋 중에서 고르거나 "프리셋 없음"을 고르세요. 마지막에 고른 프리셋이 미리 골라져 있어요.</span></li>
           <li><b class="n">3</b><span><strong>수집 그룹</strong>. 가져온 상품이 들어갈 그룹을 고르세요. 안 고르면 "그룹 없음"으로 들어와요.</span></li>
